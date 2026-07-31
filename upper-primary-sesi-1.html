@@ -906,6 +906,170 @@
         display: none;
       }
     }
+
+    /* INTERAKSI GAMBAR LMS */
+
+    .lms-map-wrap {
+      position: relative;
+    }
+
+    .session-card-hotspot {
+      position: absolute;
+      left: 19.1%;
+      top: 43%;
+      width: 25.5%;
+      height: 51%;
+      padding: 0;
+      border: 3px dashed transparent;
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .session-card-hotspot span {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      width: 32px;
+      height: 32px;
+
+      display: grid;
+      place-items: center;
+
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+
+      background: var(--uob-red);
+      color: #ffffff;
+
+      font-size: 0.9rem;
+      font-weight: 900;
+
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
+    }
+
+    .session-card-hotspot:hover,
+    .session-card-hotspot.active {
+      border-color: var(--uob-red);
+      background: rgba(230, 0, 18, 0.08);
+    }
+
+    .session-card-hotspot:hover span,
+    .session-card-hotspot.active span {
+      background: var(--blue);
+      transform: scale(1.1);
+    }
+
+    .session-card-hotspot:focus-visible {
+      outline: 4px solid #ffd166;
+      outline-offset: 3px;
+    }
+
+    /* INTERAKSI GAMBAR PRETEST */
+
+    .test-map-wrap {
+      position: relative;
+    }
+
+    .test-card-hotspot {
+      position: absolute;
+
+      /* Posisi kartu [26/27] Pre-Test Upper Primary */
+      left: 18%;
+      right: 3%;
+      bottom: 5%;
+      height: 20%;
+
+      padding: 0;
+      border: 3px dashed transparent;
+      border-radius: 14px;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    /* Nomor langkah */
+    .test-number {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+
+      background: var(--uob-red);
+      color: #ffffff;
+
+      font-size: 1rem;
+      font-weight: 900;
+
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Efek saat diarahkan atau diklik */
+    .test-card-hotspot:hover,
+    .test-card-hotspot.active {
+      border-color: var(--uob-red);
+      background: rgba(230, 0, 18, 0.08);
+    }
+
+    .test-card-hotspot:hover .test-number,
+    .test-card-hotspot.active .test-number {
+      background: var(--blue);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .test-card-hotspot:focus-visible {
+      outline: 4px solid #ffd166;
+      outline-offset: 3px;
+    }
+
+    .test-instruction {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+
+      width: 88%;
+      padding: 7px 9px;
+
+      border-radius: 8px;
+      background: rgba(0, 86, 179, 0.94);
+      color: #ffffff;
+
+      font-size: 0.76rem;
+      line-height: 1.3;
+      font-weight: 800;
+      text-align: center;
+
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .test-card-hotspot:hover,
+    .test-card-hotspot.active {
+      border-color: var(--uob-red);
+      background: rgba(230, 0, 18, 0.08);
+    }
+
+    .test-card-hotspot:hover .test-number,
+    .test-card-hotspot.active .test-number {
+      background: var(--blue);
+      transform: scale(1.1);
+    }
+
+    .test-card-hotspot:hover .test-instruction,
+    .test-card-hotspot.active .test-instruction {
+      background: var(--uob-red);
+    }
   </style>
 </head>
 
@@ -944,13 +1108,24 @@
         <section class="slide active" id="slide-1">
           <span class="eyebrow">Sesi 1</span>
           <h2>Kartu Nama Interaktif</h2>
-          <p class="lead">Hari ini kamu akan membuat karakter Scratch yang bisa muncul, menyapa, bergerak, dan berganti
+          <p class="lead">Hari ini kita akan membuat karakter Scratch yang bisa muncul, menyapa, bergerak, dan berganti
             tampilan.</p>
           <div class="metrics">
             <div class="metric-box"><strong>💬</strong><span>Menyapa dengan kalimat singkat</span></div>
             <div class="metric-box"><strong>🐾</strong><span>Menggerakkan sprite</span></div>
             <div class="metric-box"><strong>🎭</strong><span>Mengganti costume</span></div>
             <div class="metric-box"><strong>🛡️</strong><span>Berkenalan dengan aman</span></div>
+          </div>
+          <!-- PLACEHOLDER GIF CONTOH PROJECT -->
+          <div class="placeholder-box">
+            <div>
+              <strong><img
+                  src="https://cdn-web-2.ruangguru.com//landing-pages/assets/fa575f24-f399-4617-83dc-e04220bc293e.gif"
+                  alt="Contoh Project" width="70%"></strong>
+              <small>
+                Contoh hasil akhir project Kartu Nama Interaktif.
+              </small>
+            </div>
           </div>
         </section>
 
@@ -976,54 +1151,182 @@
             <div class="visual-card">
               <div class="visual-icon">✨</div>
               <h4>Membuat Project</h4>
-              <p>Membuat kartu nama digital yang hidup.</p>
+              <p>Membuat kartu nama digital yang hidup dan menarik.</p>
             </div>
           </div>
-          <p class="mini-note">Kamu tidak perlu langsung hafal semuanya. Ikuti satu langkah pada satu waktu.</p>
+
+          <div class="example-box">
+            <h4>🏁 Target Akhir</h4>
+            <p>
+              Saat <strong>Green Flag</strong> diklik, sprite dapat muncul,
+              menyapa, memperkenalkan diri, bergerak, dan berganti costume.
+            </p>
+          </div>
+
+          <div class="interactive-box">
+            <h4>💭 Coba Pikirkan</h4>
+            <p>Bagian mana yang paling ingin kamu coba hari ini?</p>
+            <div class="choice-grid">
+              <button class="choice-btn" onclick="deviceCheck(this,true)">
+                Membuat sprite berbicara
+              </button>
+              <button class="choice-btn" onclick="deviceCheck(this,true)">
+                Membuat sprite bergerak
+              </button>
+              <button class="choice-btn" onclick="deviceCheck(this,true)">
+                Mengganti costume
+              </button>
+              <button class="choice-btn" onclick="deviceCheck(this,true)">
+                Memilih backdrop
+              </button>
+            </div>
+          </div>
+
+          <p class="mini-note">
+            Kamu tidak perlu langsung hafal semuanya. Ikuti satu langkah pada satu waktu
+            dan jangan takut untuk mencoba.
+          </p>
+
         </section>
 
         <!-- SLIDE 3 -->
         <section class="slide" id="slide-3">
           <h3>Siapkan Perangkatmu</h3>
+          <p class="lead">Sebelum mulai coding, pastikan tempat belajar dan perangkatmu sudah siap.</p>
           <div class="choice-grid">
-            <button class="choice-btn" onclick="deviceCheck(this,true)">✅ Laptop/komputer sudah menyala</button>
-            <button class="choice-btn" onclick="deviceCheck(this,true)">✅ Internet sudah terhubung</button>
-            <button class="choice-btn" onclick="deviceCheck(this,true)">✅ Browser sudah dibuka</button>
-            <button class="choice-btn" onclick="deviceCheck(this,true)">✅ Tangan bersih dan kering</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Laptop/komputer sudah menyala</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Mouse atau touchpad bisa digunakan</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Internet sudah terhubung</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Browser sudah dibuka</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Tangan bersih dan kering</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Meja rapi dari makanan dan minuman</button>
+            <button class="choice-btn" onclick="deviceCheck(this,true)">Siap meminta bantuan jika bingung</button>
           </div>
-          <div class="info-box"><strong>Alamat LMS:</strong><br>https://app.uobmydigitalspace.com/</div>
-          <p class="mini-note">Klik setiap kotak untuk menandai persiapanmu.</p>
+          <div class="info-box"><strong>Alamat LMS:</strong><br>
+            <a href="https://app.uobmydigitalspace.com/" target="_blank"
+              rel="noopener noreferrer">https://app.uobmydigitalspace.com/</a>
+          </div>
+          <p class="mini-note">Klik setiap kotak untuk menandai persiapanmu. Setelah semua siap, lanjut ke LMS bersama
+            guru.</p>
         </section>
 
         <!-- SLIDE 4 -->
         <section class="slide" id="slide-4">
           <h3>Buka Materi Sesi 1</h3>
-          <div class="placeholder-box">
-            <div>
-              <div class="placeholder-icon">🖼️</div>
-              <strong>PLACEHOLDER GAMBAR LMS</strong>
-              <small>Ganti dengan screenshot: login → Materi Belajar → Sesi 1</small>
-            </div>
+
+          <p class="lead">
+            Ikuti dua langkah berikut untuk menemukan materi yang sudah diberikan
+            kepada rombelmu.
+          </p>
+
+          <div class="scratch-map-wrap lms-map-wrap">
+            <img
+              src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6a973bfb-a09a-42af-a4ea-a4db56b12f56.png"
+              alt="Tampilan halaman LMS UOB My Digital Space">
+
+            <!-- HOTSPOT 1: MENU SESI KELAS -->
+            <button class="hotspot" style="left: 10.5%; top: 39%;" onclick="showLmsStep(1, this)"
+              aria-label="Langkah 1: Klik menu Sesi Kelas">
+              1
+            </button>
+
+            <!-- HOTSPOT 2: KARTU SESI -->
+            <button class="session-card-hotspot" onclick="showLmsStep(2, this)"
+              aria-label="Langkah 2: Klik kartu sesi yang sudah diberikan">
+              <span>2</span>
+            </button>
           </div>
-          <ol>
-            <li>Masuk menggunakan akun yang sudah terdaftar.</li>
-            <li>Pilih menu <strong>Materi Belajar</strong>.</li>
-            <li>Buka <strong>Sesi 1 — Kartu Nama Interaktif</strong>.</li>
-          </ol>
+
+          <p class="scratch-caption">
+            Klik angka <strong>1</strong>, lalu klik kotak sesi bernomor
+            <strong>2</strong>.
+          </p>
+
+          <div class="area-live-card" id="lmsStepInfo" aria-live="polite">
+            <h4>👆 Mulai dari Langkah 1</h4>
+            <p>
+              Klik angka <strong>1</strong> pada menu
+              <strong>Sesi Kelas</strong> di sebelah kiri.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h4>Urutan membuka materi</h4>
+
+            <ol>
+              <li>
+                Klik menu <strong>Sesi Kelas</strong>.
+              </li>
+              <li>
+                Cari kartu sesi yang sudah diberikan kepada rombelmu.
+              </li>
+              <li>
+                Klik kartu sesi atau tombol <strong>Lihat Detail</strong>.
+              </li>
+              <li>
+                Buka materi <strong>Sesi 1 — Kartu Nama Interaktif</strong>.
+              </li>
+            </ol>
+          </div>
+
+          <div class="warning-box">
+            <h4>Perhatikan</h4>
+            <p>
+              Nama sekolah, rombel, jenjang, dan nomor sesi pada akunmu mungkin
+              berbeda dengan gambar contoh. Pilih sesi yang sesuai dengan arahan guru.
+            </p>
+          </div>
         </section>
 
         <!-- SLIDE 5 -->
         <section class="slide" id="slide-5">
           <h3>Setelah Itu, Kerjakan Pretest</h3>
-          <div class="placeholder-box">
-            <div>
-              <div class="placeholder-icon">📝</div>
-              <strong>PLACEHOLDER GAMBAR MENU TES</strong>
-              <small>Ganti dengan screenshot: menu Tes → Pretest Upper Primary</small>
-            </div>
+
+          <p class="lead">
+            Setelah membuka materi Sesi 1, sekarang kamu pindah ke menu
+            <strong>Tes</strong> untuk mengerjakan <strong>Pre-Test Upper Primary</strong>.
+          </p>
+
+          <div class="scratch-map-wrap test-map-wrap">
+            <img
+              src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/2e6d3e65-9118-49e2-9dea-1f75df0f1a47.png"
+              alt="Tampilan menu Tes di LMS">
+
+            <!-- HOTSPOT 1: MENU TES -->
+            <button class="hotspot" style="left: 10.5%; top: 39%;" onclick="showPretestStep(1, this)"
+              aria-label="Langkah 1: Klik menu Tes">
+              1
+            </button>
+
+            <!-- HOTSPOT 2: KARTU PRE-TEST -->
+            <button class="test-card-hotspot" onclick="showPretestStep(2, this)"
+              aria-label="Langkah 2: Klik Pre-Test Upper Primary">
+              <span class="test-number">2</span>
+            </button>
           </div>
-          <div class="warning-box"><strong>Urutannya:</strong> buka Sesi 1 lebih dahulu, lalu pindah ke menu
-            <strong>Tes</strong> untuk mengerjakan pretest.</div>
+
+          <p class="scratch-caption">
+            Klik angka <strong>1</strong> untuk membuka menu <strong>Tes</strong>,
+            lalu klik bagian bernomor <strong>2</strong> untuk membuka
+            <strong>Pre-Test Upper Primary</strong>.
+          </p>
+
+          <div class="area-live-card" id="pretestStepInfo" aria-live="polite">
+            <h4>👆 Mulai dari Langkah 1</h4>
+            <p>
+              Klik angka <strong>1</strong> pada menu <strong>Tes</strong>.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h4>Urutan mengerjakan Pre-Test</h4>
+            <ol>
+              <li>Buka menu <strong>Tes</strong>.</li>
+              <li>Cari tes dengan judul <strong>[26/27] Pre-Test Upper Primary</strong>.</li>
+              <li>Klik kotak tes tersebut.</li>
+              <li>Baca soal dengan teliti dan jawab satu per satu.</li>
+            </ol>
+          </div>
         </section>
 
         <!-- SLIDE 6 -->
@@ -1398,68 +1701,399 @@
     <div class="explanation-panel">
       <section class="explanation active" id="explanation-1">
         <h3>Project yang Akan Kamu Buat</h3>
-        <p>Kartu Nama Interaktif adalah perkenalan digital sederhana. Sprite akan mengikuti rangkaian perintah yang kamu
-          susun.</p>
+
+        <p>
+          Pada sesi ini, kamu akan membuat <strong>Kartu Nama Interaktif</strong> menggunakan Scratch.
+          Project ini seperti kartu perkenalan digital, tetapi dibuat lebih hidup karena sprite dapat
+          berbicara, bergerak, dan berganti tampilan.
+        </p>
+
+        <p>
+          Saat tombol <strong>Green Flag</strong> diklik, sprite akan menjalankan perintah dari atas
+          ke bawah sesuai urutan blok yang kamu susun.
+        </p>
+
         <div class="info-box">
           <h4>Target minimum</h4>
-          <p>Satu sprite dapat menyapa, menyebutkan nama panggilan dan hobi, bergerak, serta berganti costume.</p>
+          <p>Project-mu memiliki:</p>
+          <ul>
+            <li>Satu sprite sebagai karakter utama.</li>
+            <li>Satu backdrop yang sesuai.</li>
+            <li>Kalimat sapaan.</li>
+            <li>Gerakan sprite.</li>
+            <li>Perubahan costume.</li>
+          </ul>
         </div>
+
         <div class="example-box">
           <h4>Contoh hasil</h4>
-          <p>“Halo! Aku Kiko. Aku suka menggambar dan ingin belajar membuat game.”</p>
+          <p>
+            “Halo! Namaku Kiko. Aku suka menggambar dan bermain puzzle.
+            Senang berkenalan denganmu!”
+          </p>
+          <p class="mini-note"> <i>
+              Kamu boleh membuat kalimat sendiri. Tidak harus sama dengan contoh.
+            </i></p>
+        </div>
+
+        <div class="warning-box">
+          <h4>Berkenalan dengan aman</h4>
+          <p>
+            Gunakan hanya <strong>nama panggilan</strong> dan informasi umum seperti hobi.
+            Jangan menuliskan alamat rumah, nomor telepon, password, nama lengkap, atau informasi pribadi lainnya.
+          </p>
         </div>
       </section>
 
       <section class="explanation" id="explanation-2">
+
         <h3>Belajar Bertahap</h3>
-        <p>Sesi ini dimulai dari persiapan LMS, lalu mengenal area Scratch, merencanakan urutan aksi, dan akhirnya
-          membuat project.</p>
+
+        <p>
+          Project tidak dibuat dalam satu langkah besar. Kita akan membaginya menjadi
+          beberapa langkah kecil agar lebih mudah dipahami, dicoba, dan diperbaiki.
+        </p>
+
+        <p>
+          Sesi dimulai dari menyiapkan perangkat dan membuka LMS. Setelah itu, kamu akan
+          mengenal bagian penting di Scratch, merencanakan perkenalan, menyusun blok
+          perintah, lalu menjalankan project.
+        </p>
+
         <div class="info-box">
-          <h4>Fokus utama</h4>
-          <p>Kamu sedang belajar <strong>digital literacy</strong>, dasar coding, dan penggunaan AI secara bertanggung
-            jawab.</p>
+          <h4>🪜 Tahapan belajar kita</h4>
+          <ol>
+            <li>
+              <strong>Persiapan</strong><br>
+              Memastikan laptop, koneksi internet, dan browser siap digunakan.
+            </li>
+            <li>
+              <strong>Membuka LMS</strong><br>
+              Membuka materi Sesi 1 dan mengerjakan pretest.
+            </li>
+            <li>
+              <strong>Mengenal Scratch</strong><br>
+              Menemukan Stage, Sprite, Blocks Palette, dan Code Area.
+            </li>
+            <li>
+              <strong>Membuat rencana</strong><br>
+              Menentukan nama panggilan, hobi, sprite, dan backdrop.
+            </li>
+            <li>
+              <strong>Menyusun kode</strong><br>
+              Memasang blok sesuai urutan agar sprite dapat menjalankan aksi.
+            </li>
+            <li>
+              <strong>Testing dan perbaikan</strong><br>
+              Menjalankan project, mencari kesalahan, lalu memperbaikinya.
+            </li>
+          </ol>
         </div>
-        <p>Setiap bagian saling terhubung. Karena itu, kerjakan sesuai urutan dan jangan melewati tahap testing.</p>
+
+        <div class="info-box">
+          <h4>🎯 Fokus utama</h4>
+          <p>Pada sesi ini, kamu akan belajar tiga kemampuan penting:</p>
+
+          <ul>
+            <li>
+              <strong><i>Digital literacy</i></strong><br>
+              Menggunakan perangkat, internet, LMS, dan Scratch dengan aman serta bertanggung jawab.
+            </li>
+            <li>
+              <strong>Dasar coding</strong><br>
+              Memahami bahwa komputer menjalankan perintah sesuai urutan yang kita susun.
+            </li>
+            <li>
+              <strong>Penggunaan AI yang bertanggung jawab</strong><br>
+              Menggunakan AI sebagai alat bantu untuk mencari inspirasi atau memperbaiki kalimat,
+              bukan untuk menggantikan seluruh ide dan pekerjaanmu.
+            </li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>🧩 Mengapa urutan itu penting?</h4>
+          <p>
+            Bayangkan kamu ingin memperkenalkan diri. Kamu perlu menyapa terlebih dahulu,
+            lalu menyebutkan nama, menceritakan hobi, dan mengakhiri perkenalan.
+          </p>
+
+          <p>
+            Jika urutannya tertukar, kalimat perkenalan dapat terdengar membingungkan.
+            Hal yang sama juga berlaku pada kode Scratch.
+          </p>
+
+          <p>
+            <strong>Contoh urutan:</strong><br>
+            Green Flag diklik → menyapa → menyebutkan nama → menceritakan hobi →
+            bergerak → berganti costume.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>🔍 Jangan melewati tahap testing</h4>
+          <p>
+            Setelah menyusun beberapa blok, klik <strong>Green Flag</strong> untuk melihat hasilnya.
+            Jangan menunggu sampai semua kode selesai.
+          </p>
+
+          <p>
+            Dengan melakukan testing sedikit demi sedikit, kamu akan lebih mudah menemukan
+            blok yang belum tepat atau urutan yang masih salah.
+          </p>
+        </div>
+
+        <p class="mini-note">
+          Tidak masalah jika project belum langsung berhasil. Kesalahan adalah bagian
+          dari proses belajar coding.
+        </p>
       </section>
 
       <section class="explanation" id="explanation-3">
         <h3>Gunakan Perangkat dengan Baik</h3>
-        <p>Perangkat belajar perlu dijaga agar aman dan dapat digunakan dalam waktu lama.</p>
+        <p>Perangkat belajar perlu dijaga agar aman dan dapat digunakan dalam waktu lama. Kamu tidak perlu terburu-buru.
+          Cek satu per satu dulu.</p>
         <ul>
-          <li>Jauhkan makanan dan minuman dari laptop.</li>
+          <li>Jauhkan makanan dan minuman dari laptop/komputer.</li>
           <li>Tekan keyboard dan touchpad dengan lembut.</li>
-          <li>Jangan mengunduh file atau membuka link yang tidak diminta.</li>
-          <li>Minta bantuan saat ada halaman yang tidak dikenal.</li>
+          <li>Jangan mengunduh (mendownload) file atau membuka link yang tidak diminta.</li>
+          <li>Minta bantuan orang dewasa saat ada halaman yang tidak dikenal.</li>
         </ul>
+
+        <div class="warning-box">
+          <h4>Ingat aturan aman</h4>
+          <p>Jangan membuka link lain, mengunduh file, atau mengganti pengaturan perangkat tanpa arahan guru.</p>
+        </div>
+
+
       </section>
 
       <section class="explanation" id="explanation-4">
-        <h3>Materi Belajar di LMS</h3>
-        <p>Menu Materi Belajar berisi bacaan, panduan project, dan kegiatan untuk setiap sesi.</p>
-        <div class="info-box">
-          <h4>Periksa sebelum lanjut</h4>
+
+        <h3>Temukan Materi di Sesi Kelas</h3>
+
+        <p>
+          Materi pembelajaran dapat dibuka melalui menu
+          <strong>Sesi Kelas</strong> di LMS UOB My Digital Space.
+          Menu ini menampilkan sesi yang sudah diberikan atau
+          <i>di-assign</i> kepada rombelmu.
+        </p>
+
+        <p>
+          Setiap kartu sesi berisi informasi tentang kelas yang akan kamu ikuti,
+          seperti judul sesi, jenjang, nama rombel, jadwal, guru, dan jenis
+          pembelajaran.
+        </p>
+
+        <div class="example-box">
+          <h4>📚 Apa saja yang dapat ditemukan?</h4>
+
           <ul>
-            <li>Akun yang digunakan sudah benar.</li>
-            <li>Kelas dan jenjang yang tampil sudah sesuai.</li>
-            <li>Judul yang dibuka adalah Sesi 1 Upper Primary.</li>
+            <li>Penjelasan materi yang akan dipelajari.</li>
+            <li>Panduan langkah-langkah membuat project.</li>
+            <li>Gambar atau video contoh.</li>
+            <li>Aktivitas yang perlu dicoba.</li>
+            <li>Instruksi untuk mengumpulkan hasil project.</li>
+          </ul>
+
+          <p class="mini-note">
+            Isi yang tampil dapat berbeda pada setiap sesi. Bacalah petunjuk dari
+            awal sebelum mulai membuat project.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h4>✅ Periksa sebelum melanjutkan</h4>
+
+          <ul class="checklist">
+            <li class="check-item">
+              Akun yang digunakan adalah akun milikmu sendiri.
+            </li>
+
+            <li class="check-item">
+              Nama sekolah dan rombel yang tampil sudah sesuai.
+            </li>
+
+            <li class="check-item">
+              Jenjang yang dipilih adalah <strong>Upper Primary</strong>.
+            </li>
+
+            <li class="check-item">
+              Nomor dan judul sesi sesuai dengan arahan guru.
+            </li>
+
+            <li class="check-item">
+              Materi yang dibuka adalah
+              <strong>Sesi 1 — Kartu Nama Interaktif</strong>.
+            </li>
           </ul>
         </div>
-        <div class="warning-box">Saat lupa akun atau tidak menemukan sesi, jangan mencoba akun teman. Minta bantuan
-          guru.</div>
+
+        <div class="warning-box">
+          <h4>⚠️ Sesi belum terlihat?</h4>
+
+          <p>
+            Jangan memilih sesi secara acak dan jangan masuk menggunakan akun teman.
+            Sesi yang tersedia pada setiap akun dapat berbeda karena disesuaikan
+            dengan sekolah dan rombel masing-masing.
+          </p>
+
+          <p>
+            Coba periksa kembali koneksi internet, muat ulang halaman, lalu pastikan
+            akunmu sudah benar. Apabila sesi masih belum ditemukan, mintalah bantuan
+            kepada guru.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>🕒 Materi belum bisa dibuka padahal kelas sudah mulai?</h4>
+
+          <p>
+            Materi baru dapat dibuka saat jadwal sesi sudah dimulai.
+            LMS melihat waktu dari jam dan tanggal yang ada di perangkatmu.
+          </p>
+
+          <p>
+            Jika jam atau tanggal di laptopmu salah, LMS bisa mengira bahwa sesi
+            belum dimulai.
+          </p>
+
+          <p><strong>Coba lakukan langkah berikut:</strong></p>
+
+          <ol>
+            <li>Periksa jam dan tanggal yang tampil di laptop.</li>
+            <li>Pastikan waktunya sama dengan waktu saat ini.</li>
+            <li>Aktifkan pengaturan tanggal dan waktu otomatis.</li>
+            <li>Muat ulang atau <i>refresh</i> halaman LMS.</li>
+            <li>Coba buka kembali kartu sesi.</li>
+          </ol>
+
+          <p class="mini-note">
+            Jangan mengubah jam sendiri secara asal. Jika belum tahu cara memperbaikinya,
+            mintalah bantuan guru.
+          </p>
+        </div>
+
+        <div class="interactive-box">
+          <h4>🔍 Perhatikan kartu sesinya</h4>
+
+          <p>
+            Sebelum menekan <strong>Lihat Detail</strong>, temukan informasi berikut:
+          </p>
+
+          <ul>
+            <li>Apa judul sesinya?</li>
+            <li>Apa jenjang yang tertulis?</li>
+            <li>Apa nama rombelnya?</li>
+            <li>Kapan jadwal sesinya?</li>
+            <li>Siapa nama gurunya?</li>
+          </ul>
+        </div>
+
+        <p class="mini-note">
+          Selalu baca informasi pada kartu sesi dengan teliti agar kamu tidak membuka
+          kelas atau materi yang salah.
+        </p>
       </section>
 
       <section class="explanation" id="explanation-5">
-        <h3>Pretest Ada di Menu Tes</h3>
-        <p>Pretest membantu melihat kemampuan awalmu. Pretest bukan perlombaan dan tidak perlu ditakuti.</p>
-        <ol>
-          <li>Buka Sesi 1 di Materi Belajar.</li>
-          <li>Pindah ke menu Tes.</li>
-          <li>Pilih Pretest yang sesuai.</li>
-          <li>Baca setiap soal dengan teliti.</li>
-        </ol>
-        <div class="example-box">Jawablah berdasarkan kemampuanmu sendiri. Hasilnya digunakan untuk membantu proses
-          belajar.</div>
-      </section>
+  <h3>Pretest Ada di Menu Tes</h3>
+
+  <p>
+    Pretest adalah tes awal yang dikerjakan sebelum kamu mulai mempelajari
+    seluruh materi. Tes ini membantu guru mengetahui hal-hal yang sudah kamu
+    pahami dan bagian yang masih perlu dijelaskan kembali.
+  </p>
+
+  <p>
+    Pretest <strong>bukan perlombaan</strong> dan tidak digunakan untuk mencari
+    siapa yang paling cepat. Kamu juga tidak harus langsung mengetahui semua
+    jawabannya.
+  </p>
+
+  <div class="info-box">
+    <h4>🎯 Mengapa kita mengerjakan pretest?</h4>
+
+    <ul>
+      <li>Mengetahui kemampuan awalmu sebelum belajar.</li>
+      <li>Membantu guru menyiapkan penjelasan yang sesuai.</li>
+      <li>Mengetahui materi yang sudah kamu kuasai.</li>
+      <li>Mengetahui bagian yang masih perlu kamu pelajari.</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <h4>📝 Saat mengerjakan soal</h4>
+
+    <ol>
+      <li>Baca pertanyaan sampai selesai.</li>
+      <li>Perhatikan semua pilihan jawaban.</li>
+      <li>Pilih jawaban yang menurutmu paling tepat.</li>
+      <li>Kerjakan sendiri berdasarkan kemampuanmu.</li>
+      <li>Periksa kembali jawaban jika masih ada waktu.</li>
+    </ol>
+
+    <p class="mini-note">
+      Tidak apa-apa jika ada soal yang belum kamu pahami. Pilih jawaban terbaik
+      menurut pengetahuanmu saat ini.
+    </p>
+  </div>
+
+  <div class="warning-box">
+    <h4>⚠️ Ingat saat mengerjakan</h4>
+
+    <ul>
+      <li>Jangan menyalin jawaban teman.</li>
+      <li>Jangan mengerjakan menggunakan akun teman.</li>
+      <li>Jangan menekan tombol kirim sebelum semua soal diperiksa.</li>
+      <li>Jangan menutup halaman saat tes masih berlangsung.</li>
+    </ul>
+  </div>
+
+  <div class="interactive-box">
+    <h4>🕒 Pretest belum bisa dibuka?</h4>
+
+    <p>
+      Tes baru dapat dibuka ketika jadwalnya sudah dimulai. LMS membaca jam dan
+      tanggal dari perangkat yang kamu gunakan.
+    </p>
+
+    <p>
+      Jika jadwal sudah dimulai tetapi tes belum bisa dibuka:
+    </p>
+
+    <ol>
+      <li>Periksa jam dan tanggal di laptop atau komputer.</li>
+      <li>Pastikan waktunya sama dengan waktu saat ini.</li>
+      <li>Muat ulang atau <i>refresh</i> halaman LMS.</li>
+      <li>Coba buka kembali menu <strong>Tes</strong>.</li>
+    </ol>
+
+    <p class="mini-note">
+      Jangan mengubah jam perangkat secara asal. Mintalah bantuan guru jika jam,
+      tanggal, atau tes masih belum sesuai.
+    </p>
+  </div>
+
+  <div class="example-box">
+    <h4>✅ Jawablah dengan jujur</h4>
+
+    <p>
+      Hasil pretest digunakan untuk membantu proses belajarmu. Jawaban yang jujur
+      akan membantu guru mengetahui materi yang perlu dijelaskan lebih banyak.
+    </p>
+
+    <p>
+      Nilai awal bukanlah hasil akhir. Setelah belajar dan berlatih, kemampuanmu
+      masih bisa terus berkembang.
+    </p>
+  </div>
+
+  <p class="mini-note">
+    Kerjakan dengan tenang, baca soal dengan teliti, dan lakukan yang terbaik
+    sesuai kemampuanmu sendiri.
+  </p>
+</section>
 
       <section class="explanation" id="explanation-6">
         <h3>Scratch Membuat Ide Menjadi Interaktif</h3>
@@ -1912,6 +2546,111 @@
       bindDragCards();
       checkAccess();
     });
+
+    function showLmsStep(step, clickedElement) {
+      const infoBox = document.getElementById("lmsStepInfo");
+
+      document
+        .querySelectorAll(
+          "#slide-4 .hotspot, #slide-4 .session-card-hotspot"
+        )
+        .forEach((element) => {
+          element.classList.remove("active");
+        });
+
+      clickedElement.classList.add("active");
+
+      if (step === 1) {
+        infoBox.innerHTML = `
+      <h4>1️⃣ Klik Menu Sesi Kelas</h4>
+
+      <p>
+        Menu <strong>Sesi Kelas</strong> menampilkan sesi belajar yang
+        sudah diberikan atau <i>di-assign</i> kepada rombelmu.
+      </p>
+
+      <p>
+        Setelah menu ini dibuka, kamu akan melihat kartu sesi pada bagian
+        <strong>Sesi Akan Datang</strong> atau <strong>Riwayat Sesi</strong>.
+      </p>
+
+      <p class="mini-note">
+        Selanjutnya, klik kotak sesi bernomor 2 pada gambar.
+      </p>
+    `;
+      }
+
+      if (step === 2) {
+        infoBox.innerHTML = `
+      <h4>2️⃣ Klik Kartu Sesi</h4>
+
+      <p>
+        Setiap kotak berisi informasi sesi yang sudah diberikan kepada
+        rombelmu, seperti nama sesi, jadwal, guru, dan jenis kelas.
+      </p>
+
+      <p>
+        Klik bagian kartu atau tombol <strong>Lihat Detail</strong>
+        untuk masuk ke halaman sesi.
+      </p>
+
+      <p>
+        Di dalam halaman tersebut, kamu dapat menemukan materi
+        <strong>Sesi 1 — Kartu Nama Interaktif</strong>.
+      </p>
+
+      <p class="mini-note">
+        Pastikan nama sekolah, rombel, dan sesi yang kamu pilih sudah benar.
+      </p>
+    `;
+      }
+    }
+
+    function showPretestStep(step, clickedElement) {
+      const infoBox = document.getElementById("pretestStepInfo");
+
+      document
+        .querySelectorAll("#slide-5 .hotspot, #slide-5 .test-card-hotspot")
+        .forEach((element) => {
+          element.classList.remove("active");
+        });
+
+      clickedElement.classList.add("active");
+
+      if (step === 1) {
+        infoBox.innerHTML = `
+      <h4>1️⃣ Klik Menu Tes</h4>
+      <p>
+        Menu <strong>Tes</strong> berisi daftar tes yang bisa kamu kerjakan.
+      </p>
+      <p>
+        Setelah menu ini dibuka, cari tes dengan judul
+        <strong>[26/27] Pre-Test Upper Primary</strong>.
+      </p>
+      <p class="mini-note">
+        Setelah itu, klik bagian bernomor 2 pada gambar.
+      </p>
+    `;
+      }
+
+      if (step === 2) {
+        infoBox.innerHTML = `
+      <h4>2️⃣ Klik Pre-Test Upper Primary</h4>
+      <p>
+        Bagian ini adalah tes yang perlu kamu kerjakan sebelum mulai belajar lebih jauh.
+      </p>
+      <p>
+        Klik kotak tes tersebut untuk membuka soal pretest.
+      </p>
+      <p>
+        Baca setiap soal dengan teliti, lalu pilih jawaban yang menurutmu paling tepat.
+      </p>
+      <p class="mini-note">
+        Kerjakan sendiri ya. Pretest membantu guru melihat pemahaman awalmu.
+      </p>
+    `;
+      }
+    }
   </script>
 </body>
 
