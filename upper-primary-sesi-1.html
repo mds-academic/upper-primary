@@ -1562,70 +1562,308 @@
         </section>
 
         <!-- SLIDE 18 -->
-        <section class="slide" id="slide-18">
-          <h3>Detektif Kode</h3>
-          <div class="debug-tabs">
-            <button class="debug-tab active" onclick="showDebug(1,this)">Sprite Diam</button>
-            <button class="debug-tab" onclick="showDebug(2,this)">Teks Terlalu Cepat</button>
-            <button class="debug-tab" onclick="showDebug(3,this)">Costume Tidak Berubah</button>
-          </div>
-          <div class="debug-scenario active" id="debug-1">
-            <p><strong>Masalah:</strong> Green Flag diklik, tetapi sprite diam.</p>
-            <div class="choice-grid">
-              <button class="choice-btn"
-                onclick="debugChoice(this,true,'Periksa apakah blok mulai ada dan semua blok tersambung.')">Periksa blok
-                awal dan sambungan blok</button>
-              <button class="choice-btn"
-                onclick="debugChoice(this,false,'Mengganti backdrop tidak memperbaiki perintah yang terputus.')">Ganti
-                backdrop</button>
-            </div>
-          </div>
-          <div class="debug-scenario" id="debug-2">
-            <p><strong>Masalah:</strong> Kalimat berubah sebelum sempat dibaca.</p>
-            <div class="choice-grid">
-              <button class="choice-btn"
-                onclick="debugChoice(this,true,'Tambahkan wait 1–2 detik di antara kalimat.')">Tambahkan jeda</button>
-              <button class="choice-btn"
-                onclick="debugChoice(this,false,'Memperbesar sprite tidak mengatur waktu dialog.')">Perbesar
-                sprite</button>
-            </div>
-          </div>
-          <div class="debug-scenario" id="debug-3">
-            <p><strong>Masalah:</strong> next costume tidak terlihat berubah.</p>
-            <div class="choice-grid">
-              <button class="choice-btn"
-                onclick="debugChoice(this,true,'Pastikan sprite memiliki minimal dua costume.')">Cek jumlah
-                costume</button>
-              <button class="choice-btn"
-                onclick="debugChoice(this,false,'Nama project tidak memengaruhi costume.')">Ganti nama project</button>
-            </div>
-          </div>
-          <div class="feedback-line" id="debugFeedback"></div>
-        </section>
+<section class="slide" id="slide-18">
+  <h3>Detektif Kode</h3>
 
-        <!-- SLIDE 19 -->
-        <section class="slide" id="slide-19">
-          <h3>Simpan dan Bagikan dengan Aman</h3>
-          <div class="visual-grid">
-            <div class="visual-card">
-              <div class="visual-icon">✏️</div>
-              <h4>Beri Nama</h4>
-              <p>Ganti “Untitled” dengan nama project yang jelas.</p>
-            </div>
-            <div class="visual-card">
-              <div class="visual-icon">💾</div>
-              <h4>Simpan</h4>
-              <p>Pastikan kamu sudah login agar project tersimpan.</p>
-            </div>
-            <div class="visual-card">
-              <div class="visual-icon">🔗</div>
-              <h4>Bagikan</h4>
-              <p>Share project hanya sesuai petunjuk guru.</p>
-            </div>
-          </div>
-          <div class="warning-box">Jangan menuliskan nama lengkap, alamat rumah, nomor telepon, atau password di
-            project.</div>
-        </section>
+  <p class="lead">
+    Project belum berjalan sesuai rencana? Pilih masalahnya, lalu cari
+    tindakan yang paling tepat untuk memperbaikinya.
+  </p>
+
+  <div class="info-box">
+    <h4>🔍 Cara melakukan debugging</h4>
+    <ol>
+      <li>Jalankan project dengan Green Flag.</li>
+      <li>Perhatikan bagian yang belum bekerja.</li>
+      <li>Periksa blok yang berhubungan dengan masalah tersebut.</li>
+      <li>Ubah satu bagian, lalu jalankan project kembali.</li>
+    </ol>
+  </div>
+
+  <div class="debug-tabs">
+    <button
+      class="debug-tab active"
+      onclick="showDebug(1,this)"
+    >
+      🐾 Sprite Diam
+    </button>
+
+    <button
+      class="debug-tab"
+      onclick="showDebug(2,this)"
+    >
+      💬 Teks Terlalu Cepat
+    </button>
+
+    <button
+      class="debug-tab"
+      onclick="showDebug(3,this)"
+    >
+      🎭 Costume Tidak Berubah
+    </button>
+  </div>
+
+  <!-- DEBUG 1 -->
+  <div class="debug-scenario active" id="debug-1">
+    <div class="warning-box">
+      <h4>🐾 Kasus 1: Sprite Diam</h4>
+      <p>
+        Green Flag sudah diklik, tetapi sprite tidak bergerak dan tidak
+        menjalankan perintah.
+      </p>
+    </div>
+
+    <p><strong>Apa yang sebaiknya diperiksa?</strong></p>
+
+    <div class="choice-grid">
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          true,
+          'Benar! Pastikan ada blok when green flag clicked dan semua blok tersambung di bawahnya.'
+        )"
+      >
+        Periksa blok awal dan sambungan blok
+      </button>
+
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          false,
+          'Mengganti backdrop tidak memperbaiki rangkaian kode yang terputus.'
+        )"
+      >
+        Ganti backdrop
+      </button>
+    </div>
+
+    <div class="mini-note">
+      Petunjuk: periksa blok
+      <strong>when green flag clicked</strong> dan
+      <strong>move 10 steps</strong>.
+    </div>
+  </div>
+
+  <!-- DEBUG 2 -->
+  <div class="debug-scenario" id="debug-2">
+    <div class="warning-box">
+      <h4>💬 Kasus 2: Teks Terlalu Cepat</h4>
+      <p>
+        Kalimat berikutnya muncul sebelum kalimat sebelumnya selesai dibaca.
+      </p>
+    </div>
+
+    <p><strong>Apa yang sebaiknya dilakukan?</strong></p>
+
+    <div class="choice-grid">
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          true,
+          'Benar! Tambahkan wait 1–2 detik agar setiap kalimat memiliki jeda.'
+        )"
+      >
+        Tambahkan jeda
+      </button>
+
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          false,
+          'Memperbesar sprite tidak mengatur lama waktu dialog.'
+        )"
+      >
+        Perbesar sprite
+      </button>
+    </div>
+
+    <div class="mini-note">
+      Petunjuk: gunakan blok <strong>wait 1 seconds</strong> di antara
+      dua kalimat.
+    </div>
+  </div>
+
+  <!-- DEBUG 3 -->
+  <div class="debug-scenario" id="debug-3">
+    <div class="warning-box">
+      <h4>🎭 Kasus 3: Costume Tidak Berubah</h4>
+      <p>
+        Blok <strong>next costume</strong> sudah dijalankan, tetapi
+        tampilan sprite terlihat tetap sama.
+      </p>
+    </div>
+
+    <p><strong>Apa yang sebaiknya diperiksa?</strong></p>
+
+    <div class="choice-grid">
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          true,
+          'Benar! Pastikan sprite memiliki setidaknya dua costume yang berbeda.'
+        )"
+      >
+        Cek jumlah costume
+      </button>
+
+      <button
+        class="choice-btn"
+        onclick="debugChoice(
+          this,
+          false,
+          'Nama project tidak memengaruhi perubahan costume.'
+        )"
+      >
+        Ganti nama project
+      </button>
+    </div>
+
+    <div class="mini-note">
+      Petunjuk: buka tab <strong>Costumes</strong> dan periksa apakah
+      sprite memiliki lebih dari satu costume.
+    </div>
+  </div>
+
+  <div class="feedback-line" id="debugFeedback">
+    Pilih jawaban untuk melihat hasilnya.
+  </div>
+
+  <div class="example-box">
+    <h4>💡 Ingat</h4>
+    <p>
+      Saat menemukan bug, jangan langsung mengubah seluruh kode.
+      Perbaiki satu bagian, jalankan kembali, lalu lihat hasilnya.
+    </p>
+  </div>
+</section>
+
+<!-- SLIDE 19 -->
+<section class="slide" id="slide-19">
+  <h3>Simpan dan Bagikan dengan Aman</h3>
+
+  <p class="lead">
+    Setelah project berhasil dijalankan, beri nama yang jelas, simpan di
+    akunmu, lalu bagikan hanya sesuai petunjuk guru.
+  </p>
+
+  <div class="visual-grid">
+    <div class="visual-card">
+      <div class="visual-icon">✏️</div>
+      <h4>1. Beri Nama</h4>
+      <p>
+        Ganti nama <strong>Untitled</strong> dengan nama project yang mudah
+        dikenali.
+      </p>
+    </div>
+
+    <div class="visual-card">
+      <div class="visual-icon">💾</div>
+      <h4>2. Simpan</h4>
+      <p>
+        Pastikan kamu sudah login agar project tersimpan di akun Scratch.
+      </p>
+    </div>
+
+    <div class="visual-card">
+      <div class="visual-icon">▶️</div>
+      <h4>3. Tes Kembali</h4>
+      <p>
+        Klik Green Flag dan periksa seluruh urutan project dari awal.
+      </p>
+    </div>
+
+    <div class="visual-card">
+      <div class="visual-icon">🔗</div>
+      <h4>4. Bagikan</h4>
+      <p>
+        Share project hanya setelah mendapat arahan dari guru.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h4>Contoh nama project</h4>
+    <ul>
+      <li>Kartu Nama Interaktif Kiko</li>
+      <li>Perkenalan Lala</li>
+      <li>Halo dari Robo</li>
+    </ul>
+
+    <p class="mini-note">
+      Gunakan nama panggilan atau nama karakter. Tidak perlu menggunakan
+      nama lengkap.
+    </p>
+  </div>
+
+  <div class="example-box">
+    <h4>✅ Periksa sebelum selesai</h4>
+    <ul class="checklist">
+      <li class="check-item">
+        Project memiliki nama yang jelas.
+      </li>
+      <li class="check-item">
+        Sprite dapat menyapa dan menyebutkan nama.
+      </li>
+      <li class="check-item">
+        Sprite dapat bergerak.
+      </li>
+      <li class="check-item">
+        Costume sprite dapat berubah.
+      </li>
+      <li class="check-item">
+        Project berhasil dijalankan dengan Green Flag.
+      </li>
+      <li class="check-item">
+        Project sudah tersimpan di akun yang benar.
+      </li>
+    </ul>
+  </div>
+
+  <div class="warning-box">
+    <h4>🛡️ Jangan bagikan informasi pribadi</h4>
+
+    <p><strong>Informasi yang boleh digunakan:</strong></p>
+    <ul>
+      <li>Nama panggilan.</li>
+      <li>Hobi.</li>
+      <li>Warna atau makanan kesukaan.</li>
+      <li>Nama karakter buatan.</li>
+    </ul>
+
+    <p><strong>Informasi yang tidak boleh ditulis:</strong></p>
+    <ul>
+      <li>Nama lengkap.</li>
+      <li>Alamat rumah.</li>
+      <li>Nomor telepon.</li>
+      <li>Password.</li>
+      <li>Nama pengguna atau informasi akun.</li>
+    </ul>
+  </div>
+
+  <div class="interactive-box">
+    <h4>🔎 Tes terakhir</h4>
+    <p>
+      Sebelum menutup Scratch, klik Green Flag sekali lagi dan perhatikan:
+    </p>
+
+    <ol>
+      <li>Apakah kalimat mudah dibaca?</li>
+      <li>Apakah sprite bergerak ke arah yang benar?</li>
+      <li>Apakah costume berubah?</li>
+      <li>Apakah tidak ada informasi pribadi?</li>
+    </ol>
+  </div>
+
+  <p class="mini-note">
+    Jangan menutup browser jika project masih belum tersimpan.
+    Mintalah bantuan guru jika muncul masalah saat menyimpan.
+  </p>
+</section>
 
         <!-- SLIDE 20 -->
         <section class="slide" id="slide-20">
@@ -2186,7 +2424,6 @@
       </section>
 
       <section class="explanation" id="explanation-15">
-        <span class="eyebrow">Mulai Coding</span>
         <h3>Langkah 1: Mulai dengan Green Flag</h3>
 
         <p>
