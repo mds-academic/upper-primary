@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UOB My Digital Space Y2 — Upper Primary Sesi 2</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #0056b3;
+      --light-blue: #4a9eff;
+      --uob-red: #e60012;
+      --uob-red-soft: #ff5a6b;
+      --uob-blue-deep: #0056b3;
+      --uob-blue-soft: #5aa7ff;
+      --teal: #11a9b7;
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --line: #e3e8ef;
+      --green: #2e9d57;
+      --orange: #f39c12;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --yellow-soft: #fff8dc;
+      --blue-soft: #eef7ff;
+      --green-soft: #effaf2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--text);
+    }
+
+    button, input { font: inherit; }
+
+    .progress-bar {
+      width: 100%; height: 6px; background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed; top: 0; left: 0; z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+    }
+    .progress-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
+      transition: width .3s ease;
+      box-shadow: 0 0 8px rgba(0,86,179,.18);
+    }
+
+    .main-container { display: flex; height: 100vh; }
+
+    .slides-panel {
+      width: 50%; background: #f8f9fa; border-right: 2px solid var(--line);
+      display: flex; flex-direction: column; position: relative;
+    }
+
+    .explanation-panel {
+      width: 50%; background: #fff; overflow-y: auto; padding: 32px;
+    }
+
+    .slide-header {
+      background: #fff; padding: 17px 20px 15px; border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0,0,0,.04); position: relative;
+    }
+    .slide-header::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue));
+    }
+    .slide-header h1 { font-size: 1.28rem; color: var(--text); margin-bottom: 3px; }
+    .slide-header p { font-size: .9rem; color: var(--muted); }
+    .header-badge {
+      position: absolute; right: 18px; top: 17px; background: var(--blue-soft);
+      color: var(--blue); border: 1px solid #cce7ff; border-radius: 999px;
+      padding: 5px 10px; font-weight: 700; font-size: .76rem;
+    }
+
+    .slide-content {
+      flex: 1; padding: 24px 28px 94px; overflow-y: auto;
+      display: flex; align-items: flex-start; justify-content: center; min-height: 0;
+    }
+
+    .slide, .explanation { display: none; opacity: 0; transition: opacity .25s ease; }
+    .slide.active, .explanation.active { display: block; opacity: 1; }
+    .slide { width: 100%; max-width: 820px; }
+    .explanation { max-width: 760px; margin: 0 auto; }
+
+    .slide h2 { font-size: 2.25rem; color: var(--blue); margin-bottom: 10px; line-height: 1.15; }
+    .slide h3 { font-size: 1.78rem; color: var(--blue); margin-bottom: 16px; line-height: 1.2; }
+    .slide h4, .explanation h4 { font-size: 1.05rem; margin-bottom: 9px; color: var(--text); }
+    .slide p, .explanation p { font-size: 1rem; line-height: 1.58; color: #495057; margin-bottom: 14px; }
+    .explanation h3 { font-size: 1.65rem; margin-bottom: 16px; color: var(--text); line-height: 1.25; }
+    .slide ul, .slide ol, .explanation ul, .explanation ol { margin-left: 22px; margin-bottom: 10px; }
+    .slide li, .explanation li { margin-bottom: 7px; line-height: 1.5; }
+
+    .eyebrow {
+      display: inline-block; color: var(--uob-red); font-size: .78rem; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .lead { font-size: 1.08rem !important; }
+    .mini-note { font-size: .9rem !important; color: var(--muted) !important; margin-top: 10px; }
+
+    .visual-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px; margin: 16px 0;
+    }
+    .visual-card, .metric-box, .info-box, .example-box, .warning-box,
+    .placeholder-box, .interactive-box, .code-placeholder, .quiz-card {
+      background: #fff; border: 2px solid var(--line); border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .visual-card { padding: 15px; }
+    .visual-card h4 { margin-bottom: 5px; }
+    .visual-card p { margin-bottom: 0; font-size: .92rem; line-height: 1.42; }
+    .visual-icon { font-size: 1.9rem; margin-bottom: 8px; }
+
+    .metrics {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px; margin-top: 16px;
+    }
+    .metric-box { padding: 16px 12px; text-align: center; }
+    .metric-box strong { display: block; font-size: 1.55rem; color: var(--blue); margin-bottom: 7px; }
+    .metric-box span { font-size: .9rem; line-height: 1.35; color: #495057; display: block; }
+
+    .info-box, .example-box, .warning-box, .interactive-box { padding: 17px; margin: 16px 0; }
+    .info-box { border-left: 5px solid var(--light-blue); }
+    .example-box { border-left: 5px solid var(--green); background: #f8fff8; }
+    .warning-box { border-left: 5px solid var(--orange); background: #fffaf0; }
+    .interactive-box { border-left: 5px solid var(--purple); background: #fcf8ff; }
+
+    .placeholder-box {
+      min-height: 215px; padding: 24px; margin: 14px 0; display: grid; place-items: center;
+      text-align: center; border-style: dashed; background: linear-gradient(135deg,#fbfdff,#f5f9fc);
+    }
+    .placeholder-box .placeholder-icon { font-size: 2.3rem; margin-bottom: 8px; }
+    .placeholder-box strong { display: block; color: var(--blue); margin-bottom: 5px; }
+    .placeholder-box small { color: var(--muted); line-height: 1.4; }
+
+    .code-placeholder {
+      min-height: 230px; padding: 22px; margin: 14px 0; display: grid; place-items: center;
+      text-align: center; border-style: dashed; border-color: #9ab7d3; background: #f8fbfe;
+    }
+    .code-placeholder strong { color: var(--blue); display: block; margin-bottom: 7px; }
+    .code-placeholder code { color: var(--muted); background: #eef3f8; padding: 3px 7px; border-radius: 5px; }
+
+    .pseudo-list {
+      list-style: none; margin-left: 0 !important; counter-reset: pseudo;
+    }
+    .pseudo-list li {
+      counter-increment: pseudo; background: #fff; border: 1px solid var(--line);
+      border-radius: 9px; padding: 10px 12px 10px 44px; position: relative; margin-bottom: 8px;
+    }
+    .pseudo-list li::before {
+      content: counter(pseudo); position: absolute; left: 11px; top: 9px;
+      width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--blue); color: white; font-weight: 800; font-size: .8rem;
+    }
+
+    .navigation {
+      position: absolute; bottom: 0; left: 0; right: 0; background: #fff;
+      border-top: 2px solid var(--line); padding: 12px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 -2px 4px rgba(0,0,0,.04);
+    }
+    .nav-btn {
+      background: var(--light-blue); color: #fff; border: none; border-radius: 8px;
+      padding: 10px 18px; cursor: pointer; font-size: .94rem; font-weight: 700;
+      display: flex; gap: 8px; align-items: center; transition: .2s ease;
+    }
+    .nav-btn:hover { transform: translateY(-1px); background: #357abd; }
+    .nav-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .slide-indicator { font-size: .9rem; color: var(--muted); font-weight: 700; }
+
+    .floating-element {
+      position: absolute; opacity: .07; pointer-events: none; font-size: 2rem;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0); }
+      33% { transform: translateY(-12px) rotate(4deg); }
+      66% { transform: translateY(7px) rotate(-3deg); }
+    }
+
+    .access-popup-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 9999;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .access-popup {
+      background: white; border: 3px solid var(--light-blue); border-radius: 15px;
+      padding: 38px; max-width: 450px; width: 90%; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3); transform: scale(.8); opacity: 0;
+      transition: all .3s ease;
+    }
+    .access-popup.show { transform: scale(1); opacity: 1; }
+    .access-popup h2 { color: var(--text); margin-bottom: 13px; font-size: 1.8rem; }
+    .access-popup p { color: #666; margin-bottom: 22px; line-height: 1.55; }
+    .access-input {
+      width: 100%; padding: 14px; font-size: 1.15rem; border: 2px solid #dee2e6;
+      border-radius: 8px; margin-bottom: 18px; text-align: center; letter-spacing: 2px;
+      font-weight: bold; text-transform: uppercase;
+    }
+    .access-input:focus { outline: none; border-color: var(--light-blue); box-shadow: 0 0 0 3px rgba(74,158,255,.12); }
+    .access-submit {
+      background: var(--light-blue); color: white; border: none; padding: 13px 28px;
+      border-radius: 8px; font-size: 1.05rem; font-weight: bold; cursor: pointer;
+    }
+    .access-submit:hover { background: #357abd; }
+    .access-error { color: var(--red); margin-top: 13px; font-weight: bold; opacity: 0; transition: opacity .2s; }
+    .access-error.show { opacity: 1; }
+    .access-hint { background: #fff3cd; border: 1px solid #ffc107; border-radius: 5px; padding: 9px; margin-top: 18px; font-size: .88rem; color: #856404; }
+
+    .choice-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 10px; margin: 12px 0; }
+    .choice-btn {
+      border: 2px solid var(--line); background: #fff; color: var(--text); border-radius: 10px;
+      padding: 11px 12px; cursor: pointer; font-weight: 700; transition: .18s; text-align: left;
+    }
+    .choice-btn:hover { border-color: var(--light-blue); transform: translateY(-1px); }
+    .choice-btn.correct { border-color: var(--green); background: var(--green-soft); color: #176b35; }
+    .choice-btn.wrong { border-color: var(--red); background: #fff1f0; color: #a42820; }
+    .feedback-line { min-height: 28px; font-weight: 700; margin-top: 8px; }
+
+    .primary-btn, .secondary-btn {
+      border: none; border-radius: 8px; padding: 10px 14px; font-weight: 800; cursor: pointer;
+    }
+    .primary-btn { background: var(--blue); color: white; }
+    .secondary-btn { background: #e9ecef; color: var(--text); }
+
+    .sequence-source, .sequence-target { display: grid; gap: 8px; margin-top: 10px; }
+    .sequence-card {
+      padding: 10px 12px; border: 2px solid var(--line); background: #fff; border-radius: 9px;
+      cursor: grab; user-select: none; font-weight: 700;
+    }
+    .sequence-card.dragging { opacity: .45; }
+    .sequence-target {
+      min-height: 170px; border: 2px dashed #a9bfd2; background: #f8fbfe;
+      border-radius: 10px; padding: 10px;
+    }
+    .sequence-target .sequence-card { cursor: grab; }
+
+    .checklist { list-style: none; margin-left: 0 !important; display: grid; gap: 8px; }
+    .check-item {
+      display: flex; gap: 9px; align-items: flex-start; padding: 10px 12px;
+      border: 1px solid var(--line); border-radius: 9px; background: #fff; cursor: pointer;
+    }
+    .check-item input { margin-top: 3px; transform: scale(1.2); }
+    .check-item.done { background: var(--green-soft); border-color: #9cd9af; text-decoration: line-through; color: #3e6b4c; }
+
+    .debug-scenario { display: none; }
+    .debug-scenario.active { display: block; }
+    .debug-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .debug-tab {
+      border: 1px solid var(--line); background: #fff; border-radius: 999px;
+      padding: 7px 11px; cursor: pointer; font-weight: 700;
+    }
+    .debug-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .pill {
+      display: inline-block; padding: 4px 9px; border-radius: 999px; font-size: .78rem;
+      font-weight: 800; color: #fff; margin: 2px;
+    }
+    .pill.blue { background: var(--blue); }
+    .pill.green { background: var(--green); }
+    .pill.orange { background: var(--orange); }
+    .pill.purple { background: var(--purple); }
+    .pill.red { background: var(--uob-red); }
+
+    /* Coordinate learning components */
+    .axis-demo {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0;
+    }
+    .axis-card {
+      padding: 17px; border: 2px solid var(--line); border-radius: 12px; background: #fff;
+      text-align: center;
+    }
+    .axis-letter { font-size: 2.2rem; font-weight: 900; color: var(--blue); }
+    .axis-arrow { font-size: 1.7rem; color: var(--uob-red); margin: 7px 0; }
+
+    .coordinate-board {
+      position: relative; width: min(100%, 560px); aspect-ratio: 4 / 3; margin: 14px auto;
+      border: 3px solid #afc8df; border-radius: 12px; overflow: hidden; background-color: #fbfdff;
+      background-image:
+        linear-gradient(to right, rgba(0,86,179,.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,86,179,.12) 1px, transparent 1px);
+      background-size: 10% 10%; touch-action: none;
+    }
+    .coordinate-board::before {
+      content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
+      background: var(--uob-red); transform: translateX(-50%); z-index: 1;
+    }
+    .coordinate-board::after {
+      content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 3px;
+      background: var(--blue); transform: translateY(-50%); z-index: 1;
+    }
+    .axis-label {
+      position: absolute; z-index: 2; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,.9);
+      font-size: .76rem; font-weight: 900;
+    }
+    .axis-label.x-pos { right: 5px; top: calc(50% + 5px); color: var(--blue); }
+    .axis-label.x-neg { left: 5px; top: calc(50% + 5px); color: var(--blue); }
+    .axis-label.y-pos { left: calc(50% + 5px); top: 4px; color: var(--uob-red); }
+    .axis-label.y-neg { left: calc(50% + 5px); bottom: 4px; color: var(--uob-red); }
+    .origin-label { left: calc(50% + 6px); top: calc(50% + 6px); color: var(--text); }
+
+    .draggable-sprite {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+      width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+      background: white; border: 3px solid var(--uob-red); box-shadow: 0 4px 10px rgba(0,0,0,.22);
+      cursor: grab; z-index: 5; font-size: 1.65rem; user-select: none;
+    }
+    .draggable-sprite:active { cursor: grabbing; }
+    .coordinate-readout {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;
+    }
+    .coord-chip {
+      padding: 7px 12px; border-radius: 999px; background: #fff; border: 2px solid var(--line);
+      font-weight: 900;
+    }
+    .coord-chip.x { color: var(--blue); }
+    .coord-chip.y { color: var(--uob-red); }
+
+    .house-map {
+      position: relative; width: min(100%, 580px); aspect-ratio: 4 / 3; margin: 14px auto;
+      border: 3px solid #afc8df; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(#e8f6ff 0 55%, #dff3d7 55% 100%);
+    }
+    .house-map::before, .house-map::after {
+      content: ""; position: absolute; z-index: 1; opacity: .45;
+    }
+    .house-map::before { left: 50%; top: 0; bottom: 0; width: 2px; background: var(--uob-red); }
+    .house-map::after { top: 50%; left: 0; right: 0; height: 2px; background: var(--blue); }
+    .map-point {
+      position: absolute; transform: translate(-50%,-50%); z-index: 3; border: none; background: transparent;
+      cursor: pointer; text-align: center; font-weight: 900; color: var(--text);
+    }
+    .map-point span { display: block; font-size: 2.2rem; filter: drop-shadow(0 2px 2px rgba(0,0,0,.2)); }
+    .map-point small { background: rgba(255,255,255,.92); padding: 3px 6px; border-radius: 6px; display: inline-block; }
+    .map-point:hover span, .map-point.active span { transform: scale(1.14); }
+    .courier-dot {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 4;
+      width: 48px; height: 48px; display: grid; place-items: center; font-size: 1.8rem;
+      border: 3px solid var(--blue); border-radius: 50%; background: #fff;
+      transition: left 1.4s ease, top 1.4s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,.18);
+    }
+
+    .movement-demo {
+      position: relative; min-height: 150px; margin: 14px 0; border: 2px solid var(--line);
+      border-radius: 12px; background: linear-gradient(90deg,#f8fbff,#fff7f7); overflow: hidden;
+    }
+    .movement-start, .movement-end {
+      position: absolute; top: 60px; font-size: 2rem; transform: translate(-50%,-50%);
+    }
+    .movement-start { left: 12%; }
+    .movement-end { left: 88%; }
+    .movement-courier {
+      position: absolute; left: 12%; top: 60px; transform: translate(-50%,-50%); font-size: 2rem;
+      transition: left 1.5s ease; z-index: 3;
+    }
+    .demo-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+
+    .route-summary {
+      min-height: 52px; padding: 12px; border: 2px dashed #9ab7d3; border-radius: 10px;
+      background: #f8fbfe; font-weight: 700; line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      body { overflow: auto; height: auto; }
+      .main-container { flex-direction: column; height: auto; min-height: 100vh; }
+      .slides-panel, .explanation-panel { width: 100%; height: auto; min-height: 50vh; }
+      .slides-panel { min-height: 100vh; }
+      .slide-content { padding: 20px 20px 92px; }
+      .explanation-panel { padding: 24px; }
+      .header-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="access-popup-overlay" id="accessPopup">
+    <div class="access-popup">
+      <h2>🔐 Kode Akses</h2>
+      <p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 2.</p>
+      <input type="text" class="access-input" id="accessInput" placeholder="MASUKKAN KODE" maxlength="20" autocomplete="off" />
+      <button class="access-submit" onclick="checkAccessCode()">Masuk</button>
+      <div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi, ya.</div>
+      <div class="access-hint">Kode akses diberikan oleh guru.</div>
+    </div>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="main-container" id="mainContent" style="display:none;">
+    <div class="slides-panel">
+      <div class="slide-header">
+        <h1>UOB My Digital Space Y2 — Upper Primary</h1>
+        <p>Sesi 2 · Kurir Paket Pintar</p>
+        <span class="header-badge">Scratch · Kelas 4–5 SD</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="floating-element" style="top:12%;left:7%;">📦</div>
+        <div class="floating-element" style="top:18%;right:10%;">🗺️</div>
+        <div class="floating-element" style="bottom:25%;left:14%;">🏠</div>
+        <div class="floating-element" style="bottom:15%;right:16%;">🚚</div>
+
+        <!-- SLIDE 1 -->
+        <section class="slide active" id="slide-1">
+          <span class="eyebrow">Sesi 2</span>
+          <h2>Kurir Paket Pintar</h2>
+          <p class="lead">Bantu kurir mengantar paket ke beberapa rumah menggunakan alamat X dan Y di Stage Scratch.</p>
+          <div class="metrics">
+            <div class="metric-box"><strong>🗺️</strong><span>Membaca koordinat</span></div>
+            <div class="metric-box"><strong>↔️</strong><span>Memahami sumbu X</span></div>
+            <div class="metric-box"><strong>↕️</strong><span>Memahami sumbu Y</span></div>
+            <div class="metric-box"><strong>🚚</strong><span>Menggunakan glide</span></div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide" id="slide-2">
+          <h3>Misi Belajar Hari Ini</h3>
+          <div class="visual-grid">
+            <div class="visual-card"><div class="visual-icon">🎯</div><h4>Menemukan Posisi</h4><p>Membaca alamat sprite dengan X dan Y.</p></div>
+            <div class="visual-card"><div class="visual-icon">🧭</div><h4>Membedakan Arah</h4><p>Kanan, kiri, atas, dan bawah.</p></div>
+            <div class="visual-card"><div class="visual-icon">🛝</div><h4>Meluncur</h4><p>Membuat sprite bergerak halus dengan glide.</p></div>
+            <div class="visual-card"><div class="visual-icon">💬</div><h4>Mengantar Paket</h4><p>Berhenti dan menyapa di setiap rumah.</p></div>
+          </div>
+          <p class="mini-note">Target minimum: sprite mengunjungi sedikitnya dua alamat berbeda.</p>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide" id="slide-3">
+          <h3>Pemanasan: Cari Alamat</h3>
+          <p>Bayangkan sekolahmu memiliki beberapa ruangan. Bagaimana seseorang menemukan ruang kelas yang tepat?</p>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="singleChoice(this,false,'warmupFeedback','Nama teman')">Nama teman</button>
+            <button class="choice-btn" onclick="singleChoice(this,true,'warmupFeedback','Nomor dan lokasi ruangan')">Nomor dan lokasi ruangan</button>
+            <button class="choice-btn" onclick="singleChoice(this,false,'warmupFeedback','Warna tas')">Warna tas</button>
+          </div>
+          <div class="feedback-line" id="warmupFeedback"></div>
+          <div class="interactive-box"><strong>Hubungannya dengan Scratch:</strong> sprite juga membutuhkan alamat agar tahu harus berada di mana.</div>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide" id="slide-4">
+          <h3>Stage Scratch Seperti Peta</h3>
+          <div class="visual-grid">
+            <div class="visual-card"><div class="visual-icon">🏠</div><h4>Rumah</h4><p>Punya alamat jalan dan nomor.</p></div>
+            <div class="visual-card"><div class="visual-icon">🐱</div><h4>Sprite</h4><p>Punya alamat posisi X dan Y.</p></div>
+          </div>
+          <div class="example-box"><strong>Contoh alamat sprite:</strong><br>x: -150, y: 80</div>
+          <p>Alamat lengkap selalu memakai dua angka: satu untuk X dan satu untuk Y.</p>
+        </section>
+
+        <!-- SLIDE 5 -->
+        <section class="slide" id="slide-5">
+          <h3>Apa Itu Koordinat?</h3>
+          <p><strong>Koordinat</strong> adalah alamat posisi pada Stage.</p>
+          <div class="axis-demo">
+            <div class="axis-card"><div class="axis-letter">X</div><div class="axis-arrow">← →</div><p>Kiri dan kanan</p></div>
+            <div class="axis-card"><div class="axis-letter">Y</div><div class="axis-arrow">↑ ↓</div><p>Atas dan bawah</p></div>
+          </div>
+          <div class="info-box"><strong>Titik tengah Stage:</strong> x: 0, y: 0</div>
+        </section>
+
+        <!-- SLIDE 6 -->
+        <section class="slide" id="slide-6">
+          <h3>Sumbu X: Kiri dan Kanan</h3>
+          <div class="axis-card">
+            <div class="axis-arrow">−240 &nbsp; ← &nbsp; 0 &nbsp; → &nbsp; 240</div>
+            <p><strong>X negatif</strong> berada di kiri.</p>
+            <p><strong>X positif</strong> berada di kanan.</p>
+          </div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="axisChoice(this,true,'xAxisFeedback')">x: 120 berada di kanan</button>
+            <button class="choice-btn" onclick="axisChoice(this,false,'xAxisFeedback')">x: 120 berada di kiri</button>
+          </div>
+          <div class="feedback-line" id="xAxisFeedback"></div>
+        </section>
+
+        <!-- SLIDE 7 -->
+        <section class="slide" id="slide-7">
+          <h3>Sumbu Y: Atas dan Bawah</h3>
+          <div class="axis-card">
+            <div class="axis-arrow">180 &nbsp; ↑ &nbsp; 0 &nbsp; ↓ &nbsp; −180</div>
+            <p><strong>Y positif</strong> berada di atas.</p>
+            <p><strong>Y negatif</strong> berada di bawah.</p>
+          </div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="axisChoice(this,false,'yAxisFeedback')">y: -90 berada di atas</button>
+            <button class="choice-btn" onclick="axisChoice(this,true,'yAxisFeedback')">y: -90 berada di bawah</button>
+          </div>
+          <div class="feedback-line" id="yAxisFeedback"></div>
+        </section>
+
+        <!-- SLIDE 8 -->
+        <section class="slide" id="slide-8">
+          <h3>Empat Daerah Posisi</h3>
+          <div class="visual-grid">
+            <div class="visual-card"><h4>Kiri Atas</h4><p>X negatif<br>Y positif</p></div>
+            <div class="visual-card"><h4>Kanan Atas</h4><p>X positif<br>Y positif</p></div>
+            <div class="visual-card"><h4>Kiri Bawah</h4><p>X negatif<br>Y negatif</p></div>
+            <div class="visual-card"><h4>Kanan Bawah</h4><p>X positif<br>Y negatif</p></div>
+          </div>
+          <div class="interactive-box"><strong>Tantangan:</strong> Di daerah mana posisi x: -100, y: -70?</div>
+        </section>
+
+        <!-- SLIDE 9 -->
+        <section class="slide" id="slide-9">
+          <h3>Batas Stage Scratch</h3>
+          <div class="metrics">
+            <div class="metric-box"><strong>X</strong><span>Sekitar -240 sampai 240</span></div>
+            <div class="metric-box"><strong>Y</strong><span>Sekitar -180 sampai 180</span></div>
+          </div>
+          <div class="warning-box">Angka yang terlalu jauh dapat membuat sprite keluar dari Stage dan tidak terlihat.</div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="boundaryChoice(this,true)">x: 200, y: 100</button>
+            <button class="choice-btn" onclick="boundaryChoice(this,false)">x: 500, y: 400</button>
+          </div>
+          <div class="feedback-line" id="boundaryFeedback"></div>
+        </section>
+
+        <!-- SLIDE 10 -->
+        <section class="slide" id="slide-10">
+          <h3>Coba Geser Sprite</h3>
+          <p>Seret kurir ke bagian lain pada peta. Perhatikan perubahan nilai X dan Y.</p>
+          <div class="coordinate-board" id="dragBoard">
+            <span class="axis-label x-pos">X +</span><span class="axis-label x-neg">X −</span>
+            <span class="axis-label y-pos">Y +</span><span class="axis-label y-neg">Y −</span>
+            <span class="axis-label origin-label">0,0</span>
+            <div class="draggable-sprite" id="dragSprite" role="button" aria-label="Kurir yang dapat digeser">🚚</div>
+          </div>
+          <div class="coordinate-readout">
+            <span class="coord-chip x">X: <span id="dragX">0</span></span>
+            <span class="coord-chip y">Y: <span id="dragY">0</span></span>
+          </div>
+          <button class="secondary-btn" onclick="resetDragSprite()">Kembali ke Tengah</button>
+        </section>
+
+        <!-- SLIDE 11 -->
+        <section class="slide" id="slide-11">
+          <h3>Tebak Posisi Sprite</h3>
+          <div class="quiz-card" style="padding:17px;">
+            <p><strong>Alamat:</strong> x: 150, y: -80</p>
+            <div class="choice-grid">
+              <button class="choice-btn" onclick="quadrantQuiz(this,false)">Kiri atas</button>
+              <button class="choice-btn" onclick="quadrantQuiz(this,false)">Kanan atas</button>
+              <button class="choice-btn" onclick="quadrantQuiz(this,false)">Kiri bawah</button>
+              <button class="choice-btn" onclick="quadrantQuiz(this,true)">Kanan bawah</button>
+            </div>
+            <div class="feedback-line" id="quadrantFeedback"></div>
+          </div>
+        </section>
+
+        <!-- SLIDE 12 -->
+        <section class="slide" id="slide-12">
+          <h3>Alamat Tiga Rumah</h3>
+          <div class="house-map" id="houseMap">
+            <button class="map-point" style="left:18.75%;top:27.8%;" onclick="showHouse('A',-150,80,this)"><span>🏠</span><small>Rumah A</small></button>
+            <button class="map-point" style="left:81.25%;top:36.1%;" onclick="showHouse('B',150,50,this)"><span>🏡</span><small>Rumah B</small></button>
+            <button class="map-point" style="left:66.7%;top:77.8%;" onclick="showHouse('C',80,-100,this)"><span>🏘️</span><small>Rumah C</small></button>
+            <div class="courier-dot" id="mapCourier">🚚</div>
+          </div>
+          <div class="route-summary" id="houseInfo">Klik salah satu rumah untuk melihat alamatnya.</div>
+        </section>
+
+        <!-- SLIDE 13 -->
+        <section class="slide" id="slide-13">
+          <h3>Rumah Mana yang Benar?</h3>
+          <p>Paket berikut harus dikirim ke <strong>x: -150, y: 80</strong>.</p>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="houseQuiz(this,true)">🏠 Rumah A</button>
+            <button class="choice-btn" onclick="houseQuiz(this,false)">🏡 Rumah B</button>
+            <button class="choice-btn" onclick="houseQuiz(this,false)">🏘️ Rumah C</button>
+          </div>
+          <div class="feedback-line" id="houseQuizFeedback"></div>
+        </section>
+
+        <!-- SLIDE 14 -->
+        <section class="slide" id="slide-14">
+          <h3>Go To dan Glide Tidak Sama</h3>
+          <div class="visual-grid">
+            <div class="visual-card"><div class="visual-icon">⚡</div><h4>Go To</h4><p>Sprite langsung berpindah ke alamat tujuan.</p></div>
+            <div class="visual-card"><div class="visual-icon">🛝</div><h4>Glide</h4><p>Sprite meluncur menuju alamat tujuan.</p></div>
+          </div>
+          <div class="movement-demo">
+            <div class="movement-start">📮</div>
+            <div class="movement-end">🏠</div>
+            <div class="movement-courier" id="movementCourier">🚚</div>
+          </div>
+          <div class="demo-buttons">
+            <button class="primary-btn" onclick="runMovement('goto')">Coba Go To</button>
+            <button class="primary-btn" onclick="runMovement('glide')">Coba Glide</button>
+            <button class="secondary-btn" onclick="resetMovement()">Ulangi</button>
+          </div>
+          <div class="feedback-line" id="movementFeedback"></div>
+        </section>
+
+        <!-- SLIDE 15 -->
+        <section class="slide" id="slide-15">
+          <h3>Bandingkan Waktu Glide</h3>
+          <p>Waktu glide mengubah kecepatan perjalanan, bukan alamat tujuan.</p>
+          <div class="movement-demo">
+            <div class="movement-start">📮</div>
+            <div class="movement-end">🏡</div>
+            <div class="movement-courier" id="speedCourier">🚚</div>
+          </div>
+          <div class="demo-buttons">
+            <button class="primary-btn" onclick="runSpeed(.5)">0,5 detik</button>
+            <button class="primary-btn" onclick="runSpeed(1.5)">1,5 detik</button>
+            <button class="primary-btn" onclick="runSpeed(3)">3 detik</button>
+            <button class="secondary-btn" onclick="resetSpeed()">Ulangi</button>
+          </div>
+          <div class="feedback-line" id="speedFeedback"></div>
+        </section>
+
+        <!-- SLIDE 16 -->
+        <section class="slide" id="slide-16">
+          <h3>Siapkan Project</h3>
+          <div class="visual-grid">
+            <div class="visual-card"><div class="visual-icon">🚚</div><h4>1 Sprite Kurir</h4><p>Pilih karakter yang akan mengantar paket.</p></div>
+            <div class="visual-card"><div class="visual-icon">🏠</div><h4>3 Rumah</h4><p>Rumah A, B, dan C sebagai tujuan.</p></div>
+            <div class="visual-card"><div class="visual-icon">🌄</div><h4>1 Backdrop</h4><p>Pilih kota, jalan, atau lingkungan rumah.</p></div>
+            <div class="visual-card"><div class="visual-icon">💾</div><h4>Nama Project</h4><p>Kurir Paket Pintar.</p></div>
+          </div>
+          <div class="info-box">Tempatkan rumah sesuai alamatnya sebelum menyusun kode kurir.</div>
+        </section>
+
+        <!-- SLIDE 17 -->
+        <section class="slide" id="slide-17">
+          <h3>Susun Posisi Rumah</h3>
+          <div class="house-map">
+            <button class="map-point" style="left:18.75%;top:27.8%;"><span>🏠</span><small>A: -150, 80</small></button>
+            <button class="map-point" style="left:81.25%;top:36.1%;"><span>🏡</span><small>B: 150, 50</small></button>
+            <button class="map-point" style="left:66.7%;top:77.8%;"><span>🏘️</span><small>C: 80, -100</small></button>
+            <div class="courier-dot">🚚</div>
+          </div>
+          <ul>
+            <li>Kurir mulai dari tengah: x: 0, y: 0.</li>
+            <li>Rumah tidak perlu diberi script perjalanan.</li>
+            <li>Script perjalanan dibuat pada sprite kurir.</li>
+          </ul>
+        </section>
+
+        <!-- SLIDE 18 -->
+        <section class="slide" id="slide-18">
+          <h3>Rencana Perjalanan</h3>
+          <ol class="pseudo-list">
+            <li>Mulai saat Green Flag diklik.</li>
+            <li>Kurir berada di Kantor Pos: x 0, y 0.</li>
+            <li>Glide ke Rumah A, lalu tampilkan pesan.</li>
+            <li>Glide ke Rumah B, lalu tampilkan pesan.</li>
+            <li>Glide ke Rumah C, lalu tampilkan pesan selesai.</li>
+          </ol>
+          <div class="interactive-box">Pseudocode membantu kita memahami alur sebelum melihat gambar blok Scratch.</div>
+        </section>
+
+        <!-- SLIDE 19 -->
+        <section class="slide" id="slide-19">
+          <h3>Kode 1 — Mulai dari Kantor Pos</h3>
+          <div class="code-placeholder">
+            <div>
+              <div style="font-size:2.3rem;margin-bottom:8px;">🧩</div>
+              <strong>PLACEHOLDER GAMBAR KODE SCRATCH</strong>
+              <code>Green Flag → go to x: 0 y: 0</code>
+              <p class="mini-note">Ganti dengan screenshot blok Scratch asli.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 20 -->
+        <section class="slide" id="slide-20">
+          <h3>Kode 2 — Menuju Rumah A</h3>
+          <div class="code-placeholder">
+            <div>
+              <div style="font-size:2.3rem;margin-bottom:8px;">🏠</div>
+              <strong>PLACEHOLDER GAMBAR KODE SCRATCH</strong>
+              <code>glide ke x: -150 y: 80 → say pesan</code>
+              <p class="mini-note">Ganti dengan screenshot blok Scratch asli.</p>
+            </div>
+          </div>
+          <div class="example-box">Dialog ditampilkan setelah glide agar kurir berbicara ketika sudah sampai.</div>
+        </section>
+
+        <!-- SLIDE 21 -->
+        <section class="slide" id="slide-21">
+          <h3>Kode 3 — Rumah B dan C</h3>
+          <div class="code-placeholder">
+            <div>
+              <div style="font-size:2.3rem;margin-bottom:8px;">🏡 🏘️</div>
+              <strong>PLACEHOLDER GAMBAR KODE SCRATCH</strong>
+              <code>glide B → say → glide C → say</code>
+              <p class="mini-note">Ganti dengan screenshot rangkaian blok Scratch asli.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 22 -->
+        <section class="slide" id="slide-22">
+          <h3>Susun Urutan Pengiriman</h3>
+          <p>Seret kartu ke kotak urutan, lalu periksa jawabanmu.</p>
+          <div class="sequence-source" id="sequenceSource">
+            <div class="sequence-card" draggable="true" data-step="4">Glide ke Rumah C dan tampilkan pesan selesai</div>
+            <div class="sequence-card" draggable="true" data-step="1">Saat Green Flag diklik</div>
+            <div class="sequence-card" draggable="true" data-step="3">Glide ke Rumah B dan tampilkan pesan</div>
+            <div class="sequence-card" draggable="true" data-step="2">Pergi ke x: 0, y: 0 lalu glide ke Rumah A</div>
+          </div>
+          <div class="sequence-target" id="sequenceTarget"></div>
+          <div class="demo-buttons">
+            <button class="primary-btn" onclick="checkSequence()">Periksa Urutan</button>
+            <button class="secondary-btn" onclick="resetSequence()">Atur Ulang</button>
+          </div>
+          <div class="feedback-line" id="sequenceFeedback"></div>
+        </section>
+
+        <!-- SLIDE 23 -->
+        <section class="slide" id="slide-23">
+          <h3>Detektif Kode</h3>
+          <div class="debug-tabs">
+            <button class="debug-tab active" onclick="showDebug(1,this)">Langsung berpindah</button>
+            <button class="debug-tab" onclick="showDebug(2,this)">Rumah salah</button>
+            <button class="debug-tab" onclick="showDebug(3,this)">Dialog terlalu cepat</button>
+            <button class="debug-tab" onclick="showDebug(4,this)">Sprite hilang</button>
+          </div>
+          <div class="debug-scenario active" id="debug-1"><div class="warning-box"><strong>Masalah:</strong> Kurir langsung muncul di rumah tanpa terlihat bergerak.</div><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback1')">Ganti perjalanan ke rumah dengan glide</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback1')">Hapus semua koordinat</button><div class="feedback-line" id="debugFeedback1"></div></div>
+          <div class="debug-scenario" id="debug-2"><div class="warning-box"><strong>Masalah:</strong> Kurir berhenti di rumah yang salah.</div><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback2')">Periksa kembali angka X dan Y</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback2')">Ganti semua backdrop</button><div class="feedback-line" id="debugFeedback2"></div></div>
+          <div class="debug-scenario" id="debug-3"><div class="warning-box"><strong>Masalah:</strong> Dialog muncul sebelum kurir sampai.</div><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback3')">Letakkan blok say setelah glide</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback3')">Hapus Green Flag</button><div class="feedback-line" id="debugFeedback3"></div></div>
+          <div class="debug-scenario" id="debug-4"><div class="warning-box"><strong>Masalah:</strong> Sprite keluar dari Stage dan tidak terlihat.</div><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback4')">Gunakan koordinat dalam batas Stage</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback4')">Tambahkan sound lebih keras</button><div class="feedback-line" id="debugFeedback4"></div></div>
+        </section>
+
+        <!-- SLIDE 24 -->
+        <section class="slide" id="slide-24">
+          <h3>Cek Misi dan Bonus</h3>
+          <ul class="checklist">
+            <li class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Kurir mulai dari x: 0, y: 0.</span></li>
+            <li class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Kurir menggunakan glide ke minimal dua rumah.</span></li>
+            <li class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Dialog muncul setelah kurir sampai.</span></li>
+            <li class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Kurir tetap terlihat di dalam Stage.</span></li>
+            <li class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Project sudah diberi nama dan disimpan.</span></li>
+          </ul>
+          <div class="visual-grid">
+            <div class="visual-card"><div class="visual-icon">🥉</div><h4>Bonus 1</h4><p>Buat dialog berbeda di setiap rumah.</p></div>
+            <div class="visual-card"><div class="visual-icon">🥈</div><h4>Bonus 2</h4><p>Kembalikan kurir ke Kantor Pos.</p></div>
+            <div class="visual-card"><div class="visual-icon">🥇</div><h4>Bonus 3</h4><p>Bandingkan glide 0,5 dan 3 detik.</p></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Sebelumnya</button>
+        <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">24</span></div>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Berikutnya →</button>
+      </div>
+    </div>
+
+    <div class="explanation-panel">
+      <section class="explanation active" id="explanation-1">
+        <h3>Selamat Datang di Misi Pengiriman</h3>
+        <p>Hari ini kamu akan memakai Stage Scratch seperti sebuah peta. Kurir perlu mengetahui alamat setiap rumah agar paket tidak salah tujuan.</p>
+        <div class="info-box"><h4>Target utama</h4><p>Membuat sprite kurir bergerak dari Kantor Pos menuju beberapa rumah menggunakan koordinat X dan Y.</p></div>
+        <div class="example-box"><strong>Hasil akhir:</strong> kurir meluncur ke Rumah A, Rumah B, dan Rumah C, lalu menampilkan pesan di setiap tujuan.</div>
+      </section>
+
+      <section class="explanation" id="explanation-2">
+        <h3>Apa yang Akan Kamu Kuasai?</h3>
+        <p>Sesi ini berfokus pada posisi dan gerakan. Kamu akan belajar membaca alamat pada Stage, lalu menggunakan alamat itu di dalam project.</p>
+        <ul><li>X menunjukkan gerak ke kiri atau kanan.</li><li>Y menunjukkan gerak ke atas atau bawah.</li><li>Go to memindahkan sprite secara langsung.</li><li>Glide membuat perpindahan terlihat halus.</li></ul>
+      </section>
+
+      <section class="explanation" id="explanation-3">
+        <h3>Alamat Membantu Kita Menemukan Tempat</h3>
+        <p>Sebuah alamat memberi petunjuk lokasi yang jelas. Tanpa alamat, kurir hanya menebak-nebak tempat tujuan.</p>
+        <div class="info-box"><h4>Dalam kehidupan sehari-hari</h4><p>Kita memakai nama jalan, nomor rumah, lantai, atau nomor ruang.</p></div>
+        <div class="example-box"><h4>Dalam Scratch</h4><p>Kita memakai pasangan angka X dan Y.</p></div>
+      </section>
+
+      <section class="explanation" id="explanation-4">
+        <h3>Stage Adalah Peta Digital</h3>
+        <p>Setiap titik pada Stage memiliki alamat. Dua titik yang berbeda biasanya memiliki pasangan X dan Y yang berbeda.</p>
+        <p>Alamat <strong>x: -150, y: 80</strong> berarti posisi berada di sebelah kiri dan atas dari titik tengah.</p>
+        <div class="warning-box">Urutan angka tidak boleh tertukar. Angka pertama adalah X, angka kedua adalah Y.</div>
+      </section>
+
+      <section class="explanation" id="explanation-5">
+        <h3>Dua Angka untuk Satu Posisi</h3>
+        <p>X dan Y bekerja bersama. X saja belum cukup untuk menentukan satu titik, begitu juga Y saja.</p>
+        <div class="example-box"><strong>x: 0, y: 0</strong> adalah titik tengah Stage. Titik ini cocok untuk menjadi Kantor Pos atau posisi awal kurir.</div>
+        <p>Saat sprite digeser di Stage, nilai X dan Y pada informasi sprite akan ikut berubah.</p>
+      </section>
+
+      <section class="explanation" id="explanation-6">
+        <h3>Membaca Sumbu X</h3>
+        <p>Sumbu X membentang secara mendatar.</p>
+        <ul><li>Angka positif bergerak ke kanan dari titik tengah.</li><li>Angka negatif bergerak ke kiri dari titik tengah.</li><li>Semakin besar jaraknya dari 0, semakin jauh posisinya dari tengah.</li></ul>
+        <div class="info-box">Contoh: x: 180 lebih jauh ke kanan daripada x: 60.</div>
+      </section>
+
+      <section class="explanation" id="explanation-7">
+        <h3>Membaca Sumbu Y</h3>
+        <p>Sumbu Y membentang secara tegak.</p>
+        <ul><li>Angka positif bergerak ke atas dari titik tengah.</li><li>Angka negatif bergerak ke bawah dari titik tengah.</li><li>Y tidak menentukan kiri atau kanan.</li></ul>
+        <div class="info-box">Contoh: y: -120 berada lebih bawah daripada y: -40.</div>
+      </section>
+
+      <section class="explanation" id="explanation-8">
+        <h3>Gabungkan Tanda X dan Y</h3>
+        <p>Kita dapat memperkirakan daerah posisi hanya dengan melihat tanda positif atau negatif.</p>
+        <div class="visual-grid">
+          <div class="visual-card"><strong>−, +</strong><p>Kiri atas</p></div>
+          <div class="visual-card"><strong>+, +</strong><p>Kanan atas</p></div>
+          <div class="visual-card"><strong>−, −</strong><p>Kiri bawah</p></div>
+          <div class="visual-card"><strong>+, −</strong><p>Kanan bawah</p></div>
+        </div>
+        <div class="example-box">x: -100, y: -70 berada di kiri bawah.</div>
+      </section>
+
+      <section class="explanation" id="explanation-9">
+        <h3>Gunakan Angka yang Masih Terlihat</h3>
+        <p>Stage Scratch memiliki ruang terbatas. Secara umum, X berada sekitar -240 hingga 240 dan Y sekitar -180 hingga 180.</p>
+        <div class="warning-box">Sprite masih dapat terlihat sebagian di dekat batas. Namun, angka yang terlalu besar dapat membuatnya keluar dari layar.</div>
+        <p>Saat sprite hilang, periksa kembali angka X dan Y sebelum mengubah bagian lain.</p>
+      </section>
+
+      <section class="explanation" id="explanation-10">
+        <h3>Eksperimen dengan Posisi</h3>
+        <p>Seret kurir pada panel kiri. Nilai yang muncul adalah perkiraan koordinat Stage Scratch.</p>
+        <ol><li>Geser ke kanan dan lihat tanda X.</li><li>Geser ke kiri dan lihat tanda X.</li><li>Geser ke atas dan lihat tanda Y.</li><li>Geser ke bawah dan lihat tanda Y.</li><li>Kembalikan ke tengah.</li></ol>
+        <div class="example-box">Eksperimen membantu kamu memahami koordinat tanpa harus menghafal semua angka.</div>
+      </section>
+
+      <section class="explanation" id="explanation-11">
+        <h3>Baca Tanda Sebelum Membayangkan Posisi</h3>
+        <p>Alamat x: 150, y: -80 memiliki X positif dan Y negatif.</p>
+        <ul><li>X positif → kanan.</li><li>Y negatif → bawah.</li></ul>
+        <p>Jadi, posisi tersebut berada di kanan bawah.</p>
+      </section>
+
+      <section class="explanation" id="explanation-12">
+        <h3>Peta Tujuan Kurir</h3>
+        <p>Setiap rumah memiliki alamat tetap:</p>
+        <ul><li>Rumah A → x: -150, y: 80</li><li>Rumah B → x: 150, y: 50</li><li>Rumah C → x: 80, y: -100</li></ul>
+        <p>Klik rumah di panel kiri untuk melihat alamat dan menggerakkan kurir ke lokasi tersebut.</p>
+        <div class="info-box">Dalam project Scratch, angka ini akan dimasukkan ke blok posisi dan glide.</div>
+      </section>
+
+      <section class="explanation" id="explanation-13">
+        <h3>Cocokkan Paket dengan Alamat</h3>
+        <p>Periksa dua angka dengan teliti. Rumah A berada di kiri atas karena X negatif dan Y positif.</p>
+        <div class="example-box">Alamat Rumah A adalah x: -150, y: 80.</div>
+        <p>Kesalahan tanda positif atau negatif dapat mengirim kurir ke sisi yang berbeda.</p>
+      </section>
+
+      <section class="explanation" id="explanation-14">
+        <h3>Kapan Memakai Go To?</h3>
+        <p><strong>Go to</strong> cocok untuk menentukan posisi awal karena perpindahan terjadi langsung dan tidak perlu terlihat oleh pemain.</p>
+        <h4>Kapan Memakai Glide?</h4>
+        <p><strong>Glide</strong> cocok untuk perjalanan yang ingin terlihat, seperti kurir yang meluncur dari satu rumah ke rumah lain.</p>
+        <div class="info-box">Tujuan bisa sama, tetapi tampilan geraknya berbeda.</div>
+      </section>
+
+      <section class="explanation" id="explanation-15">
+        <h3>Waktu Glide Mengatur Kecepatan</h3>
+        <p>Angka detik pada glide menentukan berapa lama sprite mencapai tujuan.</p>
+        <ul><li>0,5 detik → cepat.</li><li>1,5 detik → sedang.</li><li>3 detik → lebih lambat.</li></ul>
+        <div class="warning-box">Mengubah waktu tidak mengubah alamat tujuan selama angka X dan Y tetap sama.</div>
+      </section>
+
+      <section class="explanation" id="explanation-16">
+        <h3>Siapkan Semua Aset Dulu</h3>
+        <p>Project lebih mudah dibuat jika sprite dan backdrop sudah siap sebelum menyusun script.</p>
+        <ol><li>Pilih sprite kurir.</li><li>Tambahkan atau buat tiga rumah.</li><li>Pilih backdrop.</li><li>Beri nama project.</li><li>Simpan project.</li></ol>
+        <div class="info-box">Pastikan kamu memilih sprite kurir saat mulai menyusun kode.</div>
+      </section>
+
+      <section class="explanation" id="explanation-17">
+        <h3>Posisikan Objek Tujuan</h3>
+        <p>Rumah A, B, dan C perlu berada di lokasi yang sesuai dengan alamatnya. Kamu dapat menyeret setiap rumah, lalu mengetik nilai X dan Y pada informasi sprite agar lebih tepat.</p>
+        <div class="warning-box">Klik sprite yang benar sebelum mengubah X dan Y. Jangan sampai angka rumah dimasukkan pada sprite kurir.</div>
+      </section>
+
+      <section class="explanation" id="explanation-18">
+        <h3>Pseudocode Perjalanan</h3>
+        <p>Pseudocode adalah rencana langkah dengan bahasa biasa. Rencana ini membantu kita memeriksa urutan sebelum memakai blok Scratch.</p>
+        <div class="info-box"><h4>Urutan penting</h4><p>Posisi awal → perjalanan → sampai → dialog → lanjut ke tujuan berikutnya.</p></div>
+        <p>Jika dialog diletakkan sebelum perjalanan, kurir akan berbicara sebelum sampai.</p>
+      </section>
+
+      <section class="explanation" id="explanation-19">
+        <h3>Pseudocode Kode 1</h3>
+        <ol class="pseudo-list"><li>Ketika Green Flag diklik, mulai program.</li><li>Tempatkan kurir di x: 0, y: 0.</li></ol>
+        <div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot blok <span class="pill orange">when green flag clicked</span> dan blok Motion <span class="pill blue">go to x: y:</span>.</p></div>
+        <p>Go to digunakan karena posisi awal tidak perlu ditampilkan sebagai perjalanan.</p>
+      </section>
+
+      <section class="explanation" id="explanation-20">
+        <h3>Pseudocode Kode 2</h3>
+        <ol class="pseudo-list"><li>Glide menuju x: -150, y: 80.</li><li>Setelah sampai, tampilkan pesan untuk Rumah A.</li></ol>
+        <div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot blok Motion <span class="pill blue">glide seconds to x: y:</span> dan Looks <span class="pill purple">say for seconds</span>.</p></div>
+      </section>
+
+      <section class="explanation" id="explanation-21">
+        <h3>Pseudocode Kode 3</h3>
+        <ol class="pseudo-list"><li>Glide ke Rumah B pada x: 150, y: 50.</li><li>Tampilkan pesan bahwa paket B sudah sampai.</li><li>Glide ke Rumah C pada x: 80, y: -100.</li><li>Tampilkan pesan bahwa semua paket selesai.</li></ol>
+        <div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot rangkaian glide dan say untuk Rumah B dan Rumah C.</p></div>
+      </section>
+
+      <section class="explanation" id="explanation-22">
+        <h3>Sequence Harus Logis</h3>
+        <p>Scratch menjalankan blok dari atas ke bawah. Karena itu, urutan perjalanan menentukan rumah mana yang dikunjungi lebih dulu.</p>
+        <div class="example-box"><strong>Urutan yang diharapkan:</strong> Green Flag → posisi awal → Rumah A → Rumah B → Rumah C.</div>
+        <p>Gunakan aktivitas seret pada panel kiri untuk menguji pemahamanmu.</p>
+      </section>
+
+      <section class="explanation" id="explanation-23">
+        <h3>Debugging Koordinat dan Gerakan</h3>
+        <p>Debugging adalah proses menemukan penyebab ketika hasil project belum sesuai rencana.</p>
+        <div class="info-box"><h4>Urutan periksa</h4><ol><li>Apakah event sudah terhubung?</li><li>Apakah angka X dan Y benar?</li><li>Apakah perjalanan memakai glide?</li><li>Apakah dialog berada setelah glide?</li><li>Apakah semua blok tersambung?</li></ol></div>
+        <p>Perbaiki satu bagian, lalu jalankan lagi dari awal.</p>
+      </section>
+
+      <section class="explanation" id="explanation-24">
+        <h3>Output Minimum Sesi 2</h3>
+        <p>Misi berhasil saat kurir dapat bergerak menggunakan glide ke sedikitnya dua lokasi yang berbeda dan tetap terlihat di dalam Stage.</p>
+        <div class="info-box"><h4>Refleksi</h4><ul><li>Apa perbedaan go to dan glide?</li><li>Apa yang terjadi saat tanda X diubah?</li><li>Apa yang terjadi saat tanda Y diubah?</li><li>Bagian mana yang perlu kamu perbaiki?</li></ul></div>
+        <div class="example-box">Setelah target minimum selesai, pilih satu bonus dan lakukan testing kembali.</div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const CORRECT_ACCESS_CODE = 'RGMDSUP26';
+    const ENABLE_ACCESS_CODE = true;
+    let currentSlideIndex = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function checkAccess() {
+      if (ENABLE_ACCESS_CODE) showAccessPopup();
+      else grantAccess();
+    }
+
+    function showAccessPopup() {
+      const overlay = document.getElementById('accessPopup');
+      overlay.style.display = 'flex';
+      setTimeout(() => overlay.querySelector('.access-popup').classList.add('show'), 80);
+      setTimeout(() => document.getElementById('accessInput').focus(), 120);
+    }
+
+    function checkAccessCode() {
+      const input = document.getElementById('accessInput');
+      const error = document.getElementById('accessError');
+      const code = input.value.trim().toUpperCase();
+      if (code === CORRECT_ACCESS_CODE) grantAccess();
+      else {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+        setTimeout(() => error.classList.remove('show'), 2500);
+      }
+    }
+
+    function grantAccess() {
+      document.getElementById('accessPopup').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'flex';
+      showSlide(1);
+    }
+
+    function updateProgressBar() {
+      document.getElementById('progressFill').style.width = ((currentSlideIndex / totalSlides) * 100) + '%';
+    }
+
+    function showSlide(index) {
+      document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.explanation').forEach(el => el.classList.remove('active'));
+      const slide = document.getElementById(`slide-${index}`);
+      const explanation = document.getElementById(`explanation-${index}`);
+      if (slide) slide.classList.add('active');
+      if (explanation) explanation.classList.add('active');
+      document.querySelector('.slide-content').scrollTop = 0;
+      document.querySelector('.explanation-panel').scrollTop = 0;
+      document.getElementById('currentSlide').textContent = index;
+      document.getElementById('totalSlides').textContent = totalSlides;
+      document.getElementById('prevBtn').disabled = index === 1;
+      document.getElementById('nextBtn').disabled = index === totalSlides;
+      updateProgressBar();
+    }
+
+    function changeSlide(direction) {
+      currentSlideIndex = Math.min(totalSlides, Math.max(1, currentSlideIndex + direction));
+      showSlide(currentSlideIndex);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      const accessVisible = document.getElementById('accessPopup').style.display !== 'none';
+      if (accessVisible) {
+        if (event.key === 'Enter') checkAccessCode();
+        return;
+      }
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (event.key === 'ArrowRight') changeSlide(1);
+      if (event.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    document.getElementById('accessInput').addEventListener('input', (event) => {
+      const start = event.target.selectionStart;
+      event.target.value = event.target.value.toUpperCase();
+      event.target.setSelectionRange(start, start);
+    });
+
+    function clearChoiceGroup(button) {
+      button.parentElement.querySelectorAll('.choice-btn').forEach(el => el.classList.remove('correct','wrong'));
+    }
+
+    function singleChoice(button, correct, feedbackId, correctText) {
+      clearChoiceGroup(button);
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById(feedbackId).textContent = correct
+        ? `Benar! ${correctText} membantu seseorang menemukan tempat.`
+        : 'Belum tepat. Pilih informasi yang menunjukkan lokasi dengan jelas.';
+    }
+
+    function axisChoice(button, correct, feedbackId) {
+      clearChoiceGroup(button);
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById(feedbackId).textContent = correct ? 'Benar!' : 'Coba ingat kembali arah nilai positif dan negatif.';
+    }
+
+    function boundaryChoice(button, correct) {
+      clearChoiceGroup(button);
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById('boundaryFeedback').textContent = correct
+        ? 'Benar! Koordinat itu masih berada dalam batas umum Stage.'
+        : 'Angka tersebut terlalu jauh dan dapat membuat sprite keluar dari Stage.';
+    }
+
+    const dragBoard = document.getElementById('dragBoard');
+    const dragSprite = document.getElementById('dragSprite');
+    let dragging = false;
+
+    function updateDragPosition(clientX, clientY) {
+      const rect = dragBoard.getBoundingClientRect();
+      const px = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const py = Math.max(0, Math.min(rect.height, clientY - rect.top));
+      dragSprite.style.left = `${(px / rect.width) * 100}%`;
+      dragSprite.style.top = `${(py / rect.height) * 100}%`;
+      const x = Math.round(((px / rect.width) * 480 - 240) / 10) * 10;
+      const y = Math.round((180 - (py / rect.height) * 360) / 10) * 10;
+      document.getElementById('dragX').textContent = x;
+      document.getElementById('dragY').textContent = y;
+    }
+
+    dragSprite.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      dragSprite.setPointerCapture(event.pointerId);
+      updateDragPosition(event.clientX, event.clientY);
+    });
+    dragSprite.addEventListener('pointermove', (event) => {
+      if (dragging) updateDragPosition(event.clientX, event.clientY);
+    });
+    dragSprite.addEventListener('pointerup', () => { dragging = false; });
+    dragSprite.addEventListener('pointercancel', () => { dragging = false; });
+
+    function resetDragSprite() {
+      dragSprite.style.left = '50%';
+      dragSprite.style.top = '50%';
+      document.getElementById('dragX').textContent = '0';
+      document.getElementById('dragY').textContent = '0';
+    }
+
+    function quadrantQuiz(button, correct) {
+      clearChoiceGroup(button);
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById('quadrantFeedback').textContent = correct
+        ? 'Benar! X positif berarti kanan dan Y negatif berarti bawah.'
+        : 'Belum tepat. Baca tanda X dan Y satu per satu.';
+    }
+
+    function showHouse(name, x, y, button) {
+      document.querySelectorAll('#houseMap .map-point').forEach(el => el.classList.remove('active'));
+      button.classList.add('active');
+      const left = ((x + 240) / 480) * 100;
+      const top = ((180 - y) / 360) * 100;
+      const courier = document.getElementById('mapCourier');
+      courier.style.left = `${left}%`;
+      courier.style.top = `${top}%`;
+      document.getElementById('houseInfo').innerHTML = `<strong>Rumah ${name}</strong> berada di x: ${x}, y: ${y}.`;
+    }
+
+    function houseQuiz(button, correct) {
+      clearChoiceGroup(button);
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById('houseQuizFeedback').textContent = correct
+        ? 'Benar! Itu adalah alamat Rumah A.'
+        : 'Belum tepat. Cocokkan kembali X dan Y dengan daftar alamat rumah.';
+    }
+
+    function resetMovement() {
+      const courier = document.getElementById('movementCourier');
+      courier.style.transition = 'none';
+      courier.style.left = '12%';
+      void courier.offsetWidth;
+      courier.style.transition = 'left 1.5s ease';
+      document.getElementById('movementFeedback').textContent = '';
+    }
+
+    function runMovement(type) {
+      const courier = document.getElementById('movementCourier');
+      resetMovement();
+      setTimeout(() => {
+        courier.style.transition = type === 'goto' ? 'none' : 'left 1.5s ease';
+        courier.style.left = '88%';
+        document.getElementById('movementFeedback').textContent = type === 'goto'
+          ? 'Go to: kurir langsung berpindah.'
+          : 'Glide: kurir terlihat meluncur menuju rumah.';
+      }, 50);
+    }
+
+    function resetSpeed() {
+      const courier = document.getElementById('speedCourier');
+      courier.style.transition = 'none';
+      courier.style.left = '12%';
+      void courier.offsetWidth;
+      document.getElementById('speedFeedback').textContent = '';
+    }
+
+    function runSpeed(seconds) {
+      const courier = document.getElementById('speedCourier');
+      resetSpeed();
+      setTimeout(() => {
+        courier.style.transition = `left ${seconds}s linear`;
+        courier.style.left = '88%';
+        document.getElementById('speedFeedback').textContent = `Kurir mencapai tujuan dalam ${String(seconds).replace('.', ',')} detik.`;
+      }, 50);
+    }
+
+    let draggedCard = null;
+    const sequenceSource = document.getElementById('sequenceSource');
+    const sequenceTarget = document.getElementById('sequenceTarget');
+
+    document.querySelectorAll('.sequence-card').forEach(card => {
+      card.addEventListener('dragstart', () => { draggedCard = card; card.classList.add('dragging'); });
+      card.addEventListener('dragend', () => { card.classList.remove('dragging'); draggedCard = null; });
+    });
+
+    [sequenceSource, sequenceTarget].forEach(zone => {
+      zone.addEventListener('dragover', event => event.preventDefault());
+      zone.addEventListener('drop', event => {
+        event.preventDefault();
+        if (draggedCard) zone.appendChild(draggedCard);
+      });
+    });
+
+    function checkSequence() {
+      const cards = [...sequenceTarget.querySelectorAll('.sequence-card')];
+      if (cards.length !== 4) {
+        document.getElementById('sequenceFeedback').textContent = 'Pindahkan semua kartu ke kotak urutan terlebih dahulu.';
+        return;
+      }
+      const correct = cards.every((card, index) => Number(card.dataset.step) === index + 1);
+      document.getElementById('sequenceFeedback').textContent = correct
+        ? 'Urutannya benar! Kurir siap menjalankan misi.'
+        : 'Urutannya belum tepat. Mulai dari event, posisi awal, lalu perjalanan A–B–C.';
+    }
+
+    function resetSequence() {
+      [...document.querySelectorAll('.sequence-card')]
+        .sort((a,b) => Number(b.dataset.step) - Number(a.dataset.step))
+        .forEach(card => sequenceSource.appendChild(card));
+      document.getElementById('sequenceFeedback').textContent = '';
+    }
+
+    function showDebug(number, button) {
+      document.querySelectorAll('.debug-tab').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.debug-scenario').forEach(el => el.classList.remove('active'));
+      button.classList.add('active');
+      document.getElementById(`debug-${number}`).classList.add('active');
+    }
+
+    function debugAnswer(button, correct, feedbackId) {
+      const scenario = button.closest('.debug-scenario');
+      scenario.querySelectorAll('.choice-btn').forEach(el => el.classList.remove('correct','wrong'));
+      button.classList.add(correct ? 'correct' : 'wrong');
+      document.getElementById(feedbackId).textContent = correct ? 'Perbaikan tepat!' : 'Belum tepat. Pilih perbaikan yang berhubungan langsung dengan masalah.';
+    }
+
+    function toggleCheck(input) {
+      input.closest('.check-item').classList.toggle('done', input.checked);
+    }
+
+    window.addEventListener('load', checkAccess);
+  </script>
+</body>
+</html>
