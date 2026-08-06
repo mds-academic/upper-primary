@@ -1,12 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>UOB My Digital Space Y2 — Upper Primary Sesi 3</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
+  <link
+    href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧩&lt;/text&gt;&lt;/svg&gt;"
+    rel="icon" />
   <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --blue: #0056b3;
@@ -35,377 +43,403 @@
       background: var(--bg);
       height: 100vh;
       overflow: hidden;
-      color: var(--text);
+      color: var(--text)
     }
 
-    button, input { font: inherit; }
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
 
     .progress-bar {
-      width: 100%; height: 6px; background: linear-gradient(90deg, #f5d7da, #d9e9ff);
-      position: fixed; top: 0; left: 0; z-index: 1000;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08)
     }
+
     .progress-fill {
-      height: 100%; width: 0;
+      height: 100%;
+      width: 0;
       background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
       transition: width .3s ease;
-      box-shadow: 0 0 8px rgba(0,86,179,.18);
+      box-shadow: 0 0 8px rgba(0, 86, 179, .18)
     }
 
-    .main-container { display: flex; height: 100vh; }
+    .main-container {
+      display: flex;
+      height: 100vh
+    }
 
     .slides-panel {
-      width: 50%; background: #f8f9fa; border-right: 2px solid var(--line);
-      display: flex; flex-direction: column; position: relative;
+      width: 50%;
+      background: #f8f9fa;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative
     }
 
     .explanation-panel {
-      width: 50%; background: #fff; overflow-y: auto; padding: 32px;
+      width: 50%;
+      background: #fff;
+      overflow-y: auto;
+      padding: 32px
     }
 
     .slide-header {
-      background: #fff; padding: 17px 20px 15px; border-bottom: 2px solid var(--line);
-      box-shadow: 0 2px 4px rgba(0,0,0,.04); position: relative;
+      background: #fff;
+      padding: 17px 20px 15px;
+      border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+      position: relative
     }
+
     .slide-header::before {
-      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-      background: linear-gradient(var(--uob-red), var(--light-blue));
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue))
     }
-    .slide-header h1 { font-size: 1.28rem; color: var(--text); margin-bottom: 3px; }
-    .slide-header p { font-size: .9rem; color: var(--muted); }
+
+    .slide-header h1 {
+      font-size: 1.28rem;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .slide-header p {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
     .header-badge {
-      position: absolute; right: 18px; top: 17px; background: var(--blue-soft);
-      color: var(--blue); border: 1px solid #cce7ff; border-radius: 999px;
-      padding: 5px 10px; font-weight: 700; font-size: .76rem;
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #cce7ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 700;
+      font-size: .76rem
     }
 
     .slide-content {
-      flex: 1; padding: 24px 28px 94px; overflow-y: auto;
-      display: flex; align-items: flex-start; justify-content: center; min-height: 0;
+      flex: 1;
+      padding: 24px 28px 94px;
+      overflow-y: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 0
     }
 
-    .slide, .explanation { display: none; opacity: 0; transition: opacity .25s ease; }
-    .slide.active, .explanation.active { display: block; opacity: 1; }
-    .slide { width: 100%; max-width: 820px; }
-    .explanation { max-width: 760px; margin: 0 auto; }
+    .slide,
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity .25s ease
+    }
 
-    .slide h2 { font-size: 2.25rem; color: var(--blue); margin-bottom: 10px; line-height: 1.15; }
-    .slide h3 { font-size: 1.78rem; color: var(--blue); margin-bottom: 16px; line-height: 1.2; }
-    .slide h4, .explanation h4 { font-size: 1.05rem; margin-bottom: 9px; color: var(--text); }
-    .slide p, .explanation p { font-size: 1rem; line-height: 1.58; color: #495057; margin-bottom: 14px; }
-    .explanation h3 { font-size: 1.65rem; margin-bottom: 16px; color: var(--text); line-height: 1.25; }
-    .slide ul, .slide ol, .explanation ul, .explanation ol { margin-left: 22px; margin-bottom: 10px; }
-    .slide li, .explanation li { margin-bottom: 7px; line-height: 1.5; }
+    .slide.active,
+    .explanation.active {
+      display: block;
+      opacity: 1
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 820px
+    }
+
+    .explanation {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .slide h2 {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+      line-height: 1.15
+    }
+
+    .slide h3 {
+      font-size: 1.78rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .slide h4,
+    .explanation h4 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: var(--text)
+    }
+
+    .slide p,
+    .explanation p {
+      font-size: 1rem;
+      line-height: 1.58;
+      color: #495057;
+      margin-bottom: 14px
+    }
+
+    .explanation h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.25
+    }
+
+    .slide ul,
+    .slide ol,
+    .explanation ul,
+    .explanation ol {
+      margin-left: 22px;
+      margin-bottom: 10px
+    }
+
+    .slide li,
+    .explanation li {
+      margin-bottom: 7px;
+      line-height: 1.5
+    }
 
     .eyebrow {
-      display: inline-block; color: var(--uob-red); font-size: .78rem; font-weight: 800;
-      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px;
+      display: inline-block;
+      color: var(--uob-red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px
     }
-    .lead { font-size: 1.08rem !important; }
-    .mini-note { font-size: .9rem !important; color: var(--muted) !important; margin-top: 10px; }
+
+    .lead {
+      font-size: 1.08rem !important
+    }
+
+    .mini-note {
+      font-size: .9rem !important;
+      color: var(--muted) !important;
+      margin-top: 10px
+    }
 
     .visual-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 13px; margin: 16px 0;
-    }
-    .visual-card, .metric-box, .info-box, .example-box, .warning-box,
-    .placeholder-box, .interactive-box, .code-placeholder, .quiz-card {
-      background: #fff; border: 2px solid var(--line); border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
-    }
-    .visual-card { padding: 15px; }
-    .visual-card h4 { margin-bottom: 5px; }
-    .visual-card p { margin-bottom: 0; font-size: .92rem; line-height: 1.42; }
-    .visual-icon { font-size: 1.9rem; margin-bottom: 8px; }
-
-    .metrics {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px; margin-top: 16px;
-    }
-    .metric-box { padding: 16px 12px; text-align: center; }
-    .metric-box strong { display: block; font-size: 1.55rem; color: var(--blue); margin-bottom: 7px; }
-    .metric-box span { font-size: .9rem; line-height: 1.35; color: #495057; display: block; }
-
-    .info-box, .example-box, .warning-box, .interactive-box { padding: 17px; margin: 16px 0; }
-    .info-box { border-left: 5px solid var(--light-blue); }
-    .example-box { border-left: 5px solid var(--green); background: #f8fff8; }
-    .warning-box { border-left: 5px solid var(--orange); background: #fffaf0; }
-    .interactive-box { border-left: 5px solid var(--purple); background: #fcf8ff; }
-
-    .placeholder-box {
-      min-height: 215px; padding: 24px; margin: 14px 0; display: grid; place-items: center;
-      text-align: center; border-style: dashed; background: linear-gradient(135deg,#fbfdff,#f5f9fc);
-    }
-    .placeholder-box .placeholder-icon { font-size: 2.3rem; margin-bottom: 8px; }
-    .placeholder-box strong { display: block; color: var(--blue); margin-bottom: 5px; }
-    .placeholder-box small { color: var(--muted); line-height: 1.4; }
-
-    .code-placeholder {
-      min-height: 230px; padding: 22px; margin: 14px 0; display: grid; place-items: center;
-      text-align: center; border-style: dashed; border-color: #9ab7d3; background: #f8fbfe;
-    }
-    .code-placeholder strong { color: var(--blue); display: block; margin-bottom: 7px; }
-    .code-placeholder code { color: var(--muted); background: #eef3f8; padding: 3px 7px; border-radius: 5px; }
-
-    .pseudo-list {
-      list-style: none; margin-left: 0 !important; counter-reset: pseudo;
-    }
-    .pseudo-list li {
-      counter-increment: pseudo; background: #fff; border: 1px solid var(--line);
-      border-radius: 9px; padding: 10px 12px 10px 44px; position: relative; margin-bottom: 8px;
-    }
-    .pseudo-list li::before {
-      content: counter(pseudo); position: absolute; left: 11px; top: 9px;
-      width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
-      background: var(--blue); color: white; font-weight: 800; font-size: .8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px;
+      margin: 16px 0
     }
 
-    .navigation {
-      position: absolute; bottom: 0; left: 0; right: 0; background: #fff;
-      border-top: 2px solid var(--line); padding: 12px 18px;
-      display: flex; justify-content: space-between; align-items: center;
-      box-shadow: 0 -2px 4px rgba(0,0,0,.04);
-    }
-    .nav-btn {
-      background: var(--light-blue); color: #fff; border: none; border-radius: 8px;
-      padding: 10px 18px; cursor: pointer; font-size: .94rem; font-weight: 700;
-      display: flex; gap: 8px; align-items: center; transition: .2s ease;
-    }
-    .nav-btn:hover { transform: translateY(-1px); background: #357abd; }
-    .nav-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-    .slide-indicator { font-size: .9rem; color: var(--muted); font-weight: 700; }
-
-    .floating-element {
-      position: absolute; opacity: .07; pointer-events: none; font-size: 2rem;
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0) rotate(0); }
-      33% { transform: translateY(-12px) rotate(4deg); }
-      66% { transform: translateY(7px) rotate(-3deg); }
-    }
-
-    .access-popup-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 9999;
-      display: flex; justify-content: center; align-items: center;
-    }
-    .access-popup {
-      background: white; border: 3px solid var(--light-blue); border-radius: 15px;
-      padding: 38px; max-width: 450px; width: 90%; text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,.3); transform: scale(.8); opacity: 0;
-      transition: all .3s ease;
-    }
-    .access-popup.show { transform: scale(1); opacity: 1; }
-    .access-popup h2 { color: var(--text); margin-bottom: 13px; font-size: 1.8rem; }
-    .access-popup p { color: #666; margin-bottom: 22px; line-height: 1.55; }
-    .access-input {
-      width: 100%; padding: 14px; font-size: 1.15rem; border: 2px solid #dee2e6;
-      border-radius: 8px; margin-bottom: 18px; text-align: center; letter-spacing: 2px;
-      font-weight: bold; text-transform: uppercase;
-    }
-    .access-input:focus { outline: none; border-color: var(--light-blue); box-shadow: 0 0 0 3px rgba(74,158,255,.12); }
-    .access-submit {
-      background: var(--light-blue); color: white; border: none; padding: 13px 28px;
-      border-radius: 8px; font-size: 1.05rem; font-weight: bold; cursor: pointer;
-    }
-    .access-submit:hover { background: #357abd; }
-    .access-error { color: var(--red); margin-top: 13px; font-weight: bold; opacity: 0; transition: opacity .2s; }
-    .access-error.show { opacity: 1; }
-    .access-hint { background: #fff3cd; border: 1px solid #ffc107; border-radius: 5px; padding: 9px; margin-top: 18px; font-size: .88rem; color: #856404; }
-
-    .choice-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 10px; margin: 12px 0; }
-    .choice-btn {
-      border: 2px solid var(--line); background: #fff; color: var(--text); border-radius: 10px;
-      padding: 11px 12px; cursor: pointer; font-weight: 700; transition: .18s; text-align: left;
-    }
-    .choice-btn:hover { border-color: var(--light-blue); transform: translateY(-1px); }
-    .choice-btn.correct { border-color: var(--green); background: var(--green-soft); color: #176b35; }
-    .choice-btn.wrong { border-color: var(--red); background: #fff1f0; color: #a42820; }
-    .feedback-line { min-height: 28px; font-weight: 700; margin-top: 8px; }
-
-    .primary-btn, .secondary-btn {
-      border: none; border-radius: 8px; padding: 10px 14px; font-weight: 800; cursor: pointer;
-    }
-    .primary-btn { background: var(--blue); color: white; }
-    .secondary-btn { background: #e9ecef; color: var(--text); }
-
-    .sequence-source, .sequence-target { display: grid; gap: 8px; margin-top: 10px; }
-    .sequence-card {
-      padding: 10px 12px; border: 2px solid var(--line); background: #fff; border-radius: 9px;
-      cursor: grab; user-select: none; font-weight: 700;
-    }
-    .sequence-card.dragging { opacity: .45; }
-    .sequence-target {
-      min-height: 170px; border: 2px dashed #a9bfd2; background: #f8fbfe;
-      border-radius: 10px; padding: 10px;
-    }
-    .sequence-target .sequence-card { cursor: grab; }
-
-    .checklist { list-style: none; margin-left: 0 !important; display: grid; gap: 8px; }
-    .check-item {
-      display: flex; gap: 9px; align-items: flex-start; padding: 10px 12px;
-      border: 1px solid var(--line); border-radius: 9px; background: #fff; cursor: pointer;
-    }
-    .check-item input { margin-top: 3px; transform: scale(1.2); }
-    .check-item.done { background: var(--green-soft); border-color: #9cd9af; text-decoration: line-through; color: #3e6b4c; }
-
-    .debug-scenario { display: none; }
-    .debug-scenario.active { display: block; }
-    .debug-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .debug-tab {
-      border: 1px solid var(--line); background: #fff; border-radius: 999px;
-      padding: 7px 11px; cursor: pointer; font-weight: 700;
-    }
-    .debug-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
-
-    .pill {
-      display: inline-block; padding: 4px 9px; border-radius: 999px; font-size: .78rem;
-      font-weight: 800; color: #fff; margin: 2px;
-    }
-    .pill.blue { background: var(--blue); }
-    .pill.green { background: var(--green); }
-    .pill.orange { background: var(--orange); }
-    .pill.purple { background: var(--purple); }
-    .pill.red { background: var(--uob-red); }
-
-    /* Coordinate learning components */
-    .axis-demo {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0;
-    }
-    .axis-card {
-      padding: 17px; border: 2px solid var(--line); border-radius: 12px; background: #fff;
-      text-align: center;
-    }
-    .axis-letter { font-size: 2.2rem; font-weight: 900; color: var(--blue); }
-    .axis-arrow { font-size: 1.7rem; color: var(--uob-red); margin: 7px 0; }
-
-    .coordinate-board {
-      position: relative; width: min(100%, 560px); aspect-ratio: 4 / 3; margin: 14px auto;
-      border: 3px solid #afc8df; border-radius: 12px; overflow: hidden; background-color: #fbfdff;
-      background-image:
-        linear-gradient(to right, rgba(0,86,179,.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,86,179,.12) 1px, transparent 1px);
-      background-size: 10% 10%; touch-action: none;
-    }
-    .coordinate-board::before {
-      content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
-      background: var(--uob-red); transform: translateX(-50%); z-index: 1;
-    }
-    .coordinate-board::after {
-      content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 3px;
-      background: var(--blue); transform: translateY(-50%); z-index: 1;
-    }
-    .axis-label {
-      position: absolute; z-index: 2; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,.9);
-      font-size: .76rem; font-weight: 900;
-    }
-    .axis-label.x-pos { right: 5px; top: calc(50% + 5px); color: var(--blue); }
-    .axis-label.x-neg { left: 5px; top: calc(50% + 5px); color: var(--blue); }
-    .axis-label.y-pos { left: calc(50% + 5px); top: 4px; color: var(--uob-red); }
-    .axis-label.y-neg { left: calc(50% + 5px); bottom: 4px; color: var(--uob-red); }
-    .origin-label { left: calc(50% + 6px); top: calc(50% + 6px); color: var(--text); }
-
-    .draggable-sprite {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-      width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
-      background: white; border: 3px solid var(--uob-red); box-shadow: 0 4px 10px rgba(0,0,0,.22);
-      cursor: grab; z-index: 5; font-size: 1.65rem; user-select: none;
-    }
-    .draggable-sprite:active { cursor: grabbing; }
-    .coordinate-readout {
-      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;
-    }
-    .coord-chip {
-      padding: 7px 12px; border-radius: 999px; background: #fff; border: 2px solid var(--line);
-      font-weight: 900;
-    }
-    .coord-chip.x { color: var(--blue); }
-    .coord-chip.y { color: var(--uob-red); }
-
-    .house-map {
-      position: relative; width: min(100%, 580px); aspect-ratio: 4 / 3; margin: 14px auto;
-      border: 3px solid #afc8df; border-radius: 12px; overflow: hidden;
-      background: linear-gradient(#e8f6ff 0 55%, #dff3d7 55% 100%);
-    }
-    .house-map::before, .house-map::after {
-      content: ""; position: absolute; z-index: 1; opacity: .45;
-    }
-    .house-map::before { left: 50%; top: 0; bottom: 0; width: 2px; background: var(--uob-red); }
-    .house-map::after { top: 50%; left: 0; right: 0; height: 2px; background: var(--blue); }
-    .map-point {
-      position: absolute; transform: translate(-50%,-50%); z-index: 3; border: none; background: transparent;
-      cursor: pointer; text-align: center; font-weight: 900; color: var(--text);
-    }
-    .map-point span { display: block; font-size: 2.2rem; filter: drop-shadow(0 2px 2px rgba(0,0,0,.2)); }
-    .map-point small { background: rgba(255,255,255,.92); padding: 3px 6px; border-radius: 6px; display: inline-block; }
-    .map-point:hover span, .map-point.active span { transform: scale(1.14); }
-    .courier-dot {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 4;
-      width: 48px; height: 48px; display: grid; place-items: center; font-size: 1.8rem;
-      border: 3px solid var(--blue); border-radius: 50%; background: #fff;
-      transition: left 1.4s ease, top 1.4s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,.18);
-    }
-
-    .movement-demo {
-      position: relative; min-height: 150px; margin: 14px 0; border: 2px solid var(--line);
-      border-radius: 12px; background: linear-gradient(90deg,#f8fbff,#fff7f7); overflow: hidden;
-    }
-    .movement-start, .movement-end {
-      position: absolute; top: 60px; font-size: 2rem; transform: translate(-50%,-50%);
-    }
-    .movement-start { left: 12%; }
-    .movement-end { left: 88%; }
-    .movement-courier {
-      position: absolute; left: 12%; top: 60px; transform: translate(-50%,-50%); font-size: 2rem;
-      transition: left 1.5s ease; z-index: 3;
-    }
-    .demo-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
-
-    .route-summary {
-      min-height: 52px; padding: 12px; border: 2px dashed #9ab7d3; border-radius: 10px;
-      background: #f8fbfe; font-weight: 700; line-height: 1.5;
-    }
-
-    @media (max-width: 960px) {
-      body { overflow: auto; height: auto; }
-      .main-container { flex-direction: column; height: auto; min-height: 100vh; }
-      .slides-panel, .explanation-panel { width: 100%; height: auto; min-height: 50vh; }
-      .slides-panel { min-height: 100vh; }
-      .slide-content { padding: 20px 20px 92px; }
-      .explanation-panel { padding: 24px; }
-      .header-badge { display: none; }
-    }
-
-    /* Sesi 3: components that extend the shared Sesi 2 template */
-    .visual-grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .mission-card, .pseudo-box, .ba-card, .debug-panel {
+    .visual-card,
+    .metric-box,
+    .info-box,
+    .example-box,
+    .warning-box,
+    .placeholder-box,
+    .interactive-box,
+    .code-placeholder,
+    .quiz-card {
       background: #fff;
       border: 2px solid var(--line);
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05)
     }
 
-    .mission-card {
+    .visual-card {
+      padding: 15px
+    }
+
+    .visual-card h4 {
+      margin-bottom: 5px
+    }
+
+    .visual-card p {
+      margin-bottom: 0;
+      font-size: .92rem;
+      line-height: 1.42
+    }
+
+    .visual-icon {
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .metric-box {
+      padding: 16px 12px;
+      text-align: center
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--blue);
+      margin-bottom: 7px
+    }
+
+    .metric-box span {
+      font-size: .9rem;
+      line-height: 1.35;
+      color: #495057;
+      display: block
+    }
+
+    .info-box,
+    .example-box,
+    .warning-box,
+    .interactive-box {
       padding: 17px;
-      margin: 16px 0;
-      border-left: 5px solid var(--uob-red);
-      background: linear-gradient(135deg, #fff7f8, #f5f9ff);
+      margin: 16px 0
     }
 
-    .pseudo-box {
-      padding: 15px;
+    .info-box {
+      border-left: 5px solid var(--light-blue)
+    }
+
+    .example-box {
+      border-left: 5px solid var(--green);
+      background: #f8fff8
+    }
+
+    .warning-box {
+      border-left: 5px solid var(--orange);
+      background: #fffaf0
+    }
+
+    .interactive-box {
+      border-left: 5px solid var(--purple);
+      background: #fcf8ff
+    }
+
+    .placeholder-box {
+      min-height: 215px;
+      padding: 24px;
       margin: 14px 0;
-      background: #f8f9fa;
-      font-family: Consolas, "Courier New", monospace;
-      line-height: 1.55;
-      color: #334155;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      background: linear-gradient(135deg, #fbfdff, #f5f9fc)
     }
 
-    .action-btn {
+    .placeholder-box .placeholder-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px
+    }
+
+    .placeholder-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px
+    }
+
+    .placeholder-box small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .code-placeholder {
+      min-height: 230px;
+      padding: 22px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      border-color: #9ab7d3;
+      background: #f8fbfe
+    }
+
+    .code-placeholder strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 7px
+    }
+
+    .code-placeholder code {
+      color: var(--muted);
+      background: #eef3f8;
+      padding: 3px 7px;
+      border-radius: 5px
+    }
+
+    .pseudo-list {
+      list-style: none;
+      margin-left: 0 !important;
+      counter-reset: pseudo
+    }
+
+    .pseudo-list li {
+      counter-increment: pseudo;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      margin-bottom: 8px
+    }
+
+    .pseudo-list li::before {
+      content: counter(pseudo);
+      position: absolute;
+      left: 11px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: .8rem
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 2px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, .04)
+    }
+
+    .nav-btn {
       background: var(--light-blue);
       color: #fff;
       border: none;
@@ -414,735 +448,1562 @@
       cursor: pointer;
       font-size: .94rem;
       font-weight: 700;
-      display: inline-flex;
+      display: flex;
       gap: 8px;
       align-items: center;
-      transition: .2s ease;
+      transition: .2s ease
     }
-    .action-btn:hover { transform: translateY(-1px); background: #357abd; }
-    .action-btn.secondary { background: #e9ecef; color: var(--text); }
-    .button-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
-    .feedback-text { font-weight: 700; color: var(--blue); min-height: 22px; }
 
-    .big-word {
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      background: #357abd
+    }
+
+    .nav-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .slide-indicator {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: .07;
+      pointer-events: none;
       font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      color: var(--uob-red);
-      background: linear-gradient(90deg, #fff1f2, #eef7ff);
-      border: 2px solid var(--line);
-      border-radius: 14px;
-      padding: 18px;
-      text-align: center;
-      margin: 14px 0;
+      animation: float 6s ease-in-out infinite
     }
 
-    .puzzle-row, .flow-mini, .flowchart-wide {
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      33% {
+        transform: translateY(-12px) rotate(4deg)
+      }
+
+      66% {
+        transform: translateY(7px) rotate(-3deg)
+      }
+    }
+
+    .access-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .access-popup {
+      background: white;
+      border: 3px solid var(--light-blue);
+      border-radius: 15px;
+      padding: 38px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transform: scale(.8);
+      opacity: 0;
+      transition: all .3s ease
+    }
+
+    .access-popup.show {
+      transform: scale(1);
+      opacity: 1
+    }
+
+    .access-popup h2 {
+      color: var(--text);
+      margin-bottom: 13px;
+      font-size: 1.8rem
+    }
+
+    .access-popup p {
+      color: #666;
+      margin-bottom: 22px;
+      line-height: 1.55
+    }
+
+    .access-input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.15rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    .access-input:focus {
+      outline: none;
+      border-color: var(--light-blue);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, .12)
+    }
+
+    .access-submit {
+      background: var(--light-blue);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .access-submit:hover {
+      background: #357abd
+    }
+
+    .access-error {
+      color: var(--red);
+      margin-top: 13px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .access-error.show {
+      opacity: 1
+    }
+
+    .access-hint {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 18px;
+      font-size: .88rem;
+      color: #856404
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0
+    }
+
+    .choice-btn {
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .18s;
+      text-align: left
+    }
+
+    .choice-btn:hover {
+      border-color: var(--light-blue);
+      transform: translateY(-1px)
+    }
+
+    .choice-btn.correct,
+    .choice-btn.selected {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #176b35
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fff1f0;
+      color: #a42820
+    }
+
+    .feedback-line {
+      min-height: 28px;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary-btn {
+      background: var(--blue);
+      color: white
+    }
+
+    .secondary-btn {
+      background: #e9ecef;
+      color: var(--text)
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      display: grid;
+      gap: 8px
+    }
+
+    .check-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      cursor: pointer
+    }
+
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2)
+    }
+
+    .check-item.done {
+      background: var(--green-soft);
+      border-color: #9cd9af;
+      text-decoration: line-through;
+      color: #3e6b4c
+    }
+
+    .debug-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .debug-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .debug-tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    .debug-scenario {
+      display: none
+    }
+
+    .debug-scenario.active {
+      display: block
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2px
+    }
+
+    .pill.blue {
+      background: var(--blue)
+    }
+
+    .pill.green {
+      background: var(--green)
+    }
+
+    .pill.orange {
+      background: var(--orange)
+    }
+
+    .pill.purple {
+      background: var(--purple)
+    }
+
+    .pill.red {
+      background: var(--uob-red)
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0
+    }
+
+    .flow-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .flow-arrow {
+      color: var(--uob-red);
+      font-size: 1.6rem;
+      font-weight: 900
+    }
+
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .symbol-card {
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .symbol-card.active {
+      border-color: var(--blue);
+      background: var(--blue-soft)
+    }
+
+    .symbol-shape {
+      height: 54px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--blue);
+      max-width: 120px
+    }
+
+    .oval {
+      border-radius: 999px
+    }
+
+    .rect {
+      border-radius: 10px
+    }
+
+    .diamond {
+      width: 64px;
+      height: 64px;
+      transform: rotate(45deg);
+      border-radius: 8px
+    }
+
+    .diamond span {
+      transform: rotate(-45deg)
+    }
+
+    .parallelogram {
+      transform: skew(-15deg);
+      border-radius: 9px
+    }
+
+    .parallelogram span {
+      transform: skew(15deg)
+    }
+
+    .sequence-source,
+    .sequence-target {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .sequence-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      cursor: grab;
+      user-select: none;
+      font-weight: 700
+    }
+
+    .sequence-card.dragging {
+      opacity: .45
+    }
+
+    .sequence-target {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      background: #f8fbfe;
+      border-radius: 10px;
+      padding: 10px
+    }
+
+    .keyboard {
+      background: #eef3fb;
+      border: 2px solid #cfdcec;
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .key {
+      background: white;
+      border: 2px solid #dbe3ef;
+      border-radius: 8px;
+      padding: 11px 0;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+      cursor: pointer
+    }
+
+    .key.active,
+    .key.music {
+      background: linear-gradient(135deg, #ffdde3, #d9eaff);
+      border-color: var(--blue);
+      color: var(--blue)
+    }
+
+    .key.music.playing {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .sound-log {
+      border: 2px dashed #9ab7d3;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 58px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .piano-preview {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 18px 0
+    }
+
+    .piano-preview button {
+      width: 78px;
+      height: 120px;
+      border: 2px solid #d7e0eb;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .08)
+    }
+
+    .piano-preview button:nth-child(1) {
+      background: #ffe4e8
+    }
+
+    .piano-preview button:nth-child(2) {
+      background: #fff0c8
+    }
+
+    .piano-preview button:nth-child(3) {
+      background: #dff8e9
+    }
+
+    .piano-preview button:nth-child(4) {
+      background: #dff3ff
+    }
+
+    .piano-preview button.playing {
+      transform: translateY(4px);
+      box-shadow: none
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .safe-card {
+      padding: 15px
+    }
+
+    .safe-card.good {
+      border-left: 5px solid var(--green)
+    }
+
+    .safe-card.bad {
+      border-left: 5px solid var(--red)
+    }
+
+    .compact-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff
+    }
+
+    .compact-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px
+    }
+
+    .compact-table td {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top
+    }
+
+    .compact-table tr:nth-child(even) td {
+      background: #f8fbfe
+    }
+
+    @media(max-width:960px) {
+      body {
+        overflow: auto;
+        height: auto
+      }
+
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh
+      }
+
+      .slides-panel,
+      .explanation-panel {
+        width: 100%;
+        height: auto;
+        min-height: 50vh
+      }
+
+      .slides-panel {
+        min-height: 100vh
+      }
+
+      .slide-content {
+        padding: 20px 20px 92px
+      }
+
+      .explanation-panel {
+        padding: 24px
+      }
+
+      .header-badge {
+        display: none
+      }
+
+      .flow-line,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .flow-arrow {
+        display: none
+      }
+
+      .keyboard {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+
+    .flowchart-board {
+      background: linear-gradient(180deg, #fbfdff 0%, #f3f8ff 100%);
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 14px;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .05)
+    }
+
+    .fc-node {
+      min-width: 220px;
+      max-width: 100%;
+      padding: 11px 16px;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .05);
+      border: 2px solid rgba(255, 255, 255, .6)
+    }
+
+    .fc-node small {
+      display: block;
+      font-size: .78rem;
+      font-weight: 700;
+      opacity: .92;
+      margin-top: 4px
+    }
+
+    .fc-start,
+    .fc-end {
+      border-radius: 999px;
+      color: #fff
+    }
+
+    .fc-start {
+      background: linear-gradient(135deg, #17b26b, #2e9d57)
+    }
+
+    .fc-end {
+      background: linear-gradient(135deg, #ff6b6b, #e74c3c)
+    }
+
+    .fc-process {
+      background: linear-gradient(135deg, #5aa7ff, #0056b3);
+      color: #fff
+    }
+
+    .fc-io {
+      background: linear-gradient(135deg, #f8bf3c, #f39c12);
+      color: #fff
+    }
+
+    .fc-decision {
+      background: linear-gradient(135deg, #b17cff, #8e44ad);
+      color: #fff;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      padding: 20px 24px;
+      min-width: 170px
+    }
+
+    .fc-arrow-down,
+    .fc-arrow-side {
+      color: var(--uob-red);
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1
+    }
+
+    .fc-row {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
-      margin: 18px 0;
+      flex-wrap: wrap
     }
-    .puzzle-row > div, .flow-mini > div {
+
+    .flowchart-duo {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: start;
+      margin-top: 12px
+    }
+
+    .mapping-stack {
+      display: grid;
+      gap: 10px
+    }
+
+    .mapping-card {
       background: #fff;
       border: 2px solid var(--line);
       border-radius: 12px;
       padding: 12px 14px;
-      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .04)
     }
 
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 18px 0;
-    }
-    .ba-card { padding: 18px; }
-    .ba-card.bad { border-left: 6px solid var(--red); }
-    .ba-card.good { border-left: 6px solid var(--green); }
-
-    .pattern-strip {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    .pattern-strip span {
-      background: linear-gradient(135deg, #fff, #eef7ff);
-      border: 2px solid var(--line);
-      border-radius: 12px;
-      padding: 14px;
-      font-weight: 800;
+    .mapping-card strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 4px
     }
 
-    .flowchart-demo {
-      display: grid;
-      justify-items: center;
-      gap: 8px;
-      margin: 18px 0;
+    .flowchart-board.compact .fc-node {
+      min-width: 180px;
+      padding: 9px 13px
     }
-    .flow-node {
-      border: 3px solid var(--blue);
-      background: #fff;
-      color: var(--text);
-      font-weight: 800;
-      padding: 11px 18px;
+
+    .flowchart-note {
+      font-size: .88rem;
+      color: var(--muted);
       text-align: center;
-      min-width: 105px;
-    }
-    .flow-node.start, .flow-node.end { border-radius: 999px; border-color: var(--uob-red); }
-    .flow-node.process { border-radius: 10px; }
-
-    .symbol-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 18px 0;
-    }
-    .symbol-btn {
-      min-height: 72px;
-      border: 3px solid var(--blue);
-      background: #fff;
-      border-radius: 10px;
-      font-weight: 800;
-      color: var(--text);
-      cursor: pointer;
-      padding: 10px;
-      transition: .2s ease;
-    }
-    .symbol-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,.1); }
-    .symbol-btn.oval { border-radius: 999px; border-color: var(--uob-red); }
-    .symbol-btn.diamond { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); min-height: 88px; }
-    .symbol-btn.arrow { border: none; font-size: 2rem; color: var(--blue); background: transparent; }
-
-    .drag-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 16px 0;
-    }
-    .drop-zone {
-      min-height: 190px;
-      border: 2px dashed #b6c4d6;
-      border-radius: 12px;
-      background: #fff;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .drop-zone.target { background: #f8fbff; }
-    .sequence-card[draggable="true"] { cursor: grab; }
-    .sequence-card.dragging { opacity: .55; }
-
-    .step-list li {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
+      margin-top: 4px
     }
 
-    .stage-sim {
-      height: 230px;
-      background: linear-gradient(#dff5ff, #fff);
-      border: 3px solid var(--line);
+    .symbol-preview {
+      background: #fbfdff;
+      border: 2px dashed #cfe0f5;
       border-radius: 14px;
-      position: relative;
-      overflow: hidden;
-      margin: 16px 0;
-    }
-    .sim-sprite {
-      position: absolute;
-      left: 10%;
-      top: 58%;
-      transform: translate(-50%, -50%);
-      font-size: 2.8rem;
-      transition: left 1s ease, transform .3s ease, opacity .3s ease;
-      opacity: 0;
-    }
-    .speech {
-      position: absolute;
-      left: 50%;
-      top: 18%;
-      transform: translateX(-50%);
-      background: #fff;
-      border: 2px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 16px;
-      opacity: 0;
-      font-weight: 700;
-    }
-
-    .debug-panel { padding: 14px; }
-    .challenge-list { display: grid; gap: 12px; }
-    .challenge-list > div {
-      background: #fff;
-      border: 2px solid var(--line);
-      border-left: 5px solid var(--uob-red);
-      border-radius: 12px;
       padding: 14px;
-      line-height: 1.45;
+      margin: 14px 0
     }
 
-    @media (max-width: 960px) {
-      .visual-grid.two, .before-after, .drag-layout { grid-template-columns: 1fr; }
-      .symbol-grid { grid-template-columns: repeat(2, 1fr); }
+    .symbol-preview h4 {
+      margin-bottom: 10px
     }
 
+    .bullet-mini {
+      margin: 0 0 0 18px
+    }
+
+    .bullet-mini li {
+      margin-bottom: 4px;
+      font-size: .95rem
+    }
+
+    .step-badge {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--uob-red);
+      color: #fff;
+      font-weight: 900;
+      font-size: .86rem;
+      margin-right: 8px
+    }
+
+    .mini-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px
+    }
+
+    .mini-flow-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 12px
+    }
+
+    .mini-flow-card h4 {
+      margin-bottom: 6px;
+      color: var(--blue)
+    }
+
+    @media(max-width:960px) {
+
+      .flowchart-duo,
+      .mini-flow-grid {
+        grid-template-columns: 1fr
+      }
+
+      .fc-node {
+        min-width: 0;
+        width: 100%
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="access-popup-overlay" id="accessPopup">
     <div class="access-popup">
       <h2>🔐 Kode Akses</h2>
-      <p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 3.</p>
-      <input type="text" class="access-input" id="accessInput" placeholder="MASUKKAN KODE" maxlength="20" autocomplete="off" />
-      <button class="access-submit" onclick="checkAccessCode()">Masuk</button>
-      <div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi, ya.</div>
+      <p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 3.</p><input autocomplete="off"
+        class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text" /><button
+        class="access-submit" onclick="checkAccessCode()">Masuk</button>
+      <div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div>
       <div class="access-hint">Kode akses diberikan oleh guru.</div>
     </div>
   </div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
   <div class="main-container" id="mainContent" style="display:none;">
     <div class="slides-panel">
       <div class="slide-header">
-        <h1>UOB My Digital Space Y2 — Upper Primary</h1>
-        <p>Sesi 3 · Flowchart Puzzle</p>
-        <span class="header-badge">Scratch · Kelas 4–5 SD</span>
+        <h1>UOB My Digital Space — Upper Primary</h1>
+        <p>Sesi 3 · Flowchart Puzzle</p><span class="header-badge">Scratch · Upper Primary</span>
       </div>
       <div class="slide-content">
         <div class="floating-element" style="top:12%;left:7%;">🧩</div>
-        <div class="floating-element" style="top:18%;right:10%;">➡️</div>
-        <div class="floating-element" style="bottom:25%;left:14%;">🗺️</div>
+        <div class="floating-element" style="top:18%;right:10%;">🚀</div>
+        <div class="floating-element" style="bottom:25%;left:14%;">⭐</div>
         <div class="floating-element" style="bottom:15%;right:16%;">💡</div>
         <section class="slide active" id="slide-1">
-<span class="eyebrow">Upper Primary · Sesi 3</span>
-<h2>Flowchart Puzzle</h2>
-<h3>Pecahkan Masalah Jadi Langkah Kecil</h3>
-<p class="lead">Hari ini kamu akan belajar merancang urutan langkah sebelum mulai coding di Scratch.</p>
-<div class="metrics">
-  <div class="metric-box"><strong>🧩</strong><span>Pecah masalah besar</span></div>
-  <div class="metric-box"><strong>➡️</strong><span>Susun urutan yang masuk akal</span></div>
-  <div class="metric-box"><strong>🔁</strong><span>Cari pola yang berulang</span></div>
-  <div class="metric-box"><strong>🗺️</strong><span>Buat flowchart sederhana</span></div>
-</div>
-</section>
-<section class="slide " id="slide-2">
-<h3>Target Belajar Hari Ini</h3>
-<div class="visual-grid two">
-  <div class="visual-card"><div class="visual-icon">✂️</div><h4>Decomposition</h4><p>Memecah tugas besar menjadi bagian kecil.</p></div>
-  <div class="visual-card"><div class="visual-icon">1️⃣</div><h4>Sequence</h4><p>Menyusun langkah dari awal sampai akhir.</p></div>
-  <div class="visual-card"><div class="visual-icon">🔎</div><h4>Pattern</h4><p>Menemukan langkah yang mirip atau berulang.</p></div>
-  <div class="visual-card"><div class="visual-icon">📍</div><h4>Flowchart</h4><p>Menggambar alur langkah agar mudah dibaca.</p></div>
-</div>
-</section>
-<section class="slide " id="slide-3">
-<h3>Kenapa Tidak Langsung Coding?</h3>
-<div class="before-after">
-  <div class="ba-card bad"><h4>Langsung coding</h4><p>“Aku mau sprite bergerak, bicara, ganti costume, tapi mulai dari mana ya?”</p></div>
-  <div class="ba-card good"><h4>Pakai rencana</h4><p>“Mulai → muncul → bergerak → bicara → ganti costume → selesai.”</p></div>
-</div>
-<p class="mini-note">Rencana membuat coding lebih mudah diikuti.</p>
-</section>
-<section class="slide " id="slide-4">
-<h3>Konsep 1: Decomposition</h3>
-<div class="big-word">DECOMPOSITION</div>
-<p>Artinya: memecah satu tugas besar menjadi beberapa tugas kecil.</p>
-<div class="puzzle-row">
-  <div>🎮 Game</div><span>→</span><div>Sprite</div><div>Backdrop</div><div>Gerak</div><div>Dialog</div><div>Testing</div>
-</div>
-</section>
-<section class="slide " id="slide-5">
-<h3>Aktivitas Cepat: Pecah Tugas</h3>
-<p>Pilih bagian kecil yang dibutuhkan untuk membuat “Kartu Nama Interaktif”.</p>
-<div class="choice-grid">
-  <button class="choice-btn" onclick="multiPick(this,true,'decompFeedback')">Pilih sprite</button>
-  <button class="choice-btn" onclick="multiPick(this,true,'decompFeedback')">Tulis kalimat sapaan</button>
-  <button class="choice-btn" onclick="multiPick(this,false,'decompFeedback')">Membuat game 3D besar</button>
-  <button class="choice-btn" onclick="multiPick(this,true,'decompFeedback')">Susun blok gerak</button>
-  <button class="choice-btn" onclick="multiPick(this,false,'decompFeedback')">Membeli laptop baru</button>
-  <button class="choice-btn" onclick="multiPick(this,true,'decompFeedback')">Tes dengan Green Flag</button>
-</div>
-<p id="decompFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-6">
-<h3>Konsep 2: Sequence</h3>
-<div class="flow-mini">
-  <div>Mulai</div><span>→</span><div>Pilih sprite</div><span>→</span><div>Susun blok</div><span>→</span><div>Tekan Green Flag</div>
-</div>
-<p>Sequence adalah urutan langkah dari awal sampai akhir.</p>
-</section>
-<section class="slide " id="slide-7">
-<h3>Aktivitas: Susun Urutan Roti</h3>
-<p>Tarik kartu ke kotak urutan yang benar.</p>
-<div class="drag-layout">
-  <div class="drop-zone" id="breadSource">
-    <div class="sequence-card" draggable="true" data-bread="3">🍞 Beri selai</div>
-    <div class="sequence-card" draggable="true" data-bread="1">🧼 Cuci tangan</div>
-    <div class="sequence-card" draggable="true" data-bread="4">🥪 Tutup roti</div>
-    <div class="sequence-card" draggable="true" data-bread="2">🍞 Ambil roti</div>
-  </div>
-  <div class="drop-zone target" id="breadTarget"><strong>Urutan jawaban</strong></div>
-</div>
-<div class="button-row"><button class="action-btn" onclick="checkBreadSequence()">Cek Urutan</button><button class="action-btn secondary" onclick="resetBreadSequence()">Reset</button></div>
-<p id="breadFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-8">
-<h3>Konsep 3: Pattern</h3>
-<div class="pattern-strip">
-  <span>Test</span><span>Bug</span><span>Fix</span><span>Test Lagi</span>
-</div>
-<p>Pattern adalah pola yang muncul berulang atau mirip.</p>
-</section>
-<section class="slide " id="slide-9">
-<h3>Quiz Pola</h3>
-<p>Manakah contoh pattern saat membuat project Scratch?</p>
-<div class="choice-grid">
-  <button class="choice-btn" onclick="singleChoice(this,false,'patternFeedback','')">Pilih sprite hanya sekali</button>
-  <button class="choice-btn" onclick="singleChoice(this,true,'patternFeedback','testing berulang adalah pola yang sering terjadi saat debugging.')">Tes → perbaiki → tes lagi</button>
-  <button class="choice-btn" onclick="singleChoice(this,false,'patternFeedback','')">Menutup browser sebelum selesai</button>
-  <button class="choice-btn" onclick="singleChoice(this,false,'patternFeedback','')">Menghapus semua blok</button>
-</div>
-<p id="patternFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-10">
-<h3>Konsep 4: Flowchart</h3>
-<p>Flowchart adalah gambar alur langkah.</p>
-<div class="flowchart-demo">
-  <div class="flow-node start">Mulai</div><span>↓</span>
-  <div class="flow-node process">Pilih sprite</div><span>↓</span>
-  <div class="flow-node process">Susun blok</div><span>↓</span>
-  <div class="flow-node end">Selesai</div>
-</div>
-</section>
-<section class="slide " id="slide-11">
-<h3>Kenalan dengan Simbol Flowchart</h3>
-<p>Klik simbol untuk melihat fungsinya.</p>
-<div class="symbol-grid">
-  <button class="symbol-btn oval" onclick="showSymbol('Mulai/Selesai','Dipakai untuk menandai awal atau akhir alur.')">Mulai</button>
-  <button class="symbol-btn rect" onclick="showSymbol('Proses','Dipakai untuk langkah kerja, misalnya pilih sprite atau susun blok.')">Proses</button>
-  <button class="symbol-btn diamond" onclick="showSymbol('Keputusan','Dipakai saat ada pilihan Ya/Tidak. Untuk sesi ini cukup dikenalkan dulu.')">?</button>
-  <button class="symbol-btn arrow" onclick="showSymbol('Panah','Menunjukkan arah urutan langkah.')">→</button>
-</div>
-<div id="symbolInfo" class="info-box"><strong>Pilih salah satu simbol.</strong></div>
-</section>
-<section class="slide " id="slide-12">
-<h3>Aktivitas: Susun Flowchart Scratch</h3>
-<p>Tarik kartu agar menjadi alur project: sprite muncul, bergerak, bicara, lalu ganti costume.</p>
-<div class="drag-layout">
-  <div class="drop-zone" id="scratchFlowSource">
-    <div class="sequence-card" draggable="true" data-flow="5">Selesai</div>
-    <div class="sequence-card" draggable="true" data-flow="2">Sprite muncul</div>
-    <div class="sequence-card" draggable="true" data-flow="1">Mulai</div>
-    <div class="sequence-card" draggable="true" data-flow="4">Sprite berkata sesuatu</div>
-    <div class="sequence-card" draggable="true" data-flow="3">Sprite bergerak</div>
-    <div class="sequence-card" draggable="true" data-flow="6">Ganti costume</div>
-  </div>
-  <div class="drop-zone target" id="scratchFlowTarget"><strong>Urutan flowchart</strong></div>
-</div>
-<div class="button-row"><button class="action-btn" onclick="checkScratchFlow()">Cek Flowchart</button><button class="action-btn secondary" onclick="resetScratchFlow()">Reset</button></div>
-<p id="scratchFlowFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-13">
-<h3>Misi Utama</h3>
-<div class="mission-card">
-  <h4>Project: Flowchart Puzzle</h4>
-  <p>Buat sprite menjalankan urutan: muncul → bergerak → bicara → ganti costume.</p>
-</div>
-<div class="visual-grid two">
-  <div class="visual-card"><div class="visual-icon">👾</div><h4>1 Sprite</h4><p>Pilih karakter yang kamu suka.</p></div>
-  <div class="visual-card"><div class="visual-icon">🎭</div><h4>2 Costume</h4><p>Pastikan sprite bisa berganti tampilan.</p></div>
-  <div class="visual-card"><div class="visual-icon">🏞️</div><h4>Backdrop</h4><p>Opsional, boleh ditambahkan.</p></div>
-  <div class="visual-card"><div class="visual-icon">✅</div><h4>Testing</h4><p>Jalankan dengan Green Flag.</p></div>
-</div>
-</section>
-<section class="slide " id="slide-14">
-<h3>Preview Alur Project</h3>
-<div class="flowchart-wide">
-  <div class="flow-node start">Mulai</div><span>→</span>
-  <div class="flow-node process">Show</div><span>→</span>
-  <div class="flow-node process">Move</div><span>→</span>
-  <div class="flow-node process">Say</div><span>→</span>
-  <div class="flow-node process">Next Costume</div><span>→</span>
-  <div class="flow-node end">Selesai</div>
-</div>
-<p class="mini-note">Flowchart ini akan menjadi panduan susunan blok.</p>
-</section>
-<section class="slide " id="slide-15">
-<h3>Persiapan Project</h3>
-<ol class="step-list">
-  <li>Buka Scratch dan pilih Create.</li>
-  <li>Pilih 1 sprite yang memiliki minimal 2 costume.</li>
-  <li>Tambahkan backdrop kalau ingin project lebih menarik.</li>
-  <li>Beri nama project: <strong>Flowchart Puzzle</strong>.</li>
-</ol>
-<div class="placeholder-box"><strong>[PLACEHOLDER GAMBAR]</strong><br>Screenshot area Scratch: sprite, costume, dan nama project.</div>
-</section>
-<section class="slide " id="slide-16">
-<h3>Langkah 1: Mulai dan Muncul</h3>
-<div class="code-placeholder"><strong>[PLACEHOLDER SCREENSHOT KODE SCRATCH]</strong><br>when green flag clicked → show</div>
-<div class="pseudo-box">
-  <strong>Pseudocode:</strong><br>
-  Saat Green Flag diklik<br>
-  Tampilkan sprite
-</div>
-</section>
-<section class="slide " id="slide-17">
-<h3>Langkah 2: Sprite Bergerak</h3>
-<div class="code-placeholder"><strong>[PLACEHOLDER SCREENSHOT KODE SCRATCH]</strong><br>Tambahkan move 50 steps di bawah show.</div>
-<div class="pseudo-box">
-  <strong>Pseudocode:</strong><br>
-  Saat Green Flag diklik<br>
-  Tampilkan sprite<br>
-  Gerakkan sprite 50 langkah
-</div>
-</section>
-<section class="slide " id="slide-18">
-<h3>Langkah 3: Sprite Berbicara</h3>
-<div class="code-placeholder"><strong>[PLACEHOLDER SCREENSHOT KODE SCRATCH]</strong><br>Tambahkan say “Halo! Aku sedang mengikuti flowchart.” for 2 seconds.</div>
-<div class="pseudo-box">
-  <strong>Pseudocode:</strong><br>
-  Gerakkan sprite<br>
-  Sprite berkata: “Halo! Aku mengikuti flowchart.”
-</div>
-</section>
-<section class="slide " id="slide-19">
-<h3>Langkah 4: Ganti Costume</h3>
-<div class="code-placeholder"><strong>[PLACEHOLDER SCREENSHOT KODE SCRATCH]</strong><br>Tambahkan next costume di akhir rangkaian.</div>
-<div class="pseudo-box">
-  <strong>Pseudocode:</strong><br>
-  Sprite berkata sesuatu<br>
-  Sprite berganti costume<br>
-  Project selesai
-</div>
-</section>
-<section class="slide " id="slide-20">
-<h3>Simulasi Urutan Blok</h3>
-<p>Klik tombol untuk melihat urutan aksi sprite.</p>
-<div class="stage-sim" id="stageSim">
-  <div class="sim-sprite" id="simSprite">🐱</div>
-  <div class="speech" id="simSpeech">Halo!</div>
-</div>
-<div class="button-row"><button class="action-btn" onclick="runSpriteSim()">Jalankan</button><button class="action-btn secondary" onclick="resetSpriteSim()">Reset</button></div>
-<p id="simFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-21">
-<h3>Detektif Kode</h3>
-<p>Pilih masalah yang ingin kamu cek.</p>
-<div class="debug-tabs">
-  <button class="debug-tab active" onclick="showDebug(1,this)">Sprite tidak muncul</button>
-  <button class="debug-tab" onclick="showDebug(2,this)">Tidak bergerak</button>
-  <button class="debug-tab" onclick="showDebug(3,this)">Dialog kosong</button>
-  <button class="debug-tab" onclick="showDebug(4,this)">Costume tetap</button>
-</div>
-<div class="debug-panel">
-  <div class="debug-scenario active" id="debug-1"><h4>Sprite tidak muncul</h4><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback')">Tambahkan show setelah Green Flag</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback')">Hapus semua costume</button></div>
-  <div class="debug-scenario" id="debug-2"><h4>Sprite tidak bergerak</h4><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback')">Cek move steps dan sambungan blok</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback')">Ganti nama project</button></div>
-  <div class="debug-scenario" id="debug-3"><h4>Dialog kosong</h4><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback')">Isi teks pada blok say</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback')">Ubah backdrop saja</button></div>
-  <div class="debug-scenario" id="debug-4"><h4>Costume tidak berubah</h4><button class="choice-btn" onclick="debugAnswer(this,true,'debugFeedback')">Pastikan sprite punya minimal 2 costume</button><button class="choice-btn" onclick="debugAnswer(this,false,'debugFeedback')">Matikan suara laptop</button></div>
-</div>
-<p id="debugFeedback" class="feedback-text"></p>
-</section>
-<section class="slide " id="slide-22">
-<h3>Cek Misi Project</h3>
-<div class="checklist">
-  <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> Sprite muncul saat Green Flag diklik.</label>
-  <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> Sprite bergerak setelah muncul.</label>
-  <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> Sprite menampilkan dialog yang jelas.</label>
-  <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> Sprite berganti costume.</label>
-  <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> Semua blok tersambung rapi.</label>
-</div>
-</section>
-<section class="slide " id="slide-23">
-<h3>Refleksi Singkat</h3>
-<p>Pilih jawaban yang paling tepat.</p>
-<div class="quiz-card">
-  <h4>Mengapa kita membuat flowchart sebelum coding?</h4>
-  <div class="choice-grid">
-    <button class="choice-btn" onclick="singleChoice(this,false,'reflectFeedback','')">Agar project terlihat lebih ramai</button>
-    <button class="choice-btn" onclick="singleChoice(this,true,'reflectFeedback','flowchart membantu kita melihat urutan sebelum menyusun kode.')">Agar urutan langkah lebih jelas</button>
-    <button class="choice-btn" onclick="singleChoice(this,false,'reflectFeedback','')">Agar tidak perlu testing</button>
-  </div>
-  <p id="reflectFeedback" class="feedback-text"></p>
-</div>
-</section>
-<section class="slide " id="slide-24">
-<h3>Misi Bonus ⭐</h3>
-<div class="challenge-list">
-  <div><strong>🥉 Challenge 1</strong><br>Buat flowchart kegiatan sehari-hari: bangun → mandi → sarapan → berangkat.</div>
-  <div><strong>🥈 Challenge 2</strong><br>Buat flowchart untuk game impianmu.</div>
-  <div><strong>🥇 Challenge 3</strong><br>Tukar flowchart dengan teman, lalu coba baca alurnya.</div>
-</div>
-</section>
-<section class="slide " id="slide-25">
-<span class="eyebrow">Sesi 3 Selesai</span>
-<h2>Keren! Kamu Sudah Berpikir seperti Game Creator</h2>
-<p class="lead">Hari ini kamu belajar memecah masalah, menyusun urutan, mencari pola, dan membuat flowchart.</p>
-<div class="mission-card"><h4>Sesi berikutnya</h4><p>Kita akan membuat <strong>Piano Digital</strong> menggunakan kontrol keyboard.</p></div>
-</section>
+          <span class="eyebrow">Sesi 3</span>
+          <h2>Flowchart Puzzle</h2>
+          <p class="lead">Hari ini kamu akan membantu Kiko menyusun rencana project Scratch sebelum membuat bloknya.</p>
+          <div class="metrics">
+            <div class="metric-box"><strong>🧩</strong><span>Memecah tugas besar</span></div>
+            <div class="metric-box"><strong>🔢</strong><span>Menyusun urutan</span></div>
+            <div class="metric-box"><strong>🔁</strong><span>Melihat pola</span></div>
+            <div class="metric-box"><strong>📍</strong><span>Membuat flowchart</span></div>
+          </div>
+          <div class="example-box">
+            <h4>Target project</h4>
+            <p>Sprite muncul, bergerak, menyapa, lalu berganti costume sesuai urutan flowchart.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-2">
+          <h3>Misi Belajar Hari Ini</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">✂️</div>
+              <h4>Pecah Tugas</h4>
+              <p>Mengubah project besar menjadi langkah kecil.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">1️⃣</div>
+              <h4>Urutan</h4>
+              <p>Menentukan langkah mana yang harus dilakukan lebih dulu.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🗺️</div>
+              <h4>Flowchart</h4>
+              <p>Membaca diagram alur sederhana.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🐱</div>
+              <h4>Scratch</h4>
+              <p>Mengubah rencana menjadi rangkaian blok.</p>
+            </div>
+          </div>
+          <p class="mini-note">Hari ini kita tidak langsung “asal pasang blok”. Kita belajar merencanakan dulu.</p>
+        </section>
+        <section class="slide" id="slide-3">
+          <h3>Pemanasan: Urutan Membuat Roti</h3>
+          <p>Tarik kartu ke kotak bawah sesuai urutan yang benar.</p>
+          <div class="sequence-source">
+            <div class="sequence-card" data-order="3" draggable="true">Uleni adonan</div>
+            <div class="sequence-card" data-order="1" draggable="true">Siapkan bahan</div>
+            <div class="sequence-card" data-order="5" draggable="true">Dinginkan roti</div>
+            <div class="sequence-card" data-order="2" draggable="true">Campur adonan</div>
+            <div class="sequence-card" data-order="4" draggable="true">Panggang roti</div>
+          </div>
+          <div class="sequence-target" id="breadTarget">
+            <p class="mini-note">Tarik kartu ke sini.</p>
+          </div><button class="primary-btn" onclick="checkOrder('breadTarget','breadFeedback')">Cek urutan</button>
+          <div class="feedback-line" id="breadFeedback"></div>
+        </section>
+        <section class="slide" id="slide-4">
+          <h3>Empat Cara Berpikir Programmer</h3>
+          <p>Klik setiap tombol untuk melihat artinya.</p>
+          <div class="choice-grid"><button class="choice-btn" onclick="showConcept('dekom')">Dekomposisi</button><button
+              class="choice-btn" onclick="showConcept('seq')">Sequence</button><button class="choice-btn"
+              onclick="showConcept('pat')">Pattern</button><button class="choice-btn"
+              onclick="showConcept('flow')">Flowchart</button></div>
+          <div class="area-live-card info-box" id="conceptInfo">
+            <h4>Dekomposisi</h4>
+            <p>Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-5">
+          <h3>Dekomposisi: Project Besar Jadi Bagian Kecil</h3>
+          <p>Project “membuat game Scratch” terdengar besar. Tapi kalau dipecah, langkahnya jadi lebih jelas.</p>
+          <table class="compact-table">
+            <tr>
+              <th>Tugas Besar</th>
+              <th>Dipecah Menjadi</th>
+            </tr>
+            <tr>
+              <td>Membuat game Scratch</td>
+              <td>Pilih sprite, pilih backdrop, buat gerakan, tambah aturan, uji coba, lalu perbaiki.</td>
+            </tr>
+          </table>
+          <div class="interactive-box"><strong>Coba pikir:</strong> kalau kamu ingin membuat game kejar-kejaran, bagian
+            kecil apa yang perlu disiapkan dulu?</div>
+        </section>
+        <section class="slide" id="slide-6">
+          <h3>Sequence: Urutan Itu Penting</h3>
+          <p>Scratch membaca blok dari atas ke bawah. Jadi, urutan blok memengaruhi hasil project.</p>
+          <div class="flow-line">
+            <div class="flow-box">Sprite muncul</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">Sprite bergerak</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">Sprite menyapa</div>
+          </div>
+          <div class="warning-box">
+            <h4>Kalau urutannya berubah?</h4>
+            <p>Sprite bisa menyapa sebelum muncul, bergerak di waktu yang salah, atau project terasa membingungkan.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-7">
+          <h3>Pattern: Pola yang Berulang</h3>
+          <p>Saat memperbaiki project, biasanya kita melakukan langkah yang sama berulang.</p>
+          <div class="flow-line">
+            <div class="flow-box">Tes</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">Cari Salah</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">Perbaiki</div>
+          </div>
+          <div class="example-box">
+            <p>Setelah diperbaiki, kita melakukan <strong>tes lagi</strong>. Pola ini sering dipakai programmer.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-8">
+          <h3>Apa Itu Flowchart?</h3>
+          <p><strong>Flowchart</strong> adalah gambar alur langkah. Dengan flowchart, kita bisa melihat urutan kerja
+            project sebelum menyusun blok Scratch.</p>
+          <div class="flowchart-board">
+            <div class="fc-node fc-start">START<small>Mulai kegiatan</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process">Bangun Tidur<small>Langkah 1</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process">Mandi<small>Langkah 2</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process">Sarapan<small>Langkah 3</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process">Berangkat Sekolah<small>Langkah 4</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-end">END<small>Kegiatan selesai</small></div>
+          </div>
+          <p class="flowchart-note">Contoh flowchart sederhana kegiatan pagi hari.</p>
+          <div class="info-box">
+            <h4>Kenapa flowchart membantu?</h4>
+            <ul class="bullet-mini">
+              <li>Langkah terlihat jelas dari awal sampai akhir.</li>
+              <li>Lebih mudah mengecek kalau ada urutan yang terlewat.</li>
+              <li>Lebih mudah diubah menjadi blok Scratch.</li>
+            </ul>
+          </div>
+        </section>
+        <section class="slide" id="slide-9">
+          <h3>Simbol Flowchart</h3>
+          <p>Klik simbol untuk melihat fungsinya. Setelah itu, lihat contoh flowchart kecil di bawahnya.</p>
+          <div class="symbol-grid"><button class="symbol-card active" onclick="showSymbol('start',this)">
+              <div class="symbol-shape oval">START</div><strong>Start/End</strong>
+            </button><button class="symbol-card" onclick="showSymbol('process',this)">
+              <div class="symbol-shape rect">Aksi</div><strong>Process</strong>
+            </button><button class="symbol-card" onclick="showSymbol('decision',this)">
+              <div class="symbol-shape diamond"><span>?</span></div><strong>Decision</strong>
+            </button><button class="symbol-card" onclick="showSymbol('io',this)">
+              <div class="symbol-shape parallelogram"><span>Input</span></div><strong>Input/Output</strong>
+            </button></div>
+          <div class="info-box" id="symbolInfo">
+            <h4>Start/End</h4>
+            <p>Dipakai untuk tanda mulai dan selesai.</p>
+          </div>
+          <div class="symbol-preview">
+            <h4>Contoh gambar flowchart kecil</h4>
+            <div class="fc-row">
+              <div class="symbol-shape oval">START</div>
+              <div class="fc-arrow-side">→</div>
+              <div class="symbol-shape rect">Pilih Sprite</div>
+              <div class="fc-arrow-side">→</div>
+              <div class="symbol-shape rect">Buat Gerakan</div>
+              <div class="fc-arrow-side">→</div>
+              <div class="symbol-shape oval">END</div>
+            </div>
+            <p class="mini-note">Pada contoh ini, oval dipakai untuk mulai/selesai, sedangkan kotak dipakai untuk aksi.
+            </p>
+          </div>
+        </section>
+        <section class="slide" id="slide-10">
+          <h3>Dari Flowchart ke Scratch</h3>
+          <p>Setiap kotak aksi pada flowchart bisa diubah menjadi blok Scratch. Jadi, flowchart adalah rencana,
+            sedangkan blok Scratch adalah cara menjalankannya.</p>
+          <div class="flowchart-duo">
+            <div class="flowchart-board compact">
+              <div class="fc-node fc-start">START</div>
+              <div class="fc-arrow-down">↓</div>
+              <div class="fc-node fc-process">Sprite Muncul</div>
+              <div class="fc-arrow-down">↓</div>
+              <div class="fc-node fc-process">Sprite Bergerak</div>
+              <div class="fc-arrow-down">↓</div>
+              <div class="fc-node fc-process">Sprite Menyapa</div>
+              <div class="fc-arrow-down">↓</div>
+              <div class="fc-node fc-process">Ganti Costume</div>
+              <div class="fc-arrow-down">↓</div>
+              <div class="fc-node fc-end">END</div>
+            </div>
+            <div class="mapping-stack">
+              <div class="mapping-card"><strong>Sprite Muncul</strong><span>Di Scratch bisa memakai blok
+                  <code>show</code>.</span></div>
+              <div class="mapping-card"><strong>Sprite Bergerak</strong><span>Di Scratch bisa memakai blok
+                  <code>move 50 steps</code>.</span></div>
+              <div class="mapping-card"><strong>Sprite Menyapa</strong><span>Di Scratch bisa memakai blok
+                  <code>say ... for 2 seconds</code>.</span></div>
+              <div class="mapping-card"><strong>Ganti Costume</strong><span>Di Scratch bisa memakai blok
+                  <code>next costume</code>.</span></div>
+            </div>
+          </div>
+          <p class="mini-note">Jadi, kita tidak asal memilih blok. Kita memilih blok sesuai langkah pada flowchart.</p>
+        </section>
+        <section class="slide" id="slide-11">
+          <h3>Susun Urutan Project Scratch</h3>
+          <p>Tarik kartu aksi ke kotak bawah sesuai urutan flowchart project hari ini.</p>
+          <div class="mini-flow-grid">
+            <div>
+              <div class="sequence-source">
+                <div class="sequence-card" data-order="4" draggable="true">Ganti costume</div>
+                <div class="sequence-card" data-order="2" draggable="true">Sprite bergerak</div>
+                <div class="sequence-card" data-order="1" draggable="true">Sprite muncul</div>
+                <div class="sequence-card" data-order="3" draggable="true">Sprite menyapa</div>
+              </div>
+              <div class="sequence-target" id="scratchTarget">
+                <p class="mini-note">Tarik kartu ke sini.</p>
+              </div>
+              <button class="primary-btn" onclick="checkOrder('scratchTarget','scratchFeedback')">Cek urutan</button>
+              <div class="feedback-line" id="scratchFeedback"></div>
+            </div>
+            <div class="interactive-box">
+              <h4>Petunjuk</h4>
+              <ul class="bullet-mini">
+                <li>Mulai dari langkah yang paling awal.</li>
+                <li>Pikirkan: setelah sprite muncul, apa yang terjadi?</li>
+                <li>Kalau bingung, cocokkan dengan flowchart di slide berikutnya.</li>
+              </ul>
+              <p class="mini-note">Latihan ini membantu kamu siap sebelum masuk ke blok Scratch.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-12">
+          <h3>Flowchart Project Hari Ini</h3>
+          <p>Ini adalah gambar flowchart utama yang akan kamu pakai sebagai panduan saat menyusun project Scratch.</p>
+          <div class="flowchart-board">
+            <div class="fc-node fc-start">START<small>Program dimulai</small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process"><span class="step-badge">1</span>Sprite Muncul<small>Gunakan blok
+                <code>show</code></small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process"><span class="step-badge">2</span>Sprite Bergerak<small>Gunakan blok
+                <code>move 50 steps</code></small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process"><span class="step-badge">3</span>Sprite Menyapa<small>Gunakan blok
+                <code>say ... for 2 seconds</code></small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-process"><span class="step-badge">4</span>Ganti Costume<small>Gunakan blok
+                <code>next costume</code></small></div>
+            <div class="fc-arrow-down">↓</div>
+            <div class="fc-node fc-end">END<small>Program selesai</small></div>
+          </div>
+          <div class="example-box">
+            <h4>Catatan penting</h4>
+            <p>Di Scratch, bagian START biasanya diawali oleh event <strong>when green flag clicked</strong>. Setelah
+              itu, semua blok di bawahnya berjalan sesuai urutan flowchart.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-13">
+          <h3>Yang Kamu Butuhkan</h3>
+          <ul class="checklist">
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> 1 sprite yang terlihat di
+              Stage.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Sprite memiliki minimal 2
+              costume.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Backdrop boleh ditambahkan agar
+              project lebih menarik.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Project sudah diberi nama yang
+              jelas.</li>
+          </ul>
+          <div class="warning-box">
+            <p>Jika sprite hanya punya satu costume, blok <strong>next costume</strong> tidak akan terlihat hasilnya.
+            </p>
+          </div>
+        </section>
+        <section class="slide" id="slide-14">
+          <h3>Pseudocode 1: Mulai dan Muncul</h3>
+          <div class="code-placeholder">
+            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
+                <code>when green flag clicked</code> + <code>show</code></small></div>
+          </div>
+          <ol class="pseudo-list">
+            <li>Ketika Green Flag diklik</li>
+            <li>Tampilkan sprite di Stage</li>
+            <li>Pastikan sprite tidak tersembunyi</li>
+          </ol>
+        </section>
+        <section class="slide" id="slide-15">
+          <h3>Pseudocode 2: Sprite Bergerak</h3>
+          <div class="code-placeholder">
+            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
+                <code>move 50 steps</code></small></div>
+          </div>
+          <ol class="pseudo-list">
+            <li>Setelah sprite muncul</li>
+            <li>Gerakkan sprite 50 langkah</li>
+            <li>Perhatikan arah sprite saat bergerak</li>
+          </ol>
+        </section>
+        <section class="slide" id="slide-16">
+          <h3>Pseudocode 3: Sprite Menyapa</h3>
+          <div class="code-placeholder">
+            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
+                <code>say [Halo Teman-Teman!] for 2 seconds</code></small></div>
+          </div>
+          <ol class="pseudo-list">
+            <li>Setelah bergerak</li>
+            <li>Sprite menampilkan dialog singkat</li>
+            <li>Gunakan kalimat yang ramah dan mudah dibaca</li>
+          </ol>
+        </section>
+        <section class="slide" id="slide-17">
+          <h3>Pseudocode 4: Ganti Costume</h3>
+          <div class="code-placeholder">
+            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
+                <code>next costume</code></small></div>
+          </div>
+          <ol class="pseudo-list">
+            <li>Setelah menyapa</li>
+            <li>Sprite mengganti tampilan</li>
+            <li>Jalankan ulang project untuk mengecek perubahannya</li>
+          </ol>
+        </section>
+        <section class="slide" id="slide-18">
+          <h3>Gabungkan Menjadi Satu Script</h3>
+          <div class="code-placeholder">
+            <div><strong>PLACEHOLDER GAMBAR RANGKAIAN BLOK LENGKAP</strong><small>Urutan: Green Flag → show → move → say
+                → next costume</small></div>
+          </div>
+          <p class="mini-note">Pastikan semua blok saling menempel. Jika ada blok terpisah, Scratch tidak akan
+            menjalankannya sebagai satu rangkaian.</p>
+        </section>
+        <section class="slide" id="slide-19">
+          <h3>Prediksi Output</h3>
+          <p>Jika urutan bloknya adalah <strong>show → move → say → next costume</strong>, apa yang akan terjadi?</p>
+          <div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'predictFeedback')">Sprite
+              muncul, bergerak, menyapa, lalu berubah tampilan</button><button class="choice-btn"
+              onclick="singleChoice(this,false,'predictFeedback')">Sprite langsung hilang</button><button
+              class="choice-btn" onclick="singleChoice(this,false,'predictFeedback')">Sprite hanya berbicara tanpa
+              bergerak</button></div>
+          <div class="feedback-line" id="predictFeedback"></div>
+        </section>
+        <section class="slide" id="slide-20">
+          <h3>Detektif Kode</h3>
+          <div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('s3bug1',this)">Sprite tidak
+              muncul</button><button class="debug-tab" onclick="showDebug('s3bug2',this)">Tidak bergerak</button><button
+              class="debug-tab" onclick="showDebug('s3bug3',this)">Costume tidak berubah</button></div>
+          <div class="debug-scenario active" id="s3bug1">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Apakah blok <strong>show</strong> sudah dipasang setelah Green Flag?</p>
+            </div>
+          </div>
+          <div class="debug-scenario" id="s3bug2">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Apakah blok <strong>move</strong> tersambung dan nilainya bukan 0?</p>
+            </div>
+          </div>
+          <div class="debug-scenario" id="s3bug3">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Apakah sprite memiliki minimal 2 costume?</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-21">
+          <h3>Testing Mengikuti Flowchart</h3>
+          <ul class="checklist">
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Jalankan project dari Green
+              Flag.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Cocokkan aksi pertama dengan
+              flowchart.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Cek aksi kedua, ketiga, dan
+              keempat.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Jalankan ulang untuk memastikan
+              hasilnya konsisten.</li>
+          </ul>
+        </section>
+        <section class="slide" id="slide-22">
+          <h3>Output Minimum</h3>
+          <ul class="checklist">
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Sprite muncul saat Green Flag
+              diklik.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Sprite bergerak setelah muncul.
+            </li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Dialog muncul setelah sprite
+              bergerak.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Costume berubah.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Semua blok tersusun dari atas
+              ke bawah tanpa terputus.</li>
+          </ul>
+        </section>
+        <section class="slide" id="slide-23">
+          <h3>Challenge Tambahan</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">🥉</div>
+              <h4>Challenge 1</h4>
+              <p>Buat flowchart kegiatan sehari-hari.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🥈</div>
+              <h4>Challenge 2</h4>
+              <p>Buat flowchart untuk game impianmu.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🥇</div>
+              <h4>Challenge 3</h4>
+              <p>Tukar flowchart dengan teman dan prediksi hasil projectnya.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-24">
+          <span class="eyebrow">Penutup</span>
+          <h2>Project Lebih Mudah Jika Direncanakan</h2>
+          <p class="lead">Hari ini kamu belajar bahwa flowchart membantu programmer menyusun langkah sebelum coding.</p>
+          <div class="example-box">
+            <h4>Ingat kalimat ini</h4>
+            <p><strong>Rencana yang jelas membuat kode lebih mudah dibuat dan diperbaiki.</strong></p>
+          </div>
+        </section>
       </div>
-      <div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Sebelumnya</button><div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">25</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Berikutnya →</button></div>
+      <div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span>
+          Previous</button>
+        <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">24</span></div><button
+          class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button>
+      </div>
     </div>
     <div class="explanation-panel">
       <section class="explanation active" id="explanation-1">
-<h3>Selamat datang di misi hari ini!</h3>
-<p>Kiko ingin membuat project Scratch. Tapi sebelum menyusun blok, Kiko perlu tahu dulu langkah-langkahnya.</p>
-<p>Kalau semua ide langsung dikerjakan sekaligus, project bisa jadi membingungkan. Karena itu, game creator biasanya membuat rencana dulu.</p>
-<div class="info-box"><strong>Misi hari ini:</strong> membuat flowchart sederhana, lalu mengubahnya menjadi project Scratch kecil.</div>
-</section>
-<section class="explanation " id="explanation-2">
-<h3>Apa yang akan kamu kuasai?</h3>
-<p>Setelah sesi ini, kamu diharapkan bisa menjelaskan urutan project dengan lebih rapi.</p>
-<ul>
-  <li>Memecah project menjadi beberapa langkah kecil.</li>
-  <li>Menentukan urutan langkah yang benar.</li>
-  <li>Mengenali pola langkah yang sering muncul.</li>
-  <li>Membaca flowchart sederhana.</li>
-  <li>Mengubah flowchart menjadi susunan blok Scratch.</li>
-</ul>
-</section>
-<section class="explanation " id="explanation-3">
-<h3>Rencana membantu kita fokus</h3>
-<p>Saat membuat project, ide bisa terasa banyak sekali. Rencana membantu kita memilih langkah yang perlu dikerjakan dulu.</p>
-<p>Di Scratch, blok dijalankan dari atas ke bawah. Jadi urutan blok sangat penting.</p>
-<div class="example-box">Kalau sprite diminta bicara sebelum muncul, pemain mungkin bingung karena aksi pertamanya belum jelas.</div>
-</section>
-<section class="explanation " id="explanation-4">
-<h3>Decomposition itu seperti membagi pekerjaan</h3>
-<p>Membuat game Scratch bukan satu langkah saja. Kita bisa membaginya menjadi bagian kecil, misalnya memilih sprite, memilih backdrop, membuat gerakan, menambahkan dialog, lalu mengetes hasilnya.</p>
-<p>Dengan cara ini, project terasa lebih ringan dan mudah diselesaikan.</p>
-</section>
-<section class="explanation " id="explanation-5">
-<h3>Coba pecah project kecil</h3>
-<p>Tidak semua hal termasuk langkah project. Fokuslah pada hal yang benar-benar dibutuhkan agar project berjalan.</p>
-<p>Project kecil biasanya membutuhkan: aset, kalimat, susunan blok, dan testing.</p>
-<div class="warning-box">Ingat: pilih langkah yang bisa langsung membantu project selesai.</div>
-</section>
-<section class="explanation " id="explanation-6">
-<h3>Urutan membuat hasil berbeda</h3>
-<p>Sequence berarti langkah-langkah disusun dengan urutan yang masuk akal.</p>
-<p>Contoh sederhana: saat membuat roti, kita menyiapkan bahan dulu sebelum memanggang. Kalau urutannya terbalik, hasilnya tidak sesuai.</p>
-<div class="info-box">Di Scratch, urutan blok juga penting karena program membaca blok dari atas ke bawah.</div>
-</section>
-<section class="explanation " id="explanation-7">
-<h3>Dari roti ke coding</h3>
-<p>Aktivitas ini melatih cara berpikir programmer: pekerjaan harus punya urutan yang jelas.</p>
-<p>Setelah kamu bisa menyusun langkah roti, kita akan memakai cara yang sama untuk menyusun langkah project Scratch.</p>
-</section>
-<section class="explanation " id="explanation-8">
-<h3>Pola membuat kita lebih cepat memahami masalah</h3>
-<p>Pattern berarti ada langkah yang mirip atau berulang. Dalam coding, pola sering muncul saat testing.</p>
-<p>Misalnya: coba project → temukan bug → perbaiki → coba lagi. Pola ini bisa terjadi berkali-kali sampai project berhasil.</p>
-<div class="example-box">Bug bukan tanda gagal. Bug adalah tanda bahwa ada bagian yang perlu diperiksa.</div>
-</section>
-<section class="explanation " id="explanation-9">
-<h3>Cara menemukan pola</h3>
-<p>Tanyakan pada dirimu: “Apakah langkah ini terjadi lebih dari satu kali?” Kalau iya, mungkin itu sebuah pattern.</p>
-<p>Programmer yang bisa melihat pola biasanya lebih mudah memperbaiki project dan membuat kode yang rapi.</p>
-</section>
-<section class="explanation " id="explanation-10">
-<h3>Flowchart membuat langkah terlihat jelas</h3>
-<p>Flowchart membantu kita melihat alur sebelum membuat kode. Bentuknya seperti peta kecil yang menunjukkan apa yang terjadi dari awal sampai akhir.</p>
-<p>Dengan flowchart, teman atau guru juga bisa memahami rencana project kita lebih cepat.</p>
-</section>
-<section class="explanation " id="explanation-11">
-<h3>Tidak perlu menghafal semuanya sekaligus</h3>
-<p>Hari ini kamu cukup mengenal simbol dasar: mulai, proses, panah, dan selesai.</p>
-<p>Simbol keputusan akan dipakai lebih banyak saat kita belajar kondisi seperti if-then.</p>
-</section>
-<section class="explanation " id="explanation-12">
-<h3>Flowchart sebelum kode</h3>
-<p>Di project utama, flowchart ini akan menjadi panduan saat menyusun blok Scratch.</p>
-<p>Kalau flowchart sudah rapi, kamu tinggal mencari blok yang sesuai untuk setiap langkah.</p>
-<div class="warning-box">Catatan: “Ganti costume” tetap bagian dari aksi sebelum project selesai.</div>
-</section>
-<section class="explanation " id="explanation-13">
-<h3>Project Scratch sesi ini</h3>
-<p>Project hari ini sederhana, tetapi penting. Kamu akan melatih cara menyusun alur yang rapi.</p>
-<p>Hasil minimum: satu sprite dapat muncul, bergerak, berbicara, dan berganti costume sesuai urutan.</p>
-<div class="info-box">Kalau kamu belum menemukan sprite dengan dua costume, pilih sprite lain atau duplikasi costume di tab Costumes.</div>
-</section>
-<section class="explanation " id="explanation-14">
-<h3>Dari flowchart ke Scratch</h3>
-<p>Setiap kotak pada flowchart bisa dihubungkan dengan blok Scratch.</p>
-<ul>
-  <li>Mulai → <strong>when green flag clicked</strong></li>
-  <li>Show → sprite muncul di Stage</li>
-  <li>Move → sprite bergerak</li>
-  <li>Say → sprite menyampaikan dialog</li>
-  <li>Next Costume → sprite berganti tampilan</li>
-</ul>
-</section>
-<section class="explanation " id="explanation-15">
-<h3>Sebelum menyusun blok</h3>
-<p>Pastikan project sudah siap agar kamu tidak bolak-balik terlalu sering saat coding.</p>
-<p>Nama project penting supaya file kamu mudah ditemukan lagi nanti.</p>
-<div class="warning-box">Jika sprite hanya punya satu costume, blok next costume tidak akan terlihat jelas hasilnya.</div>
-</section>
-<section class="explanation " id="explanation-16">
-<h3>Event pertama: Green Flag</h3>
-<p>Blok <strong>when green flag clicked</strong> menjadi tanda mulai. Semua blok yang tersambung di bawahnya akan dijalankan dari atas ke bawah.</p>
-<p>Blok <strong>show</strong> memastikan sprite terlihat saat project dimulai.</p>
-<div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot blok Scratch asli: when green flag clicked dan show.</p></div>
-</section>
-<section class="explanation " id="explanation-17">
-<h3>Gerakan membuat project lebih hidup</h3>
-<p>Blok <strong>move steps</strong> membuat sprite bergerak sesuai arah hadapnya.</p>
-<p>Jika arah sprite berubah, arah geraknya juga bisa berubah. Karena itu, jalankan project untuk melihat hasilnya.</p>
-<div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot blok Scratch asli: when green flag clicked → show → move 50 steps.</p></div>
-</section>
-<section class="explanation " id="explanation-18">
-<h3>Dialog harus jelas terbaca</h3>
-<p>Blok <strong>say for seconds</strong> membuat dialog tampil selama beberapa detik.</p>
-<p>Gunakan kalimat pendek agar temanmu mudah membaca isi dialog.</p>
-<div class="warning-box">Jangan membuat kalimat terlalu panjang. Dialog yang panjang bisa menutupi Stage dan sulit dibaca.</div>
-</section>
-<section class="explanation " id="explanation-19">
-<h3>Costume membuat perubahan terlihat</h3>
-<p>Blok <strong>next costume</strong> membuat sprite berganti tampilan ke costume berikutnya.</p>
-<p>Ini membuat project terasa lebih hidup, walaupun projectnya sederhana.</p>
-<div class="info-box"><h4>Gambar yang perlu disiapkan</h4><p>Screenshot blok Scratch asli lengkap sampai next costume.</p></div>
-</section>
-<section class="explanation " id="explanation-20">
-<h3>Perhatikan urutannya</h3>
-<p>Simulasi ini menunjukkan hasil dari sequence: muncul, bergerak, berbicara, lalu berganti costume.</p>
-<p>Di Scratch, hasilnya akan mengikuti susunan blok yang kamu buat.</p>
-<div class="example-box">Setelah menambah satu blok, coba tekan Green Flag. Dengan begitu, kamu tahu bagian mana yang sudah berhasil.</div>
-</section>
-<section class="explanation " id="explanation-21">
-<h3>Debugging adalah kebiasaan penting</h3>
-<p>Debugging berarti mencari dan memperbaiki kesalahan pada project.</p>
-<p>Ketika project belum berjalan sesuai rencana, jangan langsung panik. Cek satu per satu: event, urutan blok, isi teks, angka, dan costume.</p>
-<div class="info-box">Detektif kode yang baik tidak menebak asal-asalan. Ia mencari penyebab dari masalahnya.</div>
-</section>
-<section class="explanation " id="explanation-22">
-<h3>Output minimum</h3>
-<p>Misi berhasil jika projectmu dapat dijalankan dari awal sampai akhir dengan urutan yang benar.</p>
-<p>Gunakan checklist di kiri untuk memeriksa projectmu sendiri sebelum meminta bantuan guru.</p>
-<div class="example-box">Target minimum: satu sprite menjalankan semua langkah sesuai flowchart.</div>
-</section>
-<section class="explanation " id="explanation-23">
-<h3>Berpikir sebelum membuat</h3>
-<p>Flowchart tidak menggantikan coding. Flowchart membantu kita membuat rencana agar coding lebih rapi.</p>
-<p>Semakin jelas rencananya, semakin mudah kamu menyusun blok dan menemukan bug.</p>
-</section>
-<section class="explanation " id="explanation-24">
-<h3>Kalau selesai lebih cepat</h3>
-<p>Kamu bisa membuat flowchart lain dengan ide sendiri. Tidak harus langsung dibuat di Scratch.</p>
-<p>Tujuannya adalah melatih cara menjelaskan alur dengan jelas.</p>
-<div class="info-box">Saat membaca flowchart teman, coba tanyakan: “Apakah urutannya sudah masuk akal?”</div>
-</section>
-<section class="explanation " id="explanation-25">
-<h3>Penutup</h3>
-<p>Simpan projectmu dan pastikan namanya sudah benar.</p>
-<p>Flowchart yang kamu buat hari ini bisa membantumu membuat project yang lebih besar nanti.</p>
-<div class="example-box">Sampai jumpa di Sesi 4: Piano Digital!</div>
-</section>
+        <h3>Project yang Akan Kamu Buat</h3>
+        <p>Di sesi ini, kamu akan membuat project Scratch sederhana berdasarkan flowchart. Sprite akan menjalankan
+          beberapa aksi secara berurutan: muncul, bergerak, menyapa, dan berganti costume.</p>
+        <p>Yang dipelajari bukan hanya bloknya, tetapi cara merencanakan project. Programmer biasanya tidak langsung
+          membuat semua kode tanpa arah. Mereka memecah tugas, menentukan urutan, lalu mengetes hasilnya.</p>
+        <div class="info-box">
+          <h4>Target minimum</h4>
+          <p>Project dapat dijalankan dari Green Flag dan urutan aksinya sesuai flowchart.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-2">
+        <h3>Misi Belajar Sesi 3</h3>
+        <p>Hari ini kamu akan berlatih berpikir seperti programmer. Bukan berarti harus langsung membuat project besar.
+          Justru kita mulai dari cara membuat rencana yang jelas.</p>
+        <p>Ada empat fokus utama: memecah tugas besar, menyusun urutan, mencari pola, dan membuat flowchart. Setelah
+          itu, rencana tersebut diterjemahkan menjadi blok Scratch.</p>
+        <div class="example-box">
+          <h4>Kenapa penting?</h4>
+          <p>Kalau kamu tahu langkahnya sejak awal, kamu akan lebih mudah mencari kesalahan saat project belum berjalan
+            sesuai rencana.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-3">
+        <h3>Pemanasan Urutan</h3>
+        <p>Latihan membuat roti digunakan untuk melihat bahwa urutan sangat penting. Kita tidak bisa memanggang roti
+          sebelum bahan disiapkan dan adonan dibuat.</p>
+        <p>Di coding juga sama. Scratch menjalankan blok sesuai urutan yang kamu susun. Jika urutannya tertukar, hasil
+          project bisa berubah.</p>
+        <div class="warning-box">
+          <h4>Yang perlu diperhatikan</h4>
+          <p>Tarik kartu dari langkah paling awal ke langkah paling akhir. Jangan hanya menebak dari kata yang paling
+            mudah.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-4">
+        <h3>Empat Cara Berpikir Programmer</h3>
+        <p>Programmer sering memakai beberapa cara berpikir ketika menyelesaikan masalah. Di sesi ini, kamu mengenal
+          dekomposisi, sequence, pattern, dan flowchart.</p>
+        <p>Dekomposisi membantu memecah tugas. Sequence membantu menyusun urutan. Pattern membantu menemukan langkah
+          berulang. Flowchart membantu menampilkan rencana agar mudah dibaca.</p>
+        <p>Keempatnya akan sering muncul saat membuat animasi, game, atau aplikasi.</p>
+      </section>
+      <section class="explanation" id="explanation-5">
+        <h3>Dekomposisi dalam Project</h3>
+        <p>Kalimat “membuat game Scratch” terdengar besar. Tetapi jika dipecah menjadi beberapa bagian, project menjadi
+          lebih mudah dikerjakan.</p>
+        <p>Contohnya: pilih sprite dulu, lalu pilih backdrop, buat gerakan, tambahkan aturan, tes, dan perbaiki. Setiap
+          bagian bisa diselesaikan satu per satu.</p>
+        <div class="info-box">
+          <h4>Kebiasaan baik</h4>
+          <p>Selesaikan satu bagian kecil, tes sebentar, lalu lanjut ke bagian berikutnya.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-6">
+        <h3>Mengapa Urutan Penting</h3>
+        <p>Sequence berarti urutan. Di Scratch, urutan blok menentukan apa yang terjadi lebih dulu dan apa yang terjadi
+          setelahnya.</p>
+        <p>Jika sprite harus muncul dulu, maka blok show diletakkan sebelum gerakan dan dialog. Kalau show tidak ada
+          atau diletakkan di tempat yang kurang tepat, hasilnya bisa membingungkan.</p>
+        <div class="example-box">
+          <h4>Contoh</h4>
+          <p>Jika dialog diletakkan sebelum gerak, maka sprite akan bicara dulu baru bergerak. Itu boleh saja kalau
+            memang rencananya begitu. Yang penting urutannya sesuai tujuan.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-7">
+        <h3>Mengenali Pola</h3>
+        <p>Pattern adalah pola yang muncul berulang. Dalam coding, pola sering terlihat saat kita melakukan testing dan
+          debugging.</p>
+        <p>Contohnya: jalankan project, temukan bagian yang salah, perbaiki, lalu jalankan lagi. Pola ini membantu
+          project menjadi lebih baik sedikit demi sedikit.</p>
+        <p>Jadi, kalau project belum langsung benar, itu masih bagian dari proses belajar coding.</p>
+      </section>
+      <section class="explanation" id="explanation-8">
+        <h3>Flowchart sebagai Gambar Rencana</h3>
+        <p>Pada contoh kegiatan pagi, kamu bisa melihat bahwa setiap langkah punya posisi yang jelas. Mulai dari bangun
+          tidur, lalu mandi, sarapan, berangkat sekolah, dan selesai. Kalau urutannya diubah, hasil kegiatannya juga
+          bisa terasa aneh.</p>
+        <div class="info-box">
+          <h4>Intinya</h4>
+          <p>Flowchart membantu project jadi lebih teratur, lebih mudah dibaca, dan lebih mudah diperiksa saat ada
+            kesalahan.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-9">
+        <h3>Mengenal Simbol Flowchart</h3>
+        <p>Di sesi ini, project kamu paling sering memakai simbol <strong>Start/End</strong> dan
+          <strong>Process</strong> karena projectnya masih berupa langkah berurutan. Namun, kamu juga diperkenalkan
+          dengan decision dan input/output supaya kamu tahu bahwa flowchart bisa dipakai untuk project yang lebih
+          kompleks.
+        </p>
+      </section>
+      <section class="explanation" id="explanation-10">
+        <h3>Flowchart diubah Menjadi Blok Scratch</h3>
+        <p>Dengan cara ini, kamu tidak asal memasang blok. Setiap blok dipilih karena punya alasan dan sesuai dengan
+          langkah pada flowchart. Kebiasaan ini sangat penting supaya project lebih rapi dan mudah dipahami.</p>
+        <div class="warning-box">
+          <h4>Tips</h4>
+          <p>Baca flowchart dari atas ke bawah, lalu cek apakah blok Scratch juga tersusun dengan urutan yang sama.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-11">
+        <h3>Berlatih Menyusun Urutan</h3>
+        <p>Urutan yang benar untuk project hari ini adalah: <strong>sprite muncul → sprite bergerak → sprite menyapa →
+            ganti costume</strong>. Saat kamu bisa menyusun kartu dengan benar, berarti kamu sudah memahami alur dasar
+          project.</p>
+      </section>
+      <section class="explanation" id="explanation-12">
+        <h3>Flowchart Utama Project</h3>
+        <p>Urutannya dimulai dari <strong>START</strong>, lalu program membuat sprite muncul, bergerak, menyapa,
+          berganti costume, dan berakhir di <strong>END</strong>. Semua langkah itu harus terjadi berurutan, bukan acak.
+        </p>
+        <div class="example-box">
+          <h4>Gunakan slide ini saat coding</h4>
+          <p>Kamu bisa membuka kembali slide ini sambil membuat project, lalu cocokkan setiap langkah dengan blok yang
+            sedang kamu susun.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-13">
+        <h3>Persiapan Sebelum Coding</h3>
+        <p>Sebelum menyusun blok, cek dulu kebutuhan project. Sprite harus tersedia, terlihat, dan memiliki minimal dua
+          costume jika ingin memakai next costume.</p>
+        <p>Jika memakai starter file dari guru, buka file tersebut terlebih dahulu. Jika membuat project baru, pilih
+          sprite yang sederhana agar fokus tetap pada urutan blok.</p>
+        <div class="info-box">
+          <h4>Tips</h4>
+          <p>Jangan terlalu lama memilih sprite atau backdrop. Pilih yang cukup, lalu lanjut ke coding.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-14">
+        <h3>Langkah Awal Script</h3>
+        <p>Rangkaian blok dimulai dari event Green Flag. Event ini menjadi tanda bahwa project mulai berjalan.</p>
+        <p>Blok show dipasang setelah Green Flag agar sprite dipastikan muncul di Stage. Ini berguna jika sprite
+          sebelumnya pernah disembunyikan atau project dijalankan ulang.</p>
+        <p>Placeholder pada slide bisa diganti dengan screenshot blok Scratch asli.</p>
+      </section>
+      <section class="explanation" id="explanation-15">
+        <h3>Gerakan Sprite</h3>
+        <p>Blok move digunakan untuk membuat sprite bergerak sesuai arah hadapnya. Nilai 50 steps cukup terlihat untuk
+          latihan awal.</p>
+        <p>Jika sprite bergerak ke arah yang tidak kamu duga, cek arah sprite. Move tidak selalu berarti bergerak ke
+          kanan; sprite bergerak mengikuti arah hadapnya.</p>
+      </section>
+      <section class="explanation" id="explanation-16">
+        <h3>Dialog Sprite</h3>
+        <p>Blok say membuat sprite menampilkan balon kata. Gunakan teks yang singkat agar mudah dibaca.</p>
+        <p>Durasi 2 detik cukup untuk kalimat pendek. Jika kalimat terlalu panjang, siswa lain mungkin belum selesai
+          membaca saat dialog sudah hilang.</p>
+      </section>
+      <section class="explanation" id="explanation-17">
+        <h3>Perubahan Costume</h3>
+        <p>Blok next costume membuat sprite berganti tampilan. Ini sering dipakai untuk membuat animasi sederhana.</p>
+        <p>Jika tidak ada perubahan, kemungkinan sprite hanya memiliki satu costume. Buka tab Costumes dan cek jumlah
+          costume yang tersedia.</p>
+      </section>
+      <section class="explanation" id="explanation-18">
+        <h3>Rangkaian Lengkap</h3>
+        <p>Setelah setiap langkah dipahami, gabungkan semuanya menjadi satu script. Semua blok harus saling menempel di
+          bawah Green Flag.</p>
+        <p>Jika satu blok terpisah, Scratch tidak akan menjalankannya bersama rangkaian utama. Inilah sebabnya kita
+          perlu mengecek susunan dari atas ke bawah.</p>
+      </section>
+      <section class="explanation" id="explanation-19">
+        <h3>Prediksi Hasil</h3>
+        <p>Sebelum menekan Green Flag, coba prediksi hasilnya. Kebiasaan ini membuat kamu tidak hanya mengikuti langkah,
+          tetapi benar-benar memahami alur program.</p>
+        <p>Jika prediksi berbeda dari hasil project, itu tanda ada bagian yang perlu dicek. Bisa jadi urutan blok
+          berubah atau ada blok yang belum tersambung.</p>
+      </section>
+      <section class="explanation" id="explanation-20">
+        <h3>Debugging Sederhana</h3>
+        <p>Debugging adalah mencari dan memperbaiki kesalahan. Pada sesi ini, masalah paling umum adalah sprite tidak
+          muncul, tidak bergerak, atau costume tidak berubah.</p>
+        <p>Cara mengeceknya: lihat flowchart, lalu cocokkan dengan blok. Apakah setiap langkah pada flowchart sudah
+          punya blok yang sesuai?</p>
+        <div class="warning-box">
+          <h4>Ingat</h4>
+          <p>Jangan langsung menghapus semua blok. Cek satu langkah dulu.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-21">
+        <h3>Testing Berdasarkan Rencana</h3>
+        <p>Testing dilakukan dengan membandingkan hasil project dan flowchart. Jalankan project, lalu cek apakah aksi
+          yang muncul sudah sesuai urutan.</p>
+        <p>Jalankan project lebih dari satu kali. Project yang baik bisa dijalankan ulang dan menghasilkan urutan yang
+          sama.</p>
+      </section>
+      <section class="explanation" id="explanation-22">
+        <h3>Checklist Output Minimum</h3>
+        <p>Output minimum adalah target wajib sebelum menambah fitur. Jika semua checklist terpenuhi, berarti project
+          inti sudah berhasil.</p>
+        <p>Setelah target minimum aman, kamu boleh mencoba challenge seperti membuat flowchart baru atau menambahkan
+          aksi lain.</p>
+      </section>
+      <section class="explanation" id="explanation-23">
+        <h3>Challenge Tambahan</h3>
+        <p>Challenge dilakukan setelah project utama selesai. Kamu bisa membuat flowchart kegiatan sehari-hari atau
+          flowchart game impianmu.</p>
+        <p>Challenge yang menarik adalah menukar flowchart dengan teman. Kamu mencoba membaca rencana orang lain dan
+          memprediksi hasil projectnya.</p>
+      </section>
+      <section class="explanation" id="explanation-24">
+        <h3>Refleksi Akhir</h3>
+        <p>Hari ini kamu belajar bahwa coding bukan hanya menumpuk blok. Coding dimulai dari memahami masalah, memecah
+          langkah, menyusun urutan, lalu mengetes hasilnya.</p>
+        <p>Flowchart membantu programmer membuat rencana yang jelas. Dengan rencana yang jelas, project lebih mudah
+          dibuat dan diperbaiki.</p>
+        <div class="example-box">
+          <h4>Siap untuk sesi berikutnya</h4>
+          <p>Di Sesi 4, kamu akan memakai event keyboard untuk membuat Piano Digital.</p>
+        </div>
+      </section>
     </div>
   </div>
   <script>
-    const ACCESS_CODE = 'RGMDSUP26';
-    const totalSlides = document.querySelectorAll('.slide').length;
-    let currentSlideIndex = 1;
-
-    function checkAccess() {
-      showAccessPopup();
-    }
-    function showAccessPopup() {
-      const overlay = document.getElementById('accessPopup');
-      overlay.style.display = 'flex';
-      setTimeout(() => overlay.querySelector('.access-popup').classList.add('show'), 80);
-      setTimeout(() => document.getElementById('accessInput').focus(), 120);
-    }
-    function checkAccessCode() {
-      const input = document.getElementById('accessInput');
-      const error = document.getElementById('accessError');
-      const code = input.value.trim().toUpperCase();
-      if (code === ACCESS_CODE) {
-        grantAccess();
-      } else {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-        setTimeout(() => error.classList.remove('show'), 2500);
+    const ACCESS_CODE = 'RGMDSUP26'; 
+    let currentSlide = 1; 
+    const totalSlides = document.querySelectorAll('.slide').length; 
+    document.getElementById('totalSlides').textContent = totalSlides; 
+    window.addEventListener('load', () => { setTimeout(() => document.querySelector('.access-popup').classList.add('show'), 50); 
+    const input = document.getElementById('accessInput'); input.focus(); 
+    input.addEventListener('input', e => { e.target.value = e.target.value.toUpperCase() }); 
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') checkAccessCode() }); 
+    initDragDrop(); }); 
+    function checkAccessCode() { 
+      const input = document.getElementById('accessInput'), error = document.getElementById('accessError'); 
+      if (input.value.trim().toUpperCase() === ACCESS_CODE) { 
+        document.getElementById('accessPopup').style.display = 'none'; 
+        document.getElementById('mainContent').style.display = 'flex'; 
+        updateSlide(); } else { error.classList.add('show'); input.value = ''; 
+        input.focus(); } 
+      } 
+      function changeSlide(direction) { 
+        const next = currentSlide + direction; 
+        if (next < 1 || next > totalSlides) return; 
+        currentSlide = next; updateSlide(); 
+      } 
+      function updateSlide() { 
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active')); 
+        document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active')); 
+        document.getElementById(`slide-${currentSlide}`).classList.add('active'); 
+        const exp = document.getElementById(`explanation-${currentSlide}`); 
+        if (exp) exp.classList.add('active'); 
+        document.getElementById('currentSlide').textContent = currentSlide; 
+        document.getElementById('prevBtn').disabled = currentSlide === 1; 
+        document.getElementById('nextBtn').disabled = currentSlide === totalSlides; 
+        document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`; 
+        document.querySelector('.slide-content').scrollTop = 0; 
+        document.querySelector('.explanation-panel').scrollTop = 0; 
+      } 
+      document.addEventListener('keydown', e => { 
+        if (document.getElementById('mainContent').style.display === 'none') return; 
+        if (e.key === 'ArrowRight') changeSlide(1); 
+        if (e.key === 'ArrowLeft') changeSlide(-1); 
+        if (['a', 's', 'd', 'f', 'g', 'h'].includes(e.key.toLowerCase())) playNote(e.key.toUpperCase(), true); 
+      }); 
+      function singleChoice(btn, ok, feedbackId) { 
+        const group = btn.parentElement; 
+        group.querySelectorAll('.choice-btn').forEach(b => { b.disabled = true; b.classList.remove('selected') }); 
+        btn.classList.add(ok ? 'correct' : 'wrong'); 
+        const fb = document.getElementById(feedbackId); 
+        if (fb) { 
+          fb.textContent = ok ? 'Betul.' : 'Belum tepat. Coba baca penjelasannya lagi.'; 
+          fb.style.color = ok ? '#176b35' : '#a42820'; 
+        } 
+      } 
+      function selectAny(btn) { 
+        const group = btn.parentElement; 
+        group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); 
+        btn.classList.add('selected'); 
       }
-    }
-    function grantAccess() {
-      document.getElementById('accessPopup').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'flex';
-      showSlide(1);
-    }
-    function updateProgressBar() { document.getElementById('progressFill').style.width = `${(currentSlideIndex / totalSlides) * 100}%`; }
-    function showSlide(index) {
-      document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.explanation').forEach(el => el.classList.remove('active'));
-      document.getElementById(`slide-${index}`)?.classList.add('active');
-      document.getElementById(`explanation-${index}`)?.classList.add('active');
-      document.querySelector('.slide-content').scrollTop = 0;
-      document.querySelector('.explanation-panel').scrollTop = 0;
-      document.getElementById('currentSlide').textContent = index;
-      document.getElementById('totalSlides').textContent = totalSlides;
-      document.getElementById('prevBtn').disabled = index === 1;
-      document.getElementById('nextBtn').disabled = index === totalSlides;
-      updateProgressBar();
-    }
-    function changeSlide(direction) { currentSlideIndex = Math.min(totalSlides, Math.max(1, currentSlideIndex + direction)); showSlide(currentSlideIndex); }
-    document.addEventListener('keydown', event => {
-      const accessVisible = document.getElementById('accessPopup').style.display !== 'none';
-      if (accessVisible) { if (event.key === 'Enter') checkAccessCode(); return; }
-      const tag = document.activeElement?.tagName; if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-      if (event.key === 'ArrowRight') changeSlide(1); if (event.key === 'ArrowLeft') changeSlide(-1);
-    });
-    document.getElementById('accessInput').addEventListener('input', event => { const start = event.target.selectionStart; event.target.value = event.target.value.toUpperCase(); event.target.setSelectionRange(start, start); });
-
-    function clearChoiceGroup(button) { button.parentElement.querySelectorAll('.choice-btn').forEach(el => el.classList.remove('correct','wrong')); }
-    function singleChoice(button, correct, feedbackId, correctText) { clearChoiceGroup(button); button.classList.add(correct ? 'correct' : 'wrong'); document.getElementById(feedbackId).textContent = correct ? `Benar! ${correctText}` : 'Belum tepat. Coba baca kembali petunjuknya.'; }
-    function multiPick(button, correct, feedbackId) { button.classList.toggle(correct ? 'correct' : 'wrong'); document.getElementById(feedbackId).textContent = correct ? 'Pilihan itu termasuk langkah kecil yang membantu project.' : 'Sepertinya itu bukan langkah langsung untuk project ini.'; }
-
-    let draggedCard = null;
-    document.querySelectorAll('.sequence-card').forEach(card => {
-      card.addEventListener('dragstart', () => { draggedCard = card; card.classList.add('dragging'); });
-      card.addEventListener('dragend', () => { card.classList.remove('dragging'); draggedCard = null; });
-    });
-    document.querySelectorAll('.drop-zone').forEach(zone => {
-      zone.addEventListener('dragover', event => event.preventDefault());
-      zone.addEventListener('drop', event => { event.preventDefault(); if (draggedCard) zone.appendChild(draggedCard); });
-    });
-    function checkSequence(targetId, dataKey, feedbackId) {
-      const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')];
-      if (!cards.length) { document.getElementById(feedbackId).textContent = 'Pindahkan kartu ke kotak jawaban terlebih dahulu.'; return; }
-      const correct = cards.every((card, index) => Number(card.dataset[dataKey]) === index + 1);
-      document.getElementById(feedbackId).textContent = correct ? 'Urutannya benar!' : 'Urutannya belum tepat. Coba susun dari awal sampai akhir.';
-    }
-    function resetCards(sourceId, dataKey, desc=false) {
-      [...document.querySelectorAll(`[data-${dataKey}]`)].sort((a,b) => desc ? Number(b.dataset[dataKey])-Number(a.dataset[dataKey]) : Number(b.dataset[dataKey])-Number(a.dataset[dataKey])).forEach(card => document.getElementById(sourceId).appendChild(card));
-    }
-    function checkBreadSequence() { checkSequence('breadTarget','bread','breadFeedback'); }
-    function resetBreadSequence() { resetCards('breadSource','bread'); document.getElementById('breadFeedback').textContent=''; }
-    function checkScratchFlow() { checkSequence('scratchFlowTarget','flow','scratchFlowFeedback'); }
-    function resetScratchFlow() { resetCards('scratchFlowSource','flow'); document.getElementById('scratchFlowFeedback').textContent=''; }
-    function showSymbol(title, text) { document.getElementById('symbolInfo').innerHTML = `<strong>${title}</strong><br>${text}`; }
-
-    function resetSpriteSim() {
-      const sprite = document.getElementById('simSprite'); const speech = document.getElementById('simSpeech');
-      sprite.style.opacity = 0; sprite.style.left = '10%'; sprite.textContent = '🐱'; sprite.style.transform = 'translate(-50%,-50%) scale(1)';
-      speech.style.opacity = 0; document.getElementById('simFeedback').textContent = '';
-    }
-    function runSpriteSim() {
-      resetSpriteSim(); const sprite = document.getElementById('simSprite'); const speech = document.getElementById('simSpeech'); const feedback = document.getElementById('simFeedback');
-      setTimeout(() => { sprite.style.opacity = 1; feedback.textContent = '1. Sprite muncul.'; }, 250);
-      setTimeout(() => { sprite.style.left = '55%'; feedback.textContent = '2. Sprite bergerak.'; }, 900);
-      setTimeout(() => { speech.style.opacity = 1; feedback.textContent = '3. Sprite berbicara.'; }, 2000);
-      setTimeout(() => { sprite.textContent = '😺'; sprite.style.transform = 'translate(-50%,-50%) scale(1.15)'; feedback.textContent = '4. Sprite berganti costume.'; }, 3100);
-    }
-    function showDebug(number, button) { document.querySelectorAll('.debug-tab').forEach(el => el.classList.remove('active')); document.querySelectorAll('.debug-scenario').forEach(el => el.classList.remove('active')); button.classList.add('active'); document.getElementById(`debug-${number}`).classList.add('active'); }
-    function debugAnswer(button, correct, feedbackId) { const scenario = button.closest('.debug-scenario'); scenario.querySelectorAll('.choice-btn').forEach(el => el.classList.remove('correct','wrong')); button.classList.add(correct ? 'correct' : 'wrong'); document.getElementById(feedbackId).textContent = correct ? 'Perbaikan tepat!' : 'Belum tepat. Pilih perbaikan yang berhubungan langsung dengan masalah.'; }
-    function toggleCheck(input) { input.closest('.check-item').classList.toggle('done', input.checked); }
-    window.addEventListener('load', checkAccess);
+         function toggleCheck(item) { 
+          const cb = item.querySelector('input'); cb.checked = !cb.checked; 
+          item.classList.toggle('done', cb.checked); 
+        } 
+        function showDebug(id, btn) { 
+          btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active')); 
+          btn.classList.add('active'); 
+          const host = btn.closest('.slide'); 
+          host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active')); 
+          host.querySelector('#' + id).classList.add('active'); 
+        } 
+        function showConcept(id) { 
+          const data = { dekom: ['Dekomposisi', 'Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.'], seq: ['Sequence', 'Menyusun langkah sesuai urutan yang benar. Kalau urutannya berubah, hasilnya bisa berubah.'], pat: ['Pattern', 'Menemukan langkah yang muncul berulang, misalnya tes → cari salah → perbaiki → tes lagi.'], flow: ['Flowchart', 'Diagram alur untuk melihat rencana langkah sebelum coding.'] }; 
+          document.getElementById('conceptInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; 
+        } 
+        function showSymbol(id, btn) { 
+          document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('active')); 
+          btn.classList.add('active'); 
+          const data = { start: ['Start/End', 'Dipakai untuk tanda mulai dan selesai.'], process: ['Process', 'Dipakai untuk langkah kerja, seperti sprite bergerak.'], decision: ['Decision', 'Dipakai untuk pilihan ya/tidak. Di sesi ini hanya dikenalkan dulu.'], io: ['Input/Output', 'Dipakai untuk masukan atau hasil, misalnya tombol ditekan atau suara terdengar.'] }; 
+          document.getElementById('symbolInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; 
+        } 
+        function initDragDrop() { 
+          document.querySelectorAll('.sequence-card').forEach(card => { 
+            card.addEventListener('dragstart', () => card.classList.add('dragging')); 
+            card.addEventListener('dragend', () => card.classList.remove('dragging')); 
+          }); 
+          document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => { 
+            zone.addEventListener('dragover', e => { 
+              e.preventDefault(); const dragging = document.querySelector('.dragging'); 
+              if (dragging) zone.appendChild(dragging); 
+            }
+          ); 
+        }
+      ); 
+    } 
+    function checkOrder(targetId, feedbackId) { 
+      const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')]; 
+      const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1); 
+      const fb = document.getElementById(feedbackId); 
+      fb.textContent = ok ? 'Urutannya sudah tepat.' : 'Belum tepat. Coba cek lagi langkah awal sampai akhir.'; 
+      fb.style.color = ok ? '#176b35' : '#a42820'; 
+    } 
+    function showFlow(type) { 
+        const data = { 
+          input: ['Input', 'Sesuatu yang memulai proses. Contoh: Green Flag diklik atau tombol keyboard ditekan.'], process: ['Process', 'Langkah yang dijalankan program, seperti show, move, say, atau start sound.'], output: ['Output', 'Hasil yang terlihat atau terdengar, seperti sprite bergerak atau nada piano berbunyi.'] }; document.getElementById('flowInfo').innerHTML = `<h4>${data[type][0]}</h4><p>${data[type][1]}</p>`; 
+        } 
+        let audioCtx = null; 
+        function playNote(note, fromKey = false) { 
+          const notes = { A: ['Do', 261.63], S: ['Re', 293.66], D: ['Mi', 329.63], F: ['Fa', 349.23], G: ['Sol', 392.00], H: ['La', 440.00] }; if (!notes[note]) return; 
+          try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); 
+            const osc = audioCtx.createOscillator(); 
+            const gain = audioCtx.createGain(); osc.type = 'sine'; 
+            osc.frequency.value = notes[note][1]; 
+            gain.gain.setValueAtTime(0.0001, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.38); } catch (e) { } document.querySelectorAll(`[data-key="${note}"]`).forEach(k => { k.classList.add('playing'); setTimeout(() => k.classList.remove('playing'), 220); }); document.querySelectorAll('.sound-log').forEach(log => { log.textContent = `Tombol ${note} ditekan → nada ${notes[note][0]} dimainkan.`; }); } function markKey(btn) { btn.classList.add('selected'); }
   </script>
 </body>
+
 </html>
