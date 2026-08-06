@@ -1252,7 +1252,8 @@
         <section class="slide active" id="slide-1">
           <span class="eyebrow">Sesi 3</span>
           <h2>Flowchart Puzzle</h2>
-          <p class="lead">Hari ini kamu akan membantu Kiko menyusun rencana project Scratch sebelum membuat bloknya.</p>
+          <p class="lead">Hari ini kamu akan membantu Kiko membuat peta langkah, lalu mengubahnya menjadi project
+            Scratch.</p>
           <div class="metrics">
             <div class="metric-box"><strong>🧩</strong><span>Memecah tugas besar</span></div>
             <div class="metric-box"><strong>🔢</strong><span>Menyusun urutan</span></div>
@@ -1261,7 +1262,8 @@
           </div>
           <div class="example-box">
             <h4>Target project</h4>
-            <p>Sprite muncul, bergerak, menyapa, lalu berganti costume sesuai urutan flowchart.</p>
+            <p>Sprite muncul, bergerak, menyapa, lalu berganti costume. Semua aksi harus mengikuti rencana yang kamu
+              buat.</p>
           </div>
         </section>
         <section class="slide" id="slide-2">
@@ -1279,13 +1281,13 @@
             </div>
             <div class="visual-card">
               <div class="visual-icon">🗺️</div>
-              <h4>Flowchart</h4>
-              <p>Membaca diagram alur sederhana.</p>
+              <h4>Pola</h4>
+              <p>Mengenali langkah yang diulang saat mencoba dan memperbaiki project.</p>
             </div>
             <div class="visual-card">
               <div class="visual-icon">🐱</div>
-              <h4>Scratch</h4>
-              <p>Mengubah rencana menjadi rangkaian blok.</p>
+              <h4>Flowchart &amp; Scratch</h4>
+              <p>Membaca peta langkah lalu mengubahnya menjadi rangkaian blok.</p>
             </div>
           </div>
           <p class="mini-note">Hari ini kita tidak langsung “asal pasang blok”. Kita belajar merencanakan dulu.</p>
@@ -1330,8 +1332,19 @@
               <td>Pilih sprite, pilih backdrop, buat gerakan, tambah aturan, uji coba, lalu perbaiki.</td>
             </tr>
           </table>
-          <div class="interactive-box"><strong>Coba pikir:</strong> kalau kamu ingin membuat game kejar-kejaran, bagian
-            kecil apa yang perlu disiapkan dulu?</div>
+          <div class="interactive-box">
+            <h4>Coba pikir</h4>
+            <p>Untuk game kejar-kejaran, kamu dapat memecah tugas menjadi: pilih karakter, pilih latar, buat gerakan,
+              tentukan aturan menang, lalu uji game.</p>
+            <p class="mini-note">Pilih jawaban yang merupakan <strong>langkah kecil</strong>, bukan tugas yang masih
+              terlalu besar.</p>
+            <div class="choice-grid"><button class="choice-btn"
+                onclick="singleChoice(this,false,'dekomFeedback')">Membuat game yang seru</button><button
+                class="choice-btn" onclick="singleChoice(this,true,'dekomFeedback')">Memilih dua sprite untuk pemain dan
+                pengejar</button><button class="choice-btn"
+                onclick="singleChoice(this,false,'dekomFeedback')">Menyelesaikan semuanya sekaligus</button></div>
+            <div class="feedback-line" id="dekomFeedback"></div>
+          </div>
         </section>
         <section class="slide" id="slide-6">
           <h3>Sequence: Urutan Itu Penting</h3>
@@ -1345,7 +1358,10 @@
           </div>
           <div class="warning-box">
             <h4>Kalau urutannya berubah?</h4>
-            <p>Sprite bisa menyapa sebelum muncul, bergerak di waktu yang salah, atau project terasa membingungkan.</p>
+            <p>Hasil project juga berubah. Misalnya, kalau <code>say</code> dipasang sebelum <code>move</code>, sprite
+              akan menyapa dulu baru bergerak.</p>
+            <p class="mini-note">Tidak selalu salah, ya. Yang penting urutannya cocok dengan cerita project yang kamu
+              inginkan.</p>
           </div>
         </section>
         <section class="slide" id="slide-7">
@@ -1359,7 +1375,8 @@
             <div class="flow-box">Perbaiki</div>
           </div>
           <div class="example-box">
-            <p>Setelah diperbaiki, kita melakukan <strong>tes lagi</strong>. Pola ini sering dipakai programmer.</p>
+            <p>Setelah diperbaiki, kita melakukan <strong>tes lagi</strong>. Jika belum tepat, putaran ini dimulai lagi.
+              Itulah pola yang sering dipakai programmer.</p>
           </div>
         </section>
         <section class="slide" id="slide-8">
@@ -1379,7 +1396,8 @@
             <div class="fc-arrow-down">↓</div>
             <div class="fc-node fc-end">END<small>Kegiatan selesai</small></div>
           </div>
-          <p class="flowchart-note">Contoh flowchart sederhana kegiatan pagi hari.</p>
+          <p class="flowchart-note">Contoh flowchart sederhana kegiatan pagi hari. Ikuti panah dari START sampai END
+            dengan jari.</p>
           <div class="info-box">
             <h4>Kenapa flowchart membantu?</h4>
             <ul class="bullet-mini">
@@ -1391,7 +1409,8 @@
         </section>
         <section class="slide" id="slide-9">
           <h3>Simbol Flowchart</h3>
-          <p>Klik simbol untuk melihat fungsinya. Setelah itu, lihat contoh flowchart kecil di bawahnya.</p>
+          <p>Klik simbol untuk melihat fungsinya. Untuk project hari ini, yang wajib kamu kenali adalah Start/End,
+            Process, dan panah.</p>
           <div class="symbol-grid"><button class="symbol-card active" onclick="showSymbol('start',this)">
               <div class="symbol-shape oval">START</div><strong>Start/End</strong>
             </button><button class="symbol-card" onclick="showSymbol('process',this)">
@@ -1416,7 +1435,8 @@
               <div class="fc-arrow-side">→</div>
               <div class="symbol-shape oval">END</div>
             </div>
-            <p class="mini-note">Pada contoh ini, oval dipakai untuk mulai/selesai, sedangkan kotak dipakai untuk aksi.
+            <p class="mini-note">Pada contoh ini, oval dipakai untuk mulai/selesai, kotak untuk aksi, dan panah
+              menunjukkan langkah berikutnya.
             </p>
           </div>
         </section>
@@ -1449,7 +1469,8 @@
                   <code>next costume</code>.</span></div>
             </div>
           </div>
-          <p class="mini-note">Jadi, kita tidak asal memilih blok. Kita memilih blok sesuai langkah pada flowchart.</p>
+          <p class="mini-note">Baca satu kotak flowchart, cari satu blok Scratch yang cocok, lalu lanjutkan ke kotak
+            berikutnya.</p>
         </section>
         <section class="slide" id="slide-11">
           <h3>Susun Urutan Project Scratch</h3>
@@ -1473,7 +1494,8 @@
               <ul class="bullet-mini">
                 <li>Mulai dari langkah yang paling awal.</li>
                 <li>Pikirkan: setelah sprite muncul, apa yang terjadi?</li>
-                <li>Kalau bingung, cocokkan dengan flowchart di slide berikutnya.</li>
+                <li>Kalau bingung, tanyakan: “Langkah mana yang harus terjadi dulu agar langkah berikutnya bisa
+                  dilakukan?”</li>
               </ul>
               <p class="mini-note">Latihan ini membantu kamu siap sebelum masuk ke blok Scratch.</p>
             </div>
@@ -1512,6 +1534,8 @@
               Stage.</li>
             <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Sprite memiliki minimal 2
               costume.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Jika memakai starter file, file
+              dari guru sudah dibuka.</li>
             <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Backdrop boleh ditambahkan agar
               project lebih menarik.</li>
             <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Project sudah diberi nama yang
@@ -1525,59 +1549,54 @@
         <section class="slide" id="slide-14">
           <h3>Pseudocode 1: Mulai dan Muncul</h3>
           <div class="code-placeholder">
-            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
-                <code>when green flag clicked</code> + <code>show</code></small></div>
+            <div><img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/564643dd-4e54-4b03-b221-7f99817d5c72.png" alt="Green Flag and Show Blocks"></div>
           </div>
           <ol class="pseudo-list">
             <li>Ketika Green Flag diklik</li>
             <li>Tampilkan sprite di Stage</li>
-            <li>Pastikan sprite tidak tersembunyi</li>
+            <li>Pastikan sprite terlihat di Stage sebelum melanjutkan</li>
           </ol>
         </section>
         <section class="slide" id="slide-15">
           <h3>Pseudocode 2: Sprite Bergerak</h3>
           <div class="code-placeholder">
-            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
-                <code>move 50 steps</code></small></div>
+            <div><img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0306d0a2-55e0-4745-8683-95aef7a3c49b.png" alt="Move 50 Steps Block"></div>
           </div>
           <ol class="pseudo-list">
             <li>Setelah sprite muncul</li>
             <li>Gerakkan sprite 50 langkah</li>
-            <li>Perhatikan arah sprite saat bergerak</li>
+            <li>Jika bergerak ke arah yang tidak diinginkan, cek arah hadap sprite</li>
           </ol>
         </section>
         <section class="slide" id="slide-16">
           <h3>Pseudocode 3: Sprite Menyapa</h3>
           <div class="code-placeholder">
-            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
-                <code>say [Halo Teman-Teman!] for 2 seconds</code></small></div>
+            <div><img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/8f4b1d3a-a570-44d5-beed-5975bf62c64e.png" alt="Say Block"></div>
           </div>
           <ol class="pseudo-list">
             <li>Setelah bergerak</li>
             <li>Sprite menampilkan dialog singkat</li>
-            <li>Gunakan kalimat yang ramah dan mudah dibaca</li>
+            <li>Gunakan kalimat pendek, misalnya “Halo, teman-teman!”</li>
           </ol>
         </section>
         <section class="slide" id="slide-17">
           <h3>Pseudocode 4: Ganti Costume</h3>
           <div class="code-placeholder">
-            <div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti dengan screenshot:
-                <code>next costume</code></small></div>
+            <div><img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/60ac8991-0430-44b4-82b3-453beec5c348.png" alt="Next Costume Block"></div>
           </div>
           <ol class="pseudo-list">
             <li>Setelah menyapa</li>
             <li>Sprite mengganti tampilan</li>
-            <li>Jalankan ulang project untuk mengecek perubahannya</li>
+            <li>Jika tidak ada perubahan, cek apakah sprite punya lebih dari satu costume</li>
           </ol>
         </section>
         <section class="slide" id="slide-18">
           <h3>Gabungkan Menjadi Satu Script</h3>
           <div class="code-placeholder">
-            <div><strong>PLACEHOLDER GAMBAR RANGKAIAN BLOK LENGKAP</strong><small>Urutan: Green Flag → show → move → say
-                → next costume</small></div>
+            <div><img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cc3686ea-dac6-4188-9f85-0743796363dd.png" alt="Full Script"></div>
           </div>
-          <p class="mini-note">Pastikan semua blok saling menempel. Jika ada blok terpisah, Scratch tidak akan
-            menjalankannya sebagai satu rangkaian.</p>
+          <p class="mini-note">Pastikan semua blok saling menempel di bawah Green Flag. Blok yang terpisah tidak ikut
+            berjalan dalam rangkaian ini.</p>
         </section>
         <section class="slide" id="slide-19">
           <h3>Prediksi Output</h3>
@@ -1597,19 +1616,22 @@
           <div class="debug-scenario active" id="s3bug1">
             <div class="warning-box">
               <h4>Cek</h4>
-              <p>Apakah blok <strong>show</strong> sudah dipasang setelah Green Flag?</p>
+              <p>Cek tiga hal: ada event <strong>when Green Flag clicked</strong>, blok <strong>show</strong> menempel
+                di bawahnya, dan sprite tidak disembunyikan oleh script lain.</p>
             </div>
           </div>
           <div class="debug-scenario" id="s3bug2">
             <div class="warning-box">
               <h4>Cek</h4>
-              <p>Apakah blok <strong>move</strong> tersambung dan nilainya bukan 0?</p>
+              <p>Cek apakah blok <strong>move</strong> tersambung, nilainya bukan 0, dan arah hadap sprite tidak
+                membuatnya bergerak keluar Stage.</p>
             </div>
           </div>
           <div class="debug-scenario" id="s3bug3">
             <div class="warning-box">
               <h4>Cek</h4>
-              <p>Apakah sprite memiliki minimal 2 costume?</p>
+              <p>Cek apakah blok <strong>next costume</strong> tersambung dan sprite memiliki minimal dua costume di tab
+                Costumes.</p>
             </div>
           </div>
         </section>
@@ -1624,6 +1646,8 @@
               keempat.</li>
             <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Jalankan ulang untuk memastikan
               hasilnya konsisten.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox" /> Jika hasilnya berbeda, cari
+              langkah yang tidak sama dengan flowchart.</li>
           </ul>
         </section>
         <section class="slide" id="slide-22">
@@ -1646,24 +1670,25 @@
             <div class="visual-card">
               <div class="visual-icon">🥉</div>
               <h4>Challenge 1</h4>
-              <p>Buat flowchart kegiatan sehari-hari.</p>
+              <p>Buat flowchart kegiatan sehari-hari dengan START, 3–5 langkah, panah, dan END.</p>
             </div>
             <div class="visual-card">
               <div class="visual-icon">🥈</div>
               <h4>Challenge 2</h4>
-              <p>Buat flowchart untuk game impianmu.</p>
+              <p>Buat flowchart game impianmu. Pecah game menjadi langkah kecil, bukan satu kalimat besar.</p>
             </div>
             <div class="visual-card">
               <div class="visual-icon">🥇</div>
               <h4>Challenge 3</h4>
-              <p>Tukar flowchart dengan teman dan prediksi hasil projectnya.</p>
+              <p>Tukar flowchart dengan teman. Baca panahnya, lalu prediksi hasil project temanmu.</p>
             </div>
           </div>
         </section>
         <section class="slide" id="slide-24">
           <span class="eyebrow">Penutup</span>
           <h2>Project Lebih Mudah Jika Direncanakan</h2>
-          <p class="lead">Hari ini kamu belajar bahwa flowchart membantu programmer menyusun langkah sebelum coding.</p>
+          <p class="lead">Hari ini kamu belajar bahwa flowchart membantu programmer menyusun langkah sebelum coding,
+            saat coding, dan saat mencari kesalahan.</p>
           <div class="example-box">
             <h4>Ingat kalimat ini</h4>
             <p><strong>Rencana yang jelas membuat kode lebih mudah dibuat dan diperbaiki.</strong></p>
@@ -1681,12 +1706,16 @@
         <h3>Project yang Akan Kamu Buat</h3>
         <p>Di sesi ini, kamu akan membuat project Scratch sederhana berdasarkan flowchart. Sprite akan menjalankan
           beberapa aksi secara berurutan: muncul, bergerak, menyapa, dan berganti costume.</p>
-        <p>Yang dipelajari bukan hanya bloknya, tetapi cara merencanakan project. Programmer biasanya tidak langsung
-          membuat semua kode tanpa arah. Mereka memecah tugas, menentukan urutan, lalu mengetes hasilnya.</p>
+        <p>Yang dipelajari bukan hanya bloknya, tetapi cara merencanakan project. Sebelum coding, kita akan membuat
+          langkah kecil yang mudah dicek. Saat coding, flowchart itu menjadi peta. Setelah coding, peta yang sama
+          membantu kita mencari bagian yang belum sesuai.</p>
         <div class="info-box">
           <h4>Target minimum</h4>
-          <p>Project dapat dijalankan dari Green Flag dan urutan aksinya sesuai flowchart.</p>
+          <p>Project dapat dijalankan dari Green Flag. Sprite muncul, bergerak 50 langkah, menyapa selama 2 detik, lalu
+            berganti costume sesuai flowchart.</p>
         </div>
+        <p class="mini-note">Kamu tidak perlu menghafal semua istilah. Yang penting kamu bisa menjelaskan alur project
+          dengan kata-katamu sendiri.</p>
       </section>
       <section class="explanation" id="explanation-2">
         <h3>Misi Belajar Sesi 3</h3>
@@ -1694,6 +1723,12 @@
           Justru kita mulai dari cara membuat rencana yang jelas.</p>
         <p>Ada empat fokus utama: memecah tugas besar, menyusun urutan, mencari pola, dan membuat flowchart. Setelah
           itu, rencana tersebut diterjemahkan menjadi blok Scratch.</p>
+        <ul>
+          <li><strong>Dekomposisi:</strong> membagi tugas besar menjadi bagian kecil.</li>
+          <li><strong>Sequence:</strong> menentukan apa yang dilakukan lebih dulu dan berikutnya.</li>
+          <li><strong>Pattern:</strong> mengenali langkah yang sama atau berulang.</li>
+          <li><strong>Flowchart:</strong> menggambar urutan itu agar mudah dibaca.</li>
+        </ul>
         <div class="example-box">
           <h4>Kenapa penting?</h4>
           <p>Kalau kamu tahu langkahnya sejak awal, kamu akan lebih mudah mencari kesalahan saat project belum berjalan
@@ -1708,9 +1743,11 @@
           project bisa berubah.</p>
         <div class="warning-box">
           <h4>Yang perlu diperhatikan</h4>
-          <p>Tarik kartu dari langkah paling awal ke langkah paling akhir. Jangan hanya menebak dari kata yang paling
-            mudah.</p>
+          <p>Tarik kartu dari langkah paling awal ke langkah paling akhir. Jangan hanya menebak dari warna atau posisi
+            kartu. Baca tindakannya, lalu pikirkan: “Apa yang harus ada sebelum langkah ini?”</p>
         </div>
+        <p class="mini-note">Setelah urutanmu selesai, pilih dua kartu yang bersebelahan dan jelaskan kepada temanmu
+          mengapa keduanya tidak boleh ditukar.</p>
       </section>
       <section class="explanation" id="explanation-4">
         <h3>Empat Cara Berpikir Programmer</h3>
@@ -1718,18 +1755,27 @@
           dekomposisi, sequence, pattern, dan flowchart.</p>
         <p>Dekomposisi membantu memecah tugas. Sequence membantu menyusun urutan. Pattern membantu menemukan langkah
           berulang. Flowchart membantu menampilkan rencana agar mudah dibaca.</p>
-        <p>Keempatnya akan sering muncul saat membuat animasi, game, atau aplikasi.</p>
+        <p>Keempatnya bekerja bersama. Contohnya saat membuat game: kamu memecah pekerjaan menjadi bagian kecil,
+          mengurutkan bagian itu, mengulang proses tes-perbaiki, lalu menggambar rencananya dalam flowchart.</p>
+        <div class="example-box">
+          <h4>Cara membedakannya</h4>
+          <p>“Pilih sprite” adalah satu <strong>langkah kecil</strong>. “Pilih sprite sebelum membuat gerakan” adalah
+            <strong>urutan</strong>. “Tes lalu perbaiki” yang dilakukan lagi adalah <strong>pola</strong>.</p>
+        </div>
       </section>
       <section class="explanation" id="explanation-5">
         <h3>Dekomposisi dalam Project</h3>
         <p>Kalimat “membuat game Scratch” terdengar besar. Tetapi jika dipecah menjadi beberapa bagian, project menjadi
           lebih mudah dikerjakan.</p>
-        <p>Contohnya: pilih sprite dulu, lalu pilih backdrop, buat gerakan, tambahkan aturan, tes, dan perbaiki. Setiap
-          bagian bisa diselesaikan satu per satu.</p>
+        <p>Contohnya: pilih sprite, pilih backdrop, buat gerakan, tambahkan aturan, tes, dan perbaiki. Setiap bagian
+          bisa diselesaikan satu per satu.</p>
         <div class="info-box">
           <h4>Kebiasaan baik</h4>
-          <p>Selesaikan satu bagian kecil, tes sebentar, lalu lanjut ke bagian berikutnya.</p>
+          <p>Selesaikan satu bagian kecil, tes sebentar, lalu lanjut ke bagian berikutnya. Jika gerakan belum berhasil,
+            perbaiki gerakannya dulu; kamu belum perlu menambah skor atau dekorasi.</p>
         </div>
+        <p class="mini-note">Tugas besar yang terlalu umum, seperti “membuat game yang keren”, belum bisa langsung
+          dikerjakan. Ubah menjadi tindakan yang bisa kamu lakukan satu per satu.</p>
       </section>
       <section class="explanation" id="explanation-6">
         <h3>Mengapa Urutan Penting</h3>
@@ -1742,6 +1788,8 @@
           <p>Jika dialog diletakkan sebelum gerak, maka sprite akan bicara dulu baru bergerak. Itu boleh saja kalau
             memang rencananya begitu. Yang penting urutannya sesuai tujuan.</p>
         </div>
+        <p>Jadi, sequence bukan soal satu urutan yang selalu paling benar. Sequence adalah memilih urutan yang membuat
+          project menghasilkan cerita yang kamu inginkan.</p>
       </section>
       <section class="explanation" id="explanation-7">
         <h3>Mengenali Pola</h3>
@@ -1749,13 +1797,21 @@
           debugging.</p>
         <p>Contohnya: jalankan project, temukan bagian yang salah, perbaiki, lalu jalankan lagi. Pola ini membantu
           project menjadi lebih baik sedikit demi sedikit.</p>
-        <p>Jadi, kalau project belum langsung benar, itu masih bagian dari proses belajar coding.</p>
+        <p>Jadi, kalau project belum langsung benar, itu masih bagian dari proses belajar coding. Programmer juga sering
+          menjalankan pola: tes, menemukan masalah, memperbaiki, lalu tes lagi.</p>
+        <div class="info-box">
+          <h4>Contoh pola sehari-hari</h4>
+          <p>Bangun, mandi, sarapan, lalu berangkat sekolah adalah urutan yang sering kamu lakukan. Karena dilakukan
+            berulang, urutan itu juga bisa disebut pola.</p>
+        </div>
       </section>
       <section class="explanation" id="explanation-8">
         <h3>Flowchart sebagai Gambar Rencana</h3>
         <p>Pada contoh kegiatan pagi, kamu bisa melihat bahwa setiap langkah punya posisi yang jelas. Mulai dari bangun
           tidur, lalu mandi, sarapan, berangkat sekolah, dan selesai. Kalau urutannya diubah, hasil kegiatannya juga
           bisa terasa aneh.</p>
+        <p>Flowchart tidak harus rumit atau penuh simbol. Untuk project hari ini, cukup gunakan tanda mulai/selesai,
+          kotak aksi, dan panah yang tersambung.</p>
         <div class="info-box">
           <h4>Intinya</h4>
           <p>Flowchart membantu project jadi lebih teratur, lebih mudah dibaca, dan lebih mudah diperiksa saat ada
@@ -1765,18 +1821,27 @@
       <section class="explanation" id="explanation-9">
         <h3>Mengenal Simbol Flowchart</h3>
         <p>Di sesi ini, project kamu paling sering memakai simbol <strong>Start/End</strong> dan
-          <strong>Process</strong> karena projectnya masih berupa langkah berurutan. Namun, kamu juga diperkenalkan
-          dengan decision dan input/output supaya kamu tahu bahwa flowchart bisa dipakai untuk project yang lebih
-          kompleks.
-        </p>
+          <strong>Process</strong> karena projectnya masih berupa langkah berurutan. Panah sama pentingnya karena
+          menunjukkan arah kita membaca rencana.</p>
+        <ul>
+          <li><strong>Oval:</strong> tanda program mulai atau selesai.</li>
+          <li><strong>Kotak:</strong> satu aksi yang dilakukan, misalnya “Sprite bergerak”.</li>
+          <li><strong>Panah:</strong> menunjukkan aksi berikutnya.</li>
+        </ul>
+        <p>Simbol decision dan input/output boleh kamu kenali sebagai tambahan. Kamu belum perlu memakainya untuk
+          project ini.</p>
       </section>
       <section class="explanation" id="explanation-10">
         <h3>Flowchart diubah Menjadi Blok Scratch</h3>
         <p>Dengan cara ini, kamu tidak asal memasang blok. Setiap blok dipilih karena punya alasan dan sesuai dengan
           langkah pada flowchart. Kebiasaan ini sangat penting supaya project lebih rapi dan mudah dipahami.</p>
+        <p>Contohnya, kotak “Sprite muncul” diterjemahkan menjadi <code>show</code>. Kotak “Sprite bergerak”
+          diterjemahkan menjadi <code>move 50 steps</code>. Nama blok boleh berbeda pada project lain, tetapi maksud
+          aksinya harus tetap sama.</p>
         <div class="warning-box">
           <h4>Tips</h4>
-          <p>Baca flowchart dari atas ke bawah, lalu cek apakah blok Scratch juga tersusun dengan urutan yang sama.</p>
+          <p>Baca flowchart dari atas ke bawah. Setelah memasang satu blok, lihat panah berikutnya; jangan melompat
+            langsung ke langkah terakhir.</p>
         </div>
       </section>
       <section class="explanation" id="explanation-11">
@@ -1784,18 +1849,29 @@
         <p>Urutan yang benar untuk project hari ini adalah: <strong>sprite muncul → sprite bergerak → sprite menyapa →
             ganti costume</strong>. Saat kamu bisa menyusun kartu dengan benar, berarti kamu sudah memahami alur dasar
           project.</p>
+        <p>Perhatikan bahwa Green Flag tidak ada di kartu ini karena Green Flag adalah pemicu yang berada di atas
+          rangkaian. Saat kamu coding nanti, Green Flag tetap harus dipasang paling atas.</p>
+        <div class="example-box">
+          <h4>Cek jawabanmu</h4>
+          <p>Tanya diri sendiri: apakah sprite bisa bergerak sebelum tampil di Stage? Apakah dialog ingin muncul sebelum
+            atau sesudah sprite bergerak? Gunakan alasan, bukan tebakan.</p>
+        </div>
       </section>
+
       <section class="explanation" id="explanation-12">
         <h3>Flowchart Utama Project</h3>
         <p>Urutannya dimulai dari <strong>START</strong>, lalu program membuat sprite muncul, bergerak, menyapa,
           berganti costume, dan berakhir di <strong>END</strong>. Semua langkah itu harus terjadi berurutan, bukan acak.
         </p>
+        <p>Di Scratch, START diwakili oleh event <strong>when Green Flag clicked</strong>. END bukan blok khusus; ia
+          berarti semua aksi dalam rangkaian itu sudah selesai dijalankan.</p>
         <div class="example-box">
           <h4>Gunakan slide ini saat coding</h4>
-          <p>Kamu bisa membuka kembali slide ini sambil membuat project, lalu cocokkan setiap langkah dengan blok yang
-            sedang kamu susun.</p>
+          <p>Kamu bisa membuka kembali slide ini sambil coding. Setelah membuat satu blok, tandai dalam pikiranmu satu
+            langkah flowchart yang sudah selesai diterjemahkan.</p>
         </div>
       </section>
+
       <section class="explanation" id="explanation-13">
         <h3>Persiapan Sebelum Coding</h3>
         <p>Sebelum menyusun blok, cek dulu kebutuhan project. Sprite harus tersedia, terlihat, dan memiliki minimal dua
@@ -1804,34 +1880,54 @@
           sprite yang sederhana agar fokus tetap pada urutan blok.</p>
         <div class="info-box">
           <h4>Tips</h4>
-          <p>Jangan terlalu lama memilih sprite atau backdrop. Pilih yang cukup, lalu lanjut ke coding.</p>
+          <p>Jangan terlalu lama memilih sprite atau backdrop. Pilih yang cukup, lalu lanjut ke coding. Simpan nama
+            project dengan jelas agar mudah ditemukan lagi.</p>
         </div>
+        <p class="mini-note">Sebelum memakai <code>next costume</code>, buka tab Costumes. Pastikan ada Costume 1 dan
+          Costume 2 atau lebih.</p>
       </section>
+
       <section class="explanation" id="explanation-14">
         <h3>Langkah Awal Script</h3>
         <p>Rangkaian blok dimulai dari event Green Flag. Event ini menjadi tanda bahwa project mulai berjalan.</p>
         <p>Blok show dipasang setelah Green Flag agar sprite dipastikan muncul di Stage. Ini berguna jika sprite
           sebelumnya pernah disembunyikan atau project dijalankan ulang.</p>
-        <p>Placeholder pada slide bisa diganti dengan screenshot blok Scratch asli.</p>
+        <div class="example-box">
+          <h4>Urutan blok yang dicari</h4>
+          <p><strong>when Green Flag clicked</strong> lalu <strong>show</strong>. Dua blok ini harus saling menempel.
+          </p>
+        </div>  
       </section>
+
       <section class="explanation" id="explanation-15">
         <h3>Gerakan Sprite</h3>
         <p>Blok move digunakan untuk membuat sprite bergerak sesuai arah hadapnya. Nilai 50 steps cukup terlihat untuk
           latihan awal.</p>
         <p>Jika sprite bergerak ke arah yang tidak kamu duga, cek arah sprite. Move tidak selalu berarti bergerak ke
           kanan; sprite bergerak mengikuti arah hadapnya.</p>
+        <div class="warning-box">
+          <h4>Kalau sprite hilang dari Stage</h4>
+          <p>Jangan panik. Coba jalankan Green Flag lagi. Lalu cek arah sprite atau kecilkan nilai langkahnya jika
+            perlu.</p>
+        </div>
       </section>
+
       <section class="explanation" id="explanation-16">
         <h3>Dialog Sprite</h3>
         <p>Blok say membuat sprite menampilkan balon kata. Gunakan teks yang singkat agar mudah dibaca.</p>
         <p>Durasi 2 detik cukup untuk kalimat pendek. Jika kalimat terlalu panjang, siswa lain mungkin belum selesai
           membaca saat dialog sudah hilang.</p>
+        <p>Untuk latihan ini, coba gunakan teks “Halo, teman-teman!”. Kamu boleh menggantinya dengan kalimat lain
+          setelah project utama sudah bekerja.</p>
       </section>
+      
       <section class="explanation" id="explanation-17">
         <h3>Perubahan Costume</h3>
         <p>Blok next costume membuat sprite berganti tampilan. Ini sering dipakai untuk membuat animasi sederhana.</p>
         <p>Jika tidak ada perubahan, kemungkinan sprite hanya memiliki satu costume. Buka tab Costumes dan cek jumlah
           costume yang tersedia.</p>
+        <p>Costume adalah tampilan gambar yang dimiliki sprite. <code>next costume</code> berpindah ke tampilan
+          berikutnya. Jadi, jika sprite punya dua costume, perubahan tampak seperti animasi sederhana.</p>
       </section>
       <section class="explanation" id="explanation-18">
         <h3>Rangkaian Lengkap</h3>
@@ -1839,6 +1935,15 @@
           bawah Green Flag.</p>
         <p>Jika satu blok terpisah, Scratch tidak akan menjalankannya bersama rangkaian utama. Inilah sebabnya kita
           perlu mengecek susunan dari atas ke bawah.</p>
+        <div class="info-box">
+          <h4>Cara mengecek cepat</h4>
+          <ol>
+            <li>Mulai dari Green Flag.</li>
+            <li>Baca nama blok satu per satu dari atas ke bawah.</li>
+            <li>Bandingkan dengan kotak pada flowchart.</li>
+            <li>Pastikan tidak ada celah di antara blok.</li>
+          </ol>
+        </div>
       </section>
       <section class="explanation" id="explanation-19">
         <h3>Prediksi Hasil</h3>
@@ -1846,6 +1951,8 @@
           tetapi benar-benar memahami alur program.</p>
         <p>Jika prediksi berbeda dari hasil project, itu tanda ada bagian yang perlu dicek. Bisa jadi urutan blok
           berubah atau ada blok yang belum tersambung.</p>
+        <p>Setelah memilih jawaban di slide, jangan berhenti di jawaban benar. Sebutkan kembali empat aksi itu dengan
+          urutanmu sendiri. Itu membantu otakmu mengingat alurnya.</p>
       </section>
       <section class="explanation" id="explanation-20">
         <h3>Debugging Sederhana</h3>
@@ -1855,8 +1962,11 @@
           punya blok yang sesuai?</p>
         <div class="warning-box">
           <h4>Ingat</h4>
-          <p>Jangan langsung menghapus semua blok. Cek satu langkah dulu.</p>
+          <p>Jangan langsung menghapus semua blok. Cek satu langkah dulu, mulai dari langkah pertama yang hasilnya tidak
+            sesuai.</p>
         </div>
+        <p>Contoh: jika sprite bergerak tetapi tidak menyapa, bagian awal sudah bekerja. Kamu cukup memeriksa blok
+          <code>say</code>, bukan membuat ulang seluruh script.</p>
       </section>
       <section class="explanation" id="explanation-21">
         <h3>Testing Berdasarkan Rencana</h3>
@@ -1864,6 +1974,11 @@
           yang muncul sudah sesuai urutan.</p>
         <p>Jalankan project lebih dari satu kali. Project yang baik bisa dijalankan ulang dan menghasilkan urutan yang
           sama.</p>
+        <div class="example-box">
+          <h4>Urutan testing</h4>
+          <p>Tekan Green Flag → lihat sprite muncul → lihat sprite bergerak → baca dialog → lihat costume berubah. Jika
+            satu bagian tidak muncul, berhenti pada bagian itu dan cek flowchart.</p>
+        </div>
       </section>
       <section class="explanation" id="explanation-22">
         <h3>Checklist Output Minimum</h3>
@@ -1871,6 +1986,8 @@
           inti sudah berhasil.</p>
         <p>Setelah target minimum aman, kamu boleh mencoba challenge seperti membuat flowchart baru atau menambahkan
           aksi lain.</p>
+        <p>Checklist ini bukan perlombaan. Gunakan untuk melihat bagian mana yang sudah berhasil dan bagian mana yang
+          masih perlu diperbaiki. Project belum harus sangat cantik; yang penting alurnya berjalan dengan benar.</p>
       </section>
       <section class="explanation" id="explanation-23">
         <h3>Challenge Tambahan</h3>
@@ -1878,6 +1995,11 @@
           flowchart game impianmu.</p>
         <p>Challenge yang menarik adalah menukar flowchart dengan teman. Kamu mencoba membaca rencana orang lain dan
           memprediksi hasil projectnya.</p>
+        <div class="info-box">
+          <h4>Aturan challenge</h4>
+          <p>Selesaikan output minimum lebih dahulu. Saat membuat flowchart baru, gunakan START, langkah yang jelas,
+            panah, dan END. Temanmu harus bisa membaca rencanamu tanpa perlu menebak-nebak.</p>
+        </div>
       </section>
       <section class="explanation" id="explanation-24">
         <h3>Refleksi Akhir</h3>
@@ -1885,6 +2007,15 @@
           langkah, menyusun urutan, lalu mengetes hasilnya.</p>
         <p>Flowchart membantu programmer membuat rencana yang jelas. Dengan rencana yang jelas, project lebih mudah
           dibuat dan diperbaiki.</p>
+        <div class="info-box">
+          <h4>Exit ticket</h4>
+          <ol>
+            <li>Mengapa programmer membuat flowchart sebelum coding?</li>
+            <li>Apa manfaat memecah tugas besar menjadi langkah kecil?</li>
+            <li>Apa yang terjadi jika urutan blok Scratch diubah?</li>
+          </ol>
+          <p>Jawab dengan singkat menggunakan kata-katamu sendiri.</p>
+        </div>
         <div class="example-box">
           <h4>Siap untuk sesi berikutnya</h4>
           <p>Di Sesi 4, kamu akan memakai event keyboard untuk membuat Piano Digital.</p>
@@ -1893,116 +2024,131 @@
     </div>
   </div>
   <script>
-    const ACCESS_CODE = 'RGMDSUP26'; 
-    let currentSlide = 1; 
-    const totalSlides = document.querySelectorAll('.slide').length; 
-    document.getElementById('totalSlides').textContent = totalSlides; 
-    window.addEventListener('load', () => { setTimeout(() => document.querySelector('.access-popup').classList.add('show'), 50); 
-    const input = document.getElementById('accessInput'); input.focus(); 
-    input.addEventListener('input', e => { e.target.value = e.target.value.toUpperCase() }); 
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') checkAccessCode() }); 
-    initDragDrop(); }); 
-    function checkAccessCode() { 
-      const input = document.getElementById('accessInput'), error = document.getElementById('accessError'); 
-      if (input.value.trim().toUpperCase() === ACCESS_CODE) { 
-        document.getElementById('accessPopup').style.display = 'none'; 
-        document.getElementById('mainContent').style.display = 'flex'; 
-        updateSlide(); } else { error.classList.add('show'); input.value = ''; 
-        input.focus(); } 
-      } 
-      function changeSlide(direction) { 
-        const next = currentSlide + direction; 
-        if (next < 1 || next > totalSlides) return; 
-        currentSlide = next; updateSlide(); 
-      } 
-      function updateSlide() { 
-        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active')); 
-        document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active')); 
-        document.getElementById(`slide-${currentSlide}`).classList.add('active'); 
-        const exp = document.getElementById(`explanation-${currentSlide}`); 
-        if (exp) exp.classList.add('active'); 
-        document.getElementById('currentSlide').textContent = currentSlide; 
-        document.getElementById('prevBtn').disabled = currentSlide === 1; 
-        document.getElementById('nextBtn').disabled = currentSlide === totalSlides; 
-        document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`; 
-        document.querySelector('.slide-content').scrollTop = 0; 
-        document.querySelector('.explanation-panel').scrollTop = 0; 
-      } 
-      document.addEventListener('keydown', e => { 
-        if (document.getElementById('mainContent').style.display === 'none') return; 
-        if (e.key === 'ArrowRight') changeSlide(1); 
-        if (e.key === 'ArrowLeft') changeSlide(-1); 
-        if (['a', 's', 'd', 'f', 'g', 'h'].includes(e.key.toLowerCase())) playNote(e.key.toUpperCase(), true); 
-      }); 
-      function singleChoice(btn, ok, feedbackId) { 
-        const group = btn.parentElement; 
-        group.querySelectorAll('.choice-btn').forEach(b => { b.disabled = true; b.classList.remove('selected') }); 
-        btn.classList.add(ok ? 'correct' : 'wrong'); 
-        const fb = document.getElementById(feedbackId); 
-        if (fb) { 
-          fb.textContent = ok ? 'Betul.' : 'Belum tepat. Coba baca penjelasannya lagi.'; 
-          fb.style.color = ok ? '#176b35' : '#a42820'; 
-        } 
-      } 
-      function selectAny(btn) { 
-        const group = btn.parentElement; 
-        group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); 
-        btn.classList.add('selected'); 
+    const ACCESS_CODE = 'RGMDSUP26';
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('totalSlides').textContent = totalSlides;
+    window.addEventListener('load', () => {
+      setTimeout(() => document.querySelector('.access-popup').classList.add('show'), 50);
+      const input = document.getElementById('accessInput');
+      input.focus();
+      input.addEventListener('input', e => { e.target.value = e.target.value.toUpperCase() });
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') checkAccessCode() });
+      initDragDrop();
+    });
+    function checkAccessCode() {
+      const input = document.getElementById('accessInput'), error = document.getElementById('accessError');
+      if (input.value.trim().toUpperCase() === ACCESS_CODE) {
+        document.getElementById('accessPopup').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'flex';
+        updateSlide();
+      } else {
+        error.classList.add('show'); input.value = '';
+        input.focus();
       }
-         function toggleCheck(item) { 
-          const cb = item.querySelector('input'); cb.checked = !cb.checked; 
-          item.classList.toggle('done', cb.checked); 
-        } 
-        function showDebug(id, btn) { 
-          btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active')); 
-          btn.classList.add('active'); 
-          const host = btn.closest('.slide'); 
-          host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active')); 
-          host.querySelector('#' + id).classList.add('active'); 
-        } 
-        function showConcept(id) { 
-          const data = { dekom: ['Dekomposisi', 'Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.'], seq: ['Sequence', 'Menyusun langkah sesuai urutan yang benar. Kalau urutannya berubah, hasilnya bisa berubah.'], pat: ['Pattern', 'Menemukan langkah yang muncul berulang, misalnya tes → cari salah → perbaiki → tes lagi.'], flow: ['Flowchart', 'Diagram alur untuk melihat rencana langkah sebelum coding.'] }; 
-          document.getElementById('conceptInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; 
-        } 
-        function showSymbol(id, btn) { 
-          document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('active')); 
-          btn.classList.add('active'); 
-          const data = { start: ['Start/End', 'Dipakai untuk tanda mulai dan selesai.'], process: ['Process', 'Dipakai untuk langkah kerja, seperti sprite bergerak.'], decision: ['Decision', 'Dipakai untuk pilihan ya/tidak. Di sesi ini hanya dikenalkan dulu.'], io: ['Input/Output', 'Dipakai untuk masukan atau hasil, misalnya tombol ditekan atau suara terdengar.'] }; 
-          document.getElementById('symbolInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; 
-        } 
-        function initDragDrop() { 
-          document.querySelectorAll('.sequence-card').forEach(card => { 
-            card.addEventListener('dragstart', () => card.classList.add('dragging')); 
-            card.addEventListener('dragend', () => card.classList.remove('dragging')); 
-          }); 
-          document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => { 
-            zone.addEventListener('dragover', e => { 
-              e.preventDefault(); const dragging = document.querySelector('.dragging'); 
-              if (dragging) zone.appendChild(dragging); 
-            }
-          ); 
+    }
+    function changeSlide(direction) {
+      const next = currentSlide + direction;
+      if (next < 1 || next > totalSlides) return;
+      currentSlide = next; updateSlide();
+    }
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active'));
+      document.getElementById(`slide-${currentSlide}`).classList.add('active');
+      const exp = document.getElementById(`explanation-${currentSlide}`);
+      if (exp) exp.classList.add('active');
+      document.getElementById('currentSlide').textContent = currentSlide;
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+      document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`;
+      document.querySelector('.slide-content').scrollTop = 0;
+      document.querySelector('.explanation-panel').scrollTop = 0;
+    }
+    document.addEventListener('keydown', e => {
+      if (document.getElementById('mainContent').style.display === 'none') return;
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (['a', 's', 'd', 'f', 'g', 'h'].includes(e.key.toLowerCase())) playNote(e.key.toUpperCase(), true);
+    });
+    function singleChoice(btn, ok, feedbackId) {
+      const group = btn.parentElement;
+      group.querySelectorAll('.choice-btn').forEach(b => { b.disabled = true; b.classList.remove('selected') });
+      btn.classList.add(ok ? 'correct' : 'wrong');
+      const fb = document.getElementById(feedbackId);
+      if (fb) {
+        fb.textContent = ok ? 'Betul.' : 'Belum tepat. Coba baca penjelasannya lagi.';
+        fb.style.color = ok ? '#176b35' : '#a42820';
+      }
+    }
+    function selectAny(btn) {
+      const group = btn.parentElement;
+      group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+    function toggleCheck(item) {
+      const cb = item.querySelector('input'); cb.checked = !cb.checked;
+      item.classList.toggle('done', cb.checked);
+    }
+    function showDebug(id, btn) {
+      btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const host = btn.closest('.slide');
+      host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active'));
+      host.querySelector('#' + id).classList.add('active');
+    }
+    function showConcept(id) {
+      const data = { dekom: ['Dekomposisi', 'Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.'], seq: ['Sequence', 'Menyusun langkah sesuai urutan yang benar. Kalau urutannya berubah, hasilnya bisa berubah.'], pat: ['Pattern', 'Menemukan langkah yang muncul berulang, misalnya tes → cari salah → perbaiki → tes lagi.'], flow: ['Flowchart', 'Diagram alur untuk melihat rencana langkah sebelum coding.'] };
+      document.getElementById('conceptInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`;
+    }
+    function showSymbol(id, btn) {
+      document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const data = { start: ['Start/End', 'Dipakai untuk tanda mulai dan selesai.'], process: ['Process', 'Dipakai untuk langkah kerja, seperti sprite bergerak.'], decision: ['Decision', 'Dipakai untuk pilihan ya/tidak. Di sesi ini hanya dikenalkan dulu.'], io: ['Input/Output', 'Dipakai untuk masukan atau hasil, misalnya tombol ditekan atau suara terdengar.'] };
+      document.getElementById('symbolInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`;
+    }
+    function initDragDrop() {
+      document.querySelectorAll('.sequence-card').forEach(card => {
+        card.addEventListener('dragstart', () => card.classList.add('dragging'));
+        card.addEventListener('dragend', () => card.classList.remove('dragging'));
+      });
+      document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => {
+        zone.addEventListener('dragover', e => {
+          e.preventDefault(); const dragging = document.querySelector('.dragging');
+          if (dragging) zone.appendChild(dragging);
         }
-      ); 
-    } 
-    function checkOrder(targetId, feedbackId) { 
-      const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')]; 
-      const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1); 
-      const fb = document.getElementById(feedbackId); 
-      fb.textContent = ok ? 'Urutannya sudah tepat.' : 'Belum tepat. Coba cek lagi langkah awal sampai akhir.'; 
-      fb.style.color = ok ? '#176b35' : '#a42820'; 
-    } 
-    function showFlow(type) { 
-        const data = { 
-          input: ['Input', 'Sesuatu yang memulai proses. Contoh: Green Flag diklik atau tombol keyboard ditekan.'], process: ['Process', 'Langkah yang dijalankan program, seperti show, move, say, atau start sound.'], output: ['Output', 'Hasil yang terlihat atau terdengar, seperti sprite bergerak atau nada piano berbunyi.'] }; document.getElementById('flowInfo').innerHTML = `<h4>${data[type][0]}</h4><p>${data[type][1]}</p>`; 
-        } 
-        let audioCtx = null; 
-        function playNote(note, fromKey = false) { 
-          const notes = { A: ['Do', 261.63], S: ['Re', 293.66], D: ['Mi', 329.63], F: ['Fa', 349.23], G: ['Sol', 392.00], H: ['La', 440.00] }; if (!notes[note]) return; 
-          try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); 
-            const osc = audioCtx.createOscillator(); 
-            const gain = audioCtx.createGain(); osc.type = 'sine'; 
-            osc.frequency.value = notes[note][1]; 
-            gain.gain.setValueAtTime(0.0001, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.38); } catch (e) { } document.querySelectorAll(`[data-key="${note}"]`).forEach(k => { k.classList.add('playing'); setTimeout(() => k.classList.remove('playing'), 220); }); document.querySelectorAll('.sound-log').forEach(log => { log.textContent = `Tombol ${note} ditekan → nada ${notes[note][0]} dimainkan.`; }); } function markKey(btn) { btn.classList.add('selected'); }
+        );
+      }
+      );
+    }
+    function checkOrder(targetId, feedbackId) {
+      const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')];
+      const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1);
+      const fb = document.getElementById(feedbackId);
+      fb.textContent = ok ? 'Urutannya sudah tepat.' : 'Belum tepat. Coba cek lagi langkah awal sampai akhir.';
+      fb.style.color = ok ? '#176b35' : '#a42820';
+    }
+    function showFlow(type) {
+      const data = {
+        input: ['Input', 'Sesuatu yang memulai proses. Contoh: Green Flag diklik atau tombol keyboard ditekan.'], process: ['Process', 'Langkah yang dijalankan program, seperti show, move, say, atau start sound.'], output: ['Output', 'Hasil yang terlihat atau terdengar, seperti sprite bergerak atau nada piano berbunyi.']
+      }; document.getElementById('flowInfo').innerHTML = `<h4>${data[type][0]}</h4><p>${data[type][1]}</p>`;
+    }
+    let audioCtx = null;
+    function playNote(note, fromKey = false) {
+      const notes = { A: ['Do', 261.63], S: ['Re', 293.66], D: ['Mi', 329.63], F: ['Fa', 349.23], G: ['Sol', 392.00], H: ['La', 440.00] }; if (!notes[note]) return;
+      try {
+        audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain(); osc.type = 'sine';
+        osc.frequency.value = notes[note][1];
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.38);
+      }
+      catch (e) { }
+      document.querySelectorAll(`[data-key="${note}"]`).forEach(k => { k.classList.add('playing'); setTimeout(() => k.classList.remove('playing'), 220); }); document.querySelectorAll('.sound-log').forEach(log => { log.textContent = `Tombol ${note} ditekan → nada ${notes[note][0]} dimainkan.`; });
+    }
+    function markKey(btn) {
+      btn.classList.add('selected');
+    }
   </script>
 </body>
 
