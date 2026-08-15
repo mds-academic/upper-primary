@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UOB My Digital Space Y2 — Upper Primary Sesi 6</title>
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🔐&lt;/text&gt;&lt;/svg&gt;" />
+  <link rel="icon"
+    href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🔐&lt;/text&gt;&lt;/svg&gt;" />
   <style>
     * {
       margin: 0;
@@ -1032,111 +1034,1055 @@
         grid-template-columns: repeat(5, 1fr)
       }
     }
-  
+
 
     /* Session 5-6 additions: keep base visual, only add learning components */
-    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tag{display:inline-block;border:2px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-weight:800;font-size:.88rem}.tag.red{border-color:#ffd2d8;background:#fff5f6;color:#ad1d2b}.tag.blue{border-color:#cfe7ff;background:#f2f8ff;color:#0056b3}.tag.green{border-color:#ccebd6;background:#f5fff7;color:#176b35}.tag.orange{border-color:#ffe1ad;background:#fff9ec;color:#9a5b00}
-    .piggy-stage{position:relative;min-height:280px;border:2px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#eaf7ff 0%,#fff 58%,#e8f7e8 58%);margin:14px 0;display:grid;place-items:center;text-align:center}.piggy-bank{width:170px;height:118px;border-radius:70px 70px 56px 56px;background:#ffdbe4;border:4px solid #e8607a;position:relative;display:grid;place-items:center;font-size:3.2rem;box-shadow:0 8px 18px rgba(0,0,0,.12);cursor:pointer;transition:.25s ease}.piggy-bank:before{content:"";position:absolute;right:-28px;top:34px;border-left:34px solid #ffdbe4;border-top:22px solid transparent;border-bottom:22px solid transparent}.piggy-bank:after{content:"";position:absolute;left:38px;top:-8px;width:64px;height:8px;border-radius:999px;background:#bd4760}.piggy-bank.full{background:#f7b6c5}.piggy-bank.super{background:#ff91aa}.coin-drop{position:absolute;font-size:2rem;top:24px;left:50%;transform:translateX(-50%);opacity:0}.coin-drop.animate{animation:coinFall .7s ease-in-out}@keyframes coinFall{0%{opacity:1;top:18px}85%{opacity:1;top:120px}100%{opacity:0;top:120px}}.stage-label{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-weight:900;color:var(--blue)}.piggy-caption{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(255,255,255,.95);border:2px solid var(--line);border-radius:12px;padding:11px;font-weight:800}.costume-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.costume-card{border:2px solid var(--line);border-radius:12px;background:#fff;padding:12px;text-align:center;cursor:pointer}.costume-card.active{border-color:var(--green);background:var(--green-soft)}.costume-card .big{font-size:2.3rem;display:block}.before-after{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:14px 0}.ba-card{background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px;text-align:center}.ba-arrow{font-size:2rem;color:var(--uob-red);font-weight:900}.privacy-board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.privacy-column{min-height:170px;border:2px dashed #a9bfd2;border-radius:12px;background:#f8fbfe;padding:10px}.privacy-column h4{text-align:center;color:var(--blue)}.data-card{padding:10px 12px;border:2px solid var(--line);background:#fff;border-radius:10px;margin:8px 0;font-weight:800;cursor:pointer}.data-card.good{border-color:var(--green);background:var(--green-soft)}.data-card.careful{border-color:var(--orange);background:#fff9ed}.data-card.secret{border-color:var(--red);background:#fff1f0}.dialog-stage{min-height:285px;border:2px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#eef7ff,#fff);position:relative;margin:14px 0;padding:18px;overflow:hidden}.character{position:absolute;bottom:26px;width:120px;text-align:center;font-size:4rem}.character.left{left:34px}.character.right{right:34px}.speech{position:absolute;max-width:43%;padding:12px 14px;border-radius:16px;background:#fff;border:2px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,.08);font-weight:700;opacity:.25;transition:.2s}.speech.active{opacity:1;transform:translateY(-4px);border-color:var(--blue)}.speech.left{left:140px;top:34px}.speech.right{right:140px;top:104px}.dialog-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0}.timeline{display:grid;gap:8px;margin:12px 0}.timeline-step{background:#fff;border:2px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start}.timeline-step span{display:grid;place-items:center;min-width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900}.scratch-stack{display:grid;gap:8px;margin:14px 0}.scratch-block{border-radius:10px;color:#fff;padding:10px 14px;font-weight:900;box-shadow:0 3px 0 rgba(0,0,0,.12);font-size:.96rem}.scratch-block.event{background:#f0a500}.scratch-block.looks{background:#8e44ad}.scratch-block.control{background:#f39c12}.scratch-block.sound{background:#d65db1}.scratch-block.motion{background:#4a9eff}.scratch-block.sensing{background:#11a9b7}.scratch-block.note{background:#fff;color:#34495e;border:2px dashed #9ab7d3;box-shadow:none}.reveal{display:none}.reveal.show{display:block}.progress-mini{display:flex;gap:8px;align-items:center;margin:14px 0}.progress-dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#e9ecef;font-weight:900}.progress-dot.done{background:var(--green);color:#fff}.safe-meter{height:20px;border-radius:999px;background:#e9ecef;overflow:hidden;margin:12px 0}.safe-meter-fill{height:100%;width:0;background:linear-gradient(90deg,var(--uob-red),var(--green));transition:.3s}.role-card{border:2px solid var(--line);border-radius:12px;background:#fff;padding:14px}.role-card h4{color:var(--blue)}
-    @media(max-width:960px){.privacy-board,.costume-strip,.before-after{grid-template-columns:1fr}.ba-arrow{transform:rotate(90deg)}.speech{position:static;max-width:none;margin:12px 0}.character{position:static;display:inline-block;width:auto}.dialog-stage{min-height:0}.privacy-column{min-height:110px}}
-</style>
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0
+    }
+
+    .tag {
+      display: inline-block;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-weight: 800;
+      font-size: .88rem
+    }
+
+    .tag.red {
+      border-color: #ffd2d8;
+      background: #fff5f6;
+      color: #ad1d2b
+    }
+
+    .tag.blue {
+      border-color: #cfe7ff;
+      background: #f2f8ff;
+      color: #0056b3
+    }
+
+    .tag.green {
+      border-color: #ccebd6;
+      background: #f5fff7;
+      color: #176b35
+    }
+
+    .tag.orange {
+      border-color: #ffe1ad;
+      background: #fff9ec;
+      color: #9a5b00
+    }
+
+    .piggy-stage {
+      position: relative;
+      min-height: 280px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #eaf7ff 0%, #fff 58%, #e8f7e8 58%);
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center
+    }
+
+    .piggy-bank {
+      width: 170px;
+      height: 118px;
+      border-radius: 70px 70px 56px 56px;
+      background: #ffdbe4;
+      border: 4px solid #e8607a;
+      position: relative;
+      display: grid;
+      place-items: center;
+      font-size: 3.2rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+      cursor: pointer;
+      transition: .25s ease
+    }
+
+    .piggy-bank:before {
+      content: "";
+      position: absolute;
+      right: -28px;
+      top: 34px;
+      border-left: 34px solid #ffdbe4;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent
+    }
+
+    .piggy-bank:after {
+      content: "";
+      position: absolute;
+      left: 38px;
+      top: -8px;
+      width: 64px;
+      height: 8px;
+      border-radius: 999px;
+      background: #bd4760
+    }
+
+    .piggy-bank.full {
+      background: #f7b6c5
+    }
+
+    .piggy-bank.super {
+      background: #ff91aa
+    }
+
+    .coin-drop {
+      position: absolute;
+      font-size: 2rem;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0
+    }
+
+    .coin-drop.animate {
+      animation: coinFall .7s ease-in-out
+    }
+
+    @keyframes coinFall {
+      0% {
+        opacity: 1;
+        top: 18px
+      }
+
+      85% {
+        opacity: 1;
+        top: 120px
+      }
+
+      100% {
+        opacity: 0;
+        top: 120px
+      }
+    }
+
+    .stage-label {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 900;
+      color: var(--blue)
+    }
+
+    .piggy-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, .95);
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 11px;
+      font-weight: 800
+    }
+
+    .costume-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0
+    }
+
+    .costume-card {
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer
+    }
+
+    .costume-card.active {
+      border-color: var(--green);
+      background: var(--green-soft)
+    }
+
+    .costume-card .big {
+      font-size: 2.3rem;
+      display: block
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0
+    }
+
+    .ba-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center
+    }
+
+    .ba-arrow {
+      font-size: 2rem;
+      color: var(--uob-red);
+      font-weight: 900
+    }
+
+    .privacy-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .privacy-column {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      border-radius: 12px;
+      background: #f8fbfe;
+      padding: 10px
+    }
+
+    .privacy-column h4 {
+      text-align: center;
+      color: var(--blue)
+    }
+
+    .data-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      margin: 8px 0;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .data-card.good {
+      border-color: var(--green);
+      background: var(--green-soft)
+    }
+
+    .data-card.careful {
+      border-color: var(--orange);
+      background: #fff9ed
+    }
+
+    .data-card.secret {
+      border-color: var(--red);
+      background: #fff1f0
+    }
+
+    .dialog-stage {
+      min-height: 285px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #eef7ff, #fff);
+      position: relative;
+      margin: 14px 0;
+      padding: 18px;
+      overflow: hidden
+    }
+
+    .character {
+      position: absolute;
+      bottom: 26px;
+      width: 120px;
+      text-align: center;
+      font-size: 4rem
+    }
+
+    .character.left {
+      left: 34px
+    }
+
+    .character.right {
+      right: 34px
+    }
+
+    .speech {
+      position: absolute;
+      max-width: 43%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #fff;
+      border: 2px solid var(--line);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+      font-weight: 700;
+      opacity: .25;
+      transition: .2s
+    }
+
+    .speech.active {
+      opacity: 1;
+      transform: translateY(-4px);
+      border-color: var(--blue)
+    }
+
+    .speech.left {
+      left: 140px;
+      top: 34px
+    }
+
+    .speech.right {
+      right: 140px;
+      top: 104px
+    }
+
+    .dialog-controls {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0
+    }
+
+    .timeline {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0
+    }
+
+    .timeline-step {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    .timeline-step span {
+      display: grid;
+      place-items: center;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900
+    }
+
+    .scratch-stack {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0
+    }
+
+    .scratch-block {
+      border-radius: 10px;
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, .12);
+      font-size: .96rem
+    }
+
+    .scratch-block.event {
+      background: #f0a500
+    }
+
+    .scratch-block.looks {
+      background: #8e44ad
+    }
+
+    .scratch-block.control {
+      background: #f39c12
+    }
+
+    .scratch-block.sound {
+      background: #d65db1
+    }
+
+    .scratch-block.motion {
+      background: #4a9eff
+    }
+
+    .scratch-block.sensing {
+      background: #11a9b7
+    }
+
+    .scratch-block.note {
+      background: #fff;
+      color: #34495e;
+      border: 2px dashed #9ab7d3;
+      box-shadow: none
+    }
+
+    .reveal {
+      display: none
+    }
+
+    .reveal.show {
+      display: block
+    }
+
+    .progress-mini {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 14px 0
+    }
+
+    .progress-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #e9ecef;
+      font-weight: 900
+    }
+
+    .progress-dot.done {
+      background: var(--green);
+      color: #fff
+    }
+
+    .safe-meter {
+      height: 20px;
+      border-radius: 999px;
+      background: #e9ecef;
+      overflow: hidden;
+      margin: 12px 0
+    }
+
+    .safe-meter-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--uob-red), var(--green));
+      transition: .3s
+    }
+
+    .role-card {
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 14px
+    }
+
+    .role-card h4 {
+      color: var(--blue)
+    }
+
+    @media(max-width:960px) {
+
+      .privacy-board,
+      .costume-strip,
+      .before-after {
+        grid-template-columns: 1fr
+      }
+
+      .ba-arrow {
+        transform: rotate(90deg)
+      }
+
+      .speech {
+        position: static;
+        max-width: none;
+        margin: 12px 0
+      }
+
+      .character {
+        position: static;
+        display: inline-block;
+        width: auto
+      }
+
+      .dialog-stage {
+        min-height: 0
+      }
+
+      .privacy-column {
+        min-height: 110px
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="access-popup-overlay" id="accessPopup"><div class="access-popup"><h2>🔐 Kode Akses</h2><p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 6.</p><input autocomplete="off" class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text" /><button class="access-submit" onclick="checkAccessCode()">Masuk</button><div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div><div class="access-hint">Kode akses diberikan oleh guru.</div></div></div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="access-popup-overlay" id="accessPopup">
+    <div class="access-popup">
+      <h2>🔐 Kode Akses</h2>
+      <p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 6.</p><input autocomplete="off"
+        class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text" /><button
+        class="access-submit" onclick="checkAccessCode()">Masuk</button>
+      <div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div>
+      <div class="access-hint">Kode akses diberikan oleh guru.</div>
+    </div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
   <div class="main-container" id="mainContent" style="display:none;">
-    <div class="slides-panel"><div class="slide-header"><h1>UOB My Digital Space — Upper Primary</h1><p>Sesi 6 · Wawancara Keamanan</p><span class="header-badge">Scratch · Upper Primary</span></div><div class="slide-content">
-      <div class="floating-element" style="top:12%;left:7%;">🔐</div><div class="floating-element" style="top:18%;right:10%;">💬</div><div class="floating-element" style="bottom:25%;left:14%;">🛡️</div><div class="floating-element" style="bottom:15%;right:16%;">👥</div>
-      <section class="slide active" id="slide-1">
-<span class="eyebrow">Sesi 6</span><h2>Wawancara Keamanan</h2><p class="lead">Hari ini Kiko dan Zara akan belajar ngobrol di Scratch dengan rapi, sopan, dan aman.</p><div class="metrics"><div class="metric-box"><strong>💬</strong><span>Dialog dua sprite</span></div><div class="metric-box"><strong>⏱️</strong><span>Say dan Wait</span></div><div class="metric-box"><strong>🔐</strong><span>Data pribadi</span></div><div class="metric-box"><strong>🛡️</strong><span>Jawaban aman</span></div></div><div class="example-box"><h4>Target project</h4><p>Dua sprite berbicara bergantian tanpa teks bertabrakan, sambil memberi contoh menjaga informasi pribadi.</p></div>
-</section><section class="slide" id="slide-2">
-<h3>Misi Belajar Hari Ini</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🎭</div><h4>Dua Sprite</h4><p>Membuat dua karakter berbicara.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Say</h4><p>Menampilkan bubble dialog.</p></div><div class="visual-card"><div class="visual-icon">⏱️</div><h4>Wait</h4><p>Memberi jeda agar dialog bergantian.</p></div><div class="visual-card"><div class="visual-icon">🔐</div><h4>Privasi</h4><p>Menjawab pertanyaan pribadi dengan aman.</p></div></div>
-</section><section class="slide" id="slide-3">
-<h3>Siapkan Project-mu</h3><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Scratch atau starter file sudah dibuka.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada 2 sprite, misalnya Kiko dan Zara.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Backdrop sudah dipilih, misalnya kelas, taman, atau perpustakaan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Contoh dialog sudah disiapkan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Tidak memakai data pribadi asli.</li></ul>
-</section><section class="slide" id="slide-4">
-<h3>Apa Itu say?</h3><p class="lead"><strong>say</strong> membuat sprite menampilkan balon kata.</p><div class="dialog-stage"><div class="character left">🤖<br><small>Kiko</small></div><div class="speech left active">Halo, Zara! Boleh aku bertanya?</div></div><div class="info-box"><p>Gunakan kalimat pendek agar mudah dibaca.</p></div>
-</section><section class="slide" id="slide-5">
-<h3>Apa Itu wait?</h3><p class="lead"><strong>wait</strong> memberi jeda sebelum script lanjut ke blok berikutnya.</p><div class="flow-line"><div class="flow-box">Kiko bicara</div><div class="flow-arrow">→</div><div class="flow-box">wait</div><div class="flow-arrow">→</div><div class="flow-box">Zara bicara</div></div><div class="example-box"><p>Wait membantu percakapan tidak bertabrakan.</p></div>
-</section><section class="slide" id="slide-6">
-<h3>Simulasi Dialog Bergantian</h3><p>Klik tombol untuk melihat perbedaan dialog yang rapi dan dialog yang bertabrakan.</p><div class="dialog-stage"><div class="character left">🤖<br><small>Kiko</small></div><div class="character right">🧒<br><small>Zara</small></div><div class="speech left" id="bubbleKiko">Boleh tahu alamat rumahmu?</div><div class="speech right" id="bubbleZara">Maaf, aku tidak membagikan alamat rumah.</div></div><div class="dialog-controls"><button class="primary-btn" onclick="runDialog('rapi')">Coba Dialog Rapi</button><button class="secondary-btn" onclick="runDialog('tabrak')">Coba Dialog Bertabrakan</button></div><div class="feedback-line" id="dialogFeedback"></div>
-</section><section class="slide" id="slide-7">
-<h3>Data Pribadi Itu Apa?</h3><p class="lead">Data pribadi adalah informasi penting tentang diri kita yang perlu dijaga.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🏠</div><h4>Alamat rumah</h4><p>Jangan dibagikan sembarangan.</p></div><div class="visual-card"><div class="visual-icon">🔑</div><h4>Password</h4><p>Rahasia. Tidak untuk teman.</p></div><div class="visual-card"><div class="visual-icon">📱</div><h4>Nomor telepon</h4><p>Perlu izin orang tua.</p></div><div class="visual-card"><div class="visual-icon">🎨</div><h4>Warna favorit</h4><p>Biasanya relatif aman.</p></div></div>
-</section><section class="slide" id="slide-8">
-<h3>Aman, Hati-hati, atau Rahasia?</h3><p>Klik kartu untuk melihat kategorinya.</p><div class="choice-grid"><button class="choice-btn" onclick="markData(this,'good')">Warna favorit</button><button class="choice-btn" onclick="markData(this,'secret')">Password</button><button class="choice-btn" onclick="markData(this,'careful')">Nama sekolah</button><button class="choice-btn" onclick="markData(this,'good')">Hobi</button><button class="choice-btn" onclick="markData(this,'secret')">Kode OTP</button><button class="choice-btn" onclick="markData(this,'careful')">Nomor telepon</button></div><div class="feedback-line" id="dataFeedback">Klik semua kartu satu per satu.</div>
-</section><section class="slide" id="slide-9">
-<h3>Aturan Penting di Dunia Digital</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🚫</div><h4>Jangan bagikan</h4><p>Password, PIN, OTP, alamat rumah.</p></div><div class="visual-card"><div class="visual-icon">🙋</div><h4>Tanya orang dewasa</h4><p>Kalau ragu, minta bantuan guru/orang tua.</p></div><div class="visual-card"><div class="visual-icon">🧠</div><h4>Berpikir dulu</h4><p>Jangan terburu-buru menjawab.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Tolak sopan</h4><p>Gunakan kalimat baik dan aman.</p></div></div>
-</section><section class="slide" id="slide-10">
-<h3>Pilih Jawaban yang Aman</h3><p>Kiko bertanya: “Boleh tahu password akunmu?”</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'safeAnswer')">“Passwordku adalah 12345.”</button><button class="choice-btn" onclick="singleChoice(this,true,'safeAnswer')">“Maaf, password itu rahasia.”</button><button class="choice-btn" onclick="singleChoice(this,false,'safeAnswer')">“Nanti aku kirim di chat.”</button></div><div class="feedback-line" id="safeAnswer"></div>
-</section><section class="slide" id="slide-11">
-<h3>Rencana Dialog Project</h3><div class="timeline"><div class="timeline-step"><span>1</span><div><strong>Kiko:</strong> Halo, Zara! Boleh aku bertanya?</div></div><div class="timeline-step"><span>2</span><div><strong>Zara:</strong> Boleh, asal pertanyaannya aman.</div></div><div class="timeline-step"><span>3</span><div><strong>Kiko:</strong> Boleh tahu alamat rumahmu?</div></div><div class="timeline-step"><span>4</span><div><strong>Zara:</strong> Maaf, aku tidak membagikan alamat rumah.</div></div></div><p class="mini-note">Urutan ini akan diubah menjadi blok Scratch.</p>
-</section><section class="slide" id="slide-12">
-<h3>Kode 1 — Sprite Kiko Bertanya</h3><div class="code-placeholder"><div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti area ini dengan screenshot blok Scratch asli.</small></div></div><div class="scratch-stack"><div class="scratch-block event">🟨 (Event - Kuning): Ketika bendera hijau diklik</div><div class="scratch-block looks">🟪 (Looks - Ungu): Kiko mengatakan &quot;Halo, Zara!&quot; selama 2 detik</div><div class="scratch-block control">🟧 (Control - Oranye): Tunggu 2 detik</div><div class="scratch-block looks">🟪 (Looks - Ungu): Kiko mengatakan &quot;Boleh tahu alamat rumahmu?&quot; selama 3 detik</div></div>
-</section><section class="slide" id="slide-13">
-<h3>Kode 2 — Sprite Zara Menjawab</h3><div class="code-placeholder"><div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti area ini dengan screenshot blok Scratch asli.</small></div></div><div class="scratch-stack"><div class="scratch-block event">🟨 (Event - Kuning): Ketika bendera hijau diklik</div><div class="scratch-block control">🟧 (Control - Oranye): Tunggu 2 detik</div><div class="scratch-block looks">🟪 (Looks - Ungu): Zara mengatakan &quot;Boleh, asal pertanyaannya aman.&quot; selama 2 detik</div><div class="scratch-block control">🟧 (Control - Oranye): Tunggu 3 detik</div><div class="scratch-block looks">🟪 (Looks - Ungu): Zara mengatakan &quot;Maaf, aku tidak membagikan alamat rumah.&quot; selama 3 detik</div></div>
-</section><section class="slide" id="slide-14">
-<h3>Kode 3 — Tambahkan Costume</h3><div class="code-placeholder"><div><strong>PLACEHOLDER GAMBAR BLOK SCRATCH</strong><small>Ganti area ini dengan screenshot blok Scratch asli.</small></div></div><div class="scratch-stack"><div class="scratch-block event">🟨 (Event - Kuning): Ketika bendera hijau diklik</div><div class="scratch-block looks">🟪 (Looks - Ungu): Ganti costume ke [bertanya]</div><div class="scratch-block looks">🟪 (Looks - Ungu): Katakan pertanyaan selama 3 detik</div><div class="scratch-block control">🟧 (Control - Oranye): Tunggu</div><div class="scratch-block looks">🟪 (Looks - Ungu): Ganti costume ke [tersenyum]</div></div>
-</section><section class="slide" id="slide-15">
-<h3>Atur Timing Dialog</h3><table class="compact-table"><tr><th>Kalimat</th><th>Durasi say</th><th>Wait untuk sprite lain</th></tr><tr><td>Kiko: Halo, Zara!</td><td>2 detik</td><td>Zara menunggu 2 detik</td></tr><tr><td>Zara: Boleh...</td><td>2 detik</td><td>Kiko menunggu 2 detik</td></tr><tr><td>Kiko: Boleh tahu alamat rumahmu?</td><td>3 detik</td><td>Zara menunggu 3 detik</td></tr></table><div class="info-box"><p>Durasi tidak harus persis sama, tetapi harus cukup agar pembaca sempat membaca.</p></div>
-</section><section class="slide" id="slide-16">
-<h3>Quick Check: Kenapa wait Dipakai?</h3><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'qwait')">Agar dialog muncul bergantian</button><button class="choice-btn" onclick="singleChoice(this,false,'qwait')">Agar sprite berubah warna otomatis</button><button class="choice-btn" onclick="singleChoice(this,false,'qwait')">Agar project tidak bisa dijalankan</button></div><div class="feedback-line" id="qwait"></div>
-</section><section class="slide" id="slide-17">
-<h3>Detektif Kode</h3><div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('s6bug1',this)">Dialog bertabrakan</button><button class="debug-tab" onclick="showDebug('s6bug2',this)">Sprite diam</button><button class="debug-tab" onclick="showDebug('s6bug3',this)">Teks terlalu cepat</button><button class="debug-tab" onclick="showDebug('s6bug4',this)">Data terlalu pribadi</button></div><div class="debug-scenario active" id="s6bug1"><div class="warning-box"><h4>Cek</h4><p>Tambahkan atau perpanjang blok <strong>wait</strong> sebelum sprite kedua bicara.</p></div></div><div class="debug-scenario" id="s6bug2"><div class="warning-box"><h4>Cek</h4><p>Pastikan script diawali <strong>when Green Flag clicked</strong>.</p></div></div><div class="debug-scenario" id="s6bug3"><div class="warning-box"><h4>Cek</h4><p>Perpanjang durasi <strong>say for seconds</strong> agar teks sempat dibaca.</p></div></div><div class="debug-scenario" id="s6bug4"><div class="warning-box"><h4>Cek</h4><p>Ganti data asli dengan data fiktif atau jawaban aman.</p></div></div>
-</section><section class="slide" id="slide-18">
-<h3>Blok yang Digunakan</h3><table class="compact-table"><tr><th>Blok</th><th>Gunanya</th></tr><tr><td>when Green Flag clicked</td><td>Memulai percakapan.</td></tr><tr><td>say () for () seconds</td><td>Membuat sprite berbicara.</td></tr><tr><td>wait () seconds</td><td>Memberi jeda agar dialog bergantian.</td></tr><tr><td>switch costume to ()</td><td>Bonus untuk mengubah ekspresi sprite.</td></tr></table>
-</section><section class="slide" id="slide-19">
-<h3>Output Minimum</h3><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada 2 sprite yang berbicara.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Dialog berjalan bergantian.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Teks tidak bertabrakan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada contoh jawaban aman tentang data pribadi.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Tidak memakai data pribadi asli.</li></ul>
-</section><section class="slide" id="slide-20">
-<h3>Challenge Tambahan</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🥉</div><h4>Challenge 1</h4><p>Tambahkan satu pertanyaan tentang password.</p></div><div class="visual-card"><div class="visual-icon">🥈</div><h4>Challenge 2</h4><p>Tambahkan satu pertanyaan tentang nomor telepon.</p></div><div class="visual-card"><div class="visual-icon">🥇</div><h4>Challenge 3</h4><p>Tambahkan costume ekspresi saat bertanya dan menjawab.</p></div></div>
-</section><section class="slide" id="slide-21">
-<h3>Refleksi Cepat</h3><div class="interactive-box"><h4>Kalau ada orang meminta kode OTP, apa yang sebaiknya dilakukan?</h4><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'ref6')">Memberikannya kalau dia terlihat baik</button><button class="choice-btn" onclick="singleChoice(this,true,'ref6')">Tidak membagikan dan minta bantuan orang dewasa</button><button class="choice-btn" onclick="singleChoice(this,false,'ref6')">Mengirimnya lewat chat pribadi</button></div><div class="feedback-line" id="ref6"></div></div>
-</section><section class="slide" id="slide-22">
-<span class="eyebrow">Penutup</span><h2>Kamu Jadi Penjaga Data!</h2><p class="lead">Hebat! Kamu sudah membuat dialog dua sprite dan belajar menjawab pertanyaan pribadi dengan aman.</p><div class="example-box"><h4>Kalimat penting</h4><p><strong>Kalau ragu, jangan bagikan. Tanya guru atau orang tua dulu.</strong></p></div>
-</section>
-    </div><div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span> Previous</button><div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">22</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button></div></div>
-    <div class="explanation-panel"><section class="explanation active" id="explanation-1">
-<h3>Project yang Akan Kamu Buat</h3><p>Di sesi ini, kamu akan membuat project <strong>Wawancara Keamanan</strong>. Dua sprite akan berbicara secara bergantian, seperti sedang melakukan wawancara kecil.</p><p>Selain belajar dialog di Scratch, kamu juga belajar memilih informasi mana yang aman diceritakan dan mana yang perlu dijaga.</p><div class="warning-box"><h4>Catatan penting</h4><p>Gunakan data fiktif. Jangan menulis alamat rumah, nomor telepon, password, PIN, atau kode OTP asli.</p></div>
-</section><section class="explanation" id="explanation-2">
-<h3>Alur Belajar Sesi Ini</h3><p>Kamu akan belajar bahwa percakapan di Scratch perlu diatur waktunya. Kalau dua sprite berbicara bersamaan, pemain bisa bingung membaca dialognya.</p><div class="info-box"><h4>Yang akan dipelajari</h4><ol><li>Mengenal fungsi <strong>say</strong>.</li><li>Mengenal fungsi <strong>wait</strong>.</li><li>Membedakan data aman, perlu hati-hati, dan rahasia.</li><li>Membuat dialog dua sprite yang sopan dan aman.</li></ol></div>
-</section><section class="explanation" id="explanation-3">
-<h3>Persiapan Sebelum Coding</h3><p>Project ini membutuhkan dua sprite. Satu sprite bisa menjadi pewawancara, satu lagi menjadi teman yang menjawab.</p><p>Letakkan kedua sprite berjauhan agar bubble dialognya tidak terlalu bertumpuk. Jika sprite terlalu dekat, percakapan bisa terlihat penuh.</p>
-</section><section class="explanation" id="explanation-4">
-<h3>Say untuk Membuat Dialog</h3><p>Blok <strong>say () for () seconds</strong> membuat sprite berbicara dalam waktu tertentu. Teks muncul sebagai bubble dialog di Stage.</p><p>Kalimat yang terlalu panjang akan sulit dibaca. Untuk siswa lain yang melihat projectmu, dialog singkat biasanya lebih nyaman.</p>
-</section><section class="explanation" id="explanation-5">
-<h3>Wait untuk Mengatur Giliran</h3><p>Dalam percakapan, kita bergantian bicara. Di Scratch, giliran bicara bisa diatur dengan blok <strong>wait</strong>.</p><p>Jika Kiko bicara selama 3 detik, sprite lain perlu menunggu sekitar 3 detik sebelum menjawab. Kalau wait terlalu pendek, dialog bisa tumpang tindih.</p>
-</section><section class="explanation" id="explanation-6">
-<h3>Kenapa Dialog Perlu Bergantian?</h3><p>Kalau dua bubble muncul bersamaan, pembaca bisa bingung harus membaca yang mana dulu. Karena itu, kita perlu mengatur waktu dialog.</p><div class="info-box"><h4>Aturan mudah</h4><p>Jika satu sprite berbicara selama 3 detik, sprite berikutnya biasanya menunggu 3 detik sebelum mulai bicara.</p></div>
-</section><section class="explanation" id="explanation-7">
-<h3>Mengenal Data Pribadi</h3><p>Tidak semua informasi boleh dibagikan. Beberapa informasi terlihat sederhana, tetapi bisa berisiko jika diketahui orang yang tidak tepat.</p><p>Di sesi ini, kamu belajar menjawab pertanyaan pribadi dengan sopan. Menolak bukan berarti tidak ramah. Menolak bisa menjadi cara menjaga diri.</p>
-</section><section class="explanation" id="explanation-8">
-<h3>Aktivitas Mini: Boleh Dibagikan atau Tidak?</h3><p>Informasi bisa dibagi menjadi beberapa kategori. Ada yang relatif aman, ada yang perlu hati-hati, dan ada yang rahasia.</p><div class="info-box"><h4>Contoh</h4><ul><li>Relatif aman: hobi, warna favorit, makanan favorit.</li><li>Perlu hati-hati: nama sekolah, nomor telepon.</li><li>Rahasia: password, PIN, OTP, alamat rumah detail.</li></ul></div>
-</section><section class="explanation" id="explanation-9">
-<h3>Menjaga Diri dengan Sopan</h3><p>Kalau ada yang meminta informasi pribadi, kamu tidak harus langsung menjawab. Kamu boleh berhenti, berpikir, dan meminta bantuan orang dewasa tepercaya.</p><div class="example-box"><h4>Contoh kalimat aman</h4><p>“Maaf, aku tidak membagikan informasi itu.”</p></div>
-</section><section class="explanation" id="explanation-10">
-<h3>Latihan Menjawab Aman</h3><p>Jawaban aman tidak perlu panjang. Yang penting sopan dan jelas. Password adalah informasi rahasia, jadi tidak boleh dibagikan kepada siapa pun.</p><p>Jika ada orang yang memaksa, minta bantuan guru atau orang tua.</p>
-</section><section class="explanation" id="explanation-11">
-<h3>Membuat Naskah Sebelum Coding</h3><p>Sebelum menyusun blok, buat dulu urutan dialog. Ini mirip menulis naskah kecil untuk dua karakter.</p><p>Dengan naskah, kamu tahu siapa yang bicara lebih dulu, siapa yang menjawab, dan kapan perlu memberi jeda.</p>
-</section><section class="explanation" id="explanation-12">
-<h3>Script Kiko</h3><p>Script ini membuat Kiko mulai berbicara saat Green Flag diklik. Setelah kalimat pertama selesai, ada jeda sebelum kalimat berikutnya.</p><p>Kalimat pertanyaan sengaja dipilih agar kita bisa belajar cara menjawab pertanyaan pribadi dengan aman.</p>
-</section><section class="explanation" id="explanation-13">
-<h3>Script Zara</h3><p>Script Zara juga dimulai dari Green Flag, tetapi Zara tidak langsung bicara. Ia menunggu giliran dengan blok <strong>wait</strong>.</p><div class="warning-box"><h4>Perhatikan waktu</h4><p>Jika wait terlalu pendek, Zara bisa berbicara saat Kiko belum selesai. Jika wait terlalu panjang, percakapan terasa terlalu lama kosong.</p></div>
-</section><section class="explanation" id="explanation-14">
-<h3>Costume Sebagai Bonus</h3><p>Costume bisa membuat percakapan lebih ekspresif. Misalnya, Kiko memakai costume “bertanya” saat bertanya, lalu Zara memakai costume “tenang” saat menjawab.</p><p>Ini opsional. Pastikan dialog utama sudah rapi sebelum menambahkan costume.</p>
-</section><section class="explanation" id="explanation-15">
-<h3>Timing yang Nyaman Dibaca</h3><p>Durasi dialog sebaiknya disesuaikan dengan panjang kalimat. Kalimat pendek bisa 2 detik. Kalimat yang lebih panjang bisa 3–4 detik.</p><p>Tujuan timing bukan membuat project cepat selesai. Tujuannya membuat percakapan enak dibaca.</p>
-</section><section class="explanation" id="explanation-16">
-<h3>Cek Pemahaman Wait</h3><p>Blok wait bukan hiasan. Wait mengatur jeda waktu agar dialog antar sprite tidak saling menabrak.</p><p>Jika hasil project terasa kacau, salah satu hal pertama yang perlu dicek adalah urutan <strong>say</strong> dan <strong>wait</strong>.</p>
-</section><section class="explanation" id="explanation-17">
-<h3>Debugging Dialog</h3><p>Masalah paling sering pada project dialog adalah waktu yang belum pas. Jika bubble dialog muncul bersamaan, jangan panik. Cek blok wait.</p><div class="info-box"><h4>Urutan cek</h4><ol><li>Apakah setiap sprite punya event Green Flag?</li><li>Apakah wait sudah sesuai lama dialog?</li><li>Apakah kalimat tidak terlalu panjang?</li><li>Apakah tidak ada data asli?</li></ol></div>
-</section><section class="explanation" id="explanation-18">
-<h3>Daftar Blok</h3><p>Project ini tidak membutuhkan banyak jenis blok. Tantangannya ada pada menyusun waktu dengan rapi.</p><p>Blok utama adalah <strong>say</strong> dan <strong>wait</strong>. Costume hanya tambahan agar dialog terlihat lebih hidup.</p>
-</section><section class="explanation" id="explanation-19">
-<h3>Checklist Berhasil</h3><p>Project dianggap berhasil jika dua sprite berbicara secara bergantian dan pesan keamanan datanya jelas.</p><div class="example-box"><h4>Misi berhasil jika</h4><p>Percakapan bisa dibaca dari awal sampai akhir tanpa bubble dialog bertabrakan.</p></div>
-</section><section class="explanation" id="explanation-20">
-<h3>Challenge Setelah Dialog Utama</h3><p>Challenge boleh dikerjakan setelah output minimum selesai. Tambahkan dialog baru, tetapi tetap gunakan jawaban yang aman dan sopan.</p><p>Contoh: “Maaf, nomor teleponku tidak aku bagikan tanpa izin orang tua.”</p>
-</section><section class="explanation" id="explanation-21">
-<h3>Refleksi Akhir</h3><p>Hari ini kamu belajar membuat percakapan yang rapi dan aman. Kamu juga belajar bahwa menjaga data pribadi adalah bagian dari menjadi pengguna digital yang bertanggung jawab.</p><div class="info-box"><h4>Pertanyaan penutup</h4><ol><li>Mengapa dialog harus diberi wait?</li><li>Informasi apa yang tidak boleh dibagikan?</li><li>Bagaimana cara menolak pertanyaan pribadi dengan sopan?</li></ol></div>
-</section><section class="explanation" id="explanation-22">
-<h3>Sampai Jumpa di Sesi 7</h3><p>Sebelum menutup Scratch, simpan project dan pastikan nama project sudah jelas. Di sesi berikutnya, kamu akan belajar tentang jejak digital.</p><p>Kiko dan Zara sekarang tahu cara ngobrol yang rapi, sopan, dan aman.</p>
-</section></div>
+    <div class="slides-panel">
+      <div class="slide-header">
+        <h1>UOB My Digital Space — Upper Primary</h1>
+        <p>Sesi 6 · Wawancara Keamanan</p><span class="header-badge">Scratch · Upper Primary</span>
+      </div>
+      <div class="slide-content">
+        <div class="floating-element" style="top:12%;left:7%;">🔐</div>
+        <div class="floating-element" style="top:18%;right:10%;">💬</div>
+        <div class="floating-element" style="bottom:25%;left:14%;">🛡️</div>
+        <div class="floating-element" style="bottom:15%;right:16%;">👥</div>
+        <section class="slide active" id="slide-1">
+          <span class="eyebrow">Sesi 6</span>
+          <h2>Wawancara Keamanan</h2>
+          <p class="lead">Hari ini Kiko dan Zara akan belajar ngobrol di Scratch dengan rapi, sopan, dan aman.</p>
+          <div class="metrics">
+            <div class="metric-box"><strong>💬</strong><span>Dialog dua sprite</span></div>
+            <div class="metric-box"><strong>⏱️</strong><span>Say dan Wait</span></div>
+            <div class="metric-box"><strong>🔐</strong><span>Data pribadi</span></div>
+            <div class="metric-box"><strong>🛡️</strong><span>Jawaban aman</span></div>
+          </div>
+          <div class="example-box">
+            <h4>Target project</h4>
+            <p>Dua sprite berbicara bergantian tanpa teks bertabrakan, sambil memberi contoh menjaga informasi pribadi.
+            </p>
+          </div>
+        </section>
+        <section class="slide" id="slide-2">
+          <h3>Misi Belajar Hari Ini</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">🎭</div>
+              <h4>Dua Sprite</h4>
+              <p>Membuat dua karakter berbicara.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">💬</div>
+              <h4>Say</h4>
+              <p>Menampilkan bubble dialog.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">⏱️</div>
+              <h4>Wait</h4>
+              <p>Memberi jeda agar dialog bergantian.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🔐</div>
+              <h4>Privasi</h4>
+              <p>Menjawab pertanyaan pribadi dengan aman.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-3">
+          <h3>Siapkan Project-mu</h3>
+          <ul class="checklist">
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Scratch atau starter file sudah
+              dibuka.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada 2 sprite, misalnya Kiko dan
+              Zara.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Backdrop sudah dipilih, misalnya
+              kelas, taman, atau perpustakaan.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Contoh dialog sudah disiapkan.
+            </li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Tidak memakai data pribadi asli.
+            </li>
+          </ul>
+        </section>
+        <section class="slide" id="slide-4">
+          <h3>Apa Itu say?</h3>
+          <p class="lead"><strong>say</strong> membuat sprite menampilkan balon kata.</p>
+          <div class="dialog-stage">
+            <div class="character left">🤖<br><small>Kiko</small></div>
+            <div class="speech left active">Halo, Zara! Boleh aku bertanya?</div>
+          </div>
+          <div class="info-box">
+            <p>Gunakan kalimat pendek agar mudah dibaca.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-5">
+          <h3>Apa Itu wait?</h3>
+          <p class="lead"><strong>wait</strong> memberi jeda sebelum script lanjut ke blok berikutnya.</p>
+          <div class="flow-line">
+            <div class="flow-box">Kiko bicara</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">wait</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">Zara bicara</div>
+          </div>
+          <div class="example-box">
+            <p>Wait membantu percakapan tidak bertabrakan.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-6">
+          <h3>Simulasi Dialog Bergantian</h3>
+          <p>Klik tombol untuk melihat perbedaan dialog yang rapi dan dialog yang bertabrakan.</p>
+          <div class="dialog-stage">
+            <div class="character left">🤖<br><small>Kiko</small></div>
+            <div class="character right">🧒<br><small>Zara</small></div>
+            <div class="speech left" id="bubbleKiko">Boleh tahu alamat rumahmu?</div>
+            <div class="speech right" id="bubbleZara">Maaf, aku tidak membagikan alamat rumah.</div>
+          </div>
+          <div class="dialog-controls"><button class="primary-btn" onclick="runDialog('rapi')">Coba Dialog
+              Rapi</button><button class="secondary-btn" onclick="runDialog('tabrak')">Coba Dialog Bertabrakan</button>
+          </div>
+          <div class="feedback-line" id="dialogFeedback"></div>
+        </section>
+        <section class="slide" id="slide-7">
+          <h3>Data Pribadi Itu Apa?</h3>
+          <p class="lead">Data pribadi adalah informasi penting tentang diri kita yang perlu dijaga.</p>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">🏠</div>
+              <h4>Alamat rumah</h4>
+              <p>Jangan dibagikan sembarangan.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🔑</div>
+              <h4>Password</h4>
+              <p>Rahasia. Tidak untuk teman.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">📱</div>
+              <h4>Nomor telepon</h4>
+              <p>Perlu izin orang tua.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🎨</div>
+              <h4>Warna favorit</h4>
+              <p>Biasanya relatif aman.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-8">
+          <h3>Aman, Hati-hati, atau Rahasia?</h3>
+          <p>Klik kartu untuk melihat kategorinya.</p>
+          <div class="choice-grid"><button class="choice-btn" onclick="markData(this,'good')">Warna
+              favorit</button><button class="choice-btn" onclick="markData(this,'secret')">Password</button><button
+              class="choice-btn" onclick="markData(this,'careful')">Nama sekolah</button><button class="choice-btn"
+              onclick="markData(this,'good')">Hobi</button><button class="choice-btn"
+              onclick="markData(this,'secret')">Kode OTP</button><button class="choice-btn"
+              onclick="markData(this,'careful')">Nomor telepon</button></div>
+          <div class="feedback-line" id="dataFeedback">Klik semua kartu satu per satu.</div>
+        </section>
+        <section class="slide" id="slide-9">
+          <h3>Aturan Penting di Dunia Digital</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">🚫</div>
+              <h4>Jangan bagikan</h4>
+              <p>Password, PIN, OTP, alamat rumah.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🙋</div>
+              <h4>Tanya orang dewasa</h4>
+              <p>Kalau ragu, minta bantuan guru/orang tua.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🧠</div>
+              <h4>Berpikir dulu</h4>
+              <p>Jangan terburu-buru menjawab.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">💬</div>
+              <h4>Tolak sopan</h4>
+              <p>Gunakan kalimat baik dan aman.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-10">
+          <h3>Pilih Jawaban yang Aman</h3>
+          <p>Kiko bertanya: “Boleh tahu password akunmu?”</p>
+          <div class="choice-grid"><button class="choice-btn"
+              onclick="singleChoice(this,false,'safeAnswer')">“Passwordku adalah 12345.”</button><button
+              class="choice-btn" onclick="singleChoice(this,true,'safeAnswer')">“Maaf, password itu
+              rahasia.”</button><button class="choice-btn" onclick="singleChoice(this,false,'safeAnswer')">“Nanti aku
+              kirim di chat.”</button></div>
+          <div class="feedback-line" id="safeAnswer"></div>
+        </section>
+        <section class="slide" id="slide-11">
+          <h3>Rencana Dialog Project</h3>
+          <div class="timeline">
+            <div class="timeline-step"><span>1</span>
+              <div><strong>Kiko:</strong> Halo, Zara! Boleh aku bertanya?</div>
+            </div>
+            <div class="timeline-step"><span>2</span>
+              <div><strong>Zara:</strong> Boleh, asal pertanyaannya aman.</div>
+            </div>
+            <div class="timeline-step"><span>3</span>
+              <div><strong>Kiko:</strong> Boleh tahu alamat rumahmu?</div>
+            </div>
+            <div class="timeline-step"><span>4</span>
+              <div><strong>Zara:</strong> Maaf, aku tidak membagikan alamat rumah.</div>
+            </div>
+          </div>
+          <p class="mini-note">Urutan ini akan diubah menjadi blok Scratch.</p>
+        </section>
+        <section class="slide" id="slide-12">
+          <h3>Kode 1 — Sprite Kiko Bertanya</h3>
+          <div class="code-placeholder">
+            <div><img
+                src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/15dadb89-b589-4ef4-a2ad-121215f0d0b3.png"
+                width="60%"></div>
+          </div>
+        </section>
+        <section class="slide" id="slide-13">
+          <h3>Kode 2 — Sprite Zara Menjawab</h3>
+          <div class="code-placeholder">
+            <div><img
+                src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/06f29921-d1fa-4b0b-ba50-20858ac6bc66.png"
+                width="60%"></div>
+          </div>
+        </section>
+        <section class="slide" id="slide-14">
+          <h3>Kode 3 — Tambahkan Costume</h3>
+          <div class="code-placeholder">
+            <div><img
+                src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0979918f-d364-4a5d-bbf1-b1f19cd2b96a.png"
+                width="60%"></div>
+          </div>
+        </section>
+        <section class="slide" id="slide-15">
+          <h3>Atur Timing Dialog</h3>
+          <table class="compact-table">
+            <tr>
+              <th>Kalimat</th>
+              <th>Durasi say</th>
+              <th>Wait untuk sprite lain</th>
+            </tr>
+            <tr>
+              <td>Kiko: Halo, Zara!</td>
+              <td>2 detik</td>
+              <td>Zara menunggu 2 detik</td>
+            </tr>
+            <tr>
+              <td>Zara: Boleh...</td>
+              <td>2 detik</td>
+              <td>Kiko menunggu 2 detik</td>
+            </tr>
+            <tr>
+              <td>Kiko: Boleh tahu alamat rumahmu?</td>
+              <td>3 detik</td>
+              <td>Zara menunggu 3 detik</td>
+            </tr>
+          </table>
+          <div class="info-box">
+            <p>Durasi tidak harus persis sama, tetapi harus cukup agar pembaca sempat membaca.</p>
+          </div>
+        </section>
+        <section class="slide" id="slide-16">
+          <h3>Quick Check: Kenapa wait Dipakai?</h3>
+          <div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'qwait')">Agar dialog
+              muncul bergantian</button><button class="choice-btn" onclick="singleChoice(this,false,'qwait')">Agar
+              sprite berubah warna otomatis</button><button class="choice-btn"
+              onclick="singleChoice(this,false,'qwait')">Agar project tidak bisa dijalankan</button></div>
+          <div class="feedback-line" id="qwait"></div>
+        </section>
+        <section class="slide" id="slide-17">
+          <h3>Detektif Kode</h3>
+          <div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('s6bug1',this)">Dialog
+              bertabrakan</button><button class="debug-tab" onclick="showDebug('s6bug2',this)">Sprite
+              diam</button><button class="debug-tab" onclick="showDebug('s6bug3',this)">Teks terlalu
+              cepat</button><button class="debug-tab" onclick="showDebug('s6bug4',this)">Data terlalu pribadi</button>
+          </div>
+          <div class="debug-scenario active" id="s6bug1">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Tambahkan atau perpanjang blok <strong>wait</strong> sebelum sprite kedua bicara.</p>
+            </div>
+          </div>
+          <div class="debug-scenario" id="s6bug2">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Pastikan script diawali <strong>when Green Flag clicked</strong>.</p>
+            </div>
+          </div>
+          <div class="debug-scenario" id="s6bug3">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Perpanjang durasi <strong>say for seconds</strong> agar teks sempat dibaca.</p>
+            </div>
+          </div>
+          <div class="debug-scenario" id="s6bug4">
+            <div class="warning-box">
+              <h4>Cek</h4>
+              <p>Ganti data asli dengan data fiktif atau jawaban aman.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-18">
+          <h3>Blok yang Digunakan</h3>
+          <table class="compact-table">
+            <tr>
+              <th>Blok</th>
+              <th>Gunanya</th>
+            </tr>
+            <tr>
+              <td>when Green Flag clicked</td>
+              <td>Memulai percakapan.</td>
+            </tr>
+            <tr>
+              <td>say () for () seconds</td>
+              <td>Membuat sprite berbicara.</td>
+            </tr>
+            <tr>
+              <td>wait () seconds</td>
+              <td>Memberi jeda agar dialog bergantian.</td>
+            </tr>
+            <tr>
+              <td>switch costume to ()</td>
+              <td>Bonus untuk mengubah ekspresi sprite.</td>
+            </tr>
+          </table>
+        </section>
+        <section class="slide" id="slide-19">
+          <h3>Output Minimum</h3>
+          <ul class="checklist">
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada 2 sprite yang berbicara.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Dialog berjalan bergantian.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Teks tidak bertabrakan.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Ada contoh jawaban aman tentang
+              data pribadi.</li>
+            <li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"> Tidak memakai data pribadi asli.
+            </li>
+          </ul>
+        </section>
+        <section class="slide" id="slide-20">
+          <h3>Challenge Tambahan</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-icon">🥉</div>
+              <h4>Challenge 1</h4>
+              <p>Tambahkan satu pertanyaan tentang password.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🥈</div>
+              <h4>Challenge 2</h4>
+              <p>Tambahkan satu pertanyaan tentang nomor telepon.</p>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🥇</div>
+              <h4>Challenge 3</h4>
+              <p>Tambahkan costume ekspresi saat bertanya dan menjawab.</p>
+            </div>
+          </div>
+        </section>
+        <section class="slide" id="slide-21">
+          <h3>Refleksi Cepat</h3>
+          <div class="interactive-box">
+            <h4>Kalau ada orang meminta kode OTP, apa yang sebaiknya dilakukan?</h4>
+            <div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'ref6')">Memberikannya
+                kalau dia terlihat baik</button><button class="choice-btn"
+                onclick="singleChoice(this,true,'ref6')">Tidak membagikan dan minta bantuan orang dewasa</button><button
+                class="choice-btn" onclick="singleChoice(this,false,'ref6')">Mengirimnya lewat chat pribadi</button>
+            </div>
+            <div class="feedback-line" id="ref6"></div>
+          </div>
+        </section>
+        <section class="slide" id="slide-22">
+          <span class="eyebrow">Penutup</span>
+          <h2>Kamu Jadi Penjaga Data!</h2>
+          <p class="lead">Hebat! Kamu sudah membuat dialog dua sprite dan belajar menjawab pertanyaan pribadi dengan
+            aman.</p>
+          <div class="example-box">
+            <h4>Kalimat penting</h4>
+            <p><strong>Kalau ragu, jangan bagikan. Tanya guru atau orang tua dulu.</strong></p>
+          </div>
+        </section>
+      </div>
+      <div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span>
+          Previous</button>
+        <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">22</span></div><button
+          class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button>
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <section class="explanation active" id="explanation-1">
+        <h3>Project yang Akan Kamu Buat</h3>
+        <p>Di sesi ini, kamu akan membuat project <strong>Wawancara Keamanan</strong>. Dua sprite akan berbicara secara
+          bergantian, seperti sedang melakukan wawancara kecil.</p>
+        <p>Selain belajar dialog di Scratch, kamu juga belajar memilih informasi mana yang aman diceritakan dan mana
+          yang perlu dijaga.</p>
+        <div class="warning-box">
+          <h4>Catatan penting</h4>
+          <p>Gunakan data fiktif. Jangan menulis alamat rumah, nomor telepon, password, PIN, atau kode OTP asli.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-2">
+        <h3>Alur Belajar Sesi Ini</h3>
+        <p>Kamu akan belajar bahwa percakapan di Scratch perlu diatur waktunya. Kalau dua sprite berbicara bersamaan,
+          pemain bisa bingung membaca dialognya.</p>
+        <div class="info-box">
+          <h4>Yang akan dipelajari</h4>
+          <ol>
+            <li>Mengenal fungsi <strong>say</strong>.</li>
+            <li>Mengenal fungsi <strong>wait</strong>.</li>
+            <li>Membedakan data aman, perlu hati-hati, dan rahasia.</li>
+            <li>Membuat dialog dua sprite yang sopan dan aman.</li>
+          </ol>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-3">
+        <h3>Persiapan Sebelum Coding</h3>
+        <p>Project ini membutuhkan dua sprite. Satu sprite bisa menjadi pewawancara, satu lagi menjadi teman yang
+          menjawab.</p>
+        <p>Letakkan kedua sprite berjauhan agar bubble dialognya tidak terlalu bertumpuk. Jika sprite terlalu dekat,
+          percakapan bisa terlihat penuh.</p>
+      </section>
+      <section class="explanation" id="explanation-4">
+        <h3>Say untuk Membuat Dialog</h3>
+        <p>Blok <strong>say () for () seconds</strong> membuat sprite berbicara dalam waktu tertentu. Teks muncul
+          sebagai bubble dialog di Stage.</p>
+        <p>Kalimat yang terlalu panjang akan sulit dibaca. Untuk siswa lain yang melihat projectmu, dialog singkat
+          biasanya lebih nyaman.</p>
+      </section>
+      <section class="explanation" id="explanation-5">
+        <h3>Wait untuk Mengatur Giliran</h3>
+        <p>Dalam percakapan, kita bergantian bicara. Di Scratch, giliran bicara bisa diatur dengan blok
+          <strong>wait</strong>.</p>
+        <p>Jika Kiko bicara selama 3 detik, sprite lain perlu menunggu sekitar 3 detik sebelum menjawab. Kalau wait
+          terlalu pendek, dialog bisa tumpang tindih.</p>
+      </section>
+      <section class="explanation" id="explanation-6">
+        <h3>Kenapa Dialog Perlu Bergantian?</h3>
+        <p>Kalau dua bubble muncul bersamaan, pembaca bisa bingung harus membaca yang mana dulu. Karena itu, kita perlu
+          mengatur waktu dialog.</p>
+        <div class="info-box">
+          <h4>Aturan mudah</h4>
+          <p>Jika satu sprite berbicara selama 3 detik, sprite berikutnya biasanya menunggu 3 detik sebelum mulai
+            bicara.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-7">
+        <h3>Mengenal Data Pribadi</h3>
+        <p>Tidak semua informasi boleh dibagikan. Beberapa informasi terlihat sederhana, tetapi bisa berisiko jika
+          diketahui orang yang tidak tepat.</p>
+        <p>Di sesi ini, kamu belajar menjawab pertanyaan pribadi dengan sopan. Menolak bukan berarti tidak ramah.
+          Menolak bisa menjadi cara menjaga diri.</p>
+      </section>
+      <section class="explanation" id="explanation-8">
+        <h3>Aktivitas Mini: Boleh Dibagikan atau Tidak?</h3>
+        <p>Informasi bisa dibagi menjadi beberapa kategori. Ada yang relatif aman, ada yang perlu hati-hati, dan ada
+          yang rahasia.</p>
+        <div class="info-box">
+          <h4>Contoh</h4>
+          <ul>
+            <li>Relatif aman: hobi, warna favorit, makanan favorit.</li>
+            <li>Perlu hati-hati: nama sekolah, nomor telepon.</li>
+            <li>Rahasia: password, PIN, OTP, alamat rumah detail.</li>
+          </ul>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-9">
+        <h3>Menjaga Diri dengan Sopan</h3>
+        <p>Kalau ada yang meminta informasi pribadi, kamu tidak harus langsung menjawab. Kamu boleh berhenti, berpikir,
+          dan meminta bantuan orang dewasa tepercaya.</p>
+        <div class="example-box">
+          <h4>Contoh kalimat aman</h4>
+          <p>“Maaf, aku tidak membagikan informasi itu.”</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-10">
+        <h3>Latihan Menjawab Aman</h3>
+        <p>Jawaban aman tidak perlu panjang. Yang penting sopan dan jelas. Password adalah informasi rahasia, jadi tidak
+          boleh dibagikan kepada siapa pun.</p>
+        <p>Jika ada orang yang memaksa, minta bantuan guru atau orang tua.</p>
+      </section>
+      <section class="explanation" id="explanation-11">
+        <h3>Membuat Naskah Sebelum Coding</h3>
+        <p>Sebelum menyusun blok, buat dulu urutan dialog. Ini mirip menulis naskah kecil untuk dua karakter.</p>
+        <p>Dengan naskah, kamu tahu siapa yang bicara lebih dulu, siapa yang menjawab, dan kapan perlu memberi jeda.</p>
+      </section>
+      <section class="explanation" id="explanation-12">
+        <h3>Script Kiko</h3>
+        <p>Script ini membuat Kiko mulai berbicara saat Green Flag diklik. Setelah kalimat pertama selesai, ada jeda
+          sebelum kalimat berikutnya.</p>
+        <p>Kalimat pertanyaan sengaja dipilih agar kita bisa belajar cara menjawab pertanyaan pribadi dengan aman.</p>
+      </section>
+      <section class="explanation" id="explanation-13">
+        <h3>Script Zara</h3>
+        <p>Script Zara juga dimulai dari Green Flag, tetapi Zara tidak langsung bicara. Ia menunggu giliran dengan blok
+          <strong>wait</strong>.</p>
+        <div class="warning-box">
+          <h4>Perhatikan waktu</h4>
+          <p>Jika wait terlalu pendek, Zara bisa berbicara saat Kiko belum selesai. Jika wait terlalu panjang,
+            percakapan terasa terlalu lama kosong.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-14">
+        <h3>Costume Sebagai Bonus</h3>
+        <p>Costume bisa membuat percakapan lebih ekspresif. Misalnya, Kiko memakai costume “bertanya” saat bertanya,
+          lalu Zara memakai costume “tenang” saat menjawab.</p>
+        <p>Ini opsional. Pastikan dialog utama sudah rapi sebelum menambahkan costume.</p>
+      </section>
+      <section class="explanation" id="explanation-15">
+        <h3>Timing yang Nyaman Dibaca</h3>
+        <p>Durasi dialog sebaiknya disesuaikan dengan panjang kalimat. Kalimat pendek bisa 2 detik. Kalimat yang lebih
+          panjang bisa 3–4 detik.</p>
+        <p>Tujuan timing bukan membuat project cepat selesai. Tujuannya membuat percakapan enak dibaca.</p>
+      </section>
+      <section class="explanation" id="explanation-16">
+        <h3>Cek Pemahaman Wait</h3>
+        <p>Blok wait bukan hiasan. Wait mengatur jeda waktu agar dialog antar sprite tidak saling menabrak.</p>
+        <p>Jika hasil project terasa kacau, salah satu hal pertama yang perlu dicek adalah urutan <strong>say</strong>
+          dan <strong>wait</strong>.</p>
+      </section>
+      <section class="explanation" id="explanation-17">
+        <h3>Debugging Dialog</h3>
+        <p>Masalah paling sering pada project dialog adalah waktu yang belum pas. Jika bubble dialog muncul bersamaan,
+          jangan panik. Cek blok wait.</p>
+        <div class="info-box">
+          <h4>Urutan cek</h4>
+          <ol>
+            <li>Apakah setiap sprite punya event Green Flag?</li>
+            <li>Apakah wait sudah sesuai lama dialog?</li>
+            <li>Apakah kalimat tidak terlalu panjang?</li>
+            <li>Apakah tidak ada data asli?</li>
+          </ol>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-18">
+        <h3>Daftar Blok</h3>
+        <p>Project ini tidak membutuhkan banyak jenis blok. Tantangannya ada pada menyusun waktu dengan rapi.</p>
+        <p>Blok utama adalah <strong>say</strong> dan <strong>wait</strong>. Costume hanya tambahan agar dialog terlihat
+          lebih hidup.</p>
+      </section>
+      <section class="explanation" id="explanation-19">
+        <h3>Checklist Berhasil</h3>
+        <p>Project dianggap berhasil jika dua sprite berbicara secara bergantian dan pesan keamanan datanya jelas.</p>
+        <div class="example-box">
+          <h4>Misi berhasil jika</h4>
+          <p>Percakapan bisa dibaca dari awal sampai akhir tanpa bubble dialog bertabrakan.</p>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-20">
+        <h3>Challenge Setelah Dialog Utama</h3>
+        <p>Challenge boleh dikerjakan setelah output minimum selesai. Tambahkan dialog baru, tetapi tetap gunakan
+          jawaban yang aman dan sopan.</p>
+        <p>Contoh: “Maaf, nomor teleponku tidak aku bagikan tanpa izin orang tua.”</p>
+      </section>
+      <section class="explanation" id="explanation-21">
+        <h3>Refleksi Akhir</h3>
+        <p>Hari ini kamu belajar membuat percakapan yang rapi dan aman. Kamu juga belajar bahwa menjaga data pribadi
+          adalah bagian dari menjadi pengguna digital yang bertanggung jawab.</p>
+        <div class="info-box">
+          <h4>Pertanyaan penutup</h4>
+          <ol>
+            <li>Mengapa dialog harus diberi wait?</li>
+            <li>Informasi apa yang tidak boleh dibagikan?</li>
+            <li>Bagaimana cara menolak pertanyaan pribadi dengan sopan?</li>
+          </ol>
+        </div>
+      </section>
+      <section class="explanation" id="explanation-22">
+        <h3>Sampai Jumpa di Sesi 7</h3>
+        <p>Sebelum menutup Scratch, simpan project dan pastikan nama project sudah jelas. Di sesi berikutnya, kamu akan
+          belajar tentang jejak digital.</p>
+        <p>Kiko dan Zara sekarang tahu cara ngobrol yang rapi, sopan, dan aman.</p>
+      </section>
+    </div>
   </div>
   <script>
     const ACCESS_CODE = 'RGMDSUP26';
@@ -1153,23 +2099,24 @@
       initDragDrop();
       updateSlide();
     });
-    function checkAccessCode(){const input=document.getElementById('accessInput'),error=document.getElementById('accessError');if(input.value.trim().toUpperCase()===ACCESS_CODE){document.getElementById('accessPopup').style.display='none';document.getElementById('mainContent').style.display='flex';updateSlide();}else{error.classList.add('show');input.value='';input.focus();}}
-    function changeSlide(direction){const next=currentSlide+direction;if(next<1||next>totalSlides)return;currentSlide=next;updateSlide();}
-    function updateSlide(){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.explanation').forEach(e=>e.classList.remove('active'));const s=document.getElementById(`slide-${currentSlide}`);if(s)s.classList.add('active');const e=document.getElementById(`explanation-${currentSlide}`);if(e)e.classList.add('active');document.getElementById('currentSlide').textContent=currentSlide;document.getElementById('prevBtn').disabled=currentSlide===1;document.getElementById('nextBtn').disabled=currentSlide===totalSlides;document.getElementById('progressFill').style.width=`${(currentSlide/totalSlides)*100}%`;document.querySelector('.slide-content').scrollTop=0;document.querySelector('.explanation-panel').scrollTop=0;}
-    document.addEventListener('keydown', e=>{if(document.getElementById('mainContent').style.display==='none')return;if(e.key==='ArrowRight')changeSlide(1);if(e.key==='ArrowLeft')changeSlide(-1);});
-    function singleChoice(btn,ok,feedbackId){const group=btn.parentElement;group.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);btn.classList.add(ok?'correct':'wrong');const fb=document.getElementById(feedbackId);if(fb){fb.textContent=ok?'Betul!':'Belum tepat. Coba baca lagi petunjuknya.';fb.style.color=ok?'#176b35':'#a42820';}}
-    function selectAny(btn){const group=btn.parentElement;group.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');}
-    function toggleCheck(item){const cb=item.querySelector('input');cb.checked=!cb.checked;item.classList.toggle('done',cb.checked);}
-    function showDebug(id,btn){btn.parentElement.querySelectorAll('.debug-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const host=btn.closest('.slide');host.querySelectorAll('.debug-scenario').forEach(s=>s.classList.remove('active'));host.querySelector('#'+id).classList.add('active');}
-    function toggleReveal(id){document.getElementById(id).classList.toggle('show');}
-    function initDragDrop(){document.querySelectorAll('.sequence-card').forEach(card=>{card.addEventListener('dragstart',()=>card.classList.add('dragging'));card.addEventListener('dragend',()=>card.classList.remove('dragging'));});document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone=>{zone.addEventListener('dragover',e=>{e.preventDefault();const dragging=document.querySelector('.dragging');if(dragging)zone.appendChild(dragging);});});}
-    function checkOrder(targetId,feedbackId){const cards=[...document.getElementById(targetId).querySelectorAll('.sequence-card')];const ok=cards.length>0&&cards.every((c,i)=>Number(c.dataset.order)===i+1);const fb=document.getElementById(feedbackId);fb.textContent=ok?'Yeay, urutannya sudah tepat!':'Belum pas. Coba cek dari yang paling awal.';fb.style.color=ok?'#176b35':'#a42820';}
-    let piggyStep=0;const piggyData=[['Costume 1','🫙','Celengan kosong. Yuk klik untuk mulai menabung!'],['Costume 2','🪙','Mantap! Tabungan mulai terkumpul.'],['Costume 3','💰','Wah, celengan makin penuh!'],['Costume 1','🫙','Kembali ke awal. Di Scratch, costume bisa berputar lagi.']];
-    function cyclePiggy(){piggyStep=(piggyStep+1)%4;const bank=document.getElementById('piggyBank'),cap=document.getElementById('piggyCaption'),label=document.getElementById('piggyStageLabel'),coin=document.getElementById('coinDrop');if(!bank)return;bank.textContent=piggyData[piggyStep][1];cap.textContent=piggyData[piggyStep][2];label.textContent=piggyData[piggyStep][0];bank.classList.toggle('full',piggyStep===1||piggyStep===2);bank.classList.toggle('super',piggyStep===2);coin.classList.remove('animate');void coin.offsetWidth;coin.classList.add('animate');}
-    function resetPiggy(){piggyStep=0;const bank=document.getElementById('piggyBank');if(!bank)return;bank.textContent='🫙';bank.classList.remove('full','super');document.getElementById('piggyCaption').textContent='Celengan kosong. Yuk klik untuk mulai menabung!';document.getElementById('piggyStageLabel').textContent='Costume 1';}
-    function selectCostume(btn,name){btn.parentElement.querySelectorAll('.costume-card').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('costumeInfo').textContent=`Kamu memilih costume: ${name}.`;}
-    function markData(btn,type){btn.classList.remove('correct','wrong','selected');if(type==='good'){btn.classList.add('correct');document.getElementById('dataFeedback').textContent='Relatif aman, tapi tetap gunakan seperlunya.';}if(type==='careful'){btn.classList.add('selected');document.getElementById('dataFeedback').textContent='Perlu hati-hati. Bagikan hanya dengan izin atau sesuai kebutuhan.';}if(type==='secret'){btn.classList.add('wrong');document.getElementById('dataFeedback').textContent='Rahasia. Jangan dibagikan kepada siapa pun.';}}
-    function runDialog(mode){const k=document.getElementById('bubbleKiko'),z=document.getElementById('bubbleZara'),fb=document.getElementById('dialogFeedback');if(!k||!z)return;k.classList.remove('active');z.classList.remove('active');if(mode==='rapi'){fb.textContent='Dialog rapi: Kiko bicara dulu, lalu Zara menjawab.';fb.style.color='#176b35';setTimeout(()=>k.classList.add('active'),150);setTimeout(()=>{k.classList.remove('active');z.classList.add('active');},1800);}else{fb.textContent='Dialog bertabrakan: dua bubble muncul hampir bersamaan.';fb.style.color='#a42820';setTimeout(()=>{k.classList.add('active');z.classList.add('active');},150);}}
-</script>
+    function checkAccessCode() { const input = document.getElementById('accessInput'), error = document.getElementById('accessError'); if (input.value.trim().toUpperCase() === ACCESS_CODE) { document.getElementById('accessPopup').style.display = 'none'; document.getElementById('mainContent').style.display = 'flex'; updateSlide(); } else { error.classList.add('show'); input.value = ''; input.focus(); } }
+    function changeSlide(direction) { const next = currentSlide + direction; if (next < 1 || next > totalSlides) return; currentSlide = next; updateSlide(); }
+    function updateSlide() { document.querySelectorAll('.slide').forEach(s => s.classList.remove('active')); document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active')); const s = document.getElementById(`slide-${currentSlide}`); if (s) s.classList.add('active'); const e = document.getElementById(`explanation-${currentSlide}`); if (e) e.classList.add('active'); document.getElementById('currentSlide').textContent = currentSlide; document.getElementById('prevBtn').disabled = currentSlide === 1; document.getElementById('nextBtn').disabled = currentSlide === totalSlides; document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`; document.querySelector('.slide-content').scrollTop = 0; document.querySelector('.explanation-panel').scrollTop = 0; }
+    document.addEventListener('keydown', e => { if (document.getElementById('mainContent').style.display === 'none') return; if (e.key === 'ArrowRight') changeSlide(1); if (e.key === 'ArrowLeft') changeSlide(-1); });
+    function singleChoice(btn, ok, feedbackId) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => b.disabled = true); btn.classList.add(ok ? 'correct' : 'wrong'); const fb = document.getElementById(feedbackId); if (fb) { fb.textContent = ok ? 'Betul!' : 'Belum tepat. Coba baca lagi petunjuknya.'; fb.style.color = ok ? '#176b35' : '#a42820'; } }
+    function selectAny(btn) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); }
+    function toggleCheck(item) { const cb = item.querySelector('input'); cb.checked = !cb.checked; item.classList.toggle('done', cb.checked); }
+    function showDebug(id, btn) { btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const host = btn.closest('.slide'); host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active')); host.querySelector('#' + id).classList.add('active'); }
+    function toggleReveal(id) { document.getElementById(id).classList.toggle('show'); }
+    function initDragDrop() { document.querySelectorAll('.sequence-card').forEach(card => { card.addEventListener('dragstart', () => card.classList.add('dragging')); card.addEventListener('dragend', () => card.classList.remove('dragging')); }); document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); const dragging = document.querySelector('.dragging'); if (dragging) zone.appendChild(dragging); }); }); }
+    function checkOrder(targetId, feedbackId) { const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')]; const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1); const fb = document.getElementById(feedbackId); fb.textContent = ok ? 'Yeay, urutannya sudah tepat!' : 'Belum pas. Coba cek dari yang paling awal.'; fb.style.color = ok ? '#176b35' : '#a42820'; }
+    let piggyStep = 0; const piggyData = [['Costume 1', '🫙', 'Celengan kosong. Yuk klik untuk mulai menabung!'], ['Costume 2', '🪙', 'Mantap! Tabungan mulai terkumpul.'], ['Costume 3', '💰', 'Wah, celengan makin penuh!'], ['Costume 1', '🫙', 'Kembali ke awal. Di Scratch, costume bisa berputar lagi.']];
+    function cyclePiggy() { piggyStep = (piggyStep + 1) % 4; const bank = document.getElementById('piggyBank'), cap = document.getElementById('piggyCaption'), label = document.getElementById('piggyStageLabel'), coin = document.getElementById('coinDrop'); if (!bank) return; bank.textContent = piggyData[piggyStep][1]; cap.textContent = piggyData[piggyStep][2]; label.textContent = piggyData[piggyStep][0]; bank.classList.toggle('full', piggyStep === 1 || piggyStep === 2); bank.classList.toggle('super', piggyStep === 2); coin.classList.remove('animate'); void coin.offsetWidth; coin.classList.add('animate'); }
+    function resetPiggy() { piggyStep = 0; const bank = document.getElementById('piggyBank'); if (!bank) return; bank.textContent = '🫙'; bank.classList.remove('full', 'super'); document.getElementById('piggyCaption').textContent = 'Celengan kosong. Yuk klik untuk mulai menabung!'; document.getElementById('piggyStageLabel').textContent = 'Costume 1'; }
+    function selectCostume(btn, name) { btn.parentElement.querySelectorAll('.costume-card').forEach(c => c.classList.remove('active')); btn.classList.add('active'); document.getElementById('costumeInfo').textContent = `Kamu memilih costume: ${name}.`; }
+    function markData(btn, type) { btn.classList.remove('correct', 'wrong', 'selected'); if (type === 'good') { btn.classList.add('correct'); document.getElementById('dataFeedback').textContent = 'Relatif aman, tapi tetap gunakan seperlunya.'; } if (type === 'careful') { btn.classList.add('selected'); document.getElementById('dataFeedback').textContent = 'Perlu hati-hati. Bagikan hanya dengan izin atau sesuai kebutuhan.'; } if (type === 'secret') { btn.classList.add('wrong'); document.getElementById('dataFeedback').textContent = 'Rahasia. Jangan dibagikan kepada siapa pun.'; } }
+    function runDialog(mode) { const k = document.getElementById('bubbleKiko'), z = document.getElementById('bubbleZara'), fb = document.getElementById('dialogFeedback'); if (!k || !z) return; k.classList.remove('active'); z.classList.remove('active'); if (mode === 'rapi') { fb.textContent = 'Dialog rapi: Kiko bicara dulu, lalu Zara menjawab.'; fb.style.color = '#176b35'; setTimeout(() => k.classList.add('active'), 150); setTimeout(() => { k.classList.remove('active'); z.classList.add('active'); }, 1800); } else { fb.textContent = 'Dialog bertabrakan: dua bubble muncul hampir bersamaan.'; fb.style.color = '#a42820'; setTimeout(() => { k.classList.add('active'); z.classList.add('active'); }, 150); } }
+  </script>
 </body>
+
 </html>
