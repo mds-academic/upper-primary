@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UOB My Digital Space Y2 — Upper Primary Sesi 8 Detail</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🖊️&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #0056b3;
+      --light-blue: #4a9eff;
+      --uob-red: #e60012;
+      --uob-red-soft: #ff5a6b;
+      --uob-blue-deep: #0056b3;
+      --uob-blue-soft: #5aa7ff;
+      --teal: #11a9b7;
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --line: #e3e8ef;
+      --green: #2e9d57;
+      --orange: #f39c12;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --yellow-soft: #fff8dc;
+      --blue-soft: #eef7ff;
+      --green-soft: #effaf2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--text)
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08)
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
+      transition: width .3s ease;
+      box-shadow: 0 0 8px rgba(0, 86, 179, .18)
+    }
+
+    .main-container {
+      display: flex;
+      height: 100vh
+    }
+
+    .slides-panel {
+      width: 50%;
+      background: #f8f9fa;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative
+    }
+
+    .explanation-panel {
+      width: 50%;
+      background: #fff;
+      overflow-y: auto;
+      padding: 32px
+    }
+
+    .slide-header {
+      background: #fff;
+      padding: 17px 20px 15px;
+      border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+      position: relative
+    }
+
+    .slide-header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue))
+    }
+
+    .slide-header h1 {
+      font-size: 1.28rem;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .slide-header p {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
+    .header-badge {
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #cce7ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 700;
+      font-size: .76rem
+    }
+
+    .slide-content {
+      flex: 1;
+      padding: 24px 28px 94px;
+      overflow-y: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 0
+    }
+
+    .slide,
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity .25s ease
+    }
+
+    .slide.active,
+    .explanation.active {
+      display: block;
+      opacity: 1
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 820px
+    }
+
+    .explanation {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .slide h2 {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+      line-height: 1.15
+    }
+
+    .slide h3 {
+      font-size: 1.78rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .slide h4,
+    .explanation h4 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: var(--text)
+    }
+
+    .slide p,
+    .explanation p {
+      font-size: 1rem;
+      line-height: 1.58;
+      color: #495057;
+      margin-bottom: 14px
+    }
+
+    .explanation h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.25
+    }
+
+    .slide ul,
+    .slide ol,
+    .explanation ul,
+    .explanation ol {
+      margin-left: 22px;
+      margin-bottom: 10px
+    }
+
+    .slide li,
+    .explanation li {
+      margin-bottom: 7px;
+      line-height: 1.5
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--uob-red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .lead {
+      font-size: 1.08rem !important
+    }
+
+    .mini-note {
+      font-size: .9rem !important;
+      color: var(--muted) !important;
+      margin-top: 10px
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px;
+      margin: 16px 0
+    }
+
+    .visual-card,
+    .metric-box,
+    .info-box,
+    .example-box,
+    .warning-box,
+    .placeholder-box,
+    .interactive-box,
+    .code-placeholder,
+    .quiz-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05)
+    }
+
+    .visual-card {
+      padding: 15px
+    }
+
+    .visual-card h4 {
+      margin-bottom: 5px
+    }
+
+    .visual-card p {
+      margin-bottom: 0;
+      font-size: .92rem;
+      line-height: 1.42
+    }
+
+    .visual-icon {
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .metric-box {
+      padding: 16px 12px;
+      text-align: center
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--blue);
+      margin-bottom: 7px
+    }
+
+    .metric-box span {
+      font-size: .9rem;
+      line-height: 1.35;
+      color: #495057;
+      display: block
+    }
+
+    .info-box,
+    .example-box,
+    .warning-box,
+    .interactive-box {
+      padding: 17px;
+      margin: 16px 0
+    }
+
+    .info-box {
+      border-left: 5px solid var(--light-blue)
+    }
+
+    .example-box {
+      border-left: 5px solid var(--green);
+      background: #f8fff8
+    }
+
+    .warning-box {
+      border-left: 5px solid var(--orange);
+      background: #fffaf0
+    }
+
+    .interactive-box {
+      border-left: 5px solid var(--purple);
+      background: #fcf8ff
+    }
+
+    .placeholder-box {
+      min-height: 215px;
+      padding: 24px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      background: linear-gradient(135deg, #fbfdff, #f5f9fc)
+    }
+
+    .placeholder-box .placeholder-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px
+    }
+
+    .placeholder-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px
+    }
+
+    .placeholder-box small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .code-placeholder {
+      min-height: 230px;
+      padding: 22px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      border-color: #9ab7d3;
+      background: #f8fbfe
+    }
+
+    .code-placeholder strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 7px
+    }
+
+    .code-placeholder code {
+      color: var(--muted);
+      background: #eef3f8;
+      padding: 3px 7px;
+      border-radius: 5px
+    }
+
+    .pseudo-list {
+      list-style: none;
+      margin-left: 0 !important;
+      counter-reset: pseudo
+    }
+
+    .pseudo-list li {
+      counter-increment: pseudo;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      margin-bottom: 8px
+    }
+
+    .pseudo-list li::before {
+      content: counter(pseudo);
+      position: absolute;
+      left: 11px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: .8rem
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 2px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, .04)
+    }
+
+    .nav-btn {
+      background: var(--light-blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: .94rem;
+      font-weight: 700;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: .2s ease
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      background: #357abd
+    }
+
+    .nav-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .slide-indicator {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: .07;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      33% {
+        transform: translateY(-12px) rotate(4deg)
+      }
+
+      66% {
+        transform: translateY(7px) rotate(-3deg)
+      }
+    }
+
+    .access-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .access-popup {
+      background: white;
+      border: 3px solid var(--light-blue);
+      border-radius: 15px;
+      padding: 38px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transform: scale(.8);
+      opacity: 0;
+      transition: all .3s ease
+    }
+
+    .access-popup.show {
+      transform: scale(1);
+      opacity: 1
+    }
+
+    .access-popup h2 {
+      color: var(--text);
+      margin-bottom: 13px;
+      font-size: 1.8rem
+    }
+
+    .access-popup p {
+      color: #666;
+      margin-bottom: 22px;
+      line-height: 1.55
+    }
+
+    .access-input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.15rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    .access-input:focus {
+      outline: none;
+      border-color: var(--light-blue);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, .12)
+    }
+
+    .access-submit {
+      background: var(--light-blue);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .access-submit:hover {
+      background: #357abd
+    }
+
+    .access-error {
+      color: var(--red);
+      margin-top: 13px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .access-error.show {
+      opacity: 1
+    }
+
+    .access-hint {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 18px;
+      font-size: .88rem;
+      color: #856404
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0
+    }
+
+    .choice-btn {
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .18s;
+      text-align: left
+    }
+
+    .choice-btn:hover {
+      border-color: var(--light-blue);
+      transform: translateY(-1px)
+    }
+
+    .choice-btn.correct,
+    .choice-btn.selected {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #176b35
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fff1f0;
+      color: #a42820
+    }
+
+    .feedback-line {
+      min-height: 28px;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary-btn {
+      background: var(--blue);
+      color: white
+    }
+
+    .secondary-btn {
+      background: #e9ecef;
+      color: var(--text)
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      display: grid;
+      gap: 8px
+    }
+
+    .check-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      cursor: pointer
+    }
+
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2)
+    }
+
+    .check-item.done {
+      background: var(--green-soft);
+      border-color: #9cd9af;
+      text-decoration: line-through;
+      color: #3e6b4c
+    }
+
+    .debug-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .debug-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .debug-tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    .debug-scenario {
+      display: none
+    }
+
+    .debug-scenario.active {
+      display: block
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2px
+    }
+
+    .pill.blue {
+      background: var(--blue)
+    }
+
+    .pill.green {
+      background: var(--green)
+    }
+
+    .pill.orange {
+      background: var(--orange)
+    }
+
+    .pill.purple {
+      background: var(--purple)
+    }
+
+    .pill.red {
+      background: var(--uob-red)
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0
+    }
+
+    .flow-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .flow-arrow {
+      color: var(--uob-red);
+      font-size: 1.6rem;
+      font-weight: 900
+    }
+
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .symbol-card {
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .symbol-card.active {
+      border-color: var(--blue);
+      background: var(--blue-soft)
+    }
+
+    .symbol-shape {
+      height: 54px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--blue);
+      max-width: 120px
+    }
+
+    .oval {
+      border-radius: 999px
+    }
+
+    .rect {
+      border-radius: 10px
+    }
+
+    .diamond {
+      width: 64px;
+      height: 64px;
+      transform: rotate(45deg);
+      border-radius: 8px
+    }
+
+    .diamond span {
+      transform: rotate(-45deg)
+    }
+
+    .parallelogram {
+      transform: skew(-15deg);
+      border-radius: 9px
+    }
+
+    .parallelogram span {
+      transform: skew(15deg)
+    }
+
+    .sequence-source,
+    .sequence-target {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .sequence-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      cursor: grab;
+      user-select: none;
+      font-weight: 700
+    }
+
+    .sequence-card.dragging {
+      opacity: .45
+    }
+
+    .sequence-target {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      background: #f8fbfe;
+      border-radius: 10px;
+      padding: 10px
+    }
+
+    .keyboard {
+      background: #eef3fb;
+      border: 2px solid #cfdcec;
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .key {
+      background: white;
+      border: 2px solid #dbe3ef;
+      border-radius: 8px;
+      padding: 11px 0;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+      cursor: pointer
+    }
+
+    .key.active,
+    .key.music {
+      background: linear-gradient(135deg, #ffdde3, #d9eaff);
+      border-color: var(--blue);
+      color: var(--blue)
+    }
+
+    .key.music.playing {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .sound-log {
+      border: 2px dashed #9ab7d3;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 58px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .piano-preview {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 18px 0
+    }
+
+    .piano-preview button {
+      width: 78px;
+      height: 120px;
+      border: 2px solid #d7e0eb;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .08)
+    }
+
+    .piano-preview button:nth-child(1) {
+      background: #ffe4e8
+    }
+
+    .piano-preview button:nth-child(2) {
+      background: #fff0c8
+    }
+
+    .piano-preview button:nth-child(3) {
+      background: #dff8e9
+    }
+
+    .piano-preview button:nth-child(4) {
+      background: #dff3ff
+    }
+
+    .piano-preview button.playing {
+      transform: translateY(4px);
+      box-shadow: none
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .safe-card {
+      padding: 15px
+    }
+
+    .safe-card.good {
+      border-left: 5px solid var(--green)
+    }
+
+    .safe-card.bad {
+      border-left: 5px solid var(--red)
+    }
+
+    .compact-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff
+    }
+
+    .compact-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px
+    }
+
+    .compact-table td {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top
+    }
+
+    .compact-table tr:nth-child(even) td {
+      background: #f8fbfe
+    }
+
+    @media(max-width:960px) {
+      body {
+        overflow: auto;
+        height: auto
+      }
+
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh
+      }
+
+      .slides-panel,
+      .explanation-panel {
+        width: 100%;
+        height: auto;
+        min-height: 50vh
+      }
+
+      .slides-panel {
+        min-height: 100vh
+      }
+
+      .slide-content {
+        padding: 20px 20px 92px
+      }
+
+      .explanation-panel {
+        padding: 24px
+      }
+
+      .header-badge {
+        display: none
+      }
+
+      .flow-line,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .flow-arrow {
+        display: none
+      }
+
+      .keyboard {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="access-popup-overlay" id="accessPopup">
+<div class="access-popup">
+<h2>🔐 Kode Akses</h2>
+<p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 8.</p><input autocomplete="off" class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text"/><button class="access-submit" onclick="checkAccessCode()">Masuk</button>
+<div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div>
+<div class="access-hint">Kode akses diberikan oleh guru.</div>
+</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="main-container" id="mainContent" style="display:none;">
+<div class="slides-panel">
+<div class="slide-header">
+<h1>UOB My Digital Space Y2 — Upper Primary</h1>
+<p>Sesi 8 · Pelacak Jejak</p><span class="header-badge">Scratch · Kelas 4–6 SD</span>
+</div>
+<div class="slide-content"><div class="floating-element" style="top:12%;left:7%;">🖊️</div><div class="floating-element" style="top:18%;right:10%;">👣</div><div class="floating-element" style="bottom:25%;left:14%;">🌈</div><div class="floating-element" style="bottom:15%;right:16%;">🧩</div><section class="slide active" id="slide-1"><span class="eyebrow">Sesi 8</span>
+<h2>Pelacak Jejak</h2>
+<p class="lead">Hari ini kita memakai <strong>Pen Extension</strong> agar sprite bisa meninggalkan garis saat bergerak. Garis itu akan kita hubungkan dengan ide <strong>jejak digital</strong>.</p>
+<div class="metrics">
+<div class="metric-box"><strong>➕</strong><span>Menambah Pen Extension</span></div>
+<div class="metric-box"><strong>🖊️</strong><span>Mengatur pen down dan pen up</span></div>
+<div class="metric-box"><strong>🌈</strong><span>Menggambar garis warna-warni</span></div>
+<div class="metric-box"><strong>🛡️</strong><span>Memahami jejak digital</span></div>
+</div>
+<div class="example-box"><h4>Target project</h4><p>Sprite menggambar garis merah, biru, dan hijau. Setelah <strong>pen up</strong>, sprite bisa berpindah tanpa membuat garis baru.</p></div>
+<div class="warning-box"><h4>Ide penting</h4><p>Garis di Scratch bisa dihapus dengan <strong>erase all</strong>. Jejak digital di internet tidak selalu semudah itu dihapus.</p></div></section><section class="slide" id="slide-2"><h3>Misi Belajar Hari Ini</h3>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🧩</div><h4>Extension</h4><p>Menambahkan fitur Pen ke Scratch.</p></div>
+<div class="visual-card"><div class="visual-icon">🖊️</div><h4>Pen Down</h4><p>Sprite mulai menggambar saat bergerak.</p></div>
+<div class="visual-card"><div class="visual-icon">✋</div><h4>Pen Up</h4><p>Sprite bergerak tanpa meninggalkan garis.</p></div>
+<div class="visual-card"><div class="visual-icon">🧹</div><h4>Erase All</h4><p>Menghapus semua garis yang dibuat Pen.</p></div>
+</div>
+<div class="info-box"><h4>Alur belajar</h4><ol class="pseudo-list"><li>Pahami jejak garis dan jejak digital.</li><li>Tambahkan Pen Extension.</li><li>Susun blok gambar garis.</li><li>Uji hasil dan perbaiki bug.</li><li>Buat pola atau variasi jika waktu masih ada.</li></ol></div></section><section class="slide" id="slide-3"><h3>Dari Keranjang Privasi ke Pelacak Jejak</h3>
+<p class="lead">Sesi sebelumnya membahas informasi yang aman dan berisiko. Sesi ini melanjutkan idenya: setiap aktivitas digital bisa meninggalkan tanda.</p>
+<div class="flow-line">
+<div class="flow-box">Aksi</div><div class="flow-arrow">→</div><div class="flow-box">Jejak</div><div class="flow-arrow">→</div><div class="flow-box">Dampak</div>
+</div>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">💬</div><h4>Komentar</h4><p>Kata-kata yang kita tulis bisa terbaca orang lain.</p></div>
+<div class="visual-card"><div class="visual-icon">📸</div><h4>Foto</h4><p>Foto bisa menyimpan informasi yang tidak sengaja terlihat.</p></div>
+<div class="visual-card"><div class="visual-icon">🔗</div><h4>Unggahan</h4><p>Link, caption, dan video juga bisa menjadi jejak.</p></div>
+</div>
+<div class="interactive-box"><strong>Hubungan dengan Scratch:</strong> garis yang ditinggalkan sprite adalah cara visual untuk memahami jejak.</div></section><section class="slide" id="slide-4"><h3>Jejak Garis dan Jejak Digital</h3>
+<p class="lead">Kalau kita berjalan di pasir, kaki kita meninggalkan jejak. Di Scratch, sprite bisa meninggalkan garis. Di internet, aktivitas kita juga bisa meninggalkan jejak digital.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🏖️</div><h4>Jejak pasir</h4><p>Terlihat setelah kita berjalan.</p></div>
+<div class="visual-card"><div class="visual-icon">🖊️</div><h4>Jejak Scratch</h4><p>Terlihat saat sprite bergerak dengan pen down.</p></div>
+<div class="visual-card"><div class="visual-icon">🌐</div><h4>Jejak digital</h4><p>Bisa berupa komentar, foto, nama, atau unggahan.</p></div>
+</div>
+<div class="warning-box"><h4>Bedanya apa?</h4><p>Jejak Scratch bisa kita bersihkan di Stage. Jejak digital di internet bisa bertahan lama, apalagi jika sudah disimpan atau dibagikan ulang.</p></div></section><section class="slide" id="slide-5"><h3>Siapkan Workspace</h3>
+<p class="lead">Sebelum mulai, pastikan project Scratch siap digunakan.</p>
+<div class="choice-grid">
+<button class="choice-btn" onclick="selectAny(this)">Scratch atau starter project sudah terbuka</button>
+<button class="choice-btn" onclick="selectAny(this)">Backdrop sederhana siap dipakai</button>
+<button class="choice-btn" onclick="selectAny(this)">Aku siap menambahkan Pen Extension</button>
+<button class="choice-btn" onclick="selectAny(this)">Aku siap testing dengan Green Flag</button>
+<button class="choice-btn" onclick="selectAny(this)">Aku tidak memakai data pribadi asli</button>
+</div>
+<div class="info-box"><strong>Tips workspace:</strong><p>Gunakan backdrop yang tidak terlalu ramai agar garis warna-warni terlihat jelas. Kalau garis susah dilihat, ganti warna pen atau ubah backdrop.</p></div></section><section class="slide" id="slide-6"><h3>Apa Itu Extension?</h3>
+<p><strong>Extension</strong> adalah fitur tambahan di Scratch. Ibaratnya seperti alat baru yang bisa ditambahkan saat kita membutuhkannya.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🧰</div><h4>Tool tambahan</h4><p>Scratch punya fitur dasar, lalu extension menambah kemampuan baru.</p></div>
+<div class="visual-card"><div class="visual-icon">🖊️</div><h4>Pen</h4><p>Membuat sprite menggambar garis saat bergerak.</p></div>
+<div class="visual-card"><div class="visual-icon">🎛️</div><h4>Blok baru</h4><p>Setelah ditambahkan, kategori blok Pen muncul di Blocks Palette.</p></div>
+</div>
+<div class="interactive-box"><h4>Quick check</h4><p>Kalau kategori Pen belum muncul, apa yang perlu dicek?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q6')">Pen Extension sudah ditambahkan atau belum</button><button class="choice-btn" onclick="singleChoice(this,false,'q6')">Ukuran sprite saja</button></div><div class="feedback-line" id="q6"></div></div></section><section class="slide" id="slide-7"><h3>Cara Menambahkan Pen Extension</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT ADD EXTENSION</strong><small>Ganti dengan screenshot tombol Extensions di kiri bawah Scratch, lalu pilihan Pen.</small></div></div>
+<ol class="pseudo-list">
+<li>Klik tombol <strong>Extensions</strong> di kiri bawah Scratch.</li>
+<li>Pilih extension <strong>Pen</strong>.</li>
+<li>Cek apakah kategori blok <strong>Pen</strong> sudah muncul.</li>
+<li>Kalau belum muncul, ulangi langkah menambahkan extension.</li>
+</ol>
+<div class="warning-box"><strong>Jangan panik:</strong> Pen bukan blok bawaan yang selalu langsung terlihat. Kita harus menambahkannya dulu.</div></section><section class="slide" id="slide-8"><h3>Kenalan dengan Blok Pen</h3>
+<table class="compact-table"><tr><th>Blok</th><th>Fungsinya</th><th>Bayangkan seperti...</th></tr>
+<tr><td><strong>erase all</strong></td><td>Menghapus semua garis Pen.</td><td>Membersihkan papan gambar.</td></tr>
+<tr><td><strong>pen down</strong></td><td>Mulai menggambar saat sprite bergerak.</td><td>Menempelkan spidol ke kertas.</td></tr>
+<tr><td><strong>pen up</strong></td><td>Berhenti menggambar saat sprite bergerak.</td><td>Mengangkat spidol dari kertas.</td></tr>
+<tr><td><strong>set pen color</strong></td><td>Mengubah warna garis berikutnya.</td><td>Mengganti warna spidol.</td></tr>
+<tr><td><strong>set pen size</strong></td><td>Mengubah tebal garis.</td><td>Memilih spidol kecil atau besar.</td></tr></table>
+<div class="info-box"><strong>Ingat:</strong> Pen hanya meninggalkan garis saat <strong>pen down</strong> aktif dan sprite bergerak.</div></section><section class="slide" id="slide-9"><h3>Aktivitas Mini: Jejak Mana yang Baik?</h3>
+<p class="lead">Pilih apakah contoh berikut meninggalkan jejak positif atau jejak berisiko.</p>
+<div class="interactive-box"><h4 id="s8scenarioTitle">Contoh 1 dari 6</h4><p id="s8scenarioText">“Selamat ya! Gambarmu bagus sekali.”</p><div class="choice-grid"><button class="choice-btn" onclick="up8ScenarioAnswer(this,'positive')">Positif</button><button class="choice-btn" onclick="up8ScenarioAnswer(this,'risk')">Berisiko</button></div><div class="feedback-line" id="s8scenarioFeedback">Pilih jawabannya.</div><button class="primary-btn" onclick="up8NextScenario()">Contoh berikutnya</button></div>
+<div class="warning-box"><h4>Aturan singkat</h4><p>Sebelum komentar atau unggah sesuatu, pikirkan: apakah ini sopan, aman, dan tidak membocorkan data pribadi?</p></div></section><section class="slide" id="slide-10"><h3>Pen Down vs Pen Up</h3>
+<p class="lead">Dua blok ini sering tertukar. Bedanya sederhana: pen down menggambar, pen up tidak menggambar.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🖊️</div><h4>Pen Down</h4><p>Sprite bergerak sambil meninggalkan garis.</p></div>
+<div class="visual-card"><div class="visual-icon">✋</div><h4>Pen Up</h4><p>Sprite tetap bergerak, tetapi tidak meninggalkan garis.</p></div>
+</div>
+<div class="interactive-box"><h4>Quick check</h4><p>Kalau sprite diam tetapi pen down sudah aktif, apakah garis langsung muncul?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'q10')">Ya, langsung muncul</button><button class="choice-btn" onclick="singleChoice(this,true,'q10')">Tidak, sprite harus bergerak</button></div><div class="feedback-line" id="q10"></div></div></section><section class="slide" id="slide-11"><h3>Simulasi: Dengan Jejak atau Tanpa Jejak</h3>
+<p>Klik tombol untuk melihat perbedaan pen down, pen up, dan erase all.</p>
+<div class="area-live-card" id="s8traceBox"><h4>🚀 Sprite siap bergerak.</h4><p>Pilih salah satu tombol di bawah.</p></div>
+<div class="choice-grid"><button class="choice-btn" onclick="up8Trace('down')">Pen Down + Move</button><button class="choice-btn" onclick="up8Trace('up')">Pen Up + Move</button><button class="choice-btn" onclick="up8Trace('clear')">Erase All</button></div>
+<div class="info-box"><strong>Hubungkan dengan project:</strong><p>Kita akan memakai pen down untuk menggambar garis, lalu pen up saat sprite perlu pindah tempat tanpa membuat garis tambahan.</p></div></section><section class="slide" id="slide-12"><h3>Sample Project: Apa yang Akan Terjadi?</h3>
+<p class="lead">Project contoh menggunakan satu sprite yang mulai dari tengah, menggambar tiga garis warna-warni, lalu pindah tanpa menggambar lagi.</p>
+<div class="flow-line"><div class="flow-box">Reset</div><div class="flow-arrow">→</div><div class="flow-box">Pen Down</div><div class="flow-arrow">→</div><div class="flow-box">Garis Warna</div></div>
+<div class="visual-grid">
+<div class="visual-card"><h4>1. Mulai bersih</h4><p>Garis lama dihapus dan sprite kembali ke posisi awal.</p></div>
+<div class="visual-card"><h4>2. Gambar jejak</h4><p>Sprite bergerak 100 langkah, belok, lalu mengganti warna.</p></div>
+<div class="visual-card"><h4>3. Pindah aman</h4><p>Setelah pen up, sprite pindah tanpa garis baru.</p></div>
+</div>
+<div class="warning-box"><p>Di Scratch, “jejak” dapat dilihat langsung sebagai garis. Di dunia digital, jejak bisa berupa hal yang tidak selalu terlihat saat itu juga.</p></div></section><section class="slide" id="slide-13"><h3>Project: Pelacak Jejak</h3>
+<p class="lead">Sekarang kita buat sprite yang bergerak dan menggambar jejak garis.</p>
+<div class="example-box"><h4>Output yang ingin dilihat</h4><ul><li>Stage bersih saat Green Flag diklik.</li><li>Sprite mulai dari posisi tengah.</li><li>Garis pertama berwarna merah.</li><li>Garis kedua berwarna biru.</li><li>Garis ketiga berwarna hijau.</li><li>Sprite berhenti menggambar saat pen up.</li></ul></div>
+<div class="interactive-box"><strong>Target minimum:</strong> sprite mampu menggambar garis saat bergerak.</div></section><section class="slide" id="slide-14"><h3>Yang Kamu Butuhkan</h3>
+<ul class="checklist">
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> 1 sprite yang mudah dilihat, misalnya panah, mouse, atau karakter sederhana.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Backdrop polos agar garis tidak tertutup.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Pen Extension sudah ditambahkan.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Warna pen minimal dua warna.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Project diberi nama <strong>Pelacak Jejak</strong>.</li>
+</ul>
+<div class="warning-box"><h4>Catatan keamanan</h4><p>Project ini tidak perlu memakai nama lengkap, alamat, nomor telepon, atau data pribadi asli.</p></div></section><section class="slide" id="slide-15"><h3>Langkah 1: Kondisi Awal</h3>
+<p class="lead">Kondisi awal membuat project selalu rapi saat dijalankan ulang.</p>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK KONDISI AWAL</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div>
+<ol class="pseudo-list">
+<li>🟨 Event: ketika Green Flag diklik</li>
+<li>🖊️ Pen: erase all</li>
+<li>🖊️ Pen: pen up</li>
+<li>🟦 Motion: go to x: 0 y: 0</li>
+<li>🟦 Motion: point in direction 90</li>
+<li>🖊️ Pen: set pen size to 5</li>
+</ol></section><section class="slide" id="slide-16"><h3>Kenapa Reset Harus di Awal?</h3>
+<p class="lead">Tanpa reset, hasil project bisa terlihat berantakan karena garis percobaan sebelumnya masih tertinggal.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🧹</div><h4>erase all</h4><p>Membersihkan garis lama agar testing dimulai dari Stage bersih.</p></div>
+<div class="visual-card"><div class="visual-icon">✋</div><h4>pen up</h4><p>Mencegah garis muncul saat sprite diposisikan ulang.</p></div>
+<div class="visual-card"><div class="visual-icon">📍</div><h4>go to 0,0</h4><p>Mengembalikan sprite ke titik awal yang sama.</p></div>
+</div>
+<div class="interactive-box"><h4>Quick check</h4><p>Erase all menghapus apa?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q16')">Semua garis dari Pen</button><button class="choice-btn" onclick="singleChoice(this,false,'q16')">Sprite dan kode program</button></div><div class="feedback-line" id="q16"></div></div></section><section class="slide" id="slide-17"><h3>Langkah 2: Garis Merah</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK GARIS MERAH</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div>
+<ol class="pseudo-list">
+<li>🟧 Control: wait 1 seconds</li>
+<li>🖊️ Pen: pen down</li>
+<li>🖊️ Pen: set pen color to merah</li>
+<li>🟦 Motion: move 100 steps</li>
+</ol>
+<div class="info-box"><strong>Urutan penting:</strong> warna pen diatur sebelum <strong>move</strong>, supaya garis yang dibuat langsung berwarna merah.</div></section><section class="slide" id="slide-18"><h3>Langkah 3: Belok dan Garis Biru</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK GARIS BIRU</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div>
+<ol class="pseudo-list">
+<li>🟦 Motion: turn right 90 degrees</li>
+<li>🟧 Control: wait 1 seconds</li>
+<li>🖊️ Pen: set pen color to biru</li>
+<li>🟦 Motion: move 100 steps</li>
+</ol>
+<div class="warning-box"><strong>Kalau tidak belok:</strong> garis kedua akan lanjut ke arah yang sama, bukan membentuk sudut.</div></section><section class="slide" id="slide-19"><h3>Langkah 4: Belok dan Garis Hijau</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK GARIS HIJAU</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div>
+<ol class="pseudo-list">
+<li>🟦 Motion: turn right 90 degrees</li>
+<li>🟧 Control: wait 1 seconds</li>
+<li>🖊️ Pen: set pen color to hijau</li>
+<li>🟦 Motion: move 100 steps</li>
+</ol>
+<div class="info-box"><p>Sekarang sprite sudah membuat tiga sisi garis warna-warni. Ini bisa menjadi awal pola kotak, huruf, atau jalur sederhana.</p></div></section><section class="slide" id="slide-20"><h3>Langkah 5: Pen Up lalu Pindah</h3>
+<p class="lead">Setelah selesai menggambar, sprite perlu berhenti meninggalkan jejak.</p>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK PEN UP + PINDAH</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div>
+<ol class="pseudo-list">
+<li>🖊️ Pen: pen up</li>
+<li>🟧 Control: wait 1 seconds</li>
+<li>🟦 Motion: go to x: -60 y: -50</li>
+</ol>
+<div class="warning-box"><h4>Bug yang sering muncul</h4><p>Kalau lupa <strong>pen up</strong> sebelum <strong>go to</strong>, akan muncul garis panjang yang tidak direncanakan.</p></div></section><section class="slide" id="slide-21"><h3>Full Pseudocode Project</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT FULL BLOK SCRATCH</strong><small>Ganti area ini dengan screenshot seluruh rangkaian blok sample project.</small></div></div>
+<ol class="pseudo-list">
+<li>Green Flag → erase all → pen up</li>
+<li>go to x: 0 y: 0 → point in direction 90 → set pen size 5</li>
+<li>wait 1 → pen down → set color merah → move 100</li>
+<li>turn right 90 → wait 1 → set color biru → move 100</li>
+<li>turn right 90 → wait 1 → set color hijau → move 100</li>
+<li>pen up → wait 1 → go to x: -60 y: -50</li>
+</ol></section><section class="slide" id="slide-22"><h3>Simulasi Gambar Jejak</h3>
+<p class="lead">Coret di area ini untuk merasakan ide “sprite meninggalkan garis”.</p>
+<canvas height="260" id="up8Canvas" style="width:100%;max-width:520px;height:260px;border:2px dashed #9ab7d3;border-radius:12px;background:#fff;display:block;margin:14px auto;touch-action:none;" width="520"></canvas>
+<div class="choice-grid"><button class="choice-btn" onclick="up8SetColor('#e60012',this)">Merah</button><button class="choice-btn" onclick="up8SetColor('#0056b3',this)">Biru</button><button class="choice-btn" onclick="up8SetColor('#2e9d57',this)">Hijau</button><button class="choice-btn" onclick="up8ClearCanvas()">Erase All</button></div>
+<div class="feedback-line" id="s8canvasFeedback">Tekan dan geser di kotak untuk menggambar.</div>
+<div class="mini-note">Simulasi ini bukan Scratch asli, tetapi membantu membayangkan cara kerja Pen.</div></section><section class="slide" id="slide-23"><h3>Testing Project</h3>
+<p class="lead">Jalankan project lebih dari sekali. Project yang baik harus bisa diulang dari awal dengan hasil rapi.</p>
+<table class="compact-table"><tr><th>Aksi</th><th>Expected Result</th><th>Kalau belum sesuai...</th></tr>
+<tr><td>Klik Green Flag</td><td>Stage bersih dan sprite mulai dari posisi awal.</td><td>Cek erase all, pen up, dan go to.</td></tr>
+<tr><td>Pen down + move</td><td>Sprite bergerak dan meninggalkan garis.</td><td>Cek urutan pen down sebelum move.</td></tr>
+<tr><td>Warna diubah sebelum move</td><td>Garis berikutnya memakai warna baru.</td><td>Cek posisi set pen color.</td></tr>
+<tr><td>Pen up + go to</td><td>Sprite pindah tanpa garis baru.</td><td>Tambahkan pen up sebelum go to.</td></tr>
+<tr><td>Project dijalankan ulang</td><td>Garis lama terhapus.</td><td>Letakkan erase all di awal script.</td></tr></table></section><section class="slide" id="slide-24"><h3>Detektif Kode</h3>
+<p class="lead">Pilih gejala yang kamu alami, lalu cek bagian yang paling mungkin bermasalah.</p>
+<div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('d1',this)">Tidak ada garis</button><button class="debug-tab" onclick="showDebug('d2',this)">Garis lama masih ada</button><button class="debug-tab" onclick="showDebug('d3',this)">Muncul garis saat pindah</button><button class="debug-tab" onclick="showDebug('d4',this)">Warna tidak berubah</button></div>
+<div class="debug-scenario active" id="d1"><div class="warning-box"><h4>Gejala</h4><p>Sprite bergerak, tetapi tidak meninggalkan garis.</p></div><div class="info-box"><ol><li>Cek apakah Pen Extension sudah aktif.</li><li>Cek apakah <strong>pen down</strong> ada sebelum <strong>move</strong>.</li><li>Cek apakah warna garis kontras dengan backdrop.</li></ol></div></div>
+<div class="debug-scenario" id="d2"><div class="warning-box"><h4>Gejala</h4><p>Garis lama masih terlihat saat Green Flag diklik.</p></div><div class="info-box"><ol><li>Letakkan <strong>erase all</strong> tepat setelah Green Flag.</li><li>Pastikan erase all tersambung ke script utama.</li><li>Jalankan ulang project.</li></ol></div></div>
+<div class="debug-scenario" id="d3"><div class="warning-box"><h4>Gejala</h4><p>Saat sprite pindah ke posisi baru, muncul garis panjang yang tidak direncanakan.</p></div><div class="info-box"><ol><li>Tambahkan <strong>pen up</strong> sebelum <strong>go to</strong>.</li><li>Pastikan pen down hanya dipakai saat ingin menggambar.</li></ol></div></div>
+<div class="debug-scenario" id="d4"><div class="warning-box"><h4>Gejala</h4><p>Semua garis terlihat satu warna.</p></div><div class="info-box"><ol><li>Cek apakah <strong>set pen color</strong> dipasang sebelum move berikutnya.</li><li>Gunakan warna yang jelas berbeda.</li></ol></div></div></section><section class="slide" id="slide-25"><h3>Blok yang Dipakai</h3>
+<table class="compact-table"><tr><th>Blok</th><th>Gunanya</th></tr>
+<tr><td><strong>when green flag clicked</strong></td><td>Memulai dan mengatur ulang project.</td></tr>
+<tr><td><strong>erase all</strong></td><td>Menghapus garis Pen dari Stage.</td></tr>
+<tr><td><strong>pen down</strong></td><td>Membuat sprite meninggalkan garis saat bergerak.</td></tr>
+<tr><td><strong>pen up</strong></td><td>Membuat sprite bergerak tanpa menggambar.</td></tr>
+<tr><td><strong>set pen color</strong></td><td>Mengubah warna garis berikutnya.</td></tr>
+<tr><td><strong>set pen size</strong></td><td>Mengatur tebal garis.</td></tr>
+<tr><td><strong>move steps</strong></td><td>Menggerakkan sprite sehingga garis terbentuk.</td></tr>
+<tr><td><strong>turn degrees</strong></td><td>Mengubah arah gerak sprite.</td></tr>
+<tr><td><strong>go to x: y:</strong></td><td>Memindahkan sprite ke posisi tertentu.</td></tr></table></section><section class="slide" id="slide-26"><h3>Cek Output Minimum</h3>
+<p>Project dianggap berhasil jika semua poin ini sudah terpenuhi.</p>
+<ul class="checklist">
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Pen Extension sudah ditambahkan.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Green Flag membersihkan garis lama.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite kembali ke posisi awal.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite menggambar saat pen down.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite tidak menggambar setelah pen up.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Warna garis berubah minimal dua kali.</li>
+<li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Aku bisa menjelaskan hubungan garis dengan jejak digital.</li>
+</ul></section><section class="slide" id="slide-27"><h3>Misi Bonus: Buat Pola</h3>
+<p class="lead">Kalau project minimum sudah selesai, coba pilih satu challenge.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🥉</div><h4>Warna Baru</h4><p>Tambahkan warna keempat, misalnya ungu atau kuning.</p></div>
+<div class="visual-card"><div class="visual-icon">🥈</div><h4>Pen Up Pintar</h4><p>Pindah ke posisi lain tanpa garis, lalu lanjut menggambar lagi.</p></div>
+<div class="visual-card"><div class="visual-icon">🥇</div><h4>Buat Pola</h4><p>Buat kotak, segitiga, atau inisial nama panggilanmu.</p></div>
+</div>
+<div class="interactive-box"><h4>Petunjuk pola kotak</h4><p>Untuk kotak, kamu butuh pola: <strong>move → turn 90</strong> yang diulang beberapa kali.</p></div></section><section class="slide" id="slide-28"><h3>Mini Planning: Pola Apa yang Mau Kamu Buat?</h3>
+<p>Susun urutan sederhana sebelum menambah challenge di Scratch.</p>
+<div class="sequence-source"><div class="sequence-card" data-order="3" draggable="true">Belok 90 derajat</div><div class="sequence-card" data-order="1" draggable="true">Pen down</div><div class="sequence-card" data-order="4" draggable="true">Ulangi gerakan untuk sisi berikutnya</div><div class="sequence-card" data-order="2" draggable="true">Move 100 steps</div></div>
+<div class="sequence-target" id="patternTarget"><p class="mini-note">Tarik kartu ke sini.</p></div><button class="primary-btn" onclick="checkOrder('patternTarget','patternFeedback')">Cek urutan</button><div class="feedback-line" id="patternFeedback"></div>
+<div class="mini-note">Latihan ini membantu kamu tidak asal menambah blok.</div></section><section class="slide" id="slide-29"><h3>Sebelum Posting, Cek Jejakmu</h3>
+<p class="lead">Project ini memang tentang garis, tetapi pesan besarnya adalah berpikir sebelum meninggalkan jejak digital.</p>
+<div class="visual-grid">
+<div class="visual-card"><div class="visual-icon">🛡️</div><h4>Aman?</h4><p>Tidak ada password, alamat, nomor telepon, atau informasi pribadi lain.</p></div>
+<div class="visual-card"><div class="visual-icon">💬</div><h4>Sopan?</h4><p>Komentar tidak mengejek, menyakiti, atau mempermalukan orang lain.</p></div>
+<div class="visual-card"><div class="visual-icon">👀</div><h4>Siap dilihat?</h4><p>Pikirkan apakah kamu tetap nyaman jika unggahan itu dilihat guru atau keluarga.</p></div>
+</div>
+<div class="interactive-box"><h4>Aturan pribadi</h4><p>Sebelum mengunggah sesuatu, aku akan mengecek apakah unggahanku aman, sopan, dan tidak membocorkan data pribadi.</p></div></section><section class="slide" id="slide-30"><h3>Refleksi Hari Ini</h3>
+<ul>
+<li>Apa perbedaan <strong>pen down</strong> dan <strong>pen up</strong>?</li>
+<li>Mengapa <strong>erase all</strong> berguna saat testing?</li>
+<li>Mengapa garis Scratch hanya analogi dari jejak digital?</li>
+<li>Sebelum komentar atau unggah foto, apa yang perlu dicek?</li>
+</ul>
+<div class="example-box"><h4>Rangkuman</h4><p>Pen Extension membuat sprite dapat menggambar garis. Pen down membuat jejak muncul saat sprite bergerak, pen up membuat sprite bergerak tanpa garis, dan erase all membersihkan garis lama.</p></div>
+<div class="warning-box"><h4>Pesan akhir</h4><p>Garis Scratch bisa dihapus dengan cepat. Jejak digital di internet belum tentu bisa hilang semudah itu. Jadi, pikirkan dulu sebelum mengunggah sesuatu.</p></div></section></div>
+<div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span>
+          Previous</button>
+<div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">25</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button>
+</div>
+</div>
+<div class="explanation-panel"><section class="explanation active" id="explanation-1"><h3>Pelacak Jejak</h3><p>Sesi ini mengenalkan <strong>Pen Extension</strong>, yaitu fitur tambahan Scratch yang membuat sprite bisa menggambar garis saat bergerak. Jadi, sprite bukan hanya tampil dan bergerak, tetapi juga bisa meninggalkan tanda di Stage.</p><p>Garis yang ditinggalkan sprite dipakai sebagai analogi jejak digital. Saat kita beraktivitas di internet, komentar, foto, video, nama, atau informasi yang pernah dibagikan juga bisa meninggalkan tanda. Bedanya, garis di Scratch bisa dihapus dengan erase all, sedangkan jejak digital di internet belum tentu bisa hilang sepenuhnya.</p><div class="info-box"><h4>Yang perlu kamu bawa dari sesi ini</h4><p>Kamu belajar coding dengan Pen, tetapi juga belajar berpikir sebelum meninggalkan jejak di dunia digital.</p></div></section><section class="explanation" id="explanation-2"><h3>Misi Belajar Hari Ini</h3><p>Ada dua lapis pembelajaran hari ini. Lapis pertama adalah coding: kamu menambahkan Pen Extension, memakai pen down, pen up, erase all, set pen color, move, dan turn. Lapis kedua adalah literasi digital: kamu belajar bahwa tindakan digital bisa meninggalkan jejak.</p><p>Di Scratch, hasil dari blok bisa langsung terlihat. Kalau pen down dipasang dengan benar, garis muncul. Kalau pen up dipasang, garis berhenti. Dari sini kamu belajar membaca hubungan sebab-akibat: blok yang dipasang akan memengaruhi hasil yang terlihat.</p><div class="example-box"><h4>Target belajar</h4><p>Bukan hanya “project jadi”, tetapi kamu bisa menjelaskan kenapa garis muncul, kenapa garis berhenti, dan kenapa jejak digital perlu dijaga.</p></div></section><section class="explanation" id="explanation-3"><h3>Dari Keranjang Privasi ke Pelacak Jejak</h3><p>Sesi 7 membahas pilihan informasi: mana yang aman dibagikan dan mana yang harus dijaga. Sesi 8 melanjutkan topik itu dengan melihat akibat dari sebuah aktivitas. Kalau kita membagikan sesuatu, aktivitas itu bisa meninggalkan jejak.</p><p>Jejak digital bisa positif, misalnya komentar yang sopan atau karya yang dibagikan dengan aman. Jejak juga bisa berisiko, misalnya membocorkan alamat rumah, mengejek teman, atau mengunggah foto yang memperlihatkan informasi pribadi.</p><div class="warning-box"><h4>Ingat</h4><p>Jejak digital bukan hanya “hal besar”. Komentar pendek, foto kecil, atau nama yang terlihat di layar juga bisa menjadi bagian dari jejak.</p></div></section><section class="explanation" id="explanation-4"><h3>Jejak Garis dan Jejak Digital</h3><p>Analogi membantu kita memahami konsep yang sulit. Jejak kaki di pasir mudah dibayangkan karena kita bisa melihat bekasnya. Di Scratch, Pen Extension juga membuat jejak yang bisa dilihat sebagai garis.</p><p>Jejak digital mirip karena berasal dari aktivitas yang kita lakukan. Saat kita menulis komentar, mengunggah foto, membagikan video, atau mengisi data di sebuah situs, tindakan itu bisa meninggalkan tanda. Tidak semua jejak digital buruk, tetapi semua jejak perlu dipikirkan.</p><div class="info-box"><h4>Perbedaan penting</h4><p>Garis di Scratch bisa dihapus sendiri. Jejak digital bisa saja sudah dilihat, disalin, difoto layar, atau dibagikan ulang oleh orang lain.</p></div></section><section class="explanation" id="explanation-5"><h3>Siapkan Workspace</h3><p>Backdrop yang sederhana membantu garis terlihat jelas. Kalau latarnya terlalu ramai, kamu bisa mengira program tidak berjalan padahal sebenarnya garis hanya sulit terlihat.</p><p>Project ini tidak memerlukan data pribadi. Kamu tidak perlu menulis nama lengkap, alamat, nomor telepon, password, nama sekolah, atau informasi asli lainnya. Kalau ingin memakai contoh, gunakan contoh fiktif atau kalimat umum.</p><div class="example-box"><h4>Kebiasaan baik</h4><p>Setiap akan membuat project digital, biasakan bertanya: “Apakah ada informasi pribadi yang tidak sengaja terlihat?”</p></div></section><section class="explanation" id="explanation-6"><h3>Apa Itu Extension?</h3><p>Scratch memiliki banyak blok utama, tetapi tidak semua fitur langsung muncul. Extension adalah fitur tambahan yang bisa dipasang saat dibutuhkan. Pen Extension adalah salah satu extension yang membuat sprite dapat menggambar garis.</p><p>Setelah extension ditambahkan, kategori blok baru bernama Pen akan muncul. Dari kategori inilah kamu mengambil blok seperti erase all, pen down, pen up, set pen color, dan set pen size.</p><div class="warning-box"><h4>Kalau blok Pen tidak ada</h4><p>Kemungkinan besar Pen Extension belum ditambahkan. Cek tombol Extensions di kiri bawah Scratch, lalu pilih Pen.</p></div></section><section class="explanation" id="explanation-7"><h3>Cara Menambahkan Pen Extension</h3><p>Langkah menambahkan extension penting karena tanpa Pen Extension kamu tidak akan menemukan blok Pen. Ini berbeda dari blok Motion atau Looks yang biasanya langsung tersedia.</p><p>Setelah memilih Pen, lihat Blocks Palette. Jika kategori Pen sudah muncul, berarti extension siap dipakai. Jika belum muncul, coba klik ulang tombol Extensions atau pastikan Scratch sudah terbuka dengan benar.</p><div class="info-box"><h4>Kenapa slide ini memakai placeholder?</h4><p>Tampilan Scratch bisa sedikit berbeda tergantung versi atau ukuran layar. Screenshot blok asli bisa diganti nanti agar sama dengan tampilan yang dipakai siswa di kelas.</p></div></section><section class="explanation" id="explanation-8"><h3>Kenalan dengan Blok Pen</h3><p>Blok Pen bekerja seperti alat gambar. <strong>Pen down</strong> seperti menempelkan spidol ke kertas. Jika sprite bergerak, garis akan terbentuk. <strong>Pen up</strong> seperti mengangkat spidol, sehingga sprite bisa berpindah tanpa menggambar.</p><p><strong>Erase all</strong> menghapus semua garis yang dibuat Pen. Blok ini tidak menghapus sprite, backdrop, atau kode. Karena itu, erase all cocok diletakkan di awal project agar setiap percobaan dimulai dari Stage bersih.</p><div class="example-box"><h4>Kunci memahami Pen</h4><p>Pen tidak menggambar hanya karena aktif. Sprite tetap harus bergerak agar garis muncul.</p></div></section><section class="explanation" id="explanation-9"><h3>Jejak Mana yang Baik?</h3><p>Aktivitas mini ini mengajak kamu membedakan jejak positif dan jejak berisiko. Jejak positif adalah aktivitas yang sopan, aman, dan tidak membocorkan data pribadi. Jejak berisiko adalah aktivitas yang bisa menyakiti orang lain atau membahayakan diri sendiri.</p><p>Contoh komentar sopan dapat menjadi jejak positif. Sebaliknya, komentar kasar bisa menjadi jejak buruk karena orang lain dapat membacanya, menyimpannya, atau mengingatnya.</p><div class="warning-box"><h4>Pertanyaan sebelum posting</h4><ul><li>Apakah ini sopan?</li><li>Apakah ini aman?</li><li>Apakah ada data pribadi yang terlihat?</li><li>Apakah aku tetap nyaman jika ini dilihat orang lain?</li></ul></div></section><section class="explanation" id="explanation-10"><h3>Pen Down vs Pen Up</h3><p>Dua blok ini sering menjadi penyebab bug. Jika kamu ingin membuat garis, gunakan pen down sebelum sprite bergerak. Jika kamu ingin sprite pindah posisi tanpa garis, gunakan pen up sebelum perpindahan.</p><p>Perhatikan juga bahwa pen down tidak langsung membuat garis jika sprite diam. Garis baru muncul saat ada gerakan, misalnya move steps atau glide/go to setelah pen down aktif.</p><div class="info-box"><h4>Contoh logika</h4><p>Pen down + move 100 = garis muncul. Pen up + move 100 = sprite bergerak tanpa garis.</p></div></section><section class="explanation" id="explanation-11"><h3>Simulasi Pen</h3><p>Simulasi ini membantu kamu membayangkan akibat dari pen down, pen up, dan erase all sebelum menyusun blok di Scratch. Tujuannya bukan menggantikan Scratch, tetapi membuat konsepnya terasa jelas.</p><p>Jika kamu memilih Pen Down + Move, sprite seolah bergerak sambil meninggalkan garis. Jika kamu memilih Pen Up + Move, sprite tetap bergerak tetapi tidak meninggalkan garis. Jika kamu memilih Erase All, semua garis dibersihkan.</p><div class="example-box"><h4>Hubungan dengan coding</h4><p>Setiap tombol di simulasi ini mewakili urutan blok yang nanti kamu susun di Scratch.</p></div></section><section class="explanation" id="explanation-12"><h3>Sample Project</h3><p>Sample project Sesi 8 menggunakan satu sprite yang menggambar tiga garis warna-warni. Rangkaiannya dimulai dari reset, lalu sprite menurunkan pena, mengganti warna, bergerak, belok, mengganti warna lagi, dan bergerak lagi.</p><p>Bagian pentingnya bukan hanya garisnya terlihat, tetapi kapan garis muncul dan kapan garis berhenti. Saat pen up dipakai sebelum go to, sprite dapat berpindah ke posisi akhir tanpa membuat garis panjang yang tidak diinginkan.</p><div class="info-box"><h4>Yang perlu diamati</h4><p>Urutan blok sangat menentukan hasil. Mengubah posisi pen up, set pen color, atau move dapat mengubah gambar yang muncul.</p></div></section><section class="explanation" id="explanation-13"><h3>Project Pelacak Jejak</h3><p>Project utama hari ini adalah membuat sprite menggambar jejak garis warna-warni. Kamu akan memakai beberapa blok Pen dan Motion untuk membentuk jalur.</p><p>Garis pertama, kedua, dan ketiga dibuat dengan warna berbeda agar kamu bisa melihat bahwa set pen color memengaruhi garis berikutnya. Setelah pen up, sprite pindah tanpa garis baru. Ini menunjukkan bahwa kamu bisa mengontrol kapan jejak dibuat dan kapan tidak.</p><div class="warning-box"><h4>Pesan digital literacy</h4><p>Di internet, kita juga perlu mengontrol tindakan. Tidak semua hal perlu dikomentari, dibagikan, atau diunggah.</p></div></section><section class="explanation" id="explanation-14"><h3>Yang Kamu Butuhkan</h3><p>Sprite yang sederhana membuat arah gerak lebih mudah dilihat. Sprite panah cocok karena arah hadapnya jelas, tetapi kamu boleh memakai sprite lain yang mudah diamati.</p><p>Backdrop polos membuat garis lebih terlihat. Pen Extension wajib ditambahkan karena blok Pen tidak muncul tanpa extension. Warna pen sebaiknya kontras, misalnya merah, biru, dan hijau.</p><div class="example-box"><h4>Nama project</h4><p>Gunakan nama yang jelas seperti “Pelacak Jejak”. Nama project yang rapi membuat file lebih mudah ditemukan saat akan dikumpulkan atau dibuka lagi.</p></div></section><section class="explanation" id="explanation-15"><h3>Kondisi Awal</h3><p>Kondisi awal adalah bagian yang menyiapkan project sebelum aksi utama dimulai. Jika kondisi awal rapi, project dapat dijalankan berkali-kali dengan hasil yang konsisten.</p><p>Urutan reset dimulai dari erase all untuk membersihkan garis, pen up agar sprite tidak menggambar saat diposisikan, go to x:0 y:0 untuk titik awal, point in direction 90 untuk arah gerak, dan set pen size untuk tebal garis.</p><div class="info-box"><h4>Kenapa point in direction 90?</h4><p>Arah 90 berarti sprite menghadap kanan. Ini membuat gerakan awal lebih mudah diprediksi.</p></div></section><section class="explanation" id="explanation-16"><h3>Kenapa Reset Harus di Awal?</h3><p>Testing yang baik membutuhkan kondisi awal yang sama. Kalau garis lama masih ada, kamu bisa bingung membedakan garis dari percobaan lama dan garis dari percobaan baru.</p><p>Pen up di awal juga penting. Jika pena masih down saat sprite dipindahkan ke tengah, Scratch bisa membuat garis yang tidak kamu rencanakan. Karena itu, reset bukan hanya membersihkan, tetapi juga mencegah bug.</p><div class="warning-box"><h4>Bug yang dicegah</h4><ul><li>Garis lama masih menumpuk.</li><li>Sprite mulai dari tempat berbeda.</li><li>Garis muncul saat sprite dipindahkan.</li></ul></div></section><section class="explanation" id="explanation-17"><h3>Garis Merah</h3><p>Ini adalah bagian pertama yang benar-benar menggambar jejak. Setelah menunggu sebentar, pen down diaktifkan, warna pen diatur menjadi merah, lalu sprite bergerak 100 langkah.</p><p>Jika set pen color dipasang setelah move, garis pertama mungkin tidak berwarna seperti yang kamu harapkan. Karena itu, biasakan mengatur warna dulu, baru bergerak.</p><div class="example-box"><h4>Baca urutannya</h4><p>Pen down → set color merah → move 100. Urutan ini berarti “mulai menggambar dengan warna merah, lalu bergerak.”</p></div></section><section class="explanation" id="explanation-18"><h3>Belok dan Garis Biru</h3><p>Setelah garis merah selesai, sprite perlu belok agar garis berikutnya tidak terus memanjang ke arah yang sama. Turn right 90 degrees membuat sprite berbelok membentuk sudut siku-siku.</p><p>Wait 1 seconds memberi jeda agar perubahan dapat terlihat lebih jelas. Setelah itu, warna pen diubah menjadi biru, lalu sprite bergerak lagi 100 langkah.</p><div class="warning-box"><h4>Kesalahan umum</h4><p>Jika kamu lupa turn, garis akan lurus terus. Jika kamu lupa set pen color, garis kedua bisa tetap berwarna merah.</p></div></section><section class="explanation" id="explanation-19"><h3>Belok dan Garis Hijau</h3><p>Bagian ini mirip dengan langkah sebelumnya. Pola yang berulang mulai terlihat: belok, tunggu, ganti warna, lalu bergerak. Inilah contoh pattern dalam coding.</p><p>Dengan warna hijau, kamu bisa melihat bahwa garis ketiga adalah bagian baru dari jalur. Warna yang berbeda membuat hasil project lebih mudah dibaca dan lebih menarik.</p><div class="info-box"><h4>Pattern yang terlihat</h4><p><strong>turn → wait → set pen color → move</strong>. Pola seperti ini bisa kamu ulang untuk membuat bentuk lain.</p></div></section><section class="explanation" id="explanation-20"><h3>Pen Up lalu Pindah</h3><p>Setelah selesai menggambar tiga garis, sprite perlu berhenti meninggalkan jejak. Pen up membuat sprite tidak menggambar lagi ketika berpindah.</p><p>Blok go to x:-60 y:-50 memindahkan sprite ke posisi baru. Karena pen sudah up, perpindahan ini tidak membuat garis tambahan. Ini adalah bagian yang sering membedakan project rapi dan project yang penuh garis tidak sengaja.</p><div class="warning-box"><h4>Kalau muncul garis panjang</h4><p>Hampir pasti pen masih down saat go to dijalankan. Tambahkan pen up sebelum go to.</p></div></section><section class="explanation" id="explanation-21"><h3>Full Pseudocode Project</h3><p>Slide ini merangkum seluruh urutan blok. Pseudocode tidak menggantikan screenshot blok Scratch asli, tetapi membantu kamu memahami logika sebelum melihat gambar blok.</p><p>Baca dari atas ke bawah. Pertama, project di-reset. Kedua, sprite mulai menggambar garis merah. Ketiga, sprite belok dan menggambar garis biru. Keempat, sprite belok lagi dan menggambar garis hijau. Terakhir, pen up membuat sprite pindah tanpa jejak baru.</p><div class="info-box"><h4>Cara memakai slide ini</h4><p>Bandingkan pseudocode dengan blok Scratch milikmu. Jika ada hasil yang berbeda, cek urutan blok satu per satu.</p></div></section><section class="explanation" id="explanation-22"><h3>Simulasi Gambar Jejak</h3><p>Area gambar ini membantu kamu merasakan konsep Pen. Saat kamu menekan dan menggeser, garis muncul seperti pen down. Saat berhenti menggeser, garis berhenti. Tombol warna bekerja seperti set pen color.</p><p>Tombol Erase All membersihkan gambar, sama seperti blok erase all di Scratch. Setelah dibersihkan, kamu bisa mencoba lagi dari awal.</p><div class="warning-box"><h4>Catatan</h4><p>Ini hanya simulasi di slide. Saat membuat project sesungguhnya, gunakan blok Scratch dan Pen Extension.</p></div></section><section class="explanation" id="explanation-23"><h3>Testing Project</h3><p>Testing berarti mengecek apakah project berjalan sesuai rencana. Jangan hanya menekan Green Flag satu kali. Jalankan project beberapa kali untuk memastikan reset dan hasilnya tetap rapi.</p><p>Tes bagian per bagian. Jika garis pertama muncul tetapi garis kedua tidak berubah warna, fokus cek pada blok set pen color sebelum move kedua. Jika garis lama masih ada, fokus cek erase all. Dengan begitu, debugging lebih cepat.</p><div class="example-box"><h4>Cara berpikir tester</h4><p>Lihat gejala → cari bagian yang berhubungan → ubah satu hal → tes lagi.</p></div></section><section class="explanation" id="explanation-24"><h3>Detektif Kode</h3><p>Bug adalah hal biasa dalam coding. Yang penting adalah cara mencarinya. Jangan menghapus semua blok ketika ada masalah. Mulai dari gejala yang terlihat, lalu cek blok yang paling dekat dengan masalah itu.</p><p>Misalnya, tidak ada garis berarti cek Pen Extension, pen down, dan warna garis. Garis lama masih ada berarti cek erase all. Garis panjang yang tidak direncanakan berarti cek pen up sebelum go to.</p><div class="info-box"><h4>Aturan debugging</h4><p>Ubah satu hal dalam satu waktu. Kalau terlalu banyak yang diubah sekaligus, kamu sulit tahu bagian mana yang memperbaiki masalah.</p></div></section><section class="explanation" id="explanation-25"><h3>Blok yang Dipakai</h3><p>Tabel ini adalah kamus kecil untuk project Sesi 8. Jika kamu lupa fungsi sebuah blok, kembali ke slide ini.</p><p>Perhatikan bahwa beberapa blok berasal dari kategori Pen, sedangkan beberapa lainnya berasal dari Motion dan Event. Project Scratch biasanya memakai beberapa kategori blok sekaligus.</p><div class="warning-box"><h4>Blok paling sering tertukar</h4><p>Pen down dan pen up. Ingat: down = mulai menggambar, up = berhenti menggambar.</p></div></section><section class="explanation" id="explanation-26"><h3>Output Minimum</h3><p>Output minimum adalah batas paling dasar agar project dianggap selesai. Kamu tidak harus langsung membuat pola rumit. Yang paling penting adalah Pen Extension bekerja dan kamu memahami cara mengontrol jejak garis.</p><p>Jika semua checklist sudah terpenuhi, berarti kamu sudah bisa membuat sprite menggambar saat bergerak, berhenti menggambar saat pen up, dan membersihkan garis lama saat project dijalankan ulang.</p><div class="example-box"><h4>Sebelum lanjut challenge</h4><p>Pastikan kamu bisa menjelaskan projectmu dengan kalimat sendiri. Contoh: “Sprite menggambar karena pen down aktif sebelum move.”</p></div></section><section class="explanation" id="explanation-27"><h3>Misi Bonus</h3><p>Challenge membantu kamu mengembangkan project setelah target minimum selesai. Kamu bisa menambah warna, membuat sprite berpindah ke tempat lain tanpa jejak, atau membuat pola tertentu.</p><p>Untuk membuat pola, perhatikan gerakan yang berulang. Kotak membutuhkan beberapa kali move dan turn 90. Segitiga membutuhkan sudut yang berbeda. Inisial nama membutuhkan rencana lebih dulu agar bentuknya terbaca.</p><div class="info-box"><h4>Tips challenge</h4><p>Buat satu perubahan kecil, lalu tes. Jangan menambah semua challenge sekaligus.</p></div></section><section class="explanation" id="explanation-28"><h3>Mini Planning Pola</h3><p>Sebelum menambah challenge, susun urutan langkah. Ini membantu kamu tidak asal memasang blok. Untuk banyak pola, urutannya dimulai dari pen down, lalu move, turn, dan mengulang langkah tertentu.</p><p>Latihan drag-and-drop ini mengingatkan bahwa project visual juga tetap membutuhkan rencana. Semakin jelas rencananya, semakin mudah mencari blok yang cocok.</p><div class="example-box"><h4>Hubungan dengan Sesi 3</h4><p>Ini mirip flowchart: rencana dulu, baru coding. Programmer jarang membuat project besar tanpa urutan langkah.</p></div></section><section class="explanation" id="explanation-29"><h3>Sebelum Posting, Cek Jejakmu</h3><p>Pesan digital literacy dari sesi ini adalah berpikir sebelum meninggalkan jejak. Tidak semua jejak digital buruk. Karya yang baik, komentar sopan, dan pesan yang membantu bisa menjadi jejak positif.</p><p>Namun, data pribadi dan komentar yang menyakiti orang lain bisa menjadi jejak berisiko. Karena itu, sebelum mengunggah sesuatu, cek apakah aman, sopan, dan tidak membocorkan informasi pribadi.</p><div class="warning-box"><h4>Ingat 3 kata</h4><p><strong>Aman, sopan, siap dilihat.</strong> Kalau salah satu jawabannya belum yakin, lebih baik tanya guru atau orang tua dulu.</p></div></section><section class="explanation" id="explanation-30"><h3>Refleksi Hari Ini</h3><p>Hari ini kamu belajar membuat jejak garis menggunakan Pen Extension dan memahami bahwa aktivitas digital juga dapat meninggalkan jejak. Konsep coding dan literasi digital berjalan bersama.</p><p>Jika kamu bisa menjawab pertanyaan refleksi, berarti kamu tidak hanya mengikuti langkah, tetapi juga memahami alasan di balik setiap blok dan pesan belajarnya.</p><div class="info-box"><h4>Bekal untuk sesi berikutnya</h4><p>Kamu sudah berlatih memakai extension, membaca gejala bug, dan menghubungkan project dengan kebiasaan digital yang aman. Ini akan membantu saat project berikutnya mulai lebih kompleks.</p></div></section></div>
+</div>
+<script>
+    const ACCESS_CODE = 'RGMDSUP26'; let currentSlide = 1; const totalSlides = document.querySelectorAll('.slide').length; document.getElementById('totalSlides').textContent = totalSlides; window.addEventListener('load', () => { setTimeout(() => document.querySelector('.access-popup').classList.add('show'), 50); const input = document.getElementById('accessInput'); input.focus(); input.addEventListener('input', e => { e.target.value = e.target.value.toUpperCase() }); input.addEventListener('keydown', e => { if (e.key === 'Enter') checkAccessCode() }); initDragDrop(); }); function checkAccessCode() { const input = document.getElementById('accessInput'), error = document.getElementById('accessError'); if (input.value.trim().toUpperCase() === ACCESS_CODE) { document.getElementById('accessPopup').style.display = 'none'; document.getElementById('mainContent').style.display = 'flex'; updateSlide(); } else { error.classList.add('show'); input.value = ''; input.focus(); } } function changeSlide(direction) { const next = currentSlide + direction; if (next < 1 || next > totalSlides) return; currentSlide = next; updateSlide(); } function updateSlide() { document.querySelectorAll('.slide').forEach(s => s.classList.remove('active')); document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active')); document.getElementById(`slide-${currentSlide}`).classList.add('active'); const exp = document.getElementById(`explanation-${currentSlide}`); if (exp) exp.classList.add('active'); document.getElementById('currentSlide').textContent = currentSlide; document.getElementById('prevBtn').disabled = currentSlide === 1; document.getElementById('nextBtn').disabled = currentSlide === totalSlides; document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`; document.querySelector('.slide-content').scrollTop = 0; document.querySelector('.explanation-panel').scrollTop = 0; } document.addEventListener('keydown', e => { if (document.getElementById('mainContent').style.display === 'none') return; if (e.key === 'ArrowRight') changeSlide(1); if (e.key === 'ArrowLeft') changeSlide(-1); if (['a', 's', 'd', 'f', 'g', 'h'].includes(e.key.toLowerCase())) playNote(e.key.toUpperCase(), true); }); function singleChoice(btn, ok, feedbackId) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => { b.disabled = true; b.classList.remove('selected') }); btn.classList.add(ok ? 'correct' : 'wrong'); const fb = document.getElementById(feedbackId); if (fb) { fb.textContent = ok ? 'Betul.' : 'Belum tepat. Coba baca penjelasannya lagi.'; fb.style.color = ok ? '#176b35' : '#a42820'; } } function selectAny(btn) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); } function toggleCheck(item) { const cb = item.querySelector('input'); cb.checked = !cb.checked; item.classList.toggle('done', cb.checked); } function showDebug(id, btn) { btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const host = btn.closest('.slide'); host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active')); host.querySelector('#' + id).classList.add('active'); } function showConcept(id) { const data = { dekom: ['Dekomposisi', 'Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.'], seq: ['Sequence', 'Menyusun langkah sesuai urutan yang benar. Kalau urutannya berubah, hasilnya bisa berubah.'], pat: ['Pattern', 'Menemukan langkah yang muncul berulang, misalnya tes → cari salah → perbaiki → tes lagi.'], flow: ['Flowchart', 'Diagram alur untuk melihat rencana langkah sebelum coding.'] }; document.getElementById('conceptInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; } function showSymbol(id, btn) { document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('active')); btn.classList.add('active'); const data = { start: ['Start/End', 'Dipakai untuk tanda mulai dan selesai.'], process: ['Process', 'Dipakai untuk langkah kerja, seperti sprite bergerak.'], decision: ['Decision', 'Dipakai untuk pilihan ya/tidak. Di sesi ini hanya dikenalkan dulu.'], io: ['Input/Output', 'Dipakai untuk masukan atau hasil, misalnya tombol ditekan atau suara terdengar.'] }; document.getElementById('symbolInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; } function initDragDrop() { document.querySelectorAll('.sequence-card').forEach(card => { card.addEventListener('dragstart', () => card.classList.add('dragging')); card.addEventListener('dragend', () => card.classList.remove('dragging')); }); document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); const dragging = document.querySelector('.dragging'); if (dragging) zone.appendChild(dragging); }); }); } function checkOrder(targetId, feedbackId) { const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')]; const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1); const fb = document.getElementById(feedbackId); fb.textContent = ok ? 'Urutannya sudah tepat.' : 'Belum tepat. Coba cek lagi langkah awal sampai akhir.'; fb.style.color = ok ? '#176b35' : '#a42820'; } function showFlow(type) { const data = { input: ['Input', 'Sesuatu yang memulai proses. Contoh: Green Flag diklik atau tombol keyboard ditekan.'], process: ['Process', 'Langkah yang dijalankan program, seperti show, move, say, atau start sound.'], output: ['Output', 'Hasil yang terlihat atau terdengar, seperti sprite bergerak atau nada piano berbunyi.'] }; document.getElementById('flowInfo').innerHTML = `<h4>${data[type][0]}</h4><p>${data[type][1]}</p>`; } let audioCtx = null; function playNote(note, fromKey = false) { const notes = { A: ['Do', 261.63], S: ['Re', 293.66], D: ['Mi', 329.63], F: ['Fa', 349.23], G: ['Sol', 392.00], H: ['La', 440.00] }; if (!notes[note]) return; try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain(); osc.type = 'sine'; osc.frequency.value = notes[note][1]; gain.gain.setValueAtTime(0.0001, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.38); } catch (e) { } document.querySelectorAll(`[data-key="${note}"]`).forEach(k => { k.classList.add('playing'); setTimeout(() => k.classList.remove('playing'), 220); }); document.querySelectorAll('.sound-log').forEach(log => { log.textContent = `Tombol ${note} ditekan → nada ${notes[note][0]} dimainkan.`; }); } function markKey(btn) { btn.classList.add('selected'); }
+  
+
+/* Session-specific helpers */
+
+function up8Trace(mode){
+  const box=document.getElementById('s8traceBox'); if(!box) return;
+  if(mode==='clear'){box.innerHTML='🧹 Erase all: garis dibersihkan. Sprite dan kode tetap ada.'; return;}
+  if(mode==='down'){box.innerHTML='🚀 Sprite bergerak → <span style="color:#e60012;">━━━━━━</span><br>Pen down aktif, jadi garis tertinggal.'; return;}
+  box.innerHTML='🚀 Sprite bergerak → (tidak ada garis baru)<br>Pen up aktif, jadi sprite berpindah tanpa jejak.';
+}
+const up8Scenarios=[
+  {text:'“Selamat ya! Gambarmu bagus sekali.”', answer:'positive', hint:'Komentar sopan dapat menjadi jejak positif.'},
+  {text:'Mengunggah foto yang memperlihatkan alamat rumah.', answer:'risk', hint:'Alamat rumah adalah informasi pribadi dan berisiko.'},
+  {text:'Membagikan hasil karya sendiri tanpa data pribadi.', answer:'positive', hint:'Karya dapat menjadi jejak positif jika aman dibagikan.'},
+  {text:'Menulis komentar yang mengejek teman.', answer:'risk', hint:'Komentar mengejek bisa menyakiti orang lain dan menjadi jejak buruk.'},
+  {text:'Mengucapkan terima kasih di forum kelas.', answer:'positive', hint:'Ucapan yang sopan dapat meninggalkan jejak yang baik.'},
+  {text:'Membagikan password game kepada teman.', answer:'risk', hint:'Password adalah data rahasia dan tidak boleh dibagikan.'}
+];
+let up8ScenarioIndex=0;
+function up8ScenarioAnswer(btn, answer){
+  const s=up8Scenarios[up8ScenarioIndex];
+  btn.parentElement.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('correct','wrong'));
+  const ok=answer===s.answer;
+  btn.classList.add(ok?'correct':'wrong');
+  const fb=document.getElementById('s8scenarioFeedback'); if(fb){fb.textContent=(ok?'Betul. ':'Belum tepat. ')+s.hint; fb.style.color=ok?'#176b35':'#a42820';}
+}
+function up8NextScenario(){
+  up8ScenarioIndex=(up8ScenarioIndex+1)%up8Scenarios.length;
+  const s=up8Scenarios[up8ScenarioIndex];
+  document.getElementById('s8scenarioTitle').textContent='Contoh '+(up8ScenarioIndex+1)+' dari '+up8Scenarios.length;
+  document.getElementById('s8scenarioText').textContent=s.text;
+  const fb=document.getElementById('s8scenarioFeedback'); if(fb){fb.textContent='Pilih jawabannya.'; fb.style.color='';}
+  document.querySelectorAll('#slide-9 .choice-btn').forEach(b=>b.classList.remove('correct','wrong'));
+}
+let up8CanvasColor='#e60012';
+function up8SetColor(color, btn){up8CanvasColor=color; if(btn){btn.parentElement.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected')); btn.classList.add('selected');} const fb=document.getElementById('s8canvasFeedback'); if(fb) fb.textContent='Warna pena diganti. Coba gambar lagi.';}
+function up8ClearCanvas(){const c=document.getElementById('up8Canvas'); if(!c)return; const ctx=c.getContext('2d'); ctx.clearRect(0,0,c.width,c.height); const fb=document.getElementById('s8canvasFeedback'); if(fb) fb.textContent='Erase all: garis dihapus.';}
+function initUp8Canvas(){
+  const c=document.getElementById('up8Canvas'); if(!c) return; const ctx=c.getContext('2d'); let drawing=false, last=null;
+  function pos(e){const r=c.getBoundingClientRect(); const p=e.touches?e.touches[0]:e; return {x:(p.clientX-r.left)*c.width/r.width, y:(p.clientY-r.top)*c.height/r.height};}
+  function start(e){drawing=true; last=pos(e); e.preventDefault();}
+  function move(e){ if(!drawing) return; const p=pos(e); ctx.strokeStyle=up8CanvasColor; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); last=p; const fb=document.getElementById('s8canvasFeedback'); if(fb) fb.textContent='Pen down: garis muncul saat kamu bergerak.'; e.preventDefault();}
+  function end(){drawing=false; last=null;}
+  c.addEventListener('mousedown',start); c.addEventListener('mousemove',move); window.addEventListener('mouseup',end);
+  c.addEventListener('touchstart',start,{passive:false}); c.addEventListener('touchmove',move,{passive:false}); c.addEventListener('touchend',end);
+}
+window.addEventListener('load', initUp8Canvas);
+
+</script>
+</body>
+</html>

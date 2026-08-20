@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UOB My Digital Space Y2 — Upper Primary Sesi 7 Detail</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧺&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #0056b3;
+      --light-blue: #4a9eff;
+      --uob-red: #e60012;
+      --uob-red-soft: #ff5a6b;
+      --uob-blue-deep: #0056b3;
+      --uob-blue-soft: #5aa7ff;
+      --teal: #11a9b7;
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --line: #e3e8ef;
+      --green: #2e9d57;
+      --orange: #f39c12;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --yellow-soft: #fff8dc;
+      --blue-soft: #eef7ff;
+      --green-soft: #effaf2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--text)
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08)
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
+      transition: width .3s ease;
+      box-shadow: 0 0 8px rgba(0, 86, 179, .18)
+    }
+
+    .main-container {
+      display: flex;
+      height: 100vh
+    }
+
+    .slides-panel {
+      width: 50%;
+      background: #f8f9fa;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative
+    }
+
+    .explanation-panel {
+      width: 50%;
+      background: #fff;
+      overflow-y: auto;
+      padding: 32px
+    }
+
+    .slide-header {
+      background: #fff;
+      padding: 17px 20px 15px;
+      border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+      position: relative
+    }
+
+    .slide-header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue))
+    }
+
+    .slide-header h1 {
+      font-size: 1.28rem;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .slide-header p {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
+    .header-badge {
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #cce7ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 700;
+      font-size: .76rem
+    }
+
+    .slide-content {
+      flex: 1;
+      padding: 24px 28px 94px;
+      overflow-y: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 0
+    }
+
+    .slide,
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity .25s ease
+    }
+
+    .slide.active,
+    .explanation.active {
+      display: block;
+      opacity: 1
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 820px
+    }
+
+    .explanation {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .slide h2 {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+      line-height: 1.15
+    }
+
+    .slide h3 {
+      font-size: 1.78rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .slide h4,
+    .explanation h4 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: var(--text)
+    }
+
+    .slide p,
+    .explanation p {
+      font-size: 1rem;
+      line-height: 1.58;
+      color: #495057;
+      margin-bottom: 14px
+    }
+
+    .explanation h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.25
+    }
+
+    .slide ul,
+    .slide ol,
+    .explanation ul,
+    .explanation ol {
+      margin-left: 22px;
+      margin-bottom: 10px
+    }
+
+    .slide li,
+    .explanation li {
+      margin-bottom: 7px;
+      line-height: 1.5
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--uob-red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .lead {
+      font-size: 1.08rem !important
+    }
+
+    .mini-note {
+      font-size: .9rem !important;
+      color: var(--muted) !important;
+      margin-top: 10px
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px;
+      margin: 16px 0
+    }
+
+    .visual-card,
+    .metric-box,
+    .info-box,
+    .example-box,
+    .warning-box,
+    .placeholder-box,
+    .interactive-box,
+    .code-placeholder,
+    .quiz-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05)
+    }
+
+    .visual-card {
+      padding: 15px
+    }
+
+    .visual-card h4 {
+      margin-bottom: 5px
+    }
+
+    .visual-card p {
+      margin-bottom: 0;
+      font-size: .92rem;
+      line-height: 1.42
+    }
+
+    .visual-icon {
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .metric-box {
+      padding: 16px 12px;
+      text-align: center
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--blue);
+      margin-bottom: 7px
+    }
+
+    .metric-box span {
+      font-size: .9rem;
+      line-height: 1.35;
+      color: #495057;
+      display: block
+    }
+
+    .info-box,
+    .example-box,
+    .warning-box,
+    .interactive-box {
+      padding: 17px;
+      margin: 16px 0
+    }
+
+    .info-box {
+      border-left: 5px solid var(--light-blue)
+    }
+
+    .example-box {
+      border-left: 5px solid var(--green);
+      background: #f8fff8
+    }
+
+    .warning-box {
+      border-left: 5px solid var(--orange);
+      background: #fffaf0
+    }
+
+    .interactive-box {
+      border-left: 5px solid var(--purple);
+      background: #fcf8ff
+    }
+
+    .placeholder-box {
+      min-height: 215px;
+      padding: 24px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      background: linear-gradient(135deg, #fbfdff, #f5f9fc)
+    }
+
+    .placeholder-box .placeholder-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px
+    }
+
+    .placeholder-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px
+    }
+
+    .placeholder-box small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .code-placeholder {
+      min-height: 230px;
+      padding: 22px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      border-color: #9ab7d3;
+      background: #f8fbfe
+    }
+
+    .code-placeholder strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 7px
+    }
+
+    .code-placeholder code {
+      color: var(--muted);
+      background: #eef3f8;
+      padding: 3px 7px;
+      border-radius: 5px
+    }
+
+    .pseudo-list {
+      list-style: none;
+      margin-left: 0 !important;
+      counter-reset: pseudo
+    }
+
+    .pseudo-list li {
+      counter-increment: pseudo;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      margin-bottom: 8px
+    }
+
+    .pseudo-list li::before {
+      content: counter(pseudo);
+      position: absolute;
+      left: 11px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: .8rem
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 2px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, .04)
+    }
+
+    .nav-btn {
+      background: var(--light-blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: .94rem;
+      font-weight: 700;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: .2s ease
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      background: #357abd
+    }
+
+    .nav-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .slide-indicator {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: .07;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      33% {
+        transform: translateY(-12px) rotate(4deg)
+      }
+
+      66% {
+        transform: translateY(7px) rotate(-3deg)
+      }
+    }
+
+    .access-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .access-popup {
+      background: white;
+      border: 3px solid var(--light-blue);
+      border-radius: 15px;
+      padding: 38px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transform: scale(.8);
+      opacity: 0;
+      transition: all .3s ease
+    }
+
+    .access-popup.show {
+      transform: scale(1);
+      opacity: 1
+    }
+
+    .access-popup h2 {
+      color: var(--text);
+      margin-bottom: 13px;
+      font-size: 1.8rem
+    }
+
+    .access-popup p {
+      color: #666;
+      margin-bottom: 22px;
+      line-height: 1.55
+    }
+
+    .access-input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.15rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    .access-input:focus {
+      outline: none;
+      border-color: var(--light-blue);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, .12)
+    }
+
+    .access-submit {
+      background: var(--light-blue);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .access-submit:hover {
+      background: #357abd
+    }
+
+    .access-error {
+      color: var(--red);
+      margin-top: 13px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .access-error.show {
+      opacity: 1
+    }
+
+    .access-hint {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 18px;
+      font-size: .88rem;
+      color: #856404
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0
+    }
+
+    .choice-btn {
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .18s;
+      text-align: left
+    }
+
+    .choice-btn:hover {
+      border-color: var(--light-blue);
+      transform: translateY(-1px)
+    }
+
+    .choice-btn.correct,
+    .choice-btn.selected {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #176b35
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fff1f0;
+      color: #a42820
+    }
+
+    .feedback-line {
+      min-height: 28px;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary-btn {
+      background: var(--blue);
+      color: white
+    }
+
+    .secondary-btn {
+      background: #e9ecef;
+      color: var(--text)
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      display: grid;
+      gap: 8px
+    }
+
+    .check-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      cursor: pointer
+    }
+
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2)
+    }
+
+    .check-item.done {
+      background: var(--green-soft);
+      border-color: #9cd9af;
+      text-decoration: line-through;
+      color: #3e6b4c
+    }
+
+    .debug-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .debug-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .debug-tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    .debug-scenario {
+      display: none
+    }
+
+    .debug-scenario.active {
+      display: block
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2px
+    }
+
+    .pill.blue {
+      background: var(--blue)
+    }
+
+    .pill.green {
+      background: var(--green)
+    }
+
+    .pill.orange {
+      background: var(--orange)
+    }
+
+    .pill.purple {
+      background: var(--purple)
+    }
+
+    .pill.red {
+      background: var(--uob-red)
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0
+    }
+
+    .flow-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .flow-arrow {
+      color: var(--uob-red);
+      font-size: 1.6rem;
+      font-weight: 900
+    }
+
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .symbol-card {
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .symbol-card.active {
+      border-color: var(--blue);
+      background: var(--blue-soft)
+    }
+
+    .symbol-shape {
+      height: 54px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--blue);
+      max-width: 120px
+    }
+
+    .oval {
+      border-radius: 999px
+    }
+
+    .rect {
+      border-radius: 10px
+    }
+
+    .diamond {
+      width: 64px;
+      height: 64px;
+      transform: rotate(45deg);
+      border-radius: 8px
+    }
+
+    .diamond span {
+      transform: rotate(-45deg)
+    }
+
+    .parallelogram {
+      transform: skew(-15deg);
+      border-radius: 9px
+    }
+
+    .parallelogram span {
+      transform: skew(15deg)
+    }
+
+    .sequence-source,
+    .sequence-target {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .sequence-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      cursor: grab;
+      user-select: none;
+      font-weight: 700
+    }
+
+    .sequence-card.dragging {
+      opacity: .45
+    }
+
+    .sequence-target {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      background: #f8fbfe;
+      border-radius: 10px;
+      padding: 10px
+    }
+
+    .keyboard {
+      background: #eef3fb;
+      border: 2px solid #cfdcec;
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .key {
+      background: white;
+      border: 2px solid #dbe3ef;
+      border-radius: 8px;
+      padding: 11px 0;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+      cursor: pointer
+    }
+
+    .key.active,
+    .key.music {
+      background: linear-gradient(135deg, #ffdde3, #d9eaff);
+      border-color: var(--blue);
+      color: var(--blue)
+    }
+
+    .key.music.playing {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .sound-log {
+      border: 2px dashed #9ab7d3;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 58px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .piano-preview {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 18px 0
+    }
+
+    .piano-preview button {
+      width: 78px;
+      height: 120px;
+      border: 2px solid #d7e0eb;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .08)
+    }
+
+    .piano-preview button:nth-child(1) {
+      background: #ffe4e8
+    }
+
+    .piano-preview button:nth-child(2) {
+      background: #fff0c8
+    }
+
+    .piano-preview button:nth-child(3) {
+      background: #dff8e9
+    }
+
+    .piano-preview button:nth-child(4) {
+      background: #dff3ff
+    }
+
+    .piano-preview button.playing {
+      transform: translateY(4px);
+      box-shadow: none
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .safe-card {
+      padding: 15px
+    }
+
+    .safe-card.good {
+      border-left: 5px solid var(--green)
+    }
+
+    .safe-card.bad {
+      border-left: 5px solid var(--red)
+    }
+
+    .compact-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff
+    }
+
+    .compact-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px
+    }
+
+    .compact-table td {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top
+    }
+
+    .compact-table tr:nth-child(even) td {
+      background: #f8fbfe
+    }
+
+    @media(max-width:960px) {
+      body {
+        overflow: auto;
+        height: auto
+      }
+
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh
+      }
+
+      .slides-panel,
+      .explanation-panel {
+        width: 100%;
+        height: auto;
+        min-height: 50vh
+      }
+
+      .slides-panel {
+        min-height: 100vh
+      }
+
+      .slide-content {
+        padding: 20px 20px 92px
+      }
+
+      .explanation-panel {
+        padding: 24px
+      }
+
+      .header-badge {
+        display: none
+      }
+
+      .flow-line,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .flow-arrow {
+        display: none
+      }
+
+      .keyboard {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="access-popup-overlay" id="accessPopup">
+<div class="access-popup">
+<h2>🔐 Kode Akses</h2>
+<p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 7.</p><input autocomplete="off" class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text"/><button class="access-submit" onclick="checkAccessCode()">Masuk</button>
+<div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div>
+<div class="access-hint">Kode akses diberikan oleh guru.</div>
+</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="main-container" id="mainContent" style="display:none;">
+<div class="slides-panel">
+<div class="slide-header">
+<h1>UOB My Digital Space — Upper Primary</h1>
+<p>Sesi 7 · Keranjang Privasi</p><span class="header-badge">Scratch · Upper Primary</span>
+</div>
+<div class="slide-content"><div class="floating-element" style="top:12%;left:7%;">🧺</div><div class="floating-element" style="top:18%;right:10%;">🔒</div><div class="floating-element" style="bottom:25%;left:14%;">👣</div><div class="floating-element" style="bottom:15%;right:16%;">🧩</div><section class="slide active" id="slide-1"><span class="eyebrow">Sesi 7</span><h2>Keranjang Privasi</h2><p class="lead">Hari ini kita belajar tentang <strong>jejak digital</strong> dan membuat simulasi Scratch untuk memilah informasi: mana yang aman, mana yang harus dijaga.</p><div class="metrics"><div class="metric-box"><strong>👣</strong><span>Mengenal jejak digital</span></div><div class="metric-box"><strong>🧺</strong><span>Mengelompokkan informasi</span></div><div class="metric-box"><strong>🧩</strong><span>Membuat kartu bergerak</span></div><div class="metric-box"><strong>🛡️</strong><span>Memakai data fiktif</span></div></div><div class="example-box"><h4>Target project</h4><p>Saat kartu informasi diklik, kartu menjelaskan kategorinya lalu bergerak ke keranjang yang sesuai.</p></div></section><section class="slide" id="slide-2"><h3>Misi Belajar Hari Ini</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">👣</div><h4>Jejak Digital</h4><p>Memahami bahwa unggahan, komentar, like, pencarian, dan tautan bisa meninggalkan tanda digital.</p></div><div class="visual-card"><div class="visual-icon">✅</div><h4>Aktif &amp; Pasif</h4><p>Membedakan jejak yang kita buat sendiri dan jejak yang tercatat saat memakai aplikasi.</p></div><div class="visual-card"><div class="visual-icon">🧺</div><h4>Klasifikasi Data</h4><p>Mengelompokkan kartu menjadi Risiko Rendah, Perlu Hati-hati, atau Rahasia.</p></div><div class="visual-card"><div class="visual-icon">🚀</div><h4>Project Scratch</h4><p>Menggunakan <em>go to</em>, <em>say</em>, dan <em>glide</em> agar kartu bergerak ke keranjang yang sesuai.</p></div></div><div class="info-box"><h4>Alur belajar</h4><ol class="pseudo-list"><li>Pahami contoh jejak digital.</li><li>Latihan memilah informasi.</li><li>Buat area keranjang di Scratch.</li><li>Atur posisi awal setiap kartu.</li><li>Klik kartu, baca pesannya, lalu cek tujuannya.</li></ol></div></section><section class="slide" id="slide-3"><h3>Siapkan Workspace</h3><p class="lead">Sebelum mulai, pastikan semua siap dan ingat: kita hanya memakai contoh fiktif.</p><div class="choice-grid"><button class="choice-btn" onclick="selectAny(this)">Scratch atau starter project sudah dibuka</button><button class="choice-btn" onclick="selectAny(this)">Aku siap memakai contoh data fiktif</button><button class="choice-btn" onclick="selectAny(this)">Aku tahu password/PIN tidak boleh ditulis asli</button><button class="choice-btn" onclick="selectAny(this)">Aku siap testing setiap kartu</button></div><div class="warning-box"><h4>Penting</h4><p>Jangan menulis password, PIN, alamat rumah, nomor HP asli, atau data keluarga di project.</p></div></section><section class="slide" id="slide-4"><h3>Dari Data Pribadi ke Jejak Digital</h3><p>Pada sesi sebelumnya, kamu belajar bahwa tidak semua pertanyaan harus dijawab. Sekarang kita lanjut: informasi yang dibagikan di internet bisa menjadi <strong>jejak digital</strong>.</p><div class="flow-line"><div class="flow-box">Unggah</div><div class="flow-arrow">→</div><div class="flow-box">Tersimpan</div><div class="flow-arrow">→</div><div class="flow-box">Bisa dilihat orang</div></div><div class="interactive-box"><h4>Coba pikir</h4><p>Kalau seseorang membagikan alamat rumah di komentar publik, apakah itu aman?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'s7q4')">Aman saja</button><button class="choice-btn" onclick="singleChoice(this,true,'s7q4')">Berisiko</button></div><div class="feedback-line" id="s7q4"></div></div></section><section class="slide" id="slide-5"><h3>Apa Itu Jejak Digital?</h3><p class="lead">Jejak digital adalah tanda atau rekaman dari aktivitas kita saat menggunakan perangkat digital atau internet.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">📷</div><h4>Mengunggah foto</h4><p>Bisa menjadi jejak yang dilihat, disimpan, atau dibagikan orang lain.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Menulis komentar</h4><p>Komentar sopan atau kasar sama-sama meninggalkan jejak.</p></div><div class="visual-card"><div class="visual-icon">🔗</div><h4>Membagikan tautan</h4><p>Link yang dibagikan juga menjadi bagian dari aktivitas digital.</p></div><div class="visual-card"><div class="visual-icon">🔎</div><h4>Mencari informasi</h4><p>Sebagian aktivitas pencarian dapat tercatat oleh aplikasi atau layanan.</p></div></div><div class="example-box"><p>Jejak digital tidak selalu buruk. Karya, prestasi, komentar sopan, dan rekomendasi yang bermanfaat bisa menjadi jejak positif.</p></div></section><section class="slide" id="slide-6"><h3>Jejak Digital Aktif dan Pasif</h3><div class="two-col"><div class="visual-card"><div class="visual-icon">✍️</div><h4>Aktif</h4><p>Jejak yang kita buat dengan sadar.</p><ul><li>mengunggah foto</li><li>menulis komentar</li><li>membagikan tautan</li></ul></div><div class="visual-card"><div class="visual-icon">🕵️</div><h4>Pasif</h4><p>Jejak yang dapat tercatat saat kita memakai aplikasi.</p><ul><li>riwayat kunjungan</li><li>aktivitas pencarian</li><li>penggunaan aplikasi</li></ul></div></div><div class="interactive-box"><strong>Ingat:</strong> keduanya perlu digunakan dengan bijak.</div></section><section class="slide" id="slide-7"><h3>Jejak Positif atau Berisiko?</h3><p>Klik contoh aktivitas berikut.</p><div class="choice-grid"><button class="choice-btn" onclick="up7Footprint(this,true,'Mengunggah karya sendiri tanpa data pribadi bisa menjadi jejak positif.')">Mengunggah hasil gambar sendiri</button><button class="choice-btn" onclick="up7Footprint(this,false,'Alamat rumah termasuk informasi pribadi. Jangan dibagikan sembarangan.')">Membagikan alamat rumah</button><button class="choice-btn" onclick="up7Footprint(this,false,'Komentar kasar dapat menyakiti orang lain dan menjadi jejak buruk.')">Menulis komentar mengejek</button><button class="choice-btn" onclick="up7Footprint(this,true,'Komentar sopan dapat meninggalkan jejak yang baik.')">Memberi komentar yang sopan</button></div><div class="feedback-line" id="s7footprintFeedback">Pilih satu contoh.</div></section><section class="slide" id="slide-8"><h3>Analogi: Jejak di Pasir</h3><div class="two-col"><div class="visual-card"><div class="visual-icon">🏖️</div><h4>Di dunia nyata</h4><p>Berjalan di pasir basah bisa meninggalkan jejak kaki. Jejaknya mungkin hilang setelah terkena ombak.</p></div><div class="visual-card"><div class="visual-icon">🌐</div><h4>Di dunia digital</h4><p>Unggahan, komentar, dan informasi yang dibagikan bisa tersimpan, disalin, atau dibagikan lagi.</p></div></div><div class="warning-box"><p>Karena itu, berpikir dulu sebelum membagikan sesuatu itu penting.</p></div></section><section class="slide" id="slide-9"><h3>Aktivitas Mini: Keranjang Privasi</h3><p class="lead">Baca kartu di bawah ini, lalu pilih kategorinya. Jangan hanya menebak, pikirkan alasannya.</p><div class="quiz-card" style="padding:17px;"><h4 id="s7cardTitle">Kartu 1 dari 5</h4><p id="s7cardText" style="font-size:1.2rem;font-weight:900;color:var(--blue);">Warna favorit</p><div class="choice-grid"><button class="choice-btn" onclick="up7ChooseCategory(this,'low')">Risiko Rendah</button><button class="choice-btn" onclick="up7ChooseCategory(this,'care')">Perlu Hati-hati</button><button class="choice-btn" onclick="up7ChooseCategory(this,'secret')">Rahasia</button></div><div class="feedback-line" id="s7sortFeedback">Pilih kategori untuk kartu ini.</div><button class="secondary-btn" onclick="up7NextCard()">Kartu berikutnya</button></div><div class="info-box"><h4>Cara berpikirnya</h4><p><strong>Risiko Rendah:</strong> biasanya aman jika tidak digabung dengan data lain. <strong>Perlu Hati-hati:</strong> lihat konteks dulu. <strong>Rahasia:</strong> jangan dibagikan sembarangan.</p></div></section><section class="slide" id="slide-10"><h3>Tiga Pertanyaan Sebelum Posting</h3><p>Sebelum membagikan sesuatu di internet, coba tanya ke diri sendiri.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">❓</div><h4>Perlu dibagikan?</h4><p>Apakah informasi ini memang perlu dilihat orang lain?</p></div><div class="visual-card"><div class="visual-icon">🔒</div><h4>Ada data pribadi?</h4><p>Apakah ada alamat, nomor HP, password, PIN, atau lokasi?</p></div><div class="visual-card"><div class="visual-icon">💭</div><h4>Bisa berdampak buruk?</h4><p>Apakah bisa menyakiti orang lain atau membuatku tidak aman?</p></div></div><div class="interactive-box"><h4>Quick check</h4><p>Kalau foto menampilkan nomor rumah dengan jelas, sebaiknya...</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'s7q10')">Jangan unggah dulu</button><button class="choice-btn" onclick="singleChoice(this,false,'s7q10')">Langsung unggah</button></div><div class="feedback-line" id="s7q10"></div></div></section><section class="slide" id="slide-11"><h3>Project: Keranjang Privasi</h3><p class="lead">Project kita adalah simulasi klasifikasi. Kartu informasi bergerak ke keranjang yang tepat setelah diklik.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">✅</div><h4>Risiko Rendah</h4><p>Contoh: warna favorit, hobi. Tetap pakai contoh umum, bukan detail pribadi berlebihan.</p></div><div class="visual-card"><div class="visual-icon">🤔</div><h4>Perlu Hati-hati</h4><p>Informasi yang aman atau tidaknya bergantung konteks, misalnya foto, lokasi, atau nama sekolah.</p></div><div class="visual-card"><div class="visual-icon">🔒</div><h4>Rahasia</h4><p>Contoh: password email, PIN ATM, nomor HP, kode OTP, alamat rumah.</p></div><div class="visual-card"><div class="visual-icon">🧺</div><h4>Belum Disortir</h4><p>Area awal semua kartu saat Green Flag diklik.</p></div></div><p class="mini-note">Sample Scratch utama memakai tujuan Risiko Rendah dan Rahasia. Aktivitas diskusi tetap mengenalkan kategori Perlu Hati-hati.</p></section><section class="slide" id="slide-12"><h3>Isi Sample Project</h3><p>Sample project memakai lima sprite kartu informasi. Setiap kartu punya posisi awal, pesan, dan tujuan.</p><table class="compact-table"><tr><th>Kartu</th><th>Awal</th><th>Pesan</th><th>Tujuan</th></tr><tr><td>Warna Favorit</td><td>x:139 y:116</td><td>risiko rendah</td><td>Risiko Rendah</td></tr><tr><td>Hobi</td><td>x:98 y:-13</td><td>risiko rendah</td><td>Risiko Rendah</td></tr><tr><td>Password Email</td><td>x:92 y:100</td><td>rahasia</td><td>Rahasia</td></tr><tr><td>PIN ATM</td><td>x:109 y:115</td><td>rahasia</td><td>Rahasia</td></tr><tr><td>Nomor HP</td><td>x:76 y:34</td><td>rahasia</td><td>Rahasia</td></tr></table><div class="warning-box"><h4>Catatan</h4><p>Koordinat boleh berbeda kalau backdrop-mu berbeda. Yang penting alurnya tetap: reset ke Belum Disortir, lalu glide ke keranjang yang benar.</p></div></section><section class="slide" id="slide-13"><h3>Unplugged: Baca Alur Kartu</h3><p>Susun urutan kerja satu kartu saat diklik.</p><div class="sequence-source"><div class="sequence-card" data-order="3" draggable="true">Kartu bergerak ke keranjang</div><div class="sequence-card" data-order="1" draggable="true">Kartu diklik</div><div class="sequence-card" data-order="2" draggable="true">Kartu memberi penjelasan</div></div><div class="sequence-target" id="s7alurTarget"><p class="mini-note">Tarik kartu ke sini.</p></div><button class="primary-btn" onclick="checkOrder('s7alurTarget','s7alurFeedback')">Cek urutan</button><div class="feedback-line" id="s7alurFeedback"></div></section><section class="slide" id="slide-14"><h3>Langkah 1: Buat Backdrop</h3><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BACKDROP</strong><br/><small>Ganti dengan screenshot backdrop Keranjang Privasi: Risiko Rendah, Rahasia, dan Belum Disortir.</small></div></div><ol class="pseudo-list"><li>Buat area Risiko Rendah.</li><li>Buat area Rahasia.</li><li>Buat area Belum Disortir.</li><li>Tulis judul area dengan jelas.</li></ol></section><section class="slide" id="slide-15"><h3>Langkah 2: Reset Kartu</h3><p>Saat Green Flag diklik, semua kartu harus kembali ke area <strong>Belum Disortir</strong>. Ini membuat project bisa diuji ulang dari awal.</p><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK RESET</strong><small>Ganti dengan screenshot blok Scratch asli.</small></div></div><ol class="pseudo-list"><li>🟨 Event: ketika Green Flag diklik</li><li>🟦 Motion: go to x:139 y:116</li><li>Ulangi untuk setiap sprite kartu dengan posisi awalnya masing-masing.</li><li>Pastikan posisi awal kartu tidak saling menumpuk.</li></ol></section><section class="slide" id="slide-16"><h3>Langkah 3: Kartu Risiko Rendah</h3><p>Kartu seperti warna favorit dan hobi bergerak ke area Risiko Rendah.</p><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK KARTU RISIKO RENDAH</strong><small>Contoh untuk kartu Warna Favorit.</small></div></div><ol class="pseudo-list"><li>🟨 Event: ketika sprite ini diklik</li><li>🟪 Looks: say “Ini termasuk informasi dengan risiko rendah.” selama 2 detik</li><li>🟦 Motion: glide 1 detik ke x:-109 y:78</li><li>Uji dengan Green Flag, lalu klik kartu ini saja.</li></ol></section><section class="slide" id="slide-17"><h3>Langkah 4: Kartu Rahasia</h3><p>Kartu seperti password, PIN, nomor HP, kode OTP, dan alamat rumah harus masuk ke area Rahasia.</p><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK KARTU RAHASIA</strong><small>Contoh untuk kartu Password Email.</small></div></div><ol class="pseudo-list"><li>🟨 Event: ketika sprite ini diklik</li><li>🟪 Looks: say “Informasi ini bersifat rahasia.” selama 2 detik</li><li>🟦 Motion: glide 1 detik ke x:-156 y:-77</li><li>Gunakan contoh fiktif. Jangan tulis password, PIN, atau nomor asli.</li></ol></section><section class="slide" id="slide-18"><h3>Kenapa Pakai Say lalu Glide?</h3><div class="flow-line"><div class="flow-box">Klik kartu</div><div class="flow-arrow">→</div><div class="flow-box">Say kategori</div><div class="flow-arrow">→</div><div class="flow-box">Glide tujuan</div></div><div class="interactive-box"><h4>Quick check</h4><p>Jika ingin penjelasan muncul sebelum kartu berpindah, blok <em>say</em> diletakkan...</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'s7q18')">sebelum glide</button><button class="choice-btn" onclick="singleChoice(this,false,'s7q18')">setelah glide</button></div><div class="feedback-line" id="s7q18"></div></div></section><section class="slide" id="slide-19"><h3>Checkpoint 1: Green Flag</h3><p class="lead">Tekan Green Flag, lalu lihat posisi semua kartu.</p><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Semua kartu kembali ke area Belum Disortir.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Kartu tidak menumpuk terlalu rapat.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Tidak ada data asli pada kartu.</li></ul><div class="warning-box"><p>Kalau kartu tidak kembali, cek blok <strong>when green flag clicked</strong> dan <strong>go to x:y</strong>.</p></div></section><section class="slide" id="slide-20"><h3>Checkpoint 2: Klik Setiap Kartu</h3><p>Uji minimal lima kartu satu per satu.</p><table class="compact-table"><tr><th>Aksi</th><th>Expected</th><th>Actual</th></tr><tr><td>Klik Warna Favorit</td><td>Ke Risiko Rendah</td><td>Isi saat testing</td></tr><tr><td>Klik Hobi</td><td>Ke Risiko Rendah</td><td>Isi saat testing</td></tr><tr><td>Klik Password Email</td><td>Ke Rahasia</td><td>Isi saat testing</td></tr><tr><td>Klik PIN ATM</td><td>Ke Rahasia</td><td>Isi saat testing</td></tr><tr><td>Klik Nomor HP</td><td>Ke Rahasia</td><td>Isi saat testing</td></tr></table><p class="mini-note">Expected adalah hasil yang seharusnya terjadi. Actual adalah hasil yang benar-benar terlihat.</p></section><section class="slide" id="slide-21"><h3>Detektif Kode</h3><div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('s7d1',this)">Kartu tidak reset</button><button class="debug-tab" onclick="showDebug('s7d2',this)">Kartu salah keranjang</button><button class="debug-tab" onclick="showDebug('s7d3',this)">Pesan tidak muncul</button></div><div class="debug-scenario active" id="s7d1"><div class="warning-box"><h4>Gejala</h4><p>Green Flag diklik, tetapi kartu tidak kembali ke Belum Disortir.</p></div><div class="info-box"><h4>Cek dulu</h4><ol><li>Apakah ada when green flag clicked?</li><li>Apakah ada go to x:y?</li><li>Apakah koordinat awal benar?</li></ol></div></div><div class="debug-scenario" id="s7d2"><div class="warning-box"><h4>Gejala</h4><p>Kartu bergerak, tetapi masuk keranjang yang salah.</p></div><div class="info-box"><h4>Cek dulu</h4><ol><li>Koordinat tujuan glide.</li><li>Kategori kartu.</li><li>Script ada pada sprite yang tepat.</li></ol></div></div><div class="debug-scenario" id="s7d3"><div class="warning-box"><h4>Gejala</h4><p>Kartu bergerak, tetapi tidak menjelaskan kategorinya.</p></div><div class="info-box"><h4>Cek dulu</h4><ol><li>Apakah blok say sudah ada?</li><li>Apakah isi pesannya kosong?</li><li>Apakah blok say tersambung sebelum glide?</li></ol></div></div></section><section class="slide" id="slide-22"><h3>Jaga Data di Project</h3><p class="lead">Project ini latihan, jadi semua contoh harus fiktif.</p><div class="two-col"><div class="visual-card" style="border-left:5px solid var(--green);"><h4>Boleh untuk latihan</h4><ul><li>Warna Favorit</li><li>Hobi</li><li>Contoh password palsu yang tidak dipakai</li></ul></div><div class="visual-card" style="border-left:5px solid var(--red);"><h4>Jangan pakai data asli</h4><ul><li>Password asli</li><li>PIN ATM</li><li>Nomor HP asli</li><li>Alamat rumah asli</li></ul></div></div><div class="warning-box"><p>Kalau ragu, ganti dengan contoh fiktif atau tanya guru.</p></div></section><section class="slide" id="slide-23"><h3>Cek Output Minimum</h3><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Minimal 5 sprite kartu informasi.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Semua kartu kembali saat Green Flag diklik.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Setiap kartu menjelaskan kategorinya.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Setiap kartu memakai glide ke keranjang yang sesuai.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Tidak ada data pribadi asli di project.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Project menunjukkan pesan berpikir sebelum berbagi informasi.</li></ul></section><section class="slide" id="slide-24"><h3>Misi Bonus</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🥉</div><h4>Tambah Kartu</h4><p>Tambahkan kartu <strong>Kode OTP</strong> dan masukkan ke kategori yang tepat.</p></div><div class="visual-card"><div class="visual-icon">🥈</div><h4>Pesan Akhir</h4><p>Tampilkan kalimat: “Pikirkan sebelum membagikan informasi di internet.”</p></div><div class="visual-card"><div class="visual-icon">🥇</div><h4>Tampilan Akhir</h4><p>Ubah backdrop menjadi “Gunakan Internet dengan Bijak” dan tambah ikon 🔒.</p></div></div></section><section class="slide" id="slide-25"><h3>Refleksi Hari Ini</h3><p>Jawab dengan kalimatmu sendiri.</p><div class="info-box"><ol><li>Mengapa kita perlu berpikir sebelum membagikan informasi di internet?</li><li>Apa contoh jejak digital positif?</li><li>Apa contoh informasi yang tidak boleh memakai data asli?</li><li>Tulis satu aturan pribadimu sebelum posting.</li></ol></div><div class="example-box"><h4>Contoh aturan pribadi</h4><p>“Sebelum mengunggah sesuatu, aku akan memastikan tidak ada informasi pribadi yang terlihat.”</p></div><p class="mini-note">Selesai! Jejak digitalmu bisa bertahan lama, jadi yuk jaga dengan bijak.</p></section></div>
+<div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span>
+          Previous</button>
+<div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">25</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button>
+</div>
+</div>
+<div class="explanation-panel"><section class="explanation active" id="explanation-1"><h3>Keranjang Privasi</h3><p>Hari ini kita tidak hanya membuat kartu bergerak di Scratch. Kita sedang belajar cara berpikir sebelum membagikan informasi di internet. Setiap kartu pada project mewakili contoh informasi yang sering muncul di kehidupan sehari-hari, seperti warna favorit, hobi, password, PIN, atau nomor HP.</p><p>Project ini disebut simulasi klasifikasi. Artinya, kita membuat model sederhana untuk memilah sesuatu ke kelompok yang tepat. Saat kartu diklik, kartu akan menjelaskan kategorinya, lalu bergerak ke keranjang yang sesuai. Dari sisi coding, kamu akan memakai event, posisi, dialog, dan gerakan. Dari sisi literasi digital, kamu akan belajar bahwa tidak semua informasi aman dibagikan.</p><div class="info-box"><h4>Target utama</h4><p>Minimal lima kartu bisa kembali ke posisi awal saat Green Flag diklik, lalu berpindah ke keranjang yang benar saat diklik.</p></div></section><section class="explanation" id="explanation-2"><h3>Misi Belajar Hari Ini</h3><p>Ada dua misi besar pada sesi ini. Pertama, kamu perlu memahami jejak digital: tanda dari aktivitas kita di dunia digital. Jejak ini bisa berasal dari hal yang sengaja kita lakukan, seperti mengunggah foto atau menulis komentar, dan bisa juga berasal dari aktivitas yang tercatat saat memakai aplikasi.</p><p>Kedua, kamu akan membuat project Scratch yang menunjukkan cara memilah informasi. Di project, kartu tidak dipindahkan dengan tangan seperti drag-and-drop, tetapi berpindah otomatis setelah diklik. Inilah bagian codingnya: <strong>when green flag clicked</strong> untuk reset, <strong>go to</strong> untuk posisi awal, <strong>when this sprite clicked</strong> untuk memilih kartu, <strong>say</strong> untuk penjelasan, dan <strong>glide</strong> untuk bergerak ke keranjang.</p><div class="example-box"><h4>Cara belajar yang disarankan</h4><p>Pahami satu konsep dulu, coba satu kartu dulu, baru ulangi pola untuk kartu lain.</p></div></section><section class="explanation" id="explanation-3"><h3>Siapkan Workspace</h3><p>Sebelum membuat project, pastikan Scratch atau starter project sudah terbuka. Kalau memakai starter file, kamu tidak perlu membuat semua aset dari awal. Kamu bisa fokus memahami alur kerja kartunya: posisi awal, pesan kategori, dan tujuan kartu.</p><p>Bagian terpenting pada sesi ini adalah keamanan data. Karena project membahas password, PIN, dan nomor HP, kamu mungkin tergoda menulis contoh yang terlihat “nyata”. Jangan lakukan itu. Pakai contoh fiktif, misalnya “Password Email” sebagai nama kartu, bukan password aslimu. Project ini untuk belajar konsep, bukan untuk menyimpan data pribadi.</p><div class="warning-box"><h4>Aturan aman</h4><p>Jangan pernah menuliskan password asli, PIN asli, nomor HP asli, alamat rumah asli, atau data keluarga di dalam project Scratch.</p></div></section><section class="explanation" id="explanation-4"><h3>Dari Data Pribadi ke Jejak Digital</h3><p>Di sesi sebelumnya, kamu sudah belajar bahwa ada pertanyaan yang tidak wajib dijawab, terutama jika pertanyaan itu meminta data pribadi. Sesi ini melanjutkan konsep tersebut. Ketika data pribadi dibagikan di tempat digital, data itu dapat menjadi bagian dari jejak digital.</p><p>Contohnya, jika seseorang menulis alamat rumah di komentar publik, informasinya bisa dibaca orang lain, disalin, atau tersebar di luar kendalinya. Itulah sebabnya kita tidak hanya bertanya “boleh atau tidak?”, tetapi juga “apa risikonya kalau informasi ini terlihat orang lain?”</p><div class="info-box"><h4>Hubungan dengan project</h4><p>Kartu yang masuk ke keranjang Rahasia menunjukkan informasi yang seharusnya tidak dibagikan sembarangan karena dapat membahayakan keamanan atau privasi.</p></div></section><section class="explanation" id="explanation-5"><h3>Apa Itu Jejak Digital?</h3><p>Jejak digital adalah tanda atau rekaman dari aktivitas kita saat menggunakan internet atau perangkat digital. Bentuknya bisa banyak: foto yang diunggah, komentar yang ditulis, tautan yang dibagikan, pesan yang dikirim, tanda suka, bahkan aktivitas saat membuka suatu layanan.</p><p>Jejak digital tidak selalu buruk. Kalau kamu mengunggah karya sendiri dengan aman, memberi komentar yang sopan, atau membagikan prestasi, itu bisa menjadi jejak positif. Namun, jejak digital menjadi berisiko jika berisi data pribadi, komentar yang menyakiti orang lain, atau informasi yang seharusnya dijaga.</p><div class="example-box"><h4>Contoh sederhana</h4><p>“Aku suka menggambar robot” biasanya lebih aman daripada “Aku tinggal di Jalan ..., nomor rumah ...”. Informasi pertama hanya minat, sedangkan informasi kedua menunjukkan lokasi pribadi.</p></div></section><section class="explanation" id="explanation-6"><h3>Jejak Digital Aktif dan Pasif</h3><p>Jejak digital aktif adalah jejak yang kita buat secara sadar. Misalnya, kita memilih mengunggah gambar, menulis komentar, membagikan tautan, atau mengirim pesan. Karena kita yang melakukan aksi itu, kita punya kesempatan untuk berhenti sejenak dan memeriksa apakah informasi yang dibagikan sudah aman.</p><p>Jejak digital pasif adalah jejak yang dapat tercatat saat kita menggunakan aplikasi atau internet. Contohnya riwayat kunjungan situs, aktivitas pencarian, atau data penggunaan aplikasi. Untuk siswa SD, yang penting dipahami adalah: saat memakai internet, ada aktivitas yang bisa meninggalkan catatan.</p><div class="warning-box"><h4>Yang perlu diingat</h4><p>Aktif atau pasif, keduanya mengajak kita memakai internet dengan bijak dan mengikuti arahan orang tua atau guru.</p></div></section><section class="explanation" id="explanation-7"><h3>Jejak Positif atau Berisiko?</h3><p>Aktivitas digital bisa meninggalkan kesan tentang diri kita. Mengunggah hasil karya sendiri, menulis komentar yang sopan, atau membagikan rekomendasi buku dapat menunjukkan hal baik. Ini contoh jejak digital positif.</p><p>Sebaliknya, membagikan alamat rumah, nomor HP, password, PIN, atau komentar yang mengejek dapat menjadi jejak berisiko. Risiko tidak selalu langsung terlihat saat itu juga. Masalahnya, informasi digital bisa disimpan, difoto layar, atau dibagikan lagi oleh orang lain.</p><div class="info-box"><h4>Cara menilai</h4><p>Tanyakan: Apakah ini menunjukkan hal positif? Apakah ada data pribadi? Apakah bisa menyakiti atau membahayakan orang lain? Kalau jawabannya membuat ragu, jangan unggah dulu.</p></div></section><section class="explanation" id="explanation-8"><h3>Analogi: Jejak di Pasir</h3><p>Jejak kaki di pasir mudah dibayangkan. Saat kita berjalan, pasir menyimpan bekas langkah. Setelah beberapa waktu, jejak itu mungkin hilang karena ombak atau angin. Namun, di dunia digital, jejak bisa bertahan lebih lama daripada yang kita bayangkan.</p><p>Misalnya, sebuah foto sudah dihapus dari akun kita, tetapi orang lain mungkin sempat menyimpan atau membagikannya. Komentar yang kita tulis juga bisa dibaca orang lain sebelum dihapus. Karena itu, kebiasaan berpikir sebelum membagikan sesuatu sangat penting.</p><div class="example-box"><h4>Hubungan dengan Scratch</h4><p>Project Keranjang Privasi membantu kita berlatih menilai informasi sebelum “dikirim” ke tempat yang salah.</p></div></section><section class="explanation" id="explanation-9"><h3>Aktivitas Mini: Keranjang Privasi</h3><p>Aktivitas mini ini melatih cara berpikir sebelum masuk ke project Scratch. Kamu akan melihat beberapa kartu informasi, lalu menentukan kategori yang paling cocok. Kategorinya ada tiga: Risiko Rendah, Perlu Hati-hati, dan Rahasia.</p><p><strong>Risiko Rendah</strong> biasanya berisi informasi umum, seperti warna favorit atau hobi. <strong>Perlu Hati-hati</strong> berarti aman atau tidaknya bergantung pada konteks, misalnya foto, lokasi, atau nama sekolah. <strong>Rahasia</strong> adalah informasi yang tidak boleh dibagikan sembarangan, seperti password, PIN, kode OTP, alamat rumah, dan nomor HP pribadi.</p><div class="warning-box"><h4>Jangan hanya menebak</h4><p>Jawaban yang baik selalu punya alasan. Contoh: “PIN ATM rahasia karena bisa dipakai untuk mengakses uang.”</p></div></section><section class="explanation" id="explanation-10"><h3>Tiga Pertanyaan Sebelum Posting</h3><p>Sebelum membagikan sesuatu, biasakan berhenti sebentar. Pertanyaan pertama: apakah informasi ini memang perlu dibagikan? Tidak semua hal perlu masuk internet. Beberapa informasi cukup disimpan untuk diri sendiri, keluarga, atau teman dekat dengan izin.</p><p>Pertanyaan kedua: apakah ada data pribadi di dalamnya? Periksa alamat rumah, nomor HP, password, PIN, nama lengkap, lokasi rumah, seragam sekolah, atau detail yang bisa menunjukkan tempat tinggal. Pertanyaan ketiga: apakah unggahan ini bisa berdampak buruk bagi diri sendiri atau orang lain?</p><div class="info-box"><h4>Contoh</h4><p>Foto karya gambar mungkin aman. Tetapi jika di belakang foto terlihat alamat rumah atau nomor telepon, foto itu perlu diedit atau tidak diunggah dulu.</p></div></section><section class="explanation" id="explanation-11"><h3>Project: Keranjang Privasi</h3><p>Project Keranjang Privasi adalah simulasi. Kartu informasi dimulai dari area Belum Disortir. Saat kartu diklik, kartu memberi penjelasan singkat, lalu bergerak ke area yang sesuai. Dengan cara ini, Scratch membantu kita memvisualkan proses berpikir: lihat informasi, nilai risikonya, lalu kelompokkan.</p><p>Di aktivitas diskusi, kita mengenal tiga kategori: Risiko Rendah, Perlu Hati-hati, dan Rahasia. Di sample Scratch, area utama yang dipakai adalah Risiko Rendah, Rahasia, dan Belum Disortir. Ini tetap sesuai karena project utama berfokus pada membedakan informasi yang cenderung aman dan informasi yang harus dijaga.</p><div class="example-box"><h4>Kesimpulan kecil</h4><p>Kalau kamu ragu sebuah informasi masuk kategori mana, pilih lebih aman: jangan bagikan dulu dan tanya orang dewasa.</p></div></section><section class="explanation" id="explanation-12"><h3>Isi Sample Project</h3><p>Sample project memakai lima kartu: Warna Favorit, Hobi, Password Email, PIN ATM, dan Nomor HP. Dua kartu pertama termasuk risiko rendah, sedangkan tiga kartu terakhir termasuk rahasia. Kartu dimulai dari area Belum Disortir dan bergerak ke keranjang tujuan saat diklik.</p><p>Koordinat pada tabel adalah contoh dari starter file. Kalau desain backdrop kamu berbeda, koordinatnya boleh berubah. Yang penting bukan menghafal angka, tetapi memahami fungsi angkanya. Koordinat awal digunakan oleh blok <strong>go to</strong> saat Green Flag diklik. Koordinat tujuan digunakan oleh blok <strong>glide</strong> saat kartu diklik.</p><div class="warning-box"><h4>Hati-hati</h4><p>Kalau dua kartu punya posisi awal yang terlalu berdekatan, kartu bisa bertumpuk dan sulit diklik. Atur jarak antar kartu agar nyaman diuji.</p></div></section><section class="explanation" id="explanation-13"><h3>Unplugged: Baca Alur Kartu</h3><p>Sebelum menyusun blok, kita perlu paham alurnya dulu. Untuk satu kartu, urutan yang benar adalah: kartu diklik, kartu memberi penjelasan, lalu kartu bergerak ke keranjang. Jika urutan ini dibalik, hasilnya bisa terasa membingungkan.</p><p>Misalnya, jika kartu langsung bergerak tanpa memberi penjelasan, pengguna mungkin tidak tahu kenapa kartu itu masuk ke keranjang tersebut. Jika penjelasan muncul setelah kartu berpindah, tetap bisa berjalan, tetapi pesan “alasan klasifikasi” terasa terlambat.</p><div class="info-box"><h4>Kaitan dengan coding</h4><p>Scratch menjalankan blok dari atas ke bawah. Karena itu, blok <strong>say</strong> sebaiknya diletakkan sebelum <strong>glide</strong> jika kamu ingin penjelasan muncul sebelum kartu berpindah.</p></div></section><section class="explanation" id="explanation-14"><h3>Langkah 1: Buat Backdrop</h3><p>Backdrop pada project ini bukan sekadar hiasan. Backdrop menjadi “peta” tempat kartu berpindah. Buat area yang jelas agar pengguna bisa melihat perbedaan antara Belum Disortir, Risiko Rendah, dan Rahasia.</p><p>Area Belum Disortir adalah tempat semua kartu berada saat project dimulai. Area Risiko Rendah adalah tujuan untuk kartu seperti warna favorit atau hobi. Area Rahasia adalah tujuan untuk kartu seperti password, PIN, nomor HP, kode OTP, dan alamat rumah.</p><div class="example-box"><h4>Tips desain</h4><p>Gunakan label area yang besar dan mudah dibaca. Jangan membuat area terlalu sempit, karena kartu bisa terlihat menumpuk saat sudah berpindah.</p></div></section><section class="explanation" id="explanation-15"><h3>Langkah 2: Reset Kartu</h3><p>Blok reset membuat project selalu kembali ke kondisi awal saat Green Flag diklik. Ini penting karena siswa akan sering menjalankan project berkali-kali saat testing. Tanpa reset, kartu mungkin tetap berada di keranjang tujuan dari percobaan sebelumnya.</p><p>Setiap sprite kartu perlu memiliki script reset sendiri. Contohnya, kartu Warna Favorit memiliki <strong>when green flag clicked</strong> lalu <strong>go to x:139 y:116</strong>. Kartu Hobi memiliki koordinat awal yang berbeda. Jangan semua kartu memakai koordinat yang sama, karena nanti kartu saling menumpuk.</p><div class="warning-box"><h4>Gejala kalau reset belum benar</h4><p>Green Flag diklik, tetapi kartu tidak kembali ke Belum Disortir, atau beberapa kartu berada di tempat yang sama.</p></div></section><section class="explanation" id="explanation-16"><h3>Langkah 3: Kartu Risiko Rendah</h3><p>Kartu Risiko Rendah adalah kartu yang biasanya tidak terlalu pribadi jika berdiri sendiri. Contohnya warna favorit atau hobi. Namun, tetap gunakan contoh umum. Jangan menulis detail yang terlalu spesifik, misalnya jadwal kegiatan lengkap, alamat tempat les, atau lokasi yang sering dikunjungi.</p><p>Pada script, kartu dimulai dengan <strong>when this sprite clicked</strong>. Setelah diklik, kartu menjalankan <strong>say</strong> untuk memberi penjelasan, lalu <strong>glide</strong> ke area Risiko Rendah. Glide dipakai supaya perpindahan terlihat halus dan pengguna bisa melihat proses sortirnya.</p><div class="info-box"><h4>Pola yang bisa diulang</h4><p>Untuk kartu Hobi, gunakan pola yang sama. Bedanya hanya isi pesan dan koordinat tujuan jika ingin posisinya berbeda di keranjang.</p></div></section><section class="explanation" id="explanation-17"><h3>Langkah 4: Kartu Rahasia</h3><p>Kartu Rahasia berisi informasi yang harus dijaga. Password email, PIN ATM, nomor HP pribadi, kode OTP, dan alamat rumah tidak boleh dibagikan sembarangan. Dalam project, kartu ini bergerak ke area Rahasia agar pesan digital safety-nya terlihat jelas.</p><p>Script kartu rahasia juga memakai pola yang sama: <strong>when this sprite clicked</strong>, <strong>say</strong>, lalu <strong>glide</strong>. Perbedaannya ada pada isi pesan dan koordinat tujuan. Isi pesan sebaiknya menjelaskan alasan singkat, misalnya “Informasi ini bersifat rahasia.”</p><div class="warning-box"><h4>Aturan wajib</h4><p>Jangan menuliskan password atau PIN asli. Nama kartu cukup “Password Email” atau “PIN ATM”, bukan data sebenarnya.</p></div></section><section class="explanation" id="explanation-18"><h3>Kenapa Pakai Say lalu Glide?</h3><p>Urutan <strong>say → glide</strong> membuat pengguna membaca alasan kategori terlebih dahulu, baru melihat kartu masuk ke keranjang. Ini mirip saat kita berpikir sebelum bertindak: pahami dulu informasinya, lalu putuskan tempat yang tepat.</p><p>Kalau glide diletakkan sebelum say, kartu akan bergerak dulu lalu menjelaskan setelahnya. Itu tidak selalu salah, tetapi untuk project ini kurang cocok karena tujuan belajarnya adalah memahami alasan klasifikasi. Penjelasan di awal membuat hubungan antara kartu dan keranjang lebih mudah dimengerti.</p><div class="example-box"><h4>Versi cerita</h4><p>Kartu berkata, “Ini bersifat rahasia,” lalu bergerak ke keranjang Rahasia. Pengguna langsung tahu alasan perpindahannya.</p></div></section><section class="explanation" id="explanation-19"><h3>Checkpoint 1: Green Flag</h3><p>Checkpoint pertama adalah reset. Tekan Green Flag dan lihat apakah semua kartu kembali ke area Belum Disortir. Jangan lanjut membuat banyak script klik jika reset awal belum benar, karena nanti debugging akan lebih sulit.</p><p>Perhatikan juga posisi antar kartu. Kalau semua kartu berada di titik yang sama, kartu akan bertumpuk dan pengguna sulit memilih kartu tertentu. Atur koordinat awal agar kartu terlihat rapi. Ini bagian dari testing tampilan dan fungsi.</p><div class="info-box"><h4>Yang dicek</h4><ul><li>Setiap kartu punya script when green flag clicked.</li><li>Setiap kartu punya go to dengan koordinat awal.</li><li>Semua kartu berada di area Belum Disortir.</li><li>Tidak ada data asli di kartu.</li></ul></div></section><section class="explanation" id="explanation-20"><h3>Checkpoint 2: Klik Setiap Kartu</h3><p>Setelah reset berjalan, uji kartu satu per satu. Gunakan pola <strong>Aksi → Expected → Actual</strong>. Aksi adalah hal yang kamu lakukan, misalnya “klik kartu Warna Favorit”. Expected adalah hasil yang seharusnya terjadi, misalnya “bergerak ke Risiko Rendah”. Actual adalah hasil yang benar-benar terlihat.</p><p>Kalau expected dan actual sama, test case itu lulus. Kalau berbeda, jangan langsung mengubah semua blok. Lihat bagian yang paling mungkin salah: kategori kartu, isi pesan, atau koordinat glide.</p><div class="example-box"><h4>Contoh test case</h4><p>Aksi: klik PIN ATM. Expected: pesan rahasia muncul, lalu kartu bergerak ke Rahasia. Actual: jika kartu masuk Risiko Rendah, berarti koordinat tujuan atau kategori kartu perlu dicek.</p></div></section><section class="explanation" id="explanation-21"><h3>Detektif Kode</h3><p>Debugging dimulai dari gejala. Kalau kartu tidak reset, cek script Green Flag dan go to. Kalau kartu tidak bergerak saat diklik, cek apakah script klik berada pada sprite kartu yang benar. Kalau kartu bergerak ke keranjang salah, cek koordinat tujuan pada glide.</p><p>Jangan memperbaiki dengan cara asal coba banyak hal sekaligus. Ubah satu bagian, lalu tes ulang. Cara ini membuatmu tahu perubahan mana yang memperbaiki bug. Ini kebiasaan penting dalam coding.</p><div class="warning-box"><h4>Masalah yang sering muncul</h4><ul><li>Script dibuat di sprite yang salah.</li><li>Koordinat tujuan tertukar.</li><li>Say kosong atau belum tersambung.</li><li>Kartu menumpuk karena posisi awal sama.</li><li>Koordinat terlalu jauh sehingga kartu keluar Stage.</li></ul></div></section><section class="explanation" id="explanation-22"><h3>Jaga Data di Project</h3><p>Karena topik project membahas data pribadi, kita perlu lebih hati-hati. Project yang baik bukan hanya “jalan”, tetapi juga aman. Semua contoh harus fiktif. Kamu boleh membuat kartu bertuliskan “Password Email”, tetapi tidak boleh menulis password yang benar-benar dipakai.</p><p>Hal yang sama berlaku untuk PIN ATM, nomor HP, alamat rumah, kode OTP, email pribadi, dan data keluarga. Kalau ingin membuat contoh, gunakan label umum tanpa isi asli. Tujuan project adalah memahami kategori informasi, bukan menyimpan informasi pribadi.</p><div class="info-box"><h4>Kalau ragu</h4><p>Ganti informasi menjadi contoh umum, atau tanyakan kepada guru sebelum menulisnya di project.</p></div></section><section class="explanation" id="explanation-23"><h3>Cek Output Minimum</h3><p>Output minimum adalah batas dasar agar project dianggap mencapai tujuan sesi. Project perlu punya minimal lima kartu informasi, semua kartu kembali ke area Belum Disortir saat Green Flag diklik, dan setiap kartu bisa berpindah ke keranjang yang sesuai setelah diklik.</p><p>Selain itu, setiap kartu sebaiknya memberi penjelasan dengan blok say. Penjelasan ini penting karena project bukan sekadar memindahkan gambar, tetapi mengajarkan alasan di balik pemilahan informasi. Terakhir, pastikan tidak ada data pribadi asli di dalam project.</p><div class="example-box"><h4>Misi berhasil jika...</h4><p>Project membantu orang lain memahami bahwa informasi yang dibagikan di internet dapat menjadi bagian dari jejak digital dan harus dipikirkan dulu risikonya.</p></div></section><section class="explanation" id="explanation-24"><h3>Misi Bonus</h3><p>Setelah output minimum selesai, kamu boleh menambah challenge. Challenge pertama: tambah satu kartu baru seperti Kode OTP. Kartu ini seharusnya masuk Rahasia karena OTP dipakai untuk melindungi akun.</p><p>Challenge kedua: tampilkan pesan akhir setelah semua kartu selesai dipilah, misalnya “Pikirkan sebelum membagikan informasi di internet.” Challenge ketiga: buat tampilan akhir yang lebih kuat, seperti backdrop “Gunakan Internet dengan Bijak”, ikon kunci, atau sprite yang mengingatkan bahwa jejak digital bisa bertahan lama.</p><div class="warning-box"><h4>Jangan lupa</h4><p>Challenge tidak boleh merusak fungsi utama. Green Flag tetap harus bisa mereset semua kartu.</p></div></section><section class="explanation" id="explanation-25"><h3>Refleksi Hari Ini</h3><p>Refleksi membantu kita membawa pelajaran Scratch ke kehidupan nyata. Setelah membuat Keranjang Privasi, coba pikirkan: mengapa kita perlu berhenti sebentar sebelum mengunggah sesuatu? Apa contoh jejak digital positif yang ingin kamu tinggalkan?</p><p>Tuliskan satu aturan pribadi sebelum posting. Contohnya: “Sebelum mengunggah sesuatu, aku akan memastikan tidak ada informasi pribadi yang terlihat.” Aturan seperti ini sederhana, tetapi bisa membantu menjaga diri dan orang lain.</p><div class="info-box"><h4>Pesan penutup</h4><p>Jejak digital bisa bertahan lama. Gunakan internet untuk berkarya, belajar, dan berkomentar dengan baik. Jaga data pribadi dengan bijak.</p></div></section></div>
+</div>
+<script>
+    const ACCESS_CODE = 'RGMDSUP26'; let currentSlide = 1; const totalSlides = document.querySelectorAll('.slide').length; document.getElementById('totalSlides').textContent = totalSlides; window.addEventListener('load', () => { setTimeout(() => document.querySelector('.access-popup').classList.add('show'), 50); const input = document.getElementById('accessInput'); input.focus(); input.addEventListener('input', e => { e.target.value = e.target.value.toUpperCase() }); input.addEventListener('keydown', e => { if (e.key === 'Enter') checkAccessCode() }); initDragDrop(); }); function checkAccessCode() { const input = document.getElementById('accessInput'), error = document.getElementById('accessError'); if (input.value.trim().toUpperCase() === ACCESS_CODE) { document.getElementById('accessPopup').style.display = 'none'; document.getElementById('mainContent').style.display = 'flex'; updateSlide(); } else { error.classList.add('show'); input.value = ''; input.focus(); } } function changeSlide(direction) { const next = currentSlide + direction; if (next < 1 || next > totalSlides) return; currentSlide = next; updateSlide(); } function updateSlide() { document.querySelectorAll('.slide').forEach(s => s.classList.remove('active')); document.querySelectorAll('.explanation').forEach(e => e.classList.remove('active')); document.getElementById(`slide-${currentSlide}`).classList.add('active'); const exp = document.getElementById(`explanation-${currentSlide}`); if (exp) exp.classList.add('active'); document.getElementById('currentSlide').textContent = currentSlide; document.getElementById('prevBtn').disabled = currentSlide === 1; document.getElementById('nextBtn').disabled = currentSlide === totalSlides; document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`; document.querySelector('.slide-content').scrollTop = 0; document.querySelector('.explanation-panel').scrollTop = 0; } document.addEventListener('keydown', e => { if (document.getElementById('mainContent').style.display === 'none') return; if (e.key === 'ArrowRight') changeSlide(1); if (e.key === 'ArrowLeft') changeSlide(-1); if (['a', 's', 'd', 'f', 'g', 'h'].includes(e.key.toLowerCase())) playNote(e.key.toUpperCase(), true); }); function singleChoice(btn, ok, feedbackId) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => { b.disabled = true; b.classList.remove('selected') }); btn.classList.add(ok ? 'correct' : 'wrong'); const fb = document.getElementById(feedbackId); if (fb) { fb.textContent = ok ? 'Betul.' : 'Belum tepat. Coba baca penjelasannya lagi.'; fb.style.color = ok ? '#176b35' : '#a42820'; } } function selectAny(btn) { const group = btn.parentElement; group.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); } function toggleCheck(item) { const cb = item.querySelector('input'); cb.checked = !cb.checked; item.classList.toggle('done', cb.checked); } function showDebug(id, btn) { btn.parentElement.querySelectorAll('.debug-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const host = btn.closest('.slide'); host.querySelectorAll('.debug-scenario').forEach(s => s.classList.remove('active')); host.querySelector('#' + id).classList.add('active'); } function showConcept(id) { const data = { dekom: ['Dekomposisi', 'Memecah tugas besar menjadi langkah kecil agar lebih mudah dikerjakan.'], seq: ['Sequence', 'Menyusun langkah sesuai urutan yang benar. Kalau urutannya berubah, hasilnya bisa berubah.'], pat: ['Pattern', 'Menemukan langkah yang muncul berulang, misalnya tes → cari salah → perbaiki → tes lagi.'], flow: ['Flowchart', 'Diagram alur untuk melihat rencana langkah sebelum coding.'] }; document.getElementById('conceptInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; } function showSymbol(id, btn) { document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('active')); btn.classList.add('active'); const data = { start: ['Start/End', 'Dipakai untuk tanda mulai dan selesai.'], process: ['Process', 'Dipakai untuk langkah kerja, seperti sprite bergerak.'], decision: ['Decision', 'Dipakai untuk pilihan ya/tidak. Di sesi ini hanya dikenalkan dulu.'], io: ['Input/Output', 'Dipakai untuk masukan atau hasil, misalnya tombol ditekan atau suara terdengar.'] }; document.getElementById('symbolInfo').innerHTML = `<h4>${data[id][0]}</h4><p>${data[id][1]}</p>`; } function initDragDrop() { document.querySelectorAll('.sequence-card').forEach(card => { card.addEventListener('dragstart', () => card.classList.add('dragging')); card.addEventListener('dragend', () => card.classList.remove('dragging')); }); document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); const dragging = document.querySelector('.dragging'); if (dragging) zone.appendChild(dragging); }); }); } function checkOrder(targetId, feedbackId) { const cards = [...document.getElementById(targetId).querySelectorAll('.sequence-card')]; const ok = cards.length > 0 && cards.every((c, i) => Number(c.dataset.order) === i + 1); const fb = document.getElementById(feedbackId); fb.textContent = ok ? 'Urutannya sudah tepat.' : 'Belum tepat. Coba cek lagi langkah awal sampai akhir.'; fb.style.color = ok ? '#176b35' : '#a42820'; } function showFlow(type) { const data = { input: ['Input', 'Sesuatu yang memulai proses. Contoh: Green Flag diklik atau tombol keyboard ditekan.'], process: ['Process', 'Langkah yang dijalankan program, seperti show, move, say, atau start sound.'], output: ['Output', 'Hasil yang terlihat atau terdengar, seperti sprite bergerak atau nada piano berbunyi.'] }; document.getElementById('flowInfo').innerHTML = `<h4>${data[type][0]}</h4><p>${data[type][1]}</p>`; } let audioCtx = null; function playNote(note, fromKey = false) { const notes = { A: ['Do', 261.63], S: ['Re', 293.66], D: ['Mi', 329.63], F: ['Fa', 349.23], G: ['Sol', 392.00], H: ['La', 440.00] }; if (!notes[note]) return; try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain(); osc.type = 'sine'; osc.frequency.value = notes[note][1]; gain.gain.setValueAtTime(0.0001, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.38); } catch (e) { } document.querySelectorAll(`[data-key="${note}"]`).forEach(k => { k.classList.add('playing'); setTimeout(() => k.classList.remove('playing'), 220); }); document.querySelectorAll('.sound-log').forEach(log => { log.textContent = `Tombol ${note} ditekan → nada ${notes[note][0]} dimainkan.`; }); } function markKey(btn) { btn.classList.add('selected'); }
+  
+
+/* Session-specific helpers */
+
+const up7Cards = [
+  {text:'Warna favorit', answer:'low', hint:'Biasanya risiko rendah, tetapi tetap tidak perlu dibagikan ke semua tempat.'},
+  {text:'Hobi', answer:'low', hint:'Hobi biasanya risiko rendah dan bisa menjadi jejak positif jika konteksnya baik.'},
+  {text:'Password Email', answer:'secret', hint:'Password adalah rahasia. Jangan pernah menulis password asli.'},
+  {text:'PIN ATM', answer:'secret', hint:'PIN termasuk informasi rahasia dan tidak boleh dibagikan.'},
+  {text:'Nomor HP', answer:'secret', hint:'Nomor HP dapat dipakai untuk menghubungi seseorang, jadi perlu dijaga.'}
+];
+let up7CardIndex = 0;
+function up7Footprint(btn, positive, msg){
+  btn.parentElement.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('correct','wrong'));
+  btn.classList.add(positive?'correct':'wrong');
+  const fb=document.getElementById('s7footprintFeedback'); if(fb){fb.textContent=msg; fb.style.color=positive?'#176b35':'#a42820';}
+}
+function up7ChooseCategory(btn, answer){
+  const card=up7Cards[up7CardIndex];
+  btn.parentElement.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('correct','wrong'));
+  const ok = answer===card.answer;
+  btn.classList.add(ok?'correct':'wrong');
+  const fb=document.getElementById('s7sortFeedback');
+  if(fb){fb.textContent=(ok?'Betul. ':'Belum tepat. ')+card.hint; fb.style.color=ok?'#176b35':'#a42820';}
+}
+function up7NextCard(){
+  up7CardIndex=(up7CardIndex+1)%up7Cards.length;
+  const card=up7Cards[up7CardIndex];
+  const t=document.getElementById('s7cardTitle'), c=document.getElementById('s7cardText'), fb=document.getElementById('s7sortFeedback');
+  if(t) t.textContent='Kartu '+(up7CardIndex+1)+' dari '+up7Cards.length;
+  if(c) c.textContent=card.text;
+  if(fb){fb.textContent='Pilih kategori untuk kartu ini.'; fb.style.color='';}
+  document.querySelectorAll('#slide-9 .choice-btn').forEach(b=>b.classList.remove('correct','wrong'));
+}
+
+</script>
+</body>
+</html>
