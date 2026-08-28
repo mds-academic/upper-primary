@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UOB My Digital Space Y2 — Upper Primary Sesi 9</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🔎&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #0056b3;
+      --light-blue: #4a9eff;
+      --uob-red: #e60012;
+      --uob-red-soft: #ff5a6b;
+      --uob-blue-deep: #0056b3;
+      --uob-blue-soft: #5aa7ff;
+      --teal: #11a9b7;
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --line: #e3e8ef;
+      --green: #2e9d57;
+      --orange: #f39c12;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --yellow-soft: #fff8dc;
+      --blue-soft: #eef7ff;
+      --green-soft: #effaf2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--text)
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08)
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
+      transition: width .3s ease;
+      box-shadow: 0 0 8px rgba(0, 86, 179, .18)
+    }
+
+    .main-container {
+      display: flex;
+      height: 100vh
+    }
+
+    .slides-panel {
+      width: 50%;
+      background: #f8f9fa;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative
+    }
+
+    .explanation-panel {
+      width: 50%;
+      background: #fff;
+      overflow-y: auto;
+      padding: 32px
+    }
+
+    .slide-header {
+      background: #fff;
+      padding: 17px 20px 15px;
+      border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+      position: relative
+    }
+
+    .slide-header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue))
+    }
+
+    .slide-header h1 {
+      font-size: 1.28rem;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .slide-header p {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
+    .header-badge {
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #cce7ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 700;
+      font-size: .76rem
+    }
+
+    .slide-content {
+      flex: 1;
+      padding: 24px 28px 94px;
+      overflow-y: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 0
+    }
+
+    .slide,
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity .25s ease
+    }
+
+    .slide.active,
+    .explanation.active {
+      display: block;
+      opacity: 1
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 820px
+    }
+
+    .explanation {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .slide h2 {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+      line-height: 1.15
+    }
+
+    .slide h3 {
+      font-size: 1.78rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .slide h4,
+    .explanation h4 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: var(--text)
+    }
+
+    .slide p,
+    .explanation p {
+      font-size: 1rem;
+      line-height: 1.58;
+      color: #495057;
+      margin-bottom: 14px
+    }
+
+    .explanation h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.25
+    }
+
+    .slide ul,
+    .slide ol,
+    .explanation ul,
+    .explanation ol {
+      margin-left: 22px;
+      margin-bottom: 10px
+    }
+
+    .slide li,
+    .explanation li {
+      margin-bottom: 7px;
+      line-height: 1.5
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--uob-red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .lead {
+      font-size: 1.08rem !important
+    }
+
+    .mini-note {
+      font-size: .9rem !important;
+      color: var(--muted) !important;
+      margin-top: 10px
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px;
+      margin: 16px 0
+    }
+
+    .visual-card,
+    .metric-box,
+    .info-box,
+    .example-box,
+    .warning-box,
+    .placeholder-box,
+    .interactive-box,
+    .code-placeholder,
+    .quiz-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05)
+    }
+
+    .visual-card {
+      padding: 15px
+    }
+
+    .visual-card h4 {
+      margin-bottom: 5px
+    }
+
+    .visual-card p {
+      margin-bottom: 0;
+      font-size: .92rem;
+      line-height: 1.42
+    }
+
+    .visual-icon {
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .metric-box {
+      padding: 16px 12px;
+      text-align: center
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--blue);
+      margin-bottom: 7px
+    }
+
+    .metric-box span {
+      font-size: .9rem;
+      line-height: 1.35;
+      color: #495057;
+      display: block
+    }
+
+    .info-box,
+    .example-box,
+    .warning-box,
+    .interactive-box {
+      padding: 17px;
+      margin: 16px 0
+    }
+
+    .info-box {
+      border-left: 5px solid var(--light-blue)
+    }
+
+    .example-box {
+      border-left: 5px solid var(--green);
+      background: #f8fff8
+    }
+
+    .warning-box {
+      border-left: 5px solid var(--orange);
+      background: #fffaf0
+    }
+
+    .interactive-box {
+      border-left: 5px solid var(--purple);
+      background: #fcf8ff
+    }
+
+    .placeholder-box {
+      min-height: 215px;
+      padding: 24px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      background: linear-gradient(135deg, #fbfdff, #f5f9fc)
+    }
+
+    .placeholder-box .placeholder-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px
+    }
+
+    .placeholder-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px
+    }
+
+    .placeholder-box small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .code-placeholder {
+      min-height: 230px;
+      padding: 22px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      border-color: #9ab7d3;
+      background: #f8fbfe
+    }
+
+    .code-placeholder strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 7px
+    }
+
+    .code-placeholder code {
+      color: var(--muted);
+      background: #eef3f8;
+      padding: 3px 7px;
+      border-radius: 5px
+    }
+
+    .pseudo-list {
+      list-style: none;
+      margin-left: 0 !important;
+      counter-reset: pseudo
+    }
+
+    .pseudo-list li {
+      counter-increment: pseudo;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      margin-bottom: 8px
+    }
+
+    .pseudo-list li::before {
+      content: counter(pseudo);
+      position: absolute;
+      left: 11px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: .8rem
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 2px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, .04)
+    }
+
+    .nav-btn {
+      background: var(--light-blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: .94rem;
+      font-weight: 700;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: .2s ease
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      background: #357abd
+    }
+
+    .nav-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .slide-indicator {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: .07;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      33% {
+        transform: translateY(-12px) rotate(4deg)
+      }
+
+      66% {
+        transform: translateY(7px) rotate(-3deg)
+      }
+    }
+
+    .access-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .access-popup {
+      background: white;
+      border: 3px solid var(--light-blue);
+      border-radius: 15px;
+      padding: 38px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transform: scale(.8);
+      opacity: 0;
+      transition: all .3s ease
+    }
+
+    .access-popup.show {
+      transform: scale(1);
+      opacity: 1
+    }
+
+    .access-popup h2 {
+      color: var(--text);
+      margin-bottom: 13px;
+      font-size: 1.8rem
+    }
+
+    .access-popup p {
+      color: #666;
+      margin-bottom: 22px;
+      line-height: 1.55
+    }
+
+    .access-input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.15rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    .access-input:focus {
+      outline: none;
+      border-color: var(--light-blue);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, .12)
+    }
+
+    .access-submit {
+      background: var(--light-blue);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .access-submit:hover {
+      background: #357abd
+    }
+
+    .access-error {
+      color: var(--red);
+      margin-top: 13px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .access-error.show {
+      opacity: 1
+    }
+
+    .access-hint {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 18px;
+      font-size: .88rem;
+      color: #856404
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0
+    }
+
+    .choice-btn {
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .18s;
+      text-align: left
+    }
+
+    .choice-btn:hover {
+      border-color: var(--light-blue);
+      transform: translateY(-1px)
+    }
+
+    .choice-btn.correct,
+    .choice-btn.selected {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #176b35
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fff1f0;
+      color: #a42820
+    }
+
+    .feedback-line {
+      min-height: 28px;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary-btn {
+      background: var(--blue);
+      color: white
+    }
+
+    .secondary-btn {
+      background: #e9ecef;
+      color: var(--text)
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      display: grid;
+      gap: 8px
+    }
+
+    .check-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      cursor: pointer
+    }
+
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2)
+    }
+
+    .check-item.done {
+      background: var(--green-soft);
+      border-color: #9cd9af;
+      text-decoration: line-through;
+      color: #3e6b4c
+    }
+
+    .debug-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .debug-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .debug-tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    .debug-scenario {
+      display: none
+    }
+
+    .debug-scenario.active {
+      display: block
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2px
+    }
+
+    .pill.blue {
+      background: var(--blue)
+    }
+
+    .pill.green {
+      background: var(--green)
+    }
+
+    .pill.orange {
+      background: var(--orange)
+    }
+
+    .pill.purple {
+      background: var(--purple)
+    }
+
+    .pill.red {
+      background: var(--uob-red)
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0
+    }
+
+    .flow-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .flow-arrow {
+      color: var(--uob-red);
+      font-size: 1.6rem;
+      font-weight: 900
+    }
+
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .symbol-card {
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .symbol-card.active {
+      border-color: var(--blue);
+      background: var(--blue-soft)
+    }
+
+    .symbol-shape {
+      height: 54px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--blue);
+      max-width: 120px
+    }
+
+    .oval {
+      border-radius: 999px
+    }
+
+    .rect {
+      border-radius: 10px
+    }
+
+    .diamond {
+      width: 64px;
+      height: 64px;
+      transform: rotate(45deg);
+      border-radius: 8px
+    }
+
+    .diamond span {
+      transform: rotate(-45deg)
+    }
+
+    .parallelogram {
+      transform: skew(-15deg);
+      border-radius: 9px
+    }
+
+    .parallelogram span {
+      transform: skew(15deg)
+    }
+
+    .sequence-source,
+    .sequence-target {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .sequence-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      cursor: grab;
+      user-select: none;
+      font-weight: 700
+    }
+
+    .sequence-card.dragging {
+      opacity: .45
+    }
+
+    .sequence-target {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      background: #f8fbfe;
+      border-radius: 10px;
+      padding: 10px
+    }
+
+    .keyboard {
+      background: #eef3fb;
+      border: 2px solid #cfdcec;
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .key {
+      background: white;
+      border: 2px solid #dbe3ef;
+      border-radius: 8px;
+      padding: 11px 0;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+      cursor: pointer
+    }
+
+    .key.active,
+    .key.music {
+      background: linear-gradient(135deg, #ffdde3, #d9eaff);
+      border-color: var(--blue);
+      color: var(--blue)
+    }
+
+    .key.music.playing {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .sound-log {
+      border: 2px dashed #9ab7d3;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 58px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .piano-preview {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 18px 0
+    }
+
+    .piano-preview button {
+      width: 78px;
+      height: 120px;
+      border: 2px solid #d7e0eb;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .08)
+    }
+
+    .piano-preview button:nth-child(1) {
+      background: #ffe4e8
+    }
+
+    .piano-preview button:nth-child(2) {
+      background: #fff0c8
+    }
+
+    .piano-preview button:nth-child(3) {
+      background: #dff8e9
+    }
+
+    .piano-preview button:nth-child(4) {
+      background: #dff3ff
+    }
+
+    .piano-preview button.playing {
+      transform: translateY(4px);
+      box-shadow: none
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .safe-card {
+      padding: 15px
+    }
+
+    .safe-card.good {
+      border-left: 5px solid var(--green)
+    }
+
+    .safe-card.bad {
+      border-left: 5px solid var(--red)
+    }
+
+    .compact-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff
+    }
+
+    .compact-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px
+    }
+
+    .compact-table td {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top
+    }
+
+    .compact-table tr:nth-child(even) td {
+      background: #f8fbfe
+    }
+
+    @media(max-width:960px) {
+      body {
+        overflow: auto;
+        height: auto
+      }
+
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh
+      }
+
+      .slides-panel,
+      .explanation-panel {
+        width: 100%;
+        height: auto;
+        min-height: 50vh
+      }
+
+      .slides-panel {
+        min-height: 100vh
+      }
+
+      .slide-content {
+        padding: 20px 20px 92px
+      }
+
+      .explanation-panel {
+        padding: 24px
+      }
+
+      .header-badge {
+        display: none
+      }
+
+      .flow-line,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .flow-arrow {
+        display: none
+      }
+
+      .keyboard {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+  
+
+    /* Session 9 Detektif Koordinat widgets */
+    .coord-stage{position:relative;width:100%;max-width:560px;height:340px;margin:14px auto;border:2px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#eef7ff 0%,#ffffff 100%);overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .coord-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#dce9f5 1px,transparent 1px),linear-gradient(90deg,#dce9f5 1px,transparent 1px);background-size:28px 28px;opacity:.75}
+    .axis-x,.axis-y{position:absolute;background:#9ab7d3}.axis-x{left:0;right:0;top:50%;height:2px}.axis-y{top:0;bottom:0;left:50%;width:2px}
+    .coord-label{position:absolute;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:8px;padding:4px 7px;font-size:.78rem;font-weight:900;color:var(--blue)}
+    .coord-label.top{top:8px;left:50%;transform:translateX(-50%)}.coord-label.bottom{bottom:8px;left:50%;transform:translateX(-50%)}.coord-label.left{left:8px;top:50%;transform:translateY(-50%)}.coord-label.right{right:8px;top:50%;transform:translateY(-50%)}.coord-label.center{left:50%;top:50%;transform:translate(6px,6px);color:var(--uob-red)}
+    .sprite-dot{position:absolute;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#6ee7f9,#3b82f6);border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.22);display:grid;place-items:center;font-size:1.45rem;transform:translate(-50%,-50%);transition:.45s ease;z-index:3}
+    .finish-flag{position:absolute;right:28px;top:42%;font-size:2rem;z-index:2}.start-flag{position:absolute;left:28px;top:42%;font-size:2rem;z-index:2}
+    .route-line{position:absolute;height:5px;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:999px;left:72px;right:72px;top:50%;transform:translateY(-50%);opacity:.28}
+    .coord-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:9px;margin:12px 0}.coord-btn{border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px;font-weight:900;cursor:pointer}.coord-btn:hover,.coord-btn.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+    .coord-readout{background:#f8fbfe;border:2px solid #cfe7fb;border-radius:12px;padding:12px;margin:12px 0;font-weight:800;color:var(--blue);text-align:center}
+    .direction-compass{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:380px;margin:14px auto;align-items:center;text-align:center}.dir-cell{background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px;font-weight:900;cursor:pointer;min-height:70px;display:grid;place-items:center}.dir-cell.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}.dir-center{background:var(--blue);color:#fff;border-radius:50%;height:88px;width:88px;display:grid;place-items:center;margin:auto;font-weight:900}
+    .scratch-shell{background:#fff;border:2px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);margin:14px 0}.scratch-top{height:34px;background:#f2f4f7;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;font-weight:900;color:var(--text)}.green-flag{border:none;background:#2e9d57;color:#fff;border-radius:8px;padding:6px 9px;font-weight:900;cursor:pointer}.stop-dot{width:22px;height:22px;border-radius:7px;background:#e74c3c;display:inline-block}.scratch-stage{position:relative;height:245px;background:#1f2937;overflow:hidden}.road{position:absolute;left:0;right:0;top:40%;height:72px;background:#31343b;border-top:6px dashed #e5e7eb;border-bottom:6px dashed #e5e7eb}.road::after{content:"";position:absolute;left:0;right:0;top:50%;height:4px;background:repeating-linear-gradient(90deg,#fff 0 24px,transparent 24px 48px);opacity:.75}.car{position:absolute;width:54px;height:30px;border-radius:12px 16px 8px 8px;background:#22c55e;border:3px solid #fff;display:grid;place-items:center;font-size:1.1rem;transition:.6s ease;z-index:3}.vertical-word{position:absolute;top:24px;bottom:24px;display:grid;place-items:center;color:#fff;font-weight:900;letter-spacing:.12em;writing-mode:vertical-rl;text-orientation:mixed}.vertical-word.start{left:15px}.vertical-word.finish{right:15px}
+    .block-code{background:#111827;color:#e5e7eb;border-radius:14px;padding:14px;margin:12px 0;font-family:Consolas,Monaco,monospace;line-height:1.55;white-space:pre-wrap;box-shadow:0 8px 16px rgba(0,0,0,.12)}.block-blue{border-left:7px solid #4a9eff}.block-yellow{border-left:7px solid #fbbf24}.block-orange{border-left:7px solid #f39c12}.block-red{border-left:7px solid #e60012}
+    .case-card{border:2px solid var(--line);background:#fff;border-radius:12px;padding:14px;margin:10px 0;cursor:pointer}.case-card:hover,.case-card.active{border-color:var(--blue);background:var(--blue-soft)}
+    .bug-board{background:#fffaf0;border:2px dashed var(--orange);border-radius:14px;padding:14px;margin:14px 0}.bug-board h4{color:#9a6400}.tiny-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0}.tiny-card{border:2px solid var(--line);border-radius:12px;background:#fff;padding:12px;text-align:center;font-weight:800;cursor:pointer}.tiny-card.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+    @media(max-width:960px){.coord-stage{height:300px}.direction-compass{max-width:330px}.scratch-stage{height:220px}}
+</style>
+</head>
+<body>
+<div class="access-popup-overlay" id="accessPopup"><div class="access-popup"><h2>🔐 Kode Akses</h2><p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 9.</p><input autocomplete="off" class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text"/><button class="access-submit" onclick="checkAccessCode()">Masuk</button><div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div><div class="access-hint">Kode akses diberikan oleh guru.</div></div></div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="main-container" id="mainContent" style="display:none;"><div class="slides-panel"><div class="slide-header"><h1>UOB My Digital Space Y2 — Upper Primary</h1><p>Sesi 9 · Detektif Koordinat</p><span class="header-badge">Scratch · Kelas 4–6 SD</span></div><div class="slide-content"><div class="floating-element" style="top:12%;left:7%;">📍</div><div class="floating-element" style="top:18%;right:10%;">🔎</div><div class="floating-element" style="bottom:25%;left:14%;">🐞</div><div class="floating-element" style="bottom:15%;right:16%;">🧭</div><section class="slide active" id="slide-1"><span class="eyebrow">Sesi 9</span><h2>Detektif Koordinat</h2><p class="lead">Hari ini kita jadi detektif kode. Tugasnya: menjalankan project Scratch, menemukan bug pada koordinat atau arah sprite, lalu memperbaikinya pelan-pelan.</p><div class="metrics"><div class="metric-box"><strong>📍</strong><span>Koordinat X dan Y</span></div><div class="metric-box"><strong>🧭</strong><span>Arah sprite</span></div><div class="metric-box"><strong>🐞</strong><span>Bug</span></div><div class="metric-box"><strong>🔎</strong><span>Debugging</span></div></div><div class="example-box"><h4>Target akhir</h4><p>Sprite bergerak sesuai jalur yang diharapkan. Kamu bisa menjelaskan bug yang ditemukan dan cara memperbaikinya.</p></div></section><section class="slide" id="slide-2"><h3>Misi Belajar Hari Ini</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🐞</div><h4>Bug</h4><p>Mengenali kesalahan yang membuat project tidak sesuai rencana.</p></div><div class="visual-card"><div class="visual-icon">📍</div><h4>Koordinat</h4><p>Membaca posisi sprite memakai nilai X dan Y.</p></div><div class="visual-card"><div class="visual-icon">🧭</div><h4>Direction</h4><p>Memahami arah hadap sprite: kanan, kiri, atas, bawah.</p></div><div class="visual-card"><div class="visual-icon">🧪</div><h4>Testing</h4><p>Menguji ulang setelah memperbaiki satu bagian kode.</p></div></div><div class="interactive-box"><h4>Quick check</h4><p>Kalau sprite bergerak ke arah yang salah, bagian apa yang paling mungkin perlu dicek?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q2')">point in direction</button><button class="choice-btn" onclick="singleChoice(this,false,'q2')">nama project</button><button class="choice-btn" onclick="singleChoice(this,false,'q2')">warna backdrop saja</button></div><div class="feedback-line" id="q2"></div></div></section><section class="slide" id="slide-3"><h3>Siapkan Workspace</h3><p class="lead">Sebelum mulai, pastikan Scratch dan starter project siap dipakai.</p><div class="choice-grid"><button class="choice-btn" onclick="selectAny(this)">Starter project sudah dibuka</button><button class="choice-btn" onclick="selectAny(this)">Aku bisa melihat Stage dan sprite</button><button class="choice-btn" onclick="selectAny(this)">Aku tahu tombol Green Flag</button><button class="choice-btn" onclick="selectAny(this)">Aku siap mencatat bug</button><button class="choice-btn" onclick="selectAny(this)">Aku tidak memakai data pribadi</button></div><div class="warning-box"><h4>Aturan detektif</h4><p>Jalankan project dulu. Jangan langsung mengubah blok sebelum tahu gejalanya.</p></div></section><section class="slide" id="slide-4"><h3>Coba Dulu: Stage Detektif</h3><p class="lead">Sebelum coding, coba pahami area koordinat. Klik tombol arah untuk menggerakkan sprite kecil.</p><div class="coord-stage"><div class="axis-x"></div><div class="axis-y"></div><div class="coord-label top">Y +</div><div class="coord-label bottom">Y -</div><div class="coord-label left">X -</div><div class="coord-label right">X +</div><div class="coord-label center">0,0</div><div class="sprite-dot" id="coordSprite">🤖</div></div><div class="coord-controls"><button class="coord-btn" onclick="moveCoord(0,30)">Y naik</button><button class="coord-btn" onclick="moveCoord(0,-30)">Y turun</button><button class="coord-btn" onclick="moveCoord(-30,0)">X kiri</button><button class="coord-btn" onclick="moveCoord(30,0)">X kanan</button><button class="coord-btn" onclick="resetCoord()">Reset</button></div><div class="coord-readout" id="coordReadout">Posisi sprite: x 0, y 0</div></section><section class="slide" id="slide-5"><h3>Koordinat X dan Y</h3><p class="lead">Di Scratch, titik tengah Stage adalah <strong>x: 0, y: 0</strong>.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">⬅️➡️</div><h4>X</h4><p>Mengatur posisi kiri dan kanan. Kanan positif, kiri negatif.</p></div><div class="visual-card"><div class="visual-icon">⬆️⬇️</div><h4>Y</h4><p>Mengatur posisi atas dan bawah. Atas positif, bawah negatif.</p></div><div class="visual-card"><div class="visual-icon">🎯</div><h4>go to</h4><p>Memindahkan sprite ke koordinat tertentu.</p></div></div><div class="interactive-box"><h4>Tebak posisi</h4><p>Koordinat <strong>x: -100, y: 50</strong> ada di area mana?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q5')">Kiri atas</button><button class="choice-btn" onclick="singleChoice(this,false,'q5')">Kanan bawah</button><button class="choice-btn" onclick="singleChoice(this,false,'q5')">Kanan atas</button></div><div class="feedback-line" id="q5"></div></div></section><section class="slide" id="slide-6"><h3>Coba Arah Sprite</h3><p class="lead">Direction mengatur arah hadap sprite. Pilih arah, lalu coba move.</p><div class="direction-compass"><div></div><button class="dir-cell" onclick="setDir(0,this)">0<br/>Atas</button><div></div><button class="dir-cell" onclick="setDir(-90,this)">-90<br/>Kiri</button><div class="dir-center" id="dirCenter">90<br/>Kanan</div><button class="dir-cell active" onclick="setDir(90,this)">90<br/>Kanan</button><div></div><button class="dir-cell" onclick="setDir(180,this)">180<br/>Bawah</button><div></div></div><div class="coord-controls"><button class="coord-btn" onclick="dirMoveDemo()">Move 50 steps</button><button class="coord-btn" onclick="resetDirDemo()">Reset posisi</button></div><div class="coord-readout" id="dirReadout">Direction saat ini: 90, sprite akan bergerak ke kanan.</div></section><section class="slide" id="slide-7"><h3>Point in Direction vs Move</h3><p class="lead">Mengubah arah saja belum membuat sprite berjalan.</p><div class="two-col"><div class="info-box"><h4>point in direction</h4><p>Mengatur sprite menghadap ke arah tertentu. Sprite belum pindah posisi.</p></div><div class="example-box"><h4>move steps</h4><p>Membuat sprite berjalan sesuai arah hadapnya saat itu.</p></div></div><div class="interactive-box"><h4>Quick check</h4><p>Jika kode hanya berisi <strong>point in direction 90</strong>, apa yang terjadi?</p><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q7')">Sprite hanya menghadap kanan</button><button class="choice-btn" onclick="singleChoice(this,false,'q7')">Sprite langsung berjalan jauh</button><button class="choice-btn" onclick="singleChoice(this,false,'q7')">Stage berubah warna</button></div><div class="feedback-line" id="q7"></div></div></section><section class="slide" id="slide-8"><h3>Coba Jalur Starter Project</h3><p class="lead">Klik Green Flag untuk melihat simulasi jalur dari starter project.</p><div class="scratch-shell"><div class="scratch-top"><button class="green-flag" onclick="runStarterSim()">⚑ Green Flag</button><span class="stop-dot"></span><span>Stage</span></div><div class="scratch-stage"><div class="road"></div><div class="vertical-word start">START</div><div class="vertical-word finish">FINISH</div><div class="car" id="simCar">🚗</div></div></div><div class="coord-readout" id="starterReadout">Jalankan simulasi untuk mengamati gerakan sprite.</div><div class="warning-box"><h4>Tugas detektif</h4><p>Amati: apakah sprite bergerak menuju finish? Apakah arahnya masuk akal?</p></div></section><section class="slide" id="slide-9"><h3>Bug atau Bukan?</h3><p class="lead">Coba baca potongan kode, lalu tentukan apakah ada bug.</p><div class="case-card" onclick="showBugCase('case1',this)"><h4>Kasus 1</h4><p><code>go to x: -150 y: 0</code><br/><code>glide 1 secs to x: 150 y: 0</code></p></div><div class="case-card" onclick="showBugCase('case2',this)"><h4>Kasus 2</h4><p><code>point in direction -90</code><br/><code>move 100 steps</code></p></div><div class="area-live-card" id="bugCaseInfo"><h4>Pilih kasus dulu.</h4><p>Penjelasan akan muncul di sini.</p></div></section><section class="slide" id="slide-10"><h3>Alur Debugging</h3><p class="lead">Debugging dilakukan bertahap, bukan asal ubah.</p><div class="flow-line"><div class="flow-box">Amati</div><div class="flow-arrow">→</div><div class="flow-box">Temukan</div><div class="flow-arrow">→</div><div class="flow-box">Perbaiki</div></div><div class="flow-line"><div class="flow-box">Uji</div><div class="flow-arrow">→</div><div class="flow-box">Ulangi jika perlu</div><div class="flow-arrow">→</div><div class="flow-box">Jelaskan</div></div><div class="interactive-box"><h4>Urutan yang benar?</h4><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q10')">Amati → Perbaiki satu bug → Test</button><button class="choice-btn" onclick="singleChoice(this,false,'q10')">Ubah semua blok → Baru lihat hasil</button></div><div class="feedback-line" id="q10"></div></div></section><section class="slide" id="slide-11"><h3>Project Sample: Isi Blok Starter</h3><p class="lead">Starter project berisi satu rangkaian utama yang dijalankan saat Green Flag diklik.</p><div class="block-code block-yellow">when green flag clicked
+  go to x: -102 y: 40
+  point in direction -90
+  move 50 steps
+  glide 1 secs to x: -61 y: -90
+  wait 1 seconds</div><div class="bug-board"><h4>Pertanyaan detektif</h4><p>Jika targetnya menuju finish di kanan, bagian mana yang terasa mencurigakan?</p></div></section><section class="slide" id="slide-12"><h3>Input → Check → Fix → Test</h3><div class="visual-grid"><button class="visual-card" onclick="showDebugFlow('input')"><div class="visual-icon">▶️</div><h4>Input</h4><p>Green Flag menjalankan script.</p></button><button class="visual-card" onclick="showDebugFlow('check')"><div class="visual-icon">🔎</div><h4>Check</h4><p>Bandingkan hasil dengan tujuan.</p></button><button class="visual-card" onclick="showDebugFlow('fix')"><div class="visual-icon">🛠️</div><h4>Fix</h4><p>Ubah satu bagian kode.</p></button><button class="visual-card" onclick="showDebugFlow('test')"><div class="visual-icon">🧪</div><h4>Test</h4><p>Jalankan ulang.</p></button></div><div class="info-box" id="debugFlowInfo"><h4>Input</h4><p>Green Flag adalah pemicu utama. Setelah diklik, blok di bawahnya berjalan sesuai urutan.</p></div></section><section class="slide" id="slide-13"><h3>Stage, Sprite, dan Code Area</h3><p class="lead">Saat debugging di Scratch, kita perlu berpindah antara melihat hasil dan membaca blok.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🎬</div><h4>Stage</h4><p>Tempat melihat hasil gerakan sprite.</p></div><div class="visual-card"><div class="visual-icon">🚗</div><h4>Sprite</h4><p>Objek yang menjalankan blok.</p></div><div class="visual-card"><div class="visual-icon">🧩</div><h4>Code Area</h4><p>Tempat mencari dan memperbaiki blok.</p></div></div><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT SCRATCH</strong><small>Taruh screenshot Scratch: Stage, sprite, dan blok starter project.</small></div></div></section><section class="slide" id="slide-14"><h3>Langkah 1 — Jalankan dan Amati</h3><p class="lead">Tekan Green Flag, lalu jangan langsung mengubah kode.</p><div class="scratch-shell"><div class="scratch-top"><button class="green-flag" onclick="runStarterSim()">⚑ Green Flag</button><span>Amati jalur sprite</span></div><div class="scratch-stage"><div class="road"></div><div class="vertical-word start">START</div><div class="vertical-word finish">FINISH</div><div class="car" id="simCar2">🚗</div></div></div><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Apakah sprite bergerak?</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Apakah arah sprite sudah benar?</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Apakah sprite berhenti di tempat yang tepat?</li></ul></section><section class="slide" id="slide-15"><h3>Langkah 2 — Cari Blok yang Berhubungan</h3><p class="lead">Setelah tahu gejalanya, cari blok yang paling mungkin menyebabkan masalah.</p><table class="compact-table"><tr><th>Gejala</th><th>Blok yang dicek</th></tr><tr><td>Sprite mulai dari posisi salah</td><td><strong>go to x: y:</strong></td></tr><tr><td>Sprite bergerak ke arah salah</td><td><strong>point in direction</strong></td></tr><tr><td>Gerakan terlalu jauh / pendek</td><td><strong>move steps</strong></td></tr><tr><td>Berhenti di tempat salah</td><td><strong>glide secs to x: y:</strong></td></tr></table><div class="interactive-box"><h4>Jika sprite berhenti di tempat yang salah, blok apa yang dicek?</h4><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q15')">glide secs to x: y:</button><button class="choice-btn" onclick="singleChoice(this,false,'q15')">wait seconds</button></div><div class="feedback-line" id="q15"></div></div></section><section class="slide" id="slide-16"><h3>Langkah 3 — Cek Koordinat Awal</h3><div class="block-code block-blue">go to x: -102 y: 40</div><div class="coord-stage"><div class="axis-x"></div><div class="axis-y"></div><div class="coord-label top">Y +</div><div class="coord-label bottom">Y -</div><div class="coord-label left">X -</div><div class="coord-label right">X +</div><div class="coord-label center">0,0</div><div class="sprite-dot" style="left:28.75%;top:38.9%;">🚗</div></div><div class="info-box"><h4>Amati</h4><p>Koordinat x:-102 y:40 berarti sprite mulai di kiri dan sedikit ke atas dari tengah.</p></div></section><section class="slide" id="slide-17"><h3>Langkah 4 — Cek Arah Hadap</h3><div class="block-code block-blue">point in direction -90</div><div class="direction-compass"><div></div><div class="dir-cell">0<br/>Atas</div><div></div><div class="dir-cell active">-90<br/>Kiri</div><div class="dir-center">-90<br/>Kiri</div><div class="dir-cell">90<br/>Kanan</div><div></div><div class="dir-cell">180<br/>Bawah</div><div></div></div><div class="interactive-box"><h4>Jika targetnya ke kanan, direction yang lebih masuk akal adalah...</h4><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,false,'q17')">-90</button><button class="choice-btn" onclick="singleChoice(this,true,'q17')">90</button><button class="choice-btn" onclick="singleChoice(this,false,'q17')">180</button></div><div class="feedback-line" id="q17"></div></div></section><section class="slide" id="slide-18"><h3>Langkah 5 — Cek Move Steps</h3><div class="block-code block-blue">move 50 steps</div><div class="tiny-grid"><button class="tiny-card" onclick="moveStepDemo(20,this)">Move 20</button><button class="tiny-card" onclick="moveStepDemo(50,this)">Move 50</button><button class="tiny-card" onclick="moveStepDemo(100,this)">Move 100</button></div><div class="coord-readout" id="moveStepInfo">Pilih jumlah steps untuk melihat perbedaan jarak.</div><div class="info-box"><p><strong>Move steps</strong> menentukan jarak. Angka terlalu kecil membuat sprite belum sampai, angka terlalu besar bisa membuat sprite melewati tujuan.</p></div></section><section class="slide" id="slide-19"><h3>Langkah 6 — Cek Glide Tujuan</h3><div class="block-code block-blue">glide 1 secs to x: -61 y: -90</div><div class="coord-stage"><div class="axis-x"></div><div class="axis-y"></div><div class="coord-label top">Y +</div><div class="coord-label bottom">Y -</div><div class="coord-label left">X -</div><div class="coord-label right">X +</div><div class="coord-label center">0,0</div><div class="sprite-dot" style="left:37.3%;top:75%;">🚗</div><div class="finish-flag">🏁</div></div><div class="bug-board"><h4>Detektif bertanya</h4><p>Apakah koordinat tujuan glide sudah mendekati finish yang diharapkan?</p></div></section><section class="slide" id="slide-20"><h3>Perbaiki Satu Bug Dulu</h3><p class="lead">Pilih satu bagian yang paling mencurigakan, perbaiki, lalu test.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">1️⃣</div><h4>Ubah direction</h4><p>Jika sprite bergerak ke arah salah.</p></div><div class="visual-card"><div class="visual-icon">2️⃣</div><h4>Ubah go to</h4><p>Jika posisi awal salah.</p></div><div class="visual-card"><div class="visual-icon">3️⃣</div><h4>Ubah glide</h4><p>Jika tujuan akhir salah.</p></div></div><div class="interactive-box"><h4>Yang paling aman dilakukan saat debugging?</h4><div class="choice-grid"><button class="choice-btn" onclick="singleChoice(this,true,'q20')">Ubah satu bagian, lalu test</button><button class="choice-btn" onclick="singleChoice(this,false,'q20')">Ubah semua angka sekaligus</button></div><div class="feedback-line" id="q20"></div></div></section><section class="slide" id="slide-21"><h3>Placeholder Blocks: Versi Perbaikan</h3><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK SETELAH DIPERBAIKI</strong><small>Taruh screenshot Scratch setelah siswa/guru memperbaiki minimal satu bug. Contoh yang bisa dicek: direction, koordinat awal, atau koordinat tujuan glide.</small></div></div><ol class="pseudo-list"><li>Green Flag menjalankan project.</li><li>Sprite mulai dari posisi yang sesuai.</li><li>Sprite menghadap arah yang benar.</li><li>Sprite bergerak menuju target.</li><li>Project dites ulang setelah perbaikan.</li></ol></section><section class="slide" id="slide-22"><h3>Test Case Wajib</h3><p class="lead">Gunakan tabel ini untuk mengecek project setelah diperbaiki.</p><table class="compact-table"><tr><th>Yang dites</th><th>Expected Result</th><th>Jika belum sesuai...</th></tr><tr><td>Green Flag</td><td>Script mulai dari awal.</td><td>Cek event when green flag clicked.</td></tr><tr><td>Posisi awal</td><td>Sprite muncul di titik start.</td><td>Cek go to x:y.</td></tr><tr><td>Arah</td><td>Sprite menghadap jalur yang benar.</td><td>Cek point in direction.</td></tr><tr><td>Jarak</td><td>Sprite tidak terlalu jauh/pendek.</td><td>Cek move steps.</td></tr><tr><td>Tujuan akhir</td><td>Sprite berhenti di target.</td><td>Cek glide x:y.</td></tr></table></section><section class="slide" id="slide-23"><h3>Detektif Kode: Cari Penyebab</h3><div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('d1',this)">Tidak bergerak</button><button class="debug-tab" onclick="showDebug('d2',this)">Arah salah</button><button class="debug-tab" onclick="showDebug('d3',this)">Mulai salah</button><button class="debug-tab" onclick="showDebug('d4',this)">Berhenti salah</button></div><div class="debug-scenario active" id="d1"><div class="warning-box"><h4>Gejala</h4><p>Sprite tidak bergerak saat Green Flag diklik.</p></div><div class="info-box"><ol><li>Cek blok when green flag clicked.</li><li>Pastikan semua blok tersambung.</li><li>Cek apakah sprite yang dipilih benar.</li></ol></div></div><div class="debug-scenario" id="d2"><div class="warning-box"><h4>Gejala</h4><p>Sprite bergerak, tetapi arahnya salah.</p></div><div class="info-box"><ol><li>Cek point in direction.</li><li>Ingat 90 kanan, -90 kiri, 0 atas, 180 bawah.</li></ol></div></div><div class="debug-scenario" id="d3"><div class="warning-box"><h4>Gejala</h4><p>Sprite mulai dari posisi yang tidak sesuai.</p></div><div class="info-box"><ol><li>Cek go to x:y.</li><li>Bandingkan dengan titik start pada Stage.</li></ol></div></div><div class="debug-scenario" id="d4"><div class="warning-box"><h4>Gejala</h4><p>Sprite berhenti di lokasi yang salah.</p></div><div class="info-box"><ol><li>Cek koordinat glide.</li><li>Sesuaikan nilai X dan Y menuju target.</li></ol></div></div></section><section class="slide" id="slide-24"><h3>Blok yang Dipakai</h3><table class="compact-table"><tr><th>Blok</th><th>Gunanya</th></tr><tr><td><strong>when green flag clicked</strong></td><td>Menjalankan project dari awal.</td></tr><tr><td><strong>go to x: y:</strong></td><td>Menentukan posisi awal sprite.</td></tr><tr><td><strong>point in direction</strong></td><td>Mengatur arah hadap sprite.</td></tr><tr><td><strong>move steps</strong></td><td>Menggerakkan sprite sesuai arah hadap.</td></tr><tr><td><strong>glide secs to x: y:</strong></td><td>Menggerakkan sprite menuju koordinat tertentu.</td></tr><tr><td><strong>wait seconds</strong></td><td>Memberi jeda agar gerakan lebih mudah diamati.</td></tr></table></section><section class="slide" id="slide-25"><h3>Simpan dan Bagikan Project</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">✏️</div><h4>1. Beri nama</h4><p>Ganti nama project, jangan biarkan Untitled.</p></div><div class="visual-card"><div class="visual-icon">💾</div><h4>2. Simpan</h4><p>Pastikan project tersimpan di akunmu.</p></div><div class="visual-card"><div class="visual-icon">🔗</div><h4>3. Share jika diminta</h4><p>Ikuti instruksi guru untuk membagikan link.</p></div></div><div class="warning-box"><h4>Cek sebelum share</h4><p>Pastikan tidak ada nama lengkap, alamat, nomor telepon, atau data pribadi lain di project.</p></div></section><section class="slide" id="slide-26"><h3>Cek Output Minimum</h3><p>Project dianggap berhasil jika semua poin ini sudah terpenuhi.</p><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Starter file dapat dijalankan dengan Green Flag.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Aku menemukan minimal satu bug.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Aku memperbaiki satu bug terlebih dahulu.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite bergerak sesuai jalur yang diharapkan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Aku melakukan testing setelah perbaikan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Aku bisa menjelaskan bagian kode yang diperbaiki.</li></ul></section><section class="slide" id="slide-27"><h3>Refleksi Project</h3><p class="lead">Jawab setelah project selesai.</p><div class="visual-grid"><div class="visual-card"><h4>1</h4><p>Mengapa kita perlu mengamati project sebelum mengubah kode?</p></div><div class="visual-card"><h4>2</h4><p>Bug apa yang kamu temukan pada starter file?</p></div><div class="visual-card"><h4>3</h4><p>Bagaimana cara kamu memperbaiki bug tersebut?</p></div><div class="visual-card"><h4>4</h4><p>Apa yang kamu pelajari tentang debugging?</p></div></div></section><section class="slide" id="slide-28"><h3>Misi Bonus</h3><p class="lead">Jika project utama sudah berjalan, pilih satu challenge.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🥉</div><h4>Buat Bug Kecil</h4><p>Ubah satu koordinat atau direction, lalu minta teman mencari bug-nya.</p></div><div class="visual-card"><div class="visual-icon">🥈</div><h4>Tukar Project</h4><p>Temanmu menjalankan project dan memperbaiki bug yang kamu buat.</p></div><div class="visual-card"><div class="visual-icon">🥇</div><h4>Tambah Tujuan</h4><p>Buat jalur baru: START → CHECKPOINT → FINISH.</p></div></div><div class="warning-box"><h4>Ingat</h4><p>Challenge dikerjakan setelah output minimum selesai.</p></div></section><section class="slide" id="slide-29"><h3>Mini Planning Challenge</h3><p>Susun urutan sederhana sebelum menambah jalur baru.</p><div class="sequence-source"><div class="sequence-card" data-order="3" draggable="true">Glide ke checkpoint</div><div class="sequence-card" data-order="1" draggable="true">Mulai dari START</div><div class="sequence-card" data-order="4" draggable="true">Glide ke FINISH</div><div class="sequence-card" data-order="2" draggable="true">Atur direction yang benar</div></div><div class="sequence-target" id="routeTarget"><p class="mini-note">Tarik kartu ke sini.</p></div><button class="primary-btn" onclick="checkOrder('routeTarget','routeFeedback')">Cek urutan</button><div class="feedback-line" id="routeFeedback"></div></section><section class="slide" id="slide-30"><h3>Debugging dan Kebiasaan Digital</h3><p class="lead">Dalam coding dan dunia digital, kita perlu teliti sebelum bertindak.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">👀</div><h4>Amati dulu</h4><p>Jangan langsung menebak.</p></div><div class="visual-card"><div class="visual-icon">🧠</div><h4>Pikirkan akibat</h4><p>Perubahan kecil bisa mengubah hasil.</p></div><div class="visual-card"><div class="visual-icon">🛡️</div><h4>Jaga data</h4><p>Tidak perlu memasukkan data pribadi ke project.</p></div></div><div class="warning-box"><h4>Pesan aman</h4><p>Saat berbagi project, pastikan tidak ada informasi pribadi yang tampil di Stage, nama project, atau catatan.</p></div></section><section class="slide" id="slide-31"><h3>Ringkasan Sesi 9</h3><div class="visual-grid"><div class="visual-card"><div class="visual-icon">📍</div><h4>Koordinat</h4><p>X untuk kiri-kanan, Y untuk atas-bawah.</p></div><div class="visual-card"><div class="visual-icon">🧭</div><h4>Direction</h4><p>90 kanan, -90 kiri, 0 atas, 180 bawah.</p></div><div class="visual-card"><div class="visual-icon">🐞</div><h4>Bug</h4><p>Kesalahan yang membuat project tidak sesuai rencana.</p></div><div class="visual-card"><div class="visual-icon">🧪</div><h4>Testing</h4><p>Jalankan ulang setelah memperbaiki satu bagian.</p></div></div><div class="example-box"><h4>Kalimat kunci</h4><p><strong>Amati → Temukan → Perbaiki → Uji → Ulangi jika perlu.</strong></p></div></section></div><div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span> Previous</button><div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">31</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button></div></div><div class="explanation-panel"><section class="explanation active" id="explanation-1"><h3>Selamat Datang, Detektif Kode</h3><p>Di sesi ini, kamu tidak mulai dari project kosong. Kamu akan membuka starter project yang sudah ada, lalu mengamati apakah sprite bergerak sesuai jalur yang seharusnya.</p><p>Kalau ada yang terasa aneh, itu bukan berarti kamu gagal. Justru di sinilah tugas detektif kode dimulai: mencari bagian yang salah, memperbaiki satu bagian, lalu mengetes lagi.</p><div class="info-box"><h4>Fokus hari ini</h4><p>Kita akan banyak membahas posisi sprite, arah hadap sprite, gerakan, dan cara debugging yang rapi. Jadi jangan terburu-buru mengubah semua blok sekaligus.</p></div></section><section class="explanation" id="explanation-2"><h3>Misi Belajar</h3><p>Hari ini kamu belajar membaca project seperti detektif. Kamu tidak langsung menebak blok mana yang salah, tetapi mengamati dulu hasil project di Stage.</p><p>Bug yang dicari berhubungan dengan tiga hal: <strong>posisi awal</strong>, <strong>arah hadap sprite</strong>, dan <strong>gerakan sprite</strong>. Ketiganya sering terlihat mirip, tetapi penyebabnya berbeda.</p><div class="info-box"><h4>Contoh cepat</h4><ul><li>Sprite mulai dari tempat yang salah → cek <strong>go to x: y:</strong>.</li><li>Sprite bergerak ke kiri padahal harus ke kanan → cek <strong>point in direction</strong>.</li><li>Sprite terlalu jauh atau terlalu pendek → cek <strong>move steps</strong>.</li></ul></div><p>Dengan cara ini, kamu bisa memperbaiki bug lebih tepat, bukan asal mencoba.</p></section><section class="explanation" id="explanation-3"><h3>Persiapan Sebelum Debugging</h3><p>Debugging yang rapi dimulai dari workspace yang siap. Pastikan kamu membuka starter project yang benar, bukan project lain. Setelah itu, lihat dulu tampilan Stage, sprite, dan area kode.</p><p>Pada sesi ini, catatan sangat membantu. Kamu bisa mencatat: sprite mulai dari mana, bergerak ke arah mana, dan berhenti di mana. Catatan ini akan dipakai saat membandingkan hasil dengan blok kode.</p><div class="warning-box"><h4>Jangan terburu-buru</h4><p>Kalau langsung mengubah banyak blok, kamu bisa bingung bagian mana yang sebenarnya memperbaiki bug.</p></div></section><section class="explanation" id="explanation-4"><h3>Mencoba Koordinat Sebelum Coding</h3><p>Stage Scratch memakai sistem koordinat. Nilai <strong>x</strong> mengatur posisi kiri dan kanan. Nilai <strong>y</strong> mengatur posisi atas dan bawah.</p><p>Saat kamu menekan tombol di kiri, perhatikan perubahan angka pada readout. Jika X bertambah, sprite bergerak ke kanan. Jika X berkurang, sprite bergerak ke kiri. Jika Y bertambah, sprite bergerak ke atas. Jika Y berkurang, sprite bergerak ke bawah.</p><div class="info-box"><h4>Kunci koordinat</h4><ul><li><strong>x positif</strong> = kanan.</li><li><strong>x negatif</strong> = kiri.</li><li><strong>y positif</strong> = atas.</li><li><strong>y negatif</strong> = bawah.</li></ul></div><p>Ini penting karena bug pada project sesi ini bisa muncul hanya karena angka X atau Y kurang tepat.</p></section><section class="explanation" id="explanation-5"><h3>Membaca Koordinat</h3><p>Koordinat selalu dibaca sebagai pasangan angka: <strong>x</strong> dulu, lalu <strong>y</strong>. Contohnya, x: -100 y: 50 berarti sprite berada di sebelah kiri titik tengah dan agak ke atas.</p><p>Blok <strong>go to x: y:</strong> dipakai untuk langsung memindahkan sprite ke posisi tertentu. Jika angka X atau Y salah, sprite bisa mulai dari tempat yang tidak sesuai.</p><div class="example-box"><h4>Contoh</h4><p><strong>x: 100, y: 0</strong> berarti sprite ada di kanan tengah. <strong>x: 0, y: -100</strong> berarti sprite ada di bawah tengah.</p></div><p>Dalam debugging, kamu perlu membandingkan posisi yang terlihat di Stage dengan angka yang tertulis di blok.</p></section><section class="explanation" id="explanation-6"><h3>Direction Berbeda dari Koordinat</h3><p>Koordinat menjawab pertanyaan: <strong>sprite berada di mana?</strong> Direction menjawab pertanyaan: <strong>sprite menghadap ke mana?</strong></p><p>Di Scratch, arah kanan adalah <strong>90</strong>, kiri adalah <strong>-90</strong>, atas adalah <strong>0</strong>, dan bawah adalah <strong>180</strong>. Jika direction salah, sprite bisa bergerak ke arah yang tidak kamu harapkan.</p><div class="info-box"><h4>Ingat cepat</h4><ul><li>90 = kanan.</li><li>-90 = kiri.</li><li>0 = atas.</li><li>180 = bawah.</li></ul></div><p>Bug pada starter project bisa muncul karena sprite menghadap salah sebelum blok <strong>move steps</strong> dijalankan.</p></section><section class="explanation" id="explanation-7"><h3>Bagaimana Sprite Berjalan?</h3><p>Bayangkan kamu memberi instruksi kepada teman: “Hadap kanan.” Temanmu akan menghadap kanan, tetapi belum berjalan. Agar dia berpindah, kamu perlu instruksi kedua: “Jalan 10 langkah.”</p><p>Scratch juga begitu. <strong>Point in direction</strong> mengatur arah hadap sprite. <strong>Move steps</strong> membuat sprite bergerak. Kalau salah satu tidak sesuai, hasil gerakan bisa berbeda dari rencana.</p><div class="warning-box"><h4>Bug yang sering terjadi</h4><p>Sprite sudah bergerak, tetapi arah geraknya salah. Ini biasanya berarti nilai direction perlu dicek.</p></div></section><section class="explanation" id="explanation-8"><h3>Mencoba Fitur Sebelum Coding</h3><p>Slide kiri meniru pengalaman saat kamu menjalankan project di Scratch. Kamu menekan Green Flag, lalu mengamati gerakan sprite di Stage.</p><p>Bagian pentingnya bukan langsung mencari jawaban, tetapi memperhatikan gejalanya. Apakah sprite bergerak? Bergeraknya ke arah yang benar? Berhentinya di tempat yang tepat?</p><div class="info-box"><h4>Pertanyaan saat mengamati</h4><ul><li>Sprite mulai dari posisi yang masuk akal?</li><li>Sprite bergerak ke arah finish?</li><li>Gerakan terlalu jauh atau terlalu pendek?</li><li>Tujuan akhir glide sudah tepat?</li></ul></div><p>Setelah gejala jelas, barulah kamu masuk ke kode Scratch untuk mencari penyebabnya.</p></section><section class="explanation" id="explanation-9"><h3>Membaca Potongan Kode</h3><p>Aktivitas ini melatih kamu membaca kode sebelum menjalankannya. Detektif kode tidak hanya melihat bentuk blok, tetapi memprediksi hasilnya.</p><p>Kasus 1 memakai <strong>go to</strong> dan <strong>glide</strong>. Kalau tujuan project memang bergerak dari kiri ke kanan pada garis yang sama, potongan ini masuk akal. Kasus 2 mengatur direction -90, artinya sprite menghadap kiri. Kalau targetnya bergerak ke kanan, ini bisa menjadi bug.</p><div class="info-box"><h4>Strategi membaca</h4><ol><li>Baca posisi awal.</li><li>Baca arah hadap sprite.</li><li>Baca gerakan setelahnya.</li><li>Bandingkan dengan tujuan project.</li></ol></div><p>Jangan lupa: kode baru bisa disebut bug jika hasilnya tidak sesuai dengan tujuan yang diharapkan.</p></section><section class="explanation" id="explanation-10"><h3>Alur Debugging yang Rapi</h3><p>Saat menemukan bug, jangan panik. Debugging punya urutan kerja yang membantu kamu tetap terarah.</p><p>Pertama, <strong>amati</strong> hasil project. Kedua, <strong>temukan</strong> bagian yang kemungkinan menjadi penyebab. Ketiga, <strong>perbaiki satu bagian</strong>. Keempat, <strong>uji lagi</strong> dengan Green Flag. Jika masih belum sesuai, ulangi prosesnya.</p><div class="warning-box"><h4>Kenapa satu bug dulu?</h4><p>Kalau kamu mengubah banyak blok sekaligus, kamu sulit tahu perubahan mana yang benar-benar membuat project membaik.</p></div></section><section class="explanation" id="explanation-11"><h3>Membaca Starter Project</h3><p>Starter project memiliki satu script utama. Urutannya: Green Flag diklik, sprite dipindahkan ke posisi awal, arah sprite diatur, sprite bergerak beberapa langkah, lalu glide ke koordinat tujuan.</p><p>Karena ini starter project untuk debugging, kita tidak menganggap semuanya pasti benar. Tugasmu adalah membandingkan kode dengan gerakan yang terlihat di Stage.</p><div class="info-box"><h4>Bagian yang perlu dicek</h4><ul><li><strong>go to x:-102 y:40</strong> → apakah posisi awal sudah sesuai?</li><li><strong>point in direction -90</strong> → apakah sprite harus menghadap kiri?</li><li><strong>move 50 steps</strong> → apakah jaraknya cukup?</li><li><strong>glide to x:-61 y:-90</strong> → apakah tujuan akhirnya benar?</li></ul></div><p>Ingat, perbaikannya tidak selalu sama untuk semua kelas. Ikuti target project dari guru dan hasil pengamatanmu.</p></section><section class="explanation" id="explanation-12"><h3>Alur Kerja Saat Memperbaiki Project</h3><p>Slide kiri membagi kerja debugging menjadi empat bagian. Ini mirip cara kerja programmer ketika memeriksa program.</p><p><strong>Input</strong> berarti project mulai dijalankan, biasanya dengan Green Flag. <strong>Check</strong> berarti kamu mengamati hasilnya. <strong>Fix</strong> berarti kamu mengubah satu bagian yang dicurigai. <strong>Test</strong> berarti kamu menjalankan ulang project untuk melihat apakah perbaikan berhasil.</p><div class="example-box"><h4>Contoh</h4><p>Jika sprite bergerak ke kiri padahal targetnya ke kanan, kamu bisa mengubah direction dari -90 menjadi 90. Setelah itu, tekan Green Flag lagi untuk menguji.</p></div><p>Kalau masih belum sesuai, jangan langsung menyerah. Cari gejala berikutnya dan ulangi prosesnya.</p></section><section class="explanation" id="explanation-13"><h3>Menghubungkan Hasil dan Kode</h3><p>Debugging membutuhkan dua kebiasaan: melihat hasil di Stage dan membaca kode di Code Area. Kalau hanya melihat Stage, kamu tahu gejalanya tetapi belum tahu penyebabnya. Kalau hanya melihat kode, kamu belum tentu tahu apakah hasilnya sesuai.</p><p>Karena itu, setelah menjalankan project, lihat gerakan sprite. Setelah menemukan bagian yang aneh, pindah ke Code Area dan cari blok yang berhubungan.</p><div class="info-box"><h4>Contoh hubungan</h4><p>Gejala “sprite mulai dari tempat salah” berhubungan dengan blok <strong>go to x: y:</strong>. Gejala “sprite menghadap salah” berhubungan dengan blok <strong>point in direction</strong>.</p></div></section><section class="explanation" id="explanation-14"><h3>Langkah 1: Amati Dulu</h3><p>Langkah pertama adalah menjalankan project dan mengamati hasilnya. Saat menekan Green Flag, perhatikan gerakan sprite dari awal sampai berhenti.</p><p>Kamu tidak perlu langsung tahu bug-nya. Cukup catat gejala. Misalnya: sprite bergerak ke kiri, sprite turun ke bawah, atau sprite tidak sampai ke finish.</p><div class="warning-box"><h4>Catatan detektif</h4><p>Gejala yang kamu tulis akan membantu menentukan blok mana yang perlu dicek.</p></div></section><section class="explanation" id="explanation-15"><h3>Langkah 2: Cari Blok yang Tepat</h3><p>Setiap bug biasanya punya petunjuk. Kalau sprite mulai dari tempat yang tidak sesuai, penyebabnya kemungkinan bukan wait, tetapi koordinat awal. Kalau sprite menghadap salah, penyebabnya kemungkinan direction.</p><p>Tabel di kiri membantu kamu mencocokkan gejala dengan blok yang perlu diperiksa. Ini membuat debugging lebih cepat dan tidak asal tebak.</p><div class="info-box"><h4>Ingat</h4><p>Bug bukan selalu berarti semua kode salah. Sering kali hanya satu angka atau satu blok yang perlu diperbaiki.</p></div></section><section class="explanation" id="explanation-16"><h3>Cek Koordinat Awal</h3><p>Blok <strong>go to x:-102 y:40</strong> menentukan posisi awal sprite saat Green Flag diklik. Jika posisi awal sprite sudah benar, blok ini mungkin tidak perlu diubah.</p><p>Tapi jika sprite mulai terlalu jauh dari jalur, terlalu tinggi, atau terlalu rendah, blok ini menjadi salah satu tempat pertama yang perlu dicek.</p><div class="example-box"><h4>Cara berpikir</h4><p>Jangan mengubah angka hanya karena terlihat “aneh”. Bandingkan dulu dengan posisi sprite yang seharusnya di Stage.</p></div></section><section class="explanation" id="explanation-17"><h3>Cek Arah Hadap Sprite</h3><p>Direction -90 berarti sprite menghadap kiri. Kalau project mengharapkan sprite bergerak ke kanan, nilai ini mencurigakan dan bisa menjadi bug.</p><p>Namun tetap gunakan tujuan project sebagai patokan. Kalau jalurnya memang harus ke kiri, -90 bisa benar. Bug selalu dilihat berdasarkan tujuan, bukan berdasarkan angka yang terlihat besar atau kecil.</p><div class="info-box"><h4>Untuk jalur START ke FINISH kanan</h4><p>Direction 90 biasanya lebih masuk akal karena sprite perlu bergerak ke kanan.</p></div></section><section class="explanation" id="explanation-18"><h3>Cek Jarak Gerak</h3><p>Blok <strong>move 50 steps</strong> membuat sprite bergerak 50 langkah sesuai arah hadapnya. Jika direction sudah benar tetapi sprite masih terlalu pendek atau terlalu jauh, bagian move steps perlu dicek.</p><p>Jarak yang tepat bergantung pada target jalur di Stage. Karena itu, gunakan testing. Ubah satu nilai, jalankan ulang, lalu lihat apakah gerakannya lebih mendekati tujuan.</p><div class="warning-box"><h4>Jangan lupa</h4><p>Move steps mengikuti arah hadap. Jadi jika direction salah, memperbesar steps malah membuat sprite makin jauh ke arah yang salah.</p></div></section><section class="explanation" id="explanation-19"><h3>Cek Tujuan Glide</h3><p>Blok <strong>glide 1 secs to x:-61 y:-90</strong> menggerakkan sprite menuju koordinat tertentu. Jika sprite berhenti di tempat yang tidak sesuai, nilai X dan Y pada blok glide perlu diperiksa.</p><p>Koordinat x:-61 y:-90 berada di kiri dan bawah dari titik tengah. Kalau finish berada di kanan, koordinat ini kemungkinan belum sesuai.</p><div class="info-box"><h4>Cara memperbaiki</h4><p>Sesuaikan X dan Y berdasarkan tempat finish di Stage. Setelah mengubah, tekan Green Flag lagi untuk melihat hasilnya.</p></div></section><section class="explanation" id="explanation-20"><h3>Perbaiki Bertahap</h3><p>Saat sudah menemukan bagian yang mencurigakan, perbaiki satu bagian terlebih dahulu. Misalnya, ubah direction dari -90 menjadi 90, lalu jalankan ulang project.</p><p>Jika hasilnya membaik, kamu tahu bahwa direction memang bagian dari masalah. Jika belum cukup, lanjutkan cek bagian lain seperti move steps atau glide.</p><div class="warning-box"><h4>Kenapa tidak sekaligus?</h4><p>Jika semua angka diubah bersamaan, kamu tidak tahu bagian mana yang membuat hasil berubah.</p></div></section><section class="explanation" id="explanation-21"><h3>Blocks Setelah Perbaikan</h3><p>Slide kiri disiapkan sebagai tempat menaruh screenshot blok yang sudah diperbaiki. Karena debugging bisa berbeda tergantung starter file dan target guru, screenshot ini bisa menyesuaikan hasil kelas.</p><p>Yang penting bukan hanya “angka mana yang benar”, tetapi apakah kamu bisa menjelaskan alasan perubahan itu.</p><div class="example-box"><h4>Contoh penjelasan</h4><p>“Saya mengubah direction karena sprite bergerak ke kiri, padahal jalur yang diharapkan menuju kanan.”</p></div></section><section class="explanation" id="explanation-22"><h3>Testing Setelah Perbaikan</h3><p>Setelah memperbaiki satu bug, jangan langsung menganggap project selesai. Tekan Green Flag lagi dan cocokkan hasilnya dengan expected result.</p><p>Testing membuat kamu tahu apakah perbaikan benar-benar berhasil. Jika satu bug sudah selesai tetapi masih ada masalah lain, lanjutkan debugging dengan gejala berikutnya.</p><div class="info-box"><h4>Expected result</h4><p>Expected result adalah hasil yang kamu harapkan sebelum mengetes. Tanpa expected result, testing hanya menjadi “lihat-lihat” tanpa patokan.</p></div></section><section class="explanation" id="explanation-23"><h3>Debugging Berdasarkan Gejala</h3><p>Bug bisa dicari dari gejala. Jika sprite tidak bergerak, cek event dan sambungan blok. Jika sprite bergerak ke arah salah, cek direction. Jika posisi awal atau akhir salah, cek koordinat.</p><p>Dengan cara ini, kamu tidak perlu membongkar semua kode. Kamu fokus pada blok yang paling dekat dengan masalah.</p><div class="warning-box"><h4>Aturan emas</h4><p>Ubah satu hal, lalu test. Kalau belum berhasil, baru lanjut ke bagian berikutnya.</p></div></section><section class="explanation" id="explanation-24"><h3>Kamus Blok Sesi 9</h3><p>Tabel di kiri adalah kamus kecil untuk project Detektif Koordinat. Jika lupa fungsi blok, kembali ke slide ini.</p><p>Perhatikan bahwa blok Motion punya fungsi yang berbeda-beda. <strong>Go to</strong> langsung memindahkan sprite ke titik tertentu, sedangkan <strong>move steps</strong> menggerakkan sprite sesuai arah hadapnya. <strong>Glide</strong> juga menuju koordinat, tetapi dengan gerakan yang terlihat lebih halus.</p><div class="info-box"><h4>Blok paling penting untuk debugging</h4><p>Untuk bug koordinat dan arah, blok yang paling sering dicek adalah <strong>go to</strong>, <strong>point in direction</strong>, <strong>move</strong>, dan <strong>glide</strong>.</p></div></section><section class="explanation" id="explanation-25"><h3>Simpan dan Bagikan dengan Aman</h3><p>Setelah project berjalan sesuai target, simpan project dengan nama yang jelas. Nama project membantu kamu dan guru menemukan file dengan mudah.</p><p>Jika guru meminta link project, gunakan fitur Share sesuai instruksi. Sebelum membagikan, cek lagi apakah ada informasi pribadi yang tidak sengaja tampil.</p><div class="warning-box"><h4>Keamanan digital</h4><p>Project debugging tidak membutuhkan data pribadi. Gunakan nama project dan isi yang aman.</p></div></section><section class="explanation" id="explanation-26"><h3>Output Minimum</h3><p>Output minimum bukan hanya project yang terlihat selesai. Kamu juga perlu bisa menjelaskan bug yang ditemukan dan cara memperbaikinya.</p><p>Checklist di kiri membantu memastikan prosesmu sudah lengkap: menjalankan starter file, menemukan bug, memperbaiki satu bagian, mengetes ulang, dan menjelaskan hasilnya.</p><div class="example-box"><h4>Kalimat refleksi contoh</h4><p>“Bug yang aku temukan adalah arah sprite. Sprite bergerak ke kiri karena direction -90, lalu aku ubah menjadi 90 agar bergerak ke kanan.”</p></div></section><section class="explanation" id="explanation-27"><h3>Refleksi Setelah Debugging</h3><p>Refleksi membantu kamu memastikan bahwa kamu bukan hanya mengikuti instruksi, tetapi benar-benar memahami prosesnya.</p><p>Coba jawab dengan bahasa sendiri. Tidak perlu panjang, yang penting jelas: gejalanya apa, penyebabnya apa, perbaikannya apa, dan bagaimana hasil setelah dites.</p><div class="info-box"><h4>Jawaban yang kuat biasanya menyebutkan</h4><ul><li>Bug yang terlihat di Stage.</li><li>Blok yang menyebabkan bug.</li><li>Perubahan yang dilakukan.</li><li>Hasil setelah Green Flag ditekan lagi.</li></ul></div></section><section class="explanation" id="explanation-28"><h3>Challenge Tambahan</h3><p>Challenge membuat kamu melatih debugging dari dua sisi: membuat bug sederhana dan mencari bug buatan orang lain.</p><p>Jika memilih challenge membuat bug, ubah satu hal saja, misalnya direction atau koordinat tujuan. Jangan membuat bug terlalu banyak karena temanmu akan sulit menemukan penyebabnya.</p><div class="info-box"><h4>Challenge paling seru</h4><p>Buat jalur START → CHECKPOINT → FINISH. Setiap tujuan baru membutuhkan koordinat yang jelas, jadi kamu berlatih memakai go to atau glide dengan lebih rapi.</p></div></section><section class="explanation" id="explanation-29"><h3>Rencana Sebelum Menambah Jalur</h3><p>Sebelum menambah challenge, buat rencana dulu. Ini membantu kamu memilih blok yang benar dan mengurangi bug baru.</p><p>Urutan sederhana untuk jalur tambahan bisa dimulai dari START, mengatur arah, bergerak ke checkpoint, lalu menuju finish. Jika rencananya jelas, kamu lebih mudah menentukan koordinat X dan Y.</p><div class="example-box"><h4>Hubungan dengan coding</h4><p>Program yang baik biasanya dimulai dari rencana. Setelah rencana jelas, baru kita susun bloknya.</p></div></section><section class="explanation" id="explanation-30"><h3>Teliti Saat Coding dan Saat Online</h3><p>Debugging melatih kebiasaan penting: mengamati sebelum bertindak. Kebiasaan ini juga berguna di dunia digital.</p><p>Sebelum mengubah kode, kita mengamati hasilnya dulu. Sebelum membagikan sesuatu secara online, kita juga perlu mengecek dulu apakah aman, sopan, dan tidak membocorkan data pribadi.</p><div class="info-box"><h4>Kebiasaan baik</h4><p>Teliti bukan berarti lambat. Teliti berarti kamu tahu apa yang sedang dilakukan dan apa akibatnya.</p></div></section><section class="explanation" id="explanation-31"><h3>Yang Sudah Dipelajari</h3><p>Di sesi ini, kamu belajar bahwa debugging adalah proses yang rapi. Kamu mengamati project, menemukan penyebab bug, memperbaiki satu bagian, lalu mengetes lagi.</p><p>Kamu juga memperkuat pemahaman tentang koordinat, direction, move steps, dan glide. Semua konsep ini penting untuk membuat sprite bergerak sesuai rencana.</p><div class="example-box"><h4>Bekal sesi ini</h4><p>Jika nanti project Scratch-mu tidak berjalan sesuai harapan, kamu sudah punya cara kerja: jangan panik, amati dulu, lalu perbaiki bertahap.</p></div></section></div></div>
+<script>
+const ACCESS_CODE='RGMDSUP26';let currentSlide=1;const totalSlides=document.querySelectorAll('.slide').length;document.getElementById('totalSlides').textContent=totalSlides;
+window.addEventListener('load',()=>{setTimeout(()=>document.querySelector('.access-popup').classList.add('show'),50);const input=document.getElementById('accessInput');input.focus();input.addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase();});input.addEventListener('keydown',e=>{if(e.key==='Enter')checkAccessCode();});initDragDrop();resetCoord();resetCars();});
+function checkAccessCode(){const input=document.getElementById('accessInput'),error=document.getElementById('accessError');if(input.value.trim().toUpperCase()===ACCESS_CODE){document.getElementById('accessPopup').style.display='none';document.getElementById('mainContent').style.display='flex';updateSlide();}else{error.classList.add('show');input.value='';input.focus();setTimeout(()=>error.classList.remove('show'),2200);}}
+function changeSlide(direction){const next=currentSlide+direction;if(next<1||next>totalSlides)return;currentSlide=next;updateSlide();}
+function updateSlide(){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.explanation').forEach(e=>e.classList.remove('active'));const s=document.getElementById(`slide-${currentSlide}`);if(s)s.classList.add('active');const e=document.getElementById(`explanation-${currentSlide}`);if(e)e.classList.add('active');document.getElementById('currentSlide').textContent=currentSlide;document.getElementById('prevBtn').disabled=currentSlide===1;document.getElementById('nextBtn').disabled=currentSlide===totalSlides;document.getElementById('progressFill').style.width=`${(currentSlide/totalSlides)*100}%`;document.querySelector('.slide-content').scrollTop=0;document.querySelector('.explanation-panel').scrollTop=0;}
+document.addEventListener('keydown',e=>{if(document.getElementById('mainContent').style.display==='none')return;if(e.key==='ArrowRight')changeSlide(1);if(e.key==='ArrowLeft')changeSlide(-1);});
+function singleChoice(btn,ok,feedbackId){const group=btn.parentElement;group.querySelectorAll('.choice-btn').forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong');});btn.classList.add(ok?'correct':'wrong');const fb=document.getElementById(feedbackId);if(fb){fb.textContent=ok?'Betul. Lanjutkan.':'Belum tepat. Coba baca lagi penjelasan di kanan.';fb.style.color=ok?'#176b35':'#a42820';}}
+function selectAny(btn){btn.classList.toggle('selected');}
+function toggleCheck(item){const cb=item.querySelector('input');cb.checked=!cb.checked;item.classList.toggle('done',cb.checked);}
+function showDebug(id,btn){const host=btn.closest('.slide');host.querySelectorAll('.debug-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');host.querySelectorAll('.debug-scenario').forEach(s=>s.classList.remove('active'));const el=host.querySelector('#'+id);if(el)el.classList.add('active');}
+let coordX=0,coordY=0;
+function posToStage(x,y){return{left:50+(x/240)*50,top:50-(y/180)*50};}
+function updateCoord(){const sprite=document.getElementById('coordSprite');if(!sprite)return;const p=posToStage(coordX,coordY);sprite.style.left=p.left+'%';sprite.style.top=p.top+'%';const r=document.getElementById('coordReadout');if(r)r.textContent=`Posisi sprite: x ${coordX}, y ${coordY}`;}
+function moveCoord(dx,dy){coordX=Math.max(-240,Math.min(240,coordX+dx));coordY=Math.max(-180,Math.min(180,coordY+dy));updateCoord();}
+function resetCoord(){coordX=0;coordY=0;updateCoord();}
+let dir=90;
+function setDir(d,btn){dir=d;document.querySelectorAll('.dir-cell').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const center=document.getElementById('dirCenter');if(center)center.innerHTML=d+'<br/>'+({90:'Kanan','-90':'Kiri',0:'Atas',180:'Bawah'}[d]);const r=document.getElementById('dirReadout');if(r)r.textContent=`Direction saat ini: ${d}, sprite akan bergerak ke ${{90:'kanan','-90':'kiri',0:'atas',180:'bawah'}[d]}.`;}
+function dirMoveDemo(){const r=document.getElementById('dirReadout');if(r)r.textContent=`Move 50 steps dijalankan. Dengan direction ${dir}, sprite bergerak ke ${{90:'kanan','-90':'kiri',0:'atas',180:'bawah'}[dir]}.`;}
+function resetDirDemo(){setDir(90,document.querySelector('#slide-6 .dir-cell:nth-child(6)'));}
+function resetCars(){['simCar','simCar2'].forEach(id=>{const c=document.getElementById(id);if(c){c.style.left='80px';c.style.top='112px';}});}
+function runStarterSim(){resetCars();const read=document.getElementById('starterReadout');if(read)read.textContent='Green Flag: sprite mulai dari kiri, lalu arah dan tujuan akhirnya diamati.';setTimeout(()=>{['simCar','simCar2'].forEach(id=>{const c=document.getElementById(id);if(c)c.style.left='38px';});if(read)read.textContent='point in direction -90 + move 50: sprite bergerak ke kiri. Apakah ini sesuai target?';},500);setTimeout(()=>{['simCar','simCar2'].forEach(id=>{const c=document.getElementById(id);if(c){c.style.left='128px';c.style.top='170px';}});if(read)read.textContent='glide ke x:-61 y:-90: sprite menuju kiri-bawah. Bandingkan dengan posisi FINISH.';},1500);}
+function showBugCase(id,card){document.querySelectorAll('#slide-9 .case-card').forEach(c=>c.classList.remove('active'));card.classList.add('active');const box=document.getElementById('bugCaseInfo');if(id==='case1')box.innerHTML='<h4>Kasus 1</h4><p>Ini bisa benar jika tujuannya bergerak dari kiri ke kanan pada garis yang sama. Posisi awal x:-150 dan tujuan x:150 sama-sama berada pada y:0.</p>';else box.innerHTML='<h4>Kasus 2</h4><p>Direction -90 berarti kiri. Jika tujuan project adalah bergerak ke kanan, potongan kode ini kemungkinan memiliki bug pada direction.</p>';}
+function showDebugFlow(type){const data={input:['Input','Green Flag adalah pemicu utama. Setelah diklik, blok di bawahnya berjalan sesuai urutan.'],check:['Check','Amati apakah hasil gerakan sesuai target. Jangan ubah kode sebelum tahu gejalanya.'],fix:['Fix','Ubah satu bagian yang paling mungkin menjadi penyebab bug.'],test:['Test','Jalankan ulang project untuk melihat apakah perbaikan berhasil.']}[type];const el=document.getElementById('debugFlowInfo');if(el)el.innerHTML=`<h4>${data[0]}</h4><p>${data[1]}</p>`;}
+function moveStepDemo(n,btn){document.querySelectorAll('#slide-18 .tiny-card').forEach(c=>c.classList.remove('active'));btn.classList.add('active');const info=document.getElementById('moveStepInfo');if(info)info.textContent=`Move ${n} steps: semakin besar angkanya, semakin jauh sprite berjalan sesuai arah hadapnya.`;}
+function initDragDrop(){document.querySelectorAll('.sequence-card').forEach(card=>{card.addEventListener('dragstart',()=>card.classList.add('dragging'));card.addEventListener('dragend',()=>card.classList.remove('dragging'));});document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone=>{zone.addEventListener('dragover',e=>{e.preventDefault();const dragging=document.querySelector('.dragging');if(dragging)zone.appendChild(dragging);});});}
+function checkOrder(targetId,feedbackId){const cards=[...document.getElementById(targetId).querySelectorAll('.sequence-card')];const ok=cards.length===4&&cards.every((c,i)=>Number(c.dataset.order)===i+1);const fb=document.getElementById(feedbackId);fb.textContent=ok?'Urutannya sudah tepat.':'Belum tepat. Coba susun dari START sampai FINISH.';fb.style.color=ok?'#176b35':'#a42820';}
+</script>
+</body>
+</html>

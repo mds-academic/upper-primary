@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UOB My Digital Space Y2 — Upper Primary Sesi 10</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🛒&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #0056b3;
+      --light-blue: #4a9eff;
+      --uob-red: #e60012;
+      --uob-red-soft: #ff5a6b;
+      --uob-blue-deep: #0056b3;
+      --uob-blue-soft: #5aa7ff;
+      --teal: #11a9b7;
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --line: #e3e8ef;
+      --green: #2e9d57;
+      --orange: #f39c12;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --yellow-soft: #fff8dc;
+      --blue-soft: #eef7ff;
+      --green-soft: #effaf2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--text)
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f5d7da, #d9e9ff);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08)
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--uob-red) 0%, var(--uob-red-soft) 28%, var(--uob-blue-deep) 72%, var(--uob-blue-soft) 100%);
+      transition: width .3s ease;
+      box-shadow: 0 0 8px rgba(0, 86, 179, .18)
+    }
+
+    .main-container {
+      display: flex;
+      height: 100vh
+    }
+
+    .slides-panel {
+      width: 50%;
+      background: #f8f9fa;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative
+    }
+
+    .explanation-panel {
+      width: 50%;
+      background: #fff;
+      overflow-y: auto;
+      padding: 32px
+    }
+
+    .slide-header {
+      background: #fff;
+      padding: 17px 20px 15px;
+      border-bottom: 2px solid var(--line);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+      position: relative
+    }
+
+    .slide-header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(var(--uob-red), var(--light-blue))
+    }
+
+    .slide-header h1 {
+      font-size: 1.28rem;
+      color: var(--text);
+      margin-bottom: 3px
+    }
+
+    .slide-header p {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
+    .header-badge {
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #cce7ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 700;
+      font-size: .76rem
+    }
+
+    .slide-content {
+      flex: 1;
+      padding: 24px 28px 94px;
+      overflow-y: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 0
+    }
+
+    .slide,
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity .25s ease
+    }
+
+    .slide.active,
+    .explanation.active {
+      display: block;
+      opacity: 1
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 820px
+    }
+
+    .explanation {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .slide h2 {
+      font-size: 2.25rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+      line-height: 1.15
+    }
+
+    .slide h3 {
+      font-size: 1.78rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .slide h4,
+    .explanation h4 {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: var(--text)
+    }
+
+    .slide p,
+    .explanation p {
+      font-size: 1rem;
+      line-height: 1.58;
+      color: #495057;
+      margin-bottom: 14px
+    }
+
+    .explanation h3 {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      line-height: 1.25
+    }
+
+    .slide ul,
+    .slide ol,
+    .explanation ul,
+    .explanation ol {
+      margin-left: 22px;
+      margin-bottom: 10px
+    }
+
+    .slide li,
+    .explanation li {
+      margin-bottom: 7px;
+      line-height: 1.5
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--uob-red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .lead {
+      font-size: 1.08rem !important
+    }
+
+    .mini-note {
+      font-size: .9rem !important;
+      color: var(--muted) !important;
+      margin-top: 10px
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 13px;
+      margin: 16px 0
+    }
+
+    .visual-card,
+    .metric-box,
+    .info-box,
+    .example-box,
+    .warning-box,
+    .placeholder-box,
+    .interactive-box,
+    .code-placeholder,
+    .quiz-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05)
+    }
+
+    .visual-card {
+      padding: 15px
+    }
+
+    .visual-card h4 {
+      margin-bottom: 5px
+    }
+
+    .visual-card p {
+      margin-bottom: 0;
+      font-size: .92rem;
+      line-height: 1.42
+    }
+
+    .visual-icon {
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .metric-box {
+      padding: 16px 12px;
+      text-align: center
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--blue);
+      margin-bottom: 7px
+    }
+
+    .metric-box span {
+      font-size: .9rem;
+      line-height: 1.35;
+      color: #495057;
+      display: block
+    }
+
+    .info-box,
+    .example-box,
+    .warning-box,
+    .interactive-box {
+      padding: 17px;
+      margin: 16px 0
+    }
+
+    .info-box {
+      border-left: 5px solid var(--light-blue)
+    }
+
+    .example-box {
+      border-left: 5px solid var(--green);
+      background: #f8fff8
+    }
+
+    .warning-box {
+      border-left: 5px solid var(--orange);
+      background: #fffaf0
+    }
+
+    .interactive-box {
+      border-left: 5px solid var(--purple);
+      background: #fcf8ff
+    }
+
+    .placeholder-box {
+      min-height: 215px;
+      padding: 24px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      background: linear-gradient(135deg, #fbfdff, #f5f9fc)
+    }
+
+    .placeholder-box .placeholder-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px
+    }
+
+    .placeholder-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px
+    }
+
+    .placeholder-box small {
+      color: var(--muted);
+      line-height: 1.4
+    }
+
+    .code-placeholder {
+      min-height: 230px;
+      padding: 22px;
+      margin: 14px 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      border-color: #9ab7d3;
+      background: #f8fbfe
+    }
+
+    .code-placeholder strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 7px
+    }
+
+    .code-placeholder code {
+      color: var(--muted);
+      background: #eef3f8;
+      padding: 3px 7px;
+      border-radius: 5px
+    }
+
+    .pseudo-list {
+      list-style: none;
+      margin-left: 0 !important;
+      counter-reset: pseudo
+    }
+
+    .pseudo-list li {
+      counter-increment: pseudo;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      margin-bottom: 8px
+    }
+
+    .pseudo-list li::before {
+      content: counter(pseudo);
+      position: absolute;
+      left: 11px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: .8rem
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 2px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, .04)
+    }
+
+    .nav-btn {
+      background: var(--light-blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: .94rem;
+      font-weight: 700;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      transition: .2s ease
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      background: #357abd
+    }
+
+    .nav-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .slide-indicator {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: .07;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      33% {
+        transform: translateY(-12px) rotate(4deg)
+      }
+
+      66% {
+        transform: translateY(7px) rotate(-3deg)
+      }
+    }
+
+    .access-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .access-popup {
+      background: white;
+      border: 3px solid var(--light-blue);
+      border-radius: 15px;
+      padding: 38px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transform: scale(.8);
+      opacity: 0;
+      transition: all .3s ease
+    }
+
+    .access-popup.show {
+      transform: scale(1);
+      opacity: 1
+    }
+
+    .access-popup h2 {
+      color: var(--text);
+      margin-bottom: 13px;
+      font-size: 1.8rem
+    }
+
+    .access-popup p {
+      color: #666;
+      margin-bottom: 22px;
+      line-height: 1.55
+    }
+
+    .access-input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.15rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    .access-input:focus {
+      outline: none;
+      border-color: var(--light-blue);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, .12)
+    }
+
+    .access-submit {
+      background: var(--light-blue);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .access-submit:hover {
+      background: #357abd
+    }
+
+    .access-error {
+      color: var(--red);
+      margin-top: 13px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .access-error.show {
+      opacity: 1
+    }
+
+    .access-hint {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 18px;
+      font-size: .88rem;
+      color: #856404
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0
+    }
+
+    .choice-btn {
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .18s;
+      text-align: left
+    }
+
+    .choice-btn:hover {
+      border-color: var(--light-blue);
+      transform: translateY(-1px)
+    }
+
+    .choice-btn.correct,
+    .choice-btn.selected {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #176b35
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--red);
+      background: #fff1f0;
+      color: #a42820
+    }
+
+    .feedback-line {
+      min-height: 28px;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary-btn {
+      background: var(--blue);
+      color: white
+    }
+
+    .secondary-btn {
+      background: #e9ecef;
+      color: var(--text)
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      display: grid;
+      gap: 8px
+    }
+
+    .check-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      cursor: pointer
+    }
+
+    .check-item input {
+      margin-top: 3px;
+      transform: scale(1.2)
+    }
+
+    .check-item.done {
+      background: var(--green-soft);
+      border-color: #9cd9af;
+      text-decoration: line-through;
+      color: #3e6b4c
+    }
+
+    .debug-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .debug-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    .debug-tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    .debug-scenario {
+      display: none
+    }
+
+    .debug-scenario.active {
+      display: block
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2px
+    }
+
+    .pill.blue {
+      background: var(--blue)
+    }
+
+    .pill.green {
+      background: var(--green)
+    }
+
+    .pill.orange {
+      background: var(--orange)
+    }
+
+    .pill.purple {
+      background: var(--purple)
+    }
+
+    .pill.red {
+      background: var(--uob-red)
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 20px 0
+    }
+
+    .flow-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .flow-arrow {
+      color: var(--uob-red);
+      font-size: 1.6rem;
+      font-weight: 900
+    }
+
+    .symbol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 14px 0
+    }
+
+    .symbol-card {
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .symbol-card.active {
+      border-color: var(--blue);
+      background: var(--blue-soft)
+    }
+
+    .symbol-shape {
+      height: 54px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--blue);
+      max-width: 120px
+    }
+
+    .oval {
+      border-radius: 999px
+    }
+
+    .rect {
+      border-radius: 10px
+    }
+
+    .diamond {
+      width: 64px;
+      height: 64px;
+      transform: rotate(45deg);
+      border-radius: 8px
+    }
+
+    .diamond span {
+      transform: rotate(-45deg)
+    }
+
+    .parallelogram {
+      transform: skew(-15deg);
+      border-radius: 9px
+    }
+
+    .parallelogram span {
+      transform: skew(15deg)
+    }
+
+    .sequence-source,
+    .sequence-target {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .sequence-card {
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      cursor: grab;
+      user-select: none;
+      font-weight: 700
+    }
+
+    .sequence-card.dragging {
+      opacity: .45
+    }
+
+    .sequence-target {
+      min-height: 170px;
+      border: 2px dashed #a9bfd2;
+      background: #f8fbfe;
+      border-radius: 10px;
+      padding: 10px
+    }
+
+    .keyboard {
+      background: #eef3fb;
+      border: 2px solid #cfdcec;
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .key {
+      background: white;
+      border: 2px solid #dbe3ef;
+      border-radius: 8px;
+      padding: 11px 0;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+      cursor: pointer
+    }
+
+    .key.active,
+    .key.music {
+      background: linear-gradient(135deg, #ffdde3, #d9eaff);
+      border-color: var(--blue);
+      color: var(--blue)
+    }
+
+    .key.music.playing {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .sound-log {
+      border: 2px dashed #9ab7d3;
+      background: #f8fbfe;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 58px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .piano-preview {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 18px 0
+    }
+
+    .piano-preview button {
+      width: 78px;
+      height: 120px;
+      border: 2px solid #d7e0eb;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, .08)
+    }
+
+    .piano-preview button:nth-child(1) {
+      background: #ffe4e8
+    }
+
+    .piano-preview button:nth-child(2) {
+      background: #fff0c8
+    }
+
+    .piano-preview button:nth-child(3) {
+      background: #dff8e9
+    }
+
+    .piano-preview button:nth-child(4) {
+      background: #dff3ff
+    }
+
+    .piano-preview button.playing {
+      transform: translateY(4px);
+      box-shadow: none
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .safe-card {
+      padding: 15px
+    }
+
+    .safe-card.good {
+      border-left: 5px solid var(--green)
+    }
+
+    .safe-card.bad {
+      border-left: 5px solid var(--red)
+    }
+
+    .compact-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff
+    }
+
+    .compact-table th {
+      background: var(--blue);
+      color: white;
+      text-align: left;
+      padding: 10px
+    }
+
+    .compact-table td {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top
+    }
+
+    .compact-table tr:nth-child(even) td {
+      background: #f8fbfe
+    }
+
+    @media(max-width:960px) {
+      body {
+        overflow: auto;
+        height: auto
+      }
+
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh
+      }
+
+      .slides-panel,
+      .explanation-panel {
+        width: 100%;
+        height: auto;
+        min-height: 50vh
+      }
+
+      .slides-panel {
+        min-height: 100vh
+      }
+
+      .slide-content {
+        padding: 20px 20px 92px
+      }
+
+      .explanation-panel {
+        padding: 24px
+      }
+
+      .header-badge {
+        display: none
+      }
+
+      .flow-line,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .flow-arrow {
+        display: none
+      }
+
+      .keyboard {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+  
+
+    /* Session 9 Detektif Koordinat widgets */
+    .coord-stage{position:relative;width:100%;max-width:560px;height:340px;margin:14px auto;border:2px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#eef7ff 0%,#ffffff 100%);overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .coord-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#dce9f5 1px,transparent 1px),linear-gradient(90deg,#dce9f5 1px,transparent 1px);background-size:28px 28px;opacity:.75}
+    .axis-x,.axis-y{position:absolute;background:#9ab7d3}.axis-x{left:0;right:0;top:50%;height:2px}.axis-y{top:0;bottom:0;left:50%;width:2px}
+    .coord-label{position:absolute;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:8px;padding:4px 7px;font-size:.78rem;font-weight:900;color:var(--blue)}
+    .coord-label.top{top:8px;left:50%;transform:translateX(-50%)}.coord-label.bottom{bottom:8px;left:50%;transform:translateX(-50%)}.coord-label.left{left:8px;top:50%;transform:translateY(-50%)}.coord-label.right{right:8px;top:50%;transform:translateY(-50%)}.coord-label.center{left:50%;top:50%;transform:translate(6px,6px);color:var(--uob-red)}
+    .sprite-dot{position:absolute;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#6ee7f9,#3b82f6);border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.22);display:grid;place-items:center;font-size:1.45rem;transform:translate(-50%,-50%);transition:.45s ease;z-index:3}
+    .finish-flag{position:absolute;right:28px;top:42%;font-size:2rem;z-index:2}.start-flag{position:absolute;left:28px;top:42%;font-size:2rem;z-index:2}
+    .route-line{position:absolute;height:5px;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:999px;left:72px;right:72px;top:50%;transform:translateY(-50%);opacity:.28}
+    .coord-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:9px;margin:12px 0}.coord-btn{border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px;font-weight:900;cursor:pointer}.coord-btn:hover,.coord-btn.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+    .coord-readout{background:#f8fbfe;border:2px solid #cfe7fb;border-radius:12px;padding:12px;margin:12px 0;font-weight:800;color:var(--blue);text-align:center}
+    .direction-compass{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:380px;margin:14px auto;align-items:center;text-align:center}.dir-cell{background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px;font-weight:900;cursor:pointer;min-height:70px;display:grid;place-items:center}.dir-cell.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}.dir-center{background:var(--blue);color:#fff;border-radius:50%;height:88px;width:88px;display:grid;place-items:center;margin:auto;font-weight:900}
+    .scratch-shell{background:#fff;border:2px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);margin:14px 0}.scratch-top{height:34px;background:#f2f4f7;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;font-weight:900;color:var(--text)}.green-flag{border:none;background:#2e9d57;color:#fff;border-radius:8px;padding:6px 9px;font-weight:900;cursor:pointer}.stop-dot{width:22px;height:22px;border-radius:7px;background:#e74c3c;display:inline-block}.scratch-stage{position:relative;height:245px;background:#1f2937;overflow:hidden}.road{position:absolute;left:0;right:0;top:40%;height:72px;background:#31343b;border-top:6px dashed #e5e7eb;border-bottom:6px dashed #e5e7eb}.road::after{content:"";position:absolute;left:0;right:0;top:50%;height:4px;background:repeating-linear-gradient(90deg,#fff 0 24px,transparent 24px 48px);opacity:.75}.car{position:absolute;width:54px;height:30px;border-radius:12px 16px 8px 8px;background:#22c55e;border:3px solid #fff;display:grid;place-items:center;font-size:1.1rem;transition:.6s ease;z-index:3}.vertical-word{position:absolute;top:24px;bottom:24px;display:grid;place-items:center;color:#fff;font-weight:900;letter-spacing:.12em;writing-mode:vertical-rl;text-orientation:mixed}.vertical-word.start{left:15px}.vertical-word.finish{right:15px}
+    .block-code{background:#111827;color:#e5e7eb;border-radius:14px;padding:14px;margin:12px 0;font-family:Consolas,Monaco,monospace;line-height:1.55;white-space:pre-wrap;box-shadow:0 8px 16px rgba(0,0,0,.12)}.block-blue{border-left:7px solid #4a9eff}.block-yellow{border-left:7px solid #fbbf24}.block-orange{border-left:7px solid #f39c12}.block-red{border-left:7px solid #e60012}
+    .case-card{border:2px solid var(--line);background:#fff;border-radius:12px;padding:14px;margin:10px 0;cursor:pointer}.case-card:hover,.case-card.active{border-color:var(--blue);background:var(--blue-soft)}
+    .bug-board{background:#fffaf0;border:2px dashed var(--orange);border-radius:14px;padding:14px;margin:14px 0}.bug-board h4{color:#9a6400}.tiny-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0}.tiny-card{border:2px solid var(--line);border-radius:12px;background:#fff;padding:12px;text-align:center;font-weight:800;cursor:pointer}.tiny-card.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+    @media(max-width:960px){.coord-stage{height:300px}.direction-compass{max-width:330px}.scratch-stage{height:220px}}
+
+    .shop-stage{background:linear-gradient(180deg,#dff3ff 0%,#fff7df 55%,#e7f5dc 55%);border:2px solid var(--line);border-radius:18px;min-height:300px;position:relative;overflow:hidden;margin:16px 0;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .shop-shelf{position:absolute;left:22px;top:30px;width:120px;height:170px;border:2px solid #c7a66b;border-radius:12px;background:#fff3c4;display:grid;grid-template-rows:repeat(3,1fr);gap:6px;padding:8px}
+    .shop-shelf div{background:#fff;border-radius:8px;border:1px solid #e2c178;display:flex;align-items:center;justify-content:center;font-size:1.25rem}
+    .shop-robot{position:absolute;right:45px;bottom:24px;font-size:4.4rem;filter:drop-shadow(0 6px 7px rgba(0,0,0,.18))}
+    .speech-bubble{position:absolute;right:115px;top:36px;max-width:260px;background:white;border:2px solid var(--line);border-radius:18px;padding:13px 15px;font-weight:800;color:var(--text);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .speech-bubble::after{content:"";position:absolute;right:18px;bottom:-13px;border-width:13px 0 0 18px;border-style:solid;border-color:transparent transparent transparent white;filter:drop-shadow(1px 1px 0 var(--line))}
+    .shop-panel{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    .shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+    .shop-input{width:100%;border:2px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:5px;background:white}
+    .chat-log{background:#f8fbfe;border:2px dashed #9ab7d3;border-radius:14px;padding:13px;min-height:92px;margin:12px 0;line-height:1.55}
+    .small-code{background:#111827;color:#f8fafc;border-radius:14px;padding:14px;margin:12px 0;font-family:Consolas,Monaco,monospace;line-height:1.55;box-shadow:0 8px 16px rgba(0,0,0,.12);white-space:normal}
+    .code-line{padding:7px 9px;border-radius:8px;margin:5px 0;background:rgba(255,255,255,.06)}
+    .yellow-line{border-left:6px solid #f1c40f}.blue-line{border-left:6px solid #4a9eff}.purple-line{border-left:6px solid #8e44ad}.green-line{border-left:6px solid #2e9d57}.orange-line{border-left:6px solid #f39c12}
+    .trace-table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:.92rem}
+    .trace-table th{background:var(--blue);color:#fff;text-align:left;padding:10px}.trace-table td{border-top:1px solid var(--line);padding:10px;vertical-align:top}.trace-table tr.active td{background:#fff8dc;font-weight:800}
+    .mini-badge{display:inline-block;background:var(--blue-soft);color:var(--blue);border:1px solid #cce7ff;border-radius:999px;padding:4px 9px;font-weight:900;font-size:.8rem;margin:2px}
+    @media(max-width:960px){.shop-grid{grid-template-columns:1fr}.speech-bubble{position:static;margin:14px}.shop-robot{right:30px}.shop-stage{min-height:330px}}
+</style>
+</head>
+<body>
+<div class="access-popup-overlay" id="accessPopup"><div class="access-popup"><h2>🔐 Kode Akses</h2><p>Masukkan kode akses Upper Primary untuk membuka materi Sesi 10.</p><input autocomplete="off" class="access-input" id="accessInput" maxlength="20" placeholder="MASUKKAN KODE" type="text"/><button class="access-submit" onclick="checkAccessCode()">Masuk</button><div class="access-error" id="accessError">Kode akses belum tepat. Coba lagi.</div><div class="access-hint">Kode akses diberikan oleh guru.</div></div></div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="main-container" id="mainContent" style="display:none;">
+<div class="slides-panel"><div class="slide-header"><h1>UOB My Digital Space Y2 — Upper Primary</h1><p>Sesi 10 · Kalkulator Harga Sederhana</p><span class="header-badge">Scratch · Kelas 4–6 SD</span></div><div class="slide-content"><div class="floating-element" style="top:12%;left:7%;">🛒</div><div class="floating-element" style="top:18%;right:10%;">💬</div><div class="floating-element" style="bottom:25%;left:14%;">💰</div><div class="floating-element" style="bottom:15%;right:16%;">🧩</div><section class="slide active" id="slide-1"><span class="eyebrow">Sesi 10</span>
+<h2>Kalkulator Harga Sederhana</h2>
+<p class="lead">Hari ini kita membuat project Scratch yang bisa bertanya barang apa yang dibeli, menerima jawaban, lalu menampilkan kembali barang dan harganya.</p>
+<div class="metrics"><div class="metric-box"><strong>💬</strong><span>ask and wait</span></div><div class="metric-box"><strong>🧠</strong><span>answer</span></div><div class="metric-box"><strong>🔗</strong><span>join</span></div><div class="metric-box"><strong>🛒</strong><span>harga barang</span></div></div>
+<div class="example-box"><h4>Target project</h4><p>Robot kasir menyapa, bertanya barang yang dibeli, bertanya harga barang, lalu menampilkan jawabannya di balon kata.</p></div>
+<div class="warning-box"><h4>Catatan penting</h4><p>Project ini belum menghitung total belanja. Kita sedang belajar menerima input dari pengguna dan menampilkannya kembali dengan kalimat yang rapi.</p></div></section><section class="slide" id="slide-2"><h3>Misi Belajar Hari Ini</h3>
+<div class="visual-grid"><div class="visual-card"><div class="visual-icon">🛍️</div><h4>Barang</h4><p>Mencatat nama barang yang dimasukkan user.</p></div><div class="visual-card"><div class="visual-icon">💰</div><h4>Harga</h4><p>Menerima input harga dengan angka sederhana.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Pertanyaan</h4><p>Menggunakan ask and wait agar user bisa menjawab.</p></div><div class="visual-card"><div class="visual-icon">🔗</div><h4>Kalimat</h4><p>Menggabungkan teks dan answer dengan join.</p></div></div><div class="interactive-box"><h4>Quick check</h4><p>Kalau robot kasir bertanya “Kamu beli barang apa?”, blok apa yang cocok?</p><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q2')">ask and wait</button><button class="choice-btn" onclick="up10Quiz(this,false,'q2')">erase all</button><button class="choice-btn" onclick="up10Quiz(this,false,'q2')">turn 90 degrees</button></div><div class="feedback-line" id="q2"></div></div></section><section class="slide" id="slide-3"><h3>Siapkan Workspace</h3>
+<p class="lead">Sebelum coding, pastikan Scratch dan project sudah siap.</p><div class="choice-grid"><button class="choice-btn" onclick="selectAny(this)">Scratch sudah terbuka</button><button class="choice-btn" onclick="selectAny(this)">Starter atau project baru siap</button><button class="choice-btn" onclick="selectAny(this)">Sprite kasir/robot sudah ada</button><button class="choice-btn" onclick="selectAny(this)">Backdrop toko sederhana siap dipakai</button><button class="choice-btn" onclick="selectAny(this)">Aku memakai contoh harga, bukan data pribadi</button></div><div class="warning-box"><h4>Data aman</h4><p>Gunakan contoh seperti <strong>pensil</strong>, <strong>buku</strong>, atau <strong>air mineral</strong>. Jangan memakai data pribadi, nomor rekening, PIN, atau informasi pembayaran asli.</p></div></section><section class="slide" id="slide-4"><h3>Buka Sesi 10 di LMS</h3>
+<p class="lead">Mulai dari menu Sesi Kelas, lalu pilih kartu Sesi 10 sesuai arahan guru.</p><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT LMS</strong><small>Ganti dengan screenshot LMS Upper Primary jika ingin ditampilkan di kelas.</small></div></div><ol class="pseudo-list"><li>Buka LMS UOB My Digital Space.</li><li>Masuk ke menu <strong>Sesi Kelas</strong>.</li><li>Pilih Sesi 10: <strong>Kalkulator Harga Sederhana</strong>.</li><li>Buka materi dan project Scratch yang diarahkan guru.</li></ol></section><section class="slide" id="slide-5"><h3>Kenapa Perlu Mengingat Harga?</h3>
+<p class="lead">Saat membeli sesuatu, kita perlu tahu barang dan harganya agar bisa mengecek belanjaan.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🛒</div><h4>Barang</h4><p>Apa yang dibeli?</p></div><div class="visual-card"><div class="visual-icon">🏷️</div><h4>Harga</h4><p>Berapa harga barang itu?</p></div><div class="visual-card"><div class="visual-icon">🤔</div><h4>Perkiraan</h4><p>Apakah harganya masuk akal?</p></div></div><div class="interactive-box"><h4>Pilih harga yang masuk akal</h4><p>Harga satu penghapus kecil biasanya lebih mungkin...</p><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q5')">Rp2.000 - Rp5.000</button><button class="choice-btn" onclick="up10Quiz(this,false,'q5')">Rp2.000.000</button></div><div class="feedback-line" id="q5"></div></div></section><section class="slide" id="slide-6"><h3>Tebak Harga Barang</h3>
+<p class="lead">Sebelum masuk ke Scratch, coba cocokkan barang dengan kisaran harga yang masuk akal.</p><div class="shop-grid"><div class="shop-panel"><h4>Barang</h4><div class="choice-grid"><button class="choice-btn" onclick="up10PriceGuess(this,'pensil')">Pensil</button><button class="choice-btn" onclick="up10PriceGuess(this,'penggaris')">Penggaris</button><button class="choice-btn" onclick="up10PriceGuess(this,'buku')">Buku tulis</button><button class="choice-btn" onclick="up10PriceGuess(this,'air')">Air mineral</button></div></div><div class="shop-panel"><h4>Kisaran contoh</h4><div class="chat-log" id="priceGuessLog">Pilih barang untuk melihat kisaran harga contoh.</div></div></div><div class="mini-note">Kisaran ini hanya contoh. Harga asli bisa berbeda.</div></section><section class="slide" id="slide-7"><h3>Coba UI Toko Kiko</h3>
+<p class="lead">Coba dulu sebagai pembeli. Isi barang dan harga, lalu lihat balon kata robot.</p><div class="shop-stage"><div class="shop-shelf"><div>✏️</div><div>📘</div><div>🥤</div></div><div class="speech-bubble" id="shopSpeech">Halo! Klik Green Flag untuk mulai.</div><div class="shop-robot">🤖</div></div><div class="shop-grid"><label><strong>Barang yang dibeli</strong><input class="shop-input" id="uiItem" value="pensil"/></label><label><strong>Harga barang</strong><input class="shop-input" id="uiPrice" value="3000"/></label></div><div class="choice-grid"><button class="primary-btn" onclick="up10RunShop()">▶ Green Flag</button><button class="choice-btn" onclick="up10Sample('buku tulis','8000')">Coba buku tulis</button><button class="choice-btn" onclick="up10Sample('air mineral','5000')">Coba air mineral</button></div></section><section class="slide" id="slide-8"><h3>Uji dengan Beberapa Jawaban</h3>
+<p class="lead">Project harus tetap masuk akal saat user mengisi jawaban yang berbeda.</p><div class="choice-grid"><button class="choice-btn" onclick="up10Scenario('pensil','3000',this)">Pensil · 3000</button><button class="choice-btn" onclick="up10Scenario('roti','6000',this)">Roti · 6000</button><button class="choice-btn" onclick="up10Scenario('penggaris','5000',this)">Penggaris · 5000</button><button class="choice-btn" onclick="up10Scenario('buku tulis','10000',this)">Buku tulis · 10000</button></div><div class="chat-log" id="scenarioLog">Pilih salah satu contoh.</div><div class="interactive-box"><h4>Kalau jawaban user berubah, output harus...</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q8')">Ikut berubah</button><button class="choice-btn" onclick="up10Quiz(this,false,'q8')">Selalu sama</button></div><div class="feedback-line" id="q8"></div></div></section><section class="slide" id="slide-9"><h3>Blok ask and wait</h3>
+<p class="lead">Blok <strong>ask and wait</strong> membuat Scratch bertanya dan menunggu user menjawab.</p><div class="small-code"><div class="code-line blue-line">ask [Kamu beli barang apa?] and wait</div></div><div class="interactive-box"><h4>Coba jawab pertanyaan</h4><input class="shop-input" id="askDemoInput" value="pensil"/><button class="primary-btn" onclick="up10AskDemo()">Jawab</button><div class="chat-log" id="askDemoLog">Jawabanmu akan muncul di sini.</div></div></section><section class="slide" id="slide-10"><h3>answer Menyimpan Jawaban Terakhir</h3>
+<p class="lead">Setelah user menjawab, Scratch menyimpan jawabannya di blok <strong>answer</strong>.</p><div class="shop-grid"><div class="shop-panel"><h4>Simulasi answer</h4><button class="primary-btn" onclick="up10AnswerStep('barang')">1. Jawab barang</button><button class="primary-btn" onclick="up10AnswerStep('harga')">2. Jawab harga</button></div><div class="shop-panel"><h4>Isi answer sekarang</h4><div class="chat-log" id="answerMemory">Belum ada jawaban.</div></div></div><div class="warning-box"><h4>Ingat</h4><p><strong>answer</strong> selalu berisi jawaban terakhir. Setelah pertanyaan harga dijawab, answer tidak lagi berisi nama barang.</p></div></section><section class="slide" id="slide-11"><h3>join: Menggabungkan Teks dan Jawaban</h3>
+<p class="lead">Blok <strong>join</strong> membuat balon kata lebih jelas karena teks dan jawaban digabung.</p><div class="shop-grid"><label><strong>Teks awal</strong><input class="shop-input" id="joinText" value="Barang yang kamu beli adalah: "/></label><label><strong>Jawaban</strong><input class="shop-input" id="joinAnswer" value="pensil"/></label></div><button class="primary-btn" onclick="up10JoinDemo()">Coba join</button><div class="chat-log" id="joinLog">Klik tombol untuk melihat hasil gabungan.</div><div class="small-code"><div class="code-line purple-line">join [Barang yang kamu beli adalah: ] (answer)</div></div></section><section class="slide" id="slide-12"><h3>Menulis Harga agar Jelas</h3>
+<p class="lead">Harga perlu diberi keterangan agar user tahu angka itu adalah Rupiah.</p><div class="shop-grid"><button class="choice-btn" onclick="up10OutputChoice(this,false)"><h4>Kurang jelas</h4><p><strong>3000</strong></p></button><button class="choice-btn" onclick="up10OutputChoice(this,true)"><h4>Lebih jelas</h4><p><strong>Harga barangmu adalah Rp: 3000</strong></p></button></div><div class="feedback-line" id="outputChoiceLog">Pilih salah satu tampilan output.</div><div class="warning-box"><h4>Tips input</h4><p>Untuk latihan awal, masukkan angka tanpa titik, koma, atau simbol Rp. Contoh: <strong>3000</strong>, bukan Rp3.000.</p></div></section><section class="slide" id="slide-13"><h3>Input → Process → Output</h3>
+<div class="flow-line"><div class="flow-box" onclick="up10IPO('input')">Input</div><div class="flow-arrow">→</div><div class="flow-box" onclick="up10IPO('process')">Process</div><div class="flow-arrow">→</div><div class="flow-box" onclick="up10IPO('output')">Output</div></div><div class="info-box" id="ipoInfo"><h4>Input</h4><p>Jawaban user dari pertanyaan Scratch, misalnya barang dan harga.</p></div><div class="interactive-box"><h4>Quick check</h4><p>Dalam project ini, output terlihat sebagai...</p><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q13')">Balon kata sprite</button><button class="choice-btn" onclick="up10Quiz(this,false,'q13')">Kode yang hilang</button></div><div class="feedback-line" id="q13"></div></div></section><section class="slide" id="slide-14"><h3>Flowchart Percakapan Toko</h3>
+<p class="lead">Sebelum coding, baca dulu alur percakapannya.</p><div class="flow-line"><div class="flow-box">Mulai</div><div class="flow-arrow">→</div><div class="flow-box">Tanya barang</div><div class="flow-arrow">→</div><div class="flow-box">Tampilkan barang</div></div><div class="flow-line"><div class="flow-box">Tanya harga</div><div class="flow-arrow">→</div><div class="flow-box">Tampilkan harga</div><div class="flow-arrow">→</div><div class="flow-box">Selesai</div></div><div class="interactive-box"><h4>Mana urutan yang benar?</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q14')">Tanya barang → tampilkan barang → tanya harga</button><button class="choice-btn" onclick="up10Quiz(this,false,'q14')">Tanya harga → selesai → baru tanya barang</button></div><div class="feedback-line" id="q14"></div></div></section><section class="slide" id="slide-15"><h3>Project Plan: Toko Kiko</h3>
+<div class="visual-grid"><div class="visual-card"><div class="visual-icon">🤖</div><h4>Sprite</h4><p>Robot kasir atau karakter toko.</p></div><div class="visual-card"><div class="visual-icon">🏪</div><h4>Backdrop</h4><p>Toko atau minimarket.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Percakapan</h4><p>Robot bertanya dan menjawab.</p></div><div class="visual-card"><div class="visual-icon">🧪</div><h4>Testing</h4><p>Coba beberapa barang dan harga.</p></div></div><div class="info-box"><h4>Output minimum</h4><p>Ketika Green Flag diklik, robot menyapa, bertanya barang, menampilkan barang, bertanya harga, menampilkan harga, lalu mengucapkan terima kasih.</p></div></section><section class="slide" id="slide-16"><h3>Blok yang Dipakai</h3>
+<table class="compact-table"><tr><th>Blok</th><th>Gunanya</th></tr><tr><td><strong>when green flag clicked</strong></td><td>Memulai percakapan toko.</td></tr><tr><td><strong>say for seconds</strong></td><td>Menampilkan sapaan atau hasil jawaban.</td></tr><tr><td><strong>ask and wait</strong></td><td>Membuat pertanyaan dan menunggu user menjawab.</td></tr><tr><td><strong>answer</strong></td><td>Menyimpan jawaban terakhir dari user.</td></tr><tr><td><strong>join</strong></td><td>Menggabungkan teks tetap dan answer.</td></tr></table><div class="interactive-box"><h4>Blok mana yang menyimpan jawaban terakhir?</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q16')">answer</button><button class="choice-btn" onclick="up10Quiz(this,false,'q16')">say for seconds</button><button class="choice-btn" onclick="up10Quiz(this,false,'q16')">when green flag clicked</button></div><div class="feedback-line" id="q16"></div></div></section><section class="slide" id="slide-17"><h3>Langkah 1: Mulai dan Sapa Pembeli</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK GREEN FLAG + SAPAAN</strong><small>Taruh screenshot: when green flag clicked → say “Selamat datang di toko Kiko” for 2 seconds.</small></div></div><div class="small-code"><div class="code-line yellow-line">when green flag clicked</div><div class="code-line purple-line">say [Selamat datang di toko Kiko] for 2 seconds</div></div></section><section class="slide" id="slide-18"><h3>Langkah 2: Tanya Barang yang Dibeli</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK ASK BARANG</strong><small>Taruh screenshot blok ask “Kamu beli barang apa?” and wait.</small></div></div><div class="small-code"><div class="code-line blue-line">ask [Kamu beli barang apa?] and wait</div></div><div class="warning-box"><h4>Setelah user menjawab</h4><p>Jawaban user langsung tersimpan di blok <strong>answer</strong>.</p></div></section><section class="slide" id="slide-19"><h3>Langkah 3: Tampilkan Barang</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK JOIN BARANG</strong><small>Taruh screenshot: say join “Barang yang kamu beli adalah: ” answer for 3 seconds.</small></div></div><div class="small-code"><div class="code-line purple-line">say (join [Barang yang kamu beli adalah: ] (answer)) for 3 seconds</div></div><div class="interactive-box"><h4>Kalau answer = “roti”, outputnya menjadi...</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q19')">Barang yang kamu beli adalah: roti</button><button class="choice-btn" onclick="up10Quiz(this,false,'q19')">Harga barangmu adalah Rp: roti</button></div><div class="feedback-line" id="q19"></div></div></section><section class="slide" id="slide-20"><h3>Langkah 4: Tanya Harga Barang</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK ASK HARGA</strong><small>Taruh screenshot: ask “Berapa harga barang yang kamu beli?” and wait.</small></div></div><div class="small-code"><div class="code-line blue-line">ask [Berapa harga barang yang kamu beli?] and wait</div></div><div class="warning-box"><h4>Perhatikan</h4><p>Setelah pertanyaan ini dijawab, <strong>answer</strong> berubah menjadi harga, bukan nama barang lagi.</p></div></section><section class="slide" id="slide-21"><h3>Langkah 5: Tampilkan Harga</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK JOIN HARGA</strong><small>Taruh screenshot: say join “Harga barangmu adalah Rp: ” answer for 3 seconds.</small></div></div><div class="small-code"><div class="code-line purple-line">say (join [Harga barangmu adalah Rp: ] (answer)) for 3 seconds</div></div><div class="interactive-box"><h4>Jika answer = 5000, kalimat yang benar adalah...</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q21')">Harga barangmu adalah Rp: 5000</button><button class="choice-btn" onclick="up10Quiz(this,false,'q21')">Barang yang kamu beli adalah: 5000</button></div><div class="feedback-line" id="q21"></div></div></section><section class="slide" id="slide-22"><h3>Langkah 6: Ucapkan Terima Kasih</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK PENUTUP</strong><small>Taruh screenshot: say “terimakasih sudah berbelanja di toko Kiko” for 2 seconds.</small></div></div><div class="small-code"><div class="code-line green-line">say [terimakasih sudah berbelanja di toko Kiko] for 2 seconds</div></div><div class="info-box"><h4>Kenapa ada penutup?</h4><p>Penutup membuat percakapan terasa selesai dan rapi.</p></div></section><section class="slide" id="slide-23"><h3>Full Pseudocode Project</h3>
+<div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT FULL BLOK SCRATCH</strong><small>Taruh screenshot seluruh rangkaian blok project Kalkulator Harga.</small></div></div><ol class="pseudo-list"><li>Green Flag diklik.</li><li>Say “Selamat datang di toko Kiko” 2 detik.</li><li>Ask “Kamu beli barang apa?” and wait.</li><li>Say join “Barang yang kamu beli adalah: ” + answer.</li><li>Ask “Berapa harga barang yang kamu beli?” and wait.</li><li>Say join “Harga barangmu adalah Rp: ” + answer.</li><li>Say “terimakasih sudah berbelanja di toko Kiko”.</li></ol></section><section class="slide" id="slide-24"><h3>Reading Blocks: Tebak Output</h3>
+<p class="lead">Coba prediksi output sebelum menjalankan project.</p><div class="shop-panel"><p><strong>Jawaban 1:</strong> buku tulis</p><p><strong>Jawaban 2:</strong> 10000</p></div><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q24')">Barang yang kamu beli adalah: buku tulis → Harga barangmu adalah Rp: 10000</button><button class="choice-btn" onclick="up10Quiz(this,false,'q24')">Barang yang kamu beli adalah: 10000 → Harga barangmu adalah Rp: buku tulis</button></div><div class="feedback-line" id="q24"></div></section><section class="slide" id="slide-25"><h3>Trace Table</h3>
+<p class="lead">Klik salah satu baris untuk membaca alur input dan output.</p><table class="trace-table"><tr><th>Barang</th><th>Harga</th><th>Output Barang</th><th>Output Harga</th></tr><tr onclick="up10Trace(this,'User menjawab pensil, lalu 3000. Output harus menyebut pensil sebagai barang dan 3000 sebagai harga.')"><td>pensil</td><td>3000</td><td>Barang yang kamu beli adalah: pensil</td><td>Harga barangmu adalah Rp: 3000</td></tr><tr onclick="up10Trace(this,'User menjawab roti, lalu 6000. Output berubah mengikuti jawaban user.')"><td>roti</td><td>6000</td><td>Barang yang kamu beli adalah: roti</td><td>Harga barangmu adalah Rp: 6000</td></tr><tr onclick="up10Trace(this,'User menjawab buku tulis, lalu 10000. Answer pertama dipakai untuk barang, answer kedua dipakai untuk harga.')"><td>buku tulis</td><td>10000</td><td>Barang yang kamu beli adalah: buku tulis</td><td>Harga barangmu adalah Rp: 10000</td></tr></table><div class="info-box" id="traceInfo"><h4>Pilih salah satu baris.</h4><p>Penjelasan akan muncul di sini.</p></div></section><section class="slide" id="slide-26"><h3>Test Case Wajib</h3>
+<table class="compact-table"><tr><th>Test</th><th>Input Barang</th><th>Input Harga</th><th>Expected Result</th></tr><tr><td>1</td><td>pensil</td><td>3000</td><td>Barang pensil dan harga Rp: 3000 muncul.</td></tr><tr><td>2</td><td>roti</td><td>6000</td><td>Barang roti dan harga Rp: 6000 muncul.</td></tr><tr><td>3</td><td>buku tulis</td><td>10000</td><td>Barang buku tulis dan harga Rp: 10000 muncul.</td></tr></table><div class="interactive-box"><h4>Kenapa perlu lebih dari satu test?</h4><div class="choice-grid"><button class="choice-btn" onclick="up10Quiz(this,true,'q26')">Agar tahu output benar untuk jawaban berbeda</button><button class="choice-btn" onclick="up10Quiz(this,false,'q26')">Agar project menjadi lebih pendek</button></div><div class="feedback-line" id="q26"></div></div></section><section class="slide" id="slide-27"><h3>Detektif Kode</h3>
+<p class="lead">Pilih gejala yang kamu alami, lalu cek bagian yang paling mungkin bermasalah.</p><div class="debug-tabs"><button class="debug-tab active" onclick="showDebug('d1',this)">Jawaban tidak muncul</button><button class="debug-tab" onclick="showDebug('d2',this)">Barang dan harga tertukar</button><button class="debug-tab" onclick="showDebug('d3',this)">Pertanyaan tidak muncul</button><button class="debug-tab" onclick="showDebug('d4',this)">Output kurang jelas</button></div><div class="debug-scenario active" id="d1"><div class="warning-box"><h4>Gejala</h4><p>Sprite berbicara, tetapi jawaban user tidak ikut muncul.</p></div><div class="info-box"><ol><li>Cek apakah blok <strong>answer</strong> masuk ke dalam join.</li><li>Cek apakah join masuk ke dalam say.</li></ol></div></div><div class="debug-scenario" id="d2"><div class="warning-box"><h4>Gejala</h4><p>Harga muncul di kalimat barang, atau barang muncul di kalimat harga.</p></div><div class="info-box"><ol><li>Cek urutan ask.</li><li>Gunakan answer segera setelah pertanyaan yang sesuai.</li></ol></div></div><div class="debug-scenario" id="d3"><div class="warning-box"><h4>Gejala</h4><p>Kotak pertanyaan tidak muncul.</p></div><div class="info-box"><ol><li>Cek apakah memakai <strong>ask and wait</strong>, bukan say.</li><li>Cek apakah blok tersambung setelah Green Flag.</li></ol></div></div><div class="debug-scenario" id="d4"><div class="warning-box"><h4>Gejala</h4><p>Output hanya “pensil” atau “3000” tanpa keterangan.</p></div><div class="info-box"><ol><li>Tambahkan <strong>join</strong>.</li><li>Isi teks awal, misalnya “Barang yang kamu beli adalah: ”.</li></ol></div></div></section><section class="slide" id="slide-28"><h3>Keamanan Digital: Pakai Data Latihan</h3>
+<p class="lead">Project ini bertema harga, tetapi tidak membutuhkan data pembayaran asli.</p><div class="choice-grid"><button class="choice-btn" onclick="up10Data(this,true)">Harga contoh: 5000</button><button class="choice-btn" onclick="up10Data(this,true)">Nama barang: pensil</button><button class="choice-btn" onclick="up10Data(this,false)">Nomor rekening orang tua</button><button class="choice-btn" onclick="up10Data(this,false)">PIN dompet digital</button></div><div class="feedback-line" id="dataFeedback">Pilih data yang menurutmu aman untuk latihan.</div><div class="warning-box"><h4>Ingat</h4><p>Scratch project ini hanya latihan input dan output. Tidak ada transaksi, login bank, atau pembayaran.</p></div></section><section class="slide" id="slide-29"><h3>Cek Output Minimum</h3>
+<p>Centang setelah kamu benar-benar mengetes project.</p><ul class="checklist"><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Green Flag memulai percakapan.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite menyapa pembeli.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite bertanya barang dengan ask and wait.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite menampilkan barang memakai join dan answer.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite bertanya harga dengan ask and wait.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Sprite menampilkan harga memakai join dan answer.</li><li class="check-item" onclick="toggleCheck(this)"><input type="checkbox"/> Project sudah diuji dengan minimal dua contoh.</li></ul></section><section class="slide" id="slide-30"><h3>Misi Bonus: Toko Lebih Pintar</h3>
+<p class="lead">Kalau project minimum sudah selesai, pilih satu challenge.</p><div class="visual-grid"><div class="visual-card"><div class="visual-icon">🥉</div><h4>Menu toko</h4><p>Tambahkan sprite barang di rak toko.</p></div><div class="visual-card"><div class="visual-icon">🥈</div><h4>Suara kasir</h4><p>Tambahkan suara atau sound effect saat menyapa.</p></div><div class="visual-card"><div class="visual-icon">🥇</div><h4>Tambah diskon</h4><p>Tambahkan pertanyaan diskon sebagai ide lanjutan.</p></div></div><div class="code-placeholder"><div><strong>PLACEHOLDER SCREENSHOT BLOK CHALLENGE</strong><small>Jika guru ingin menampilkan challenge, taruh screenshot blok tambahan di sini.</small></div></div></section><section class="slide" id="slide-31"><h3>Refleksi Project</h3>
+<ul><li>Apa fungsi blok <strong>ask and wait</strong>?</li><li>Apa isi blok <strong>answer</strong> setelah user menjawab pertanyaan?</li><li>Mengapa <strong>join</strong> membuat output lebih jelas?</li><li>Kenapa harga latihan tidak perlu memakai data pembayaran asli?</li><li>Bagian mana yang paling mudah kamu pahami hari ini?</li></ul><div class="example-box"><h4>Coba jelaskan</h4><p>“Projectku bekerja karena robot bertanya, Scratch menyimpan jawaban di answer, lalu join menggabungkan teks dengan jawaban itu.”</p></div></section><section class="slide" id="slide-32"><span class="eyebrow">Penutup</span>
+<h2>Ringkasan Sesi 10</h2>
+<div class="visual-grid"><div class="visual-card"><div class="visual-icon">▶️</div><h4>Green Flag</h4><p>Memulai percakapan.</p></div><div class="visual-card"><div class="visual-icon">💬</div><h4>Ask</h4><p>Membuat pertanyaan.</p></div><div class="visual-card"><div class="visual-icon">🧠</div><h4>Answer</h4><p>Menyimpan jawaban terakhir.</p></div><div class="visual-card"><div class="visual-icon">🔗</div><h4>Join</h4><p>Menggabungkan teks dan jawaban.</p></div></div><div class="warning-box"><h4>Pesan akhir</h4><p>Project ini belum menghitung total harga. Tapi kamu sudah belajar pola penting: menerima input dari user lalu menampilkannya kembali dengan jelas.</p></div></section></div><div class="navigation"><button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)"><span>←</span> Previous</button><div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">32</span></div><button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next <span>→</span></button></div></div>
+<div class="explanation-panel"><section class="explanation active" id="explanation-1"><h3>Project yang Akan Dibuat</h3><p>Di Sesi 10, kamu membuat project Scratch bertema toko. Sprite berperan seperti kasir yang menyapa pembeli, bertanya barang apa yang dibeli, lalu bertanya harga barang tersebut.</p><p>Fokus belajarnya adalah cara Scratch menerima jawaban dari pengguna. Blok yang paling penting adalah <strong>ask and wait</strong>, <strong>answer</strong>, <strong>join</strong>, dan <strong>say</strong>. Jadi, meskipun judulnya “Kalkulator Harga”, versi dasar project ini belum menjumlahkan harga. Project ini membantu kamu memahami dulu cara bertanya dan memakai jawaban.</p><div class="info-box"><h4>Yang akan kamu kuasai</h4><ul><li>Membuat sprite bertanya kepada user.</li><li>Memahami bahwa <strong>answer</strong> menyimpan jawaban terakhir.</li><li>Menggabungkan teks dan jawaban dengan <strong>join</strong>.</li><li>Menguji project dengan contoh barang dan harga.</li></ul></div><p>Setelah pola ini kuat, kamu akan lebih siap membuat aplikasi atau game yang memakai input dari user.</p></section><section class="explanation" id="explanation-2"><h3>Misi Belajar Hari Ini</h3><p>Hari ini kamu akan belajar membuat percakapan sederhana antara sprite dan user. Percakapannya tidak hanya tampil di layar, tetapi juga menerima jawaban yang diketik user.</p><p>Alur belajarnya dimulai dari mencoba simulasi toko, lalu mengenal blok <strong>ask and wait</strong>, memahami <strong>answer</strong>, dan akhirnya menyusun rangkaian blok di Scratch.</p><div class="info-box"><h4>Urutan belajar</h4><ol><li>Coba dulu sebagai user: isi nama barang dan harga.</li><li>Pahami blok yang membuat pertanyaan.</li><li>Pahami tempat Scratch menyimpan jawaban.</li><li>Gabungkan teks dan jawaban supaya balon kata enak dibaca.</li><li>Test project dengan beberapa contoh.</li></ol></div><p>Tujuan akhirnya bukan hanya project terlihat jalan, tetapi kamu bisa menjelaskan mengapa sprite bisa menampilkan jawaban yang kamu ketik.</p></section><section class="explanation" id="explanation-3"><h3>Persiapan Sebelum Coding</h3><p>Workspace yang rapi membuat proses coding lebih mudah. Untuk project ini, kamu hanya membutuhkan satu sprite yang berperan sebagai kasir dan satu backdrop toko.</p><p>Karena project bertema harga, gunakan angka latihan. Misalnya harga pensil Rp3.000 atau buku Rp8.000. Kita tidak membutuhkan data keuangan asli.</p><div class="example-box"><h4>Tips sebelum mulai</h4><p>Kalau backdrop terlalu ramai, balon kata dari sprite bisa sulit dibaca. Pilih backdrop toko yang sederhana atau atur posisi sprite agar balon katanya tidak menutupi bagian penting.</p></div></section><section class="explanation" id="explanation-4"><h3>Membuka Materi yang Benar</h3><p>Pastikan kamu membuka sesi yang tepat, yaitu Sesi 10 Kalkulator Harga Sederhana. Jangan tertukar dengan Sesi 9 Detektif Koordinat atau Sesi 8 Pelacak Jejak.</p><p>Di LMS, kamu biasanya akan menemukan instruksi, contoh project, dan arahan pengumpulan. Slide ini membantu kamu memahami alur sebelum mengerjakan di Scratch.</p><div class="info-box"><h4>Cek sebelum lanjut</h4><ul><li>Judul sesi sudah benar.</li><li>File Scratch atau starter project sudah bisa dibuka.</li><li>Kamu tahu kapan harus menyimpan dan mengumpulkan project.</li></ul></div></section><section class="explanation" id="explanation-5"><h3>Menghubungkan Coding dengan Harga Barang</h3><p>Project ini memakai tema toko supaya coding terasa dekat dengan kehidupan sehari-hari. Saat membeli barang, kita biasanya mengingat dua hal: nama barang dan harga.</p><p>Di Scratch, robot kasir akan menanyakan dua hal itu. Jawaban user akan dipakai lagi untuk membuat kalimat output. Jadi project ini melatih dua hal sekaligus: berpikir tentang harga barang dan memahami input dari user.</p><div class="warning-box"><h4>Catatan</h4><p>Harga barang bisa berbeda di setiap toko atau daerah. Angka di kelas hanya contoh latihan, bukan daftar harga resmi.</p></div></section><section class="explanation" id="explanation-6"><h3>Aktivitas Tebak Harga</h3><p>Aktivitas ini membantu kamu berpikir bahwa harga barang punya kisaran yang masuk akal. Misalnya, harga pensil biasanya tidak sama dengan harga tas atau sepatu.</p><p>Kegiatan ini juga menjadi pemanasan sebelum project Scratch. Nanti robot kasir akan bertanya nama barang dan harga. Kalau kamu punya perkiraan harga, kamu bisa mengisi jawaban dengan lebih sadar.</p><div class="info-box"><h4>Kenapa perlu kisaran?</h4><p>Kisaran membantu kita mengecek apakah angka yang diketik terlalu kecil, terlalu besar, atau masih masuk akal untuk contoh latihan.</p></div></section><section class="explanation" id="explanation-7"><h3>Mencoba Tampilan sebelum Coding</h3><p>Slide kiri adalah simulator sederhana dari project yang akan kamu buat di Scratch. Tujuannya agar kamu merasakan dulu bagaimana project dipakai oleh user sebelum menyusun bloknya.</p><p>Coba isi barang dan harga, lalu tekan Green Flag. Robot akan menyapa, menampilkan barang yang kamu isi, menampilkan harga, lalu menutup percakapan dengan ucapan terima kasih.</p><div class="info-box"><h4>Yang perlu diamati</h4><ul><li>Apa pertanyaan pertama dari robot?</li><li>Apa jawaban yang dipakai untuk balon kata pertama?</li><li>Apa pertanyaan kedua dari robot?</li><li>Bagaimana harga ditampilkan agar terlihat seperti uang?</li></ul></div><p>Setelah memahami alurnya sebagai user, kamu akan lebih mudah membuat versi Scratch menggunakan ask, answer, join, dan say.</p></section><section class="explanation" id="explanation-8"><h3>Testing dari Sisi User</h3><p>Project yang baik tidak hanya bekerja untuk satu contoh. Kalau user memasukkan “pensil”, output harus menyebut pensil. Kalau user memasukkan “roti”, output harus ikut berubah menjadi roti.</p><p>Itulah gunanya blok <strong>answer</strong>. Scratch mengambil jawaban terakhir yang diketik user, lalu kita bisa menampilkannya kembali dalam balon kata.</p><div class="example-box"><h4>Contoh perilaku benar</h4><p>Input barang = roti → output: “Barang yang kamu beli adalah: roti”. Input harga = 6000 → output: “Harga barangmu adalah Rp: 6000”.</p></div></section><section class="explanation" id="explanation-9"><h3>Memahami ask and wait</h3><p><strong>ask and wait</strong> adalah blok dari kategori Sensing. Blok ini menampilkan pertanyaan, membuka kotak jawaban, lalu menunggu sampai user mengetik dan menekan Enter atau tombol centang.</p><p>Dalam project Toko Kiko, blok ini dipakai dua kali. Pertama untuk bertanya nama barang. Kedua untuk bertanya harga barang.</p><div class="info-box"><h4>Kenapa memakai ask and wait?</h4><p>Karena project membutuhkan input dari pengguna. Tanpa ask and wait, user tidak punya tempat untuk memasukkan jawaban.</p></div></section><section class="explanation" id="explanation-10"><h3>Memahami answer</h3><p>Blok <strong>answer</strong> menyimpan jawaban terakhir dari blok ask and wait. Kata “terakhir” penting. Jika ada dua pertanyaan, isi answer bisa berubah setelah pertanyaan kedua dijawab.</p><p>Karena itu, pada project sample, jawaban barang langsung dipakai setelah pertanyaan barang. Setelah itu, Scratch bertanya harga, dan answer berubah menjadi harga.</p><div class="example-box"><h4>Contoh</h4><ol><li>Ask: “Kamu beli barang apa?” → user menjawab “pensil” → answer = pensil.</li><li>Ask: “Berapa harga barang yang kamu beli?” → user menjawab “3000” → answer = 3000.</li></ol></div><p>Kalau suatu hari kamu ingin menyimpan jawaban lama untuk dipakai lagi nanti, kamu perlu belajar variabel. Untuk sesi ini, kita cukup memakai answer langsung setelah pertanyaan.</p></section><section class="explanation" id="explanation-11"><h3>Fungsi join</h3><p><strong>join</strong> adalah blok dari kategori Operators. Fungsinya menggabungkan dua bagian teks menjadi satu kalimat.</p><p>Kalau kamu hanya memakai answer, balon kata mungkin hanya menampilkan “pensil”. Itu benar, tetapi kurang jelas. Dengan join, sprite bisa mengatakan “Barang yang kamu beli adalah: pensil”.</p><div class="info-box"><h4>Struktur join</h4><ul><li>Bagian pertama: teks tetap yang kamu tulis sendiri.</li><li>Bagian kedua: jawaban user dari blok <strong>answer</strong>.</li></ul></div><p>Join tidak mengubah jawaban. Join hanya membuat output lebih ramah dibaca.</p></section><section class="explanation" id="explanation-12"><h3>Output Harga yang Mudah Dibaca</h3><p>Harga berupa angka saja bisa membuat orang bertanya, “Ini angka apa?” Karena itu, output sebaiknya diberi keterangan.</p><p>Project sample menggunakan kalimat seperti <strong>“Harga barangmu adalah Rp: 3000”</strong>. Kalimat ini memberi konteks bahwa angka yang ditampilkan adalah harga dalam Rupiah.</p><div class="info-box"><h4>Kenapa tidak pakai Rp di input?</h4><p>Untuk latihan dasar, lebih mudah jika user mengetik angka polos. Scratch akan menampilkan keterangan Rp melalui teks join.</p></div><p>Di project yang lebih lanjut, kita bisa belajar membuat format harga yang lebih rapi. Untuk sesi ini, fokusnya adalah menerima input dan menampilkannya kembali.</p></section><section class="explanation" id="explanation-13"><h3>Alur Input, Process, Output</h3><p>Project ini bisa dibaca dengan pola <strong>Input → Process → Output</strong>. Pola ini sering dipakai untuk memahami program.</p><div class="info-box"><h4>Dalam project Sesi 10</h4><ul><li><strong>Input:</strong> user mengetik barang dan harga.</li><li><strong>Process:</strong> Scratch menyimpan jawaban di answer dan menggabungkannya dengan teks memakai join.</li><li><strong>Output:</strong> sprite menampilkan kalimat di balon kata.</li></ul></div><p>Kalau ada bug, cek alur ini satu per satu. Apakah input masuk? Apakah join benar? Apakah say menampilkan kalimat yang tepat?</p></section><section class="explanation" id="explanation-14"><h3>Membaca Flowchart</h3><p>Flowchart membantu kita melihat alur project sebelum menyusun blok. Untuk project toko, urutannya seperti percakapan: menyapa, bertanya barang, menampilkan barang, bertanya harga, menampilkan harga, lalu mengucapkan terima kasih.</p><p>Urutan ini penting. Kalau kamu bertanya harga lebih dulu, user mungkin bingung karena belum jelas barang apa yang dibicarakan.</p><div class="example-box"><h4>Prinsip sederhana</h4><p>Susun program seperti percakapan manusia yang enak diikuti. Pertanyaan dan jawaban harus muncul di urutan yang masuk akal.</p></div></section><section class="explanation" id="explanation-15"><h3>Rencana Project di Scratch</h3><p>Sekarang kita mulai menerjemahkan simulator tadi menjadi project Scratch. Kamu membutuhkan sprite, backdrop, dan rangkaian blok percakapan.</p><p>Project sample memakai alur toko sederhana. Sprite menyapa user seperti kasir, lalu bertanya barang dan harga. Setiap jawaban langsung ditampilkan kembali agar user tahu inputnya sudah diterima.</p><div class="warning-box"><h4>Jangan terlalu banyak fitur dulu</h4><p>Selesaikan alur dasar sebelum menambah dekorasi, suara, atau challenge. Kalau terlalu banyak fitur dari awal, debugging bisa lebih sulit.</p></div></section><section class="explanation" id="explanation-16"><h3>Kamus Blok Sesi 10</h3><p>Tabel di kiri adalah kamus kecil untuk project Sesi 10. Kalau kamu lupa fungsi sebuah blok, kembali ke slide ini.</p><p>Project ini memakai beberapa kategori blok: Events, Looks, Sensing, dan Operators. Ini menunjukkan bahwa project Scratch biasanya dibangun dari beberapa jenis blok sekaligus.</p><div class="info-box"><h4>Blok inti</h4><p>Dua blok yang paling baru dan penting adalah <strong>ask and wait</strong> dan <strong>answer</strong>. Keduanya bekerja berpasangan: ask membuat pertanyaan, answer menyimpan jawabannya.</p></div></section><section class="explanation" id="explanation-17"><h3>Langkah 1: Event dan Sapaan</h3><p>Blok <strong>when green flag clicked</strong> adalah pemicu awal. Saat Green Flag diklik, Scratch menjalankan blok yang tersambung di bawahnya.</p><p>Setelah itu, sprite menyapa pembeli dengan <strong>say for seconds</strong>. Di project sample, robot mengatakan “Selamat datang di toko Kiko” selama 2 detik.</p><div class="example-box"><h4>Kenapa perlu sapaan?</h4><p>Sapaan membuat project terasa seperti percakapan toko, bukan hanya kumpulan pertanyaan mendadak.</p></div></section><section class="explanation" id="explanation-18"><h3>Langkah 2: Bertanya Barang</h3><p>Di bagian ini, sprite mulai meminta input dari user. Pertanyaannya adalah <strong>“Kamu beli barang apa?”</strong>.</p><p>Scratch akan menunggu user menjawab. Setelah user mengetik jawaban, blok <strong>answer</strong> berisi nama barang tersebut.</p><div class="info-box"><h4>Contoh</h4><p>Jika user mengetik “pensil”, maka setelah pertanyaan ini, <strong>answer = pensil</strong>.</p></div><p>Karena answer masih berisi nama barang, kita harus segera memakainya untuk membuat kalimat output barang.</p></section><section class="explanation" id="explanation-19"><h3>Langkah 3: Menampilkan Barang</h3><p>Setelah user menjawab nama barang, kita perlu menampilkan jawaban itu dengan kalimat yang jelas. Caranya memakai <strong>join</strong> di dalam blok <strong>say for seconds</strong>.</p><p>Bagian pertama join adalah teks tetap: “Barang yang kamu beli adalah: ”. Bagian kedua adalah <strong>answer</strong>. Jika answer berisi “roti”, hasil join menjadi “Barang yang kamu beli adalah: roti”.</p><div class="warning-box"><h4>Kesalahan yang sering terjadi</h4><p>Kalau kamu menaruh teks saja tanpa answer, output tidak akan mengikuti jawaban user. Kalau kamu menaruh answer saja tanpa teks, output kurang jelas.</p></div></section><section class="explanation" id="explanation-20"><h3>Langkah 4: Bertanya Harga</h3><p>Pertanyaan kedua meminta harga barang. Sama seperti sebelumnya, Scratch akan menunggu user mengetik jawaban.</p><p>Setelah user menjawab harga, isi <strong>answer</strong> berubah. Jika sebelumnya answer berisi “pensil”, setelah pertanyaan harga dijawab, answer bisa menjadi “3000”.</p><div class="info-box"><h4>Kenapa ini penting?</h4><p>Karena answer hanya menyimpan jawaban terakhir. Jadi urutan penggunaan answer harus tepat.</p></div></section><section class="explanation" id="explanation-21"><h3>Langkah 5: Menampilkan Harga</h3><p>Bagian ini mirip dengan output barang, tetapi teks awalnya berbeda. Sekarang kita ingin menjelaskan bahwa jawaban user adalah harga.</p><p>Gunakan join dengan teks <strong>“Harga barangmu adalah Rp: ”</strong>, lalu gabungkan dengan <strong>answer</strong>. Karena pertanyaan terakhir adalah pertanyaan harga, answer sekarang berisi harga.</p><div class="example-box"><h4>Contoh</h4><p>User menjawab 5000 → sprite mengatakan “Harga barangmu adalah Rp: 5000”.</p></div><p>Kalau output justru menampilkan nama barang di bagian harga, cek apakah urutan pertanyaan dan join sudah sesuai.</p></section><section class="explanation" id="explanation-22"><h3>Langkah 6: Penutup Percakapan</h3><p>Setelah barang dan harga ditampilkan, sprite bisa menutup percakapan dengan ucapan terima kasih. Ini membuat project terasa lebih natural.</p><p>Blok yang dipakai tetap <strong>say for seconds</strong>. Bedanya, kali ini tidak perlu join karena kalimatnya tidak membutuhkan jawaban user.</p><div class="info-box"><h4>Contoh output</h4><p>“terimakasih sudah berbelanja di toko Kiko”</p></div><p>Kamu boleh merapikan huruf besar/kecil jika ingin, misalnya “Terima kasih sudah berbelanja di Toko Kiko.” Yang penting pesan penutupnya jelas.</p></section><section class="explanation" id="explanation-23"><h3>Membaca Rangkaian Lengkap</h3><p>Slide ini merangkum semua langkah project. Pseudocode membantu kamu membaca logika sebelum melihat screenshot blok Scratch yang lengkap.</p><p>Baca dari atas ke bawah. Pertama sprite menyapa. Kedua sprite bertanya barang. Ketiga sprite menampilkan jawaban barang. Keempat sprite bertanya harga. Kelima sprite menampilkan harga. Terakhir sprite mengucapkan terima kasih.</p><div class="warning-box"><h4>Hal yang perlu dicek</h4><p>Pastikan setiap blok <strong>answer</strong> dipakai setelah pertanyaan yang tepat. Answer setelah pertanyaan barang berbeda dari answer setelah pertanyaan harga.</p></div></section><section class="explanation" id="explanation-24"><h3>Membaca Blocks tanpa Menjalankan</h3><p>Reading Blocks berarti memprediksi apa yang akan dilakukan program sebelum menekan Green Flag. Ini membantu kamu menemukan bug lebih cepat.</p><p>Jika jawaban pertama adalah “buku tulis”, output barang harus menyebut buku tulis. Jika jawaban kedua adalah “10000”, output harga harus menyebut 10000.</p><div class="example-box"><h4>Kunci prediksi</h4><p>Answer selalu mengikuti pertanyaan terakhir. Jadi lihat dulu pertanyaan mana yang baru saja dijawab.</p></div></section><section class="explanation" id="explanation-25"><h3>Menggunakan Trace Table</h3><p>Trace table membantu kamu melacak data dari input sampai output. Setiap baris menunjukkan satu percobaan.</p><p>Dengan trace table, kamu bisa memastikan bahwa barang dan harga tidak tertukar. Jika output barang malah menampilkan harga, berarti ada blok answer atau join yang perlu dicek.</p><div class="info-box"><h4>Cara membaca</h4><p>Lihat kolom input dulu, lalu cocokkan dengan output. Output harus mengikuti jawaban pada percobaan yang sama.</p></div></section><section class="explanation" id="explanation-26"><h3>Testing dengan Beberapa Contoh</h3><p>Testing berarti mengecek apakah project bekerja sesuai rencana. Jangan hanya mengetes satu barang, karena kita perlu tahu apakah output benar-benar mengikuti jawaban user.</p><p>Gunakan contoh yang sederhana. Saat testing awal, tulis harga tanpa titik, koma, atau simbol Rp agar tidak membingungkan.</p><div class="warning-box"><h4>Jika hasil tidak sesuai</h4><p>Jangan langsung hapus semua blok. Cek bagian yang paling dekat dengan masalah: pertanyaan, answer, join, atau say.</p></div></section><section class="explanation" id="explanation-27"><h3>Debugging Terarah</h3><p>Bug adalah hal biasa saat coding. Yang penting adalah cara mencarinya. Mulailah dari gejala yang terlihat.</p><p>Jika jawaban tidak muncul, kemungkinan masalahnya ada pada blok answer atau join. Jika pertanyaan tidak muncul, cek blok ask and wait dan sambungan dari Green Flag. Jika barang dan harga tertukar, cek urutan pertanyaan.</p><div class="info-box"><h4>Aturan debugging</h4><p>Ubah satu bagian saja, lalu test lagi. Kalau kamu mengubah terlalu banyak hal sekaligus, kamu akan sulit tahu bagian mana yang memperbaiki masalah.</p></div></section><section class="explanation" id="explanation-28"><h3>Data Aman untuk Project Harga</h3><p>Karena project membahas harga, kita perlu membedakan angka latihan dan data sensitif. Harga contoh seperti 5000 aman digunakan. Nama barang seperti pensil atau roti juga aman.</p><p>Data seperti nomor rekening, PIN, password, dan informasi pembayaran tidak boleh dipakai. Project ini tidak membutuhkan data tersebut.</p><div class="warning-box"><h4>Kebiasaan baik</h4><p>Saat membuat project apa pun, gunakan data dummy untuk latihan. Jangan menaruh data pribadi di project atau screenshot pengumpulan.</p></div></section><section class="explanation" id="explanation-29"><h3>Checklist Berhasil</h3><p>Output minimum adalah batas project dianggap selesai. Tampilan yang menarik belum cukup jika alur pertanyaan dan jawaban belum benar.</p><p>Pastikan setiap bagian bekerja: Green Flag memulai, sprite menyapa, pertanyaan muncul, jawaban tersimpan, join membuat kalimat, dan output tampil di balon kata.</p><div class="example-box"><h4>Sebelum challenge</h4><p>Jalankan project minimal dua kali dengan barang dan harga berbeda. Jika output ikut berubah, project dasar sudah kuat.</p></div></section><section class="explanation" id="explanation-30"><h3>Challenge Tambahan</h3><p>Challenge hanya dikerjakan setelah project dasar berjalan. Jangan menambah fitur baru jika alur ask, answer, join, dan say belum benar.</p><p>Challenge yang aman untuk sesi ini misalnya menambah sprite barang, mengganti backdrop toko, memberi suara kasir, atau membuat sapaan lebih menarik.</p><div class="warning-box"><h4>Tantangan diskon</h4><p>Diskon membutuhkan logika tambahan dan perhitungan. Jika belum diarahkan guru, cukup jadikan ide untuk sesi lanjutan.</p></div></section><section class="explanation" id="explanation-31"><h3>Refleksi Akhir</h3><p>Refleksi membantu kamu memastikan bahwa project ini benar-benar dipahami, bukan sekadar berhasil dibuat.</p><p>Kalau kamu bisa menjelaskan fungsi ask and wait, answer, dan join dengan kata-katamu sendiri, berarti kamu sudah memahami inti sesi ini.</p><div class="info-box"><h4>Kalimat bantu</h4><p><strong>Ask</strong> membuat pertanyaan. <strong>Answer</strong> menyimpan jawaban terakhir. <strong>Join</strong> menggabungkan teks dan jawaban supaya output mudah dibaca.</p></div></section><section class="explanation" id="explanation-32"><h3>Yang Sudah Dipelajari</h3><p>Di Sesi 10, kamu belajar membuat project Scratch yang menerima input dari user. Sprite bertanya, user menjawab, Scratch menyimpan jawaban di answer, lalu project menampilkan kembali jawaban itu dengan kalimat yang rapi.</p><div class="example-box"><h4>Konsep utama</h4><ul><li><strong>ask and wait</strong> membuat pertanyaan dan menunggu jawaban.</li><li><strong>answer</strong> menyimpan jawaban terakhir.</li><li><strong>join</strong> menggabungkan teks dan jawaban.</li><li><strong>say for seconds</strong> menampilkan output di balon kata.</li><li>Testing perlu memakai beberapa contoh barang dan harga.</li></ul></div><p>Pola ini akan sangat berguna untuk project Scratch berikutnya yang membutuhkan input dari pemain atau user.</p></section></div>
+</div>
+<script>
+const ACCESS_CODE='RGMDSUP26';
+let currentSlide=1; const totalSlides=document.querySelectorAll('.slide').length;
+window.addEventListener('load',()=>{document.getElementById('totalSlides').textContent=totalSlides;setTimeout(()=>document.querySelector('.access-popup').classList.add('show'),50);const input=document.getElementById('accessInput');input.focus();input.addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase();});input.addEventListener('keydown',e=>{if(e.key==='Enter')checkAccessCode();});initDragDrop();updateSlide();});
+function checkAccessCode(){const input=document.getElementById('accessInput'),error=document.getElementById('accessError');if(input.value.trim().toUpperCase()===ACCESS_CODE){document.getElementById('accessPopup').style.display='none';document.getElementById('mainContent').style.display='flex';updateSlide();}else{error.classList.add('show');input.value='';input.focus();setTimeout(()=>error.classList.remove('show'),2400);}}
+function changeSlide(direction){const next=currentSlide+direction;if(next<1||next>totalSlides)return;currentSlide=next;updateSlide();}
+function updateSlide(){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.explanation').forEach(e=>e.classList.remove('active'));const s=document.getElementById(`slide-${currentSlide}`);if(s)s.classList.add('active');const e=document.getElementById(`explanation-${currentSlide}`);if(e)e.classList.add('active');document.getElementById('currentSlide').textContent=currentSlide;document.getElementById('totalSlides').textContent=totalSlides;document.getElementById('prevBtn').disabled=currentSlide===1;document.getElementById('nextBtn').disabled=currentSlide===totalSlides;document.getElementById('progressFill').style.width=`${(currentSlide/totalSlides)*100}%`;document.querySelector('.slide-content').scrollTop=0;document.querySelector('.explanation-panel').scrollTop=0;}
+document.addEventListener('keydown',e=>{if(document.getElementById('mainContent').style.display==='none')return;if(e.key==='ArrowRight')changeSlide(1);if(e.key==='ArrowLeft')changeSlide(-1);});
+function selectAny(btn){btn.classList.toggle('selected');}
+function up10Quiz(btn,ok,id){const group=btn.parentElement;group.querySelectorAll('.choice-btn').forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong');});btn.classList.add(ok?'correct':'wrong');const fb=document.getElementById(id);if(fb){fb.textContent=ok?'Betul.':'Belum tepat. Coba baca lagi penjelasan di kanan.';fb.style.color=ok?'#176b35':'#a42820';}}
+function toggleCheck(item){const cb=item.querySelector('input');cb.checked=!cb.checked;item.classList.toggle('done',cb.checked);}
+function showDebug(id,btn){btn.parentElement.querySelectorAll('.debug-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const host=btn.closest('.slide');host.querySelectorAll('.debug-scenario').forEach(s=>s.classList.remove('active'));host.querySelector('#'+id).classList.add('active');}
+function initDragDrop(){document.querySelectorAll('.sequence-card').forEach(card=>{card.addEventListener('dragstart',()=>card.classList.add('dragging'));card.addEventListener('dragend',()=>card.classList.remove('dragging'));});document.querySelectorAll('.sequence-source,.sequence-target').forEach(zone=>{zone.addEventListener('dragover',e=>{e.preventDefault();const dragging=document.querySelector('.dragging');if(dragging)zone.appendChild(dragging);});});}
+function up10PriceGuess(btn,item){document.querySelectorAll('#slide-6 .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');const data={pensil:'Pensil: kira-kira Rp2.000–Rp5.000.',penggaris:'Penggaris: kira-kira Rp3.000–Rp8.000.',buku:'Buku tulis: kira-kira Rp5.000–Rp15.000.',air:'Air mineral: kira-kira Rp3.000–Rp6.000.'};document.getElementById('priceGuessLog').textContent=data[item];}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+async function up10RunShop(){const item=document.getElementById('uiItem').value.trim()||'barang';const price=document.getElementById('uiPrice').value.trim()||'0';const speech=document.getElementById('shopSpeech');speech.textContent='Selamat datang di toko Kiko';await sleep(800);speech.textContent='Kamu beli barang apa?';await sleep(800);speech.textContent='Barang yang kamu beli adalah: '+item;await sleep(900);speech.textContent='Berapa harga barang yang kamu beli?';await sleep(800);speech.textContent='Harga barangmu adalah Rp: '+price;await sleep(1000);speech.textContent='Terima kasih sudah berbelanja di toko Kiko';}
+function up10Sample(item,price){document.getElementById('uiItem').value=item;document.getElementById('uiPrice').value=price;up10RunShop();}
+function up10Scenario(item,price,btn){document.querySelectorAll('#slide-8 .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('scenarioLog').innerHTML=`<strong>Output 1:</strong> Barang yang kamu beli adalah: ${item}<br><strong>Output 2:</strong> Harga barangmu adalah Rp: ${price}`;}
+function up10AskDemo(){const v=document.getElementById('askDemoInput').value.trim()||'(kosong)';document.getElementById('askDemoLog').innerHTML=`User menjawab: <strong>${v}</strong><br>Blok answer sekarang berisi: <strong>${v}</strong>`;}
+let memStep=0;
+function up10AnswerStep(type){const box=document.getElementById('answerMemory');if(type==='barang'){box.innerHTML='Setelah pertanyaan barang dijawab:<br><span class="mini-badge">answer = pensil</span>';}else{box.innerHTML='Setelah pertanyaan harga dijawab:<br><span class="mini-badge">answer = 3000</span><br><small>Jawaban barang sebelumnya tidak lagi berada di answer.</small>';}}
+function up10JoinDemo(){const a=document.getElementById('joinText').value;const b=document.getElementById('joinAnswer').value;document.getElementById('joinLog').innerHTML='<strong>Hasil join:</strong> '+a+b;}
+function up10OutputChoice(btn,clear){document.querySelectorAll('#slide-12 .choice-btn').forEach(b=>b.classList.remove('correct','wrong'));btn.classList.add(clear?'correct':'wrong');const fb=document.getElementById('outputChoiceLog');fb.textContent=clear?'Lebih jelas. User tahu angka itu adalah harga dalam Rupiah.':'Masih kurang jelas. Angka saja belum memberi konteks.';fb.style.color=clear?'#176b35':'#a42820';}
+function up10IPO(type){const data={input:['Input','Jawaban user dari pertanyaan Scratch, misalnya nama barang dan harga.'],process:['Process','Scratch menyimpan jawaban di answer, lalu join menggabungkan teks dengan answer.'],output:['Output','Sprite menampilkan kalimat di balon kata menggunakan say for seconds.']}[type];document.getElementById('ipoInfo').innerHTML=`<h4>${data[0]}</h4><p>${data[1]}</p>`;}
+function up10Trace(row,text){document.querySelectorAll('.trace-table tr').forEach(r=>r.classList.remove('active'));row.classList.add('active');document.getElementById('traceInfo').innerHTML='<h4>Alur input-output</h4><p>'+text+'</p>';}
+function up10Data(btn,safe){document.querySelectorAll('#slide-28 .choice-btn').forEach(b=>b.classList.remove('correct','wrong'));btn.classList.add(safe?'correct':'wrong');const fb=document.getElementById('dataFeedback');fb.textContent=safe?'Aman untuk latihan. Ini hanya contoh.':'Jangan dipakai. Project ini tidak membutuhkan data pribadi atau pembayaran.';fb.style.color=safe?'#176b35':'#a42820';}
+</script>
+</body>
+</html>
